@@ -1,0 +1,6 @@
+[submodule "engine/libraries/SDL"]
+	path = engine/libraries/SDL
+	url = https://github.com/libsdl-org/SDL
+[submodule "engine/libraries/SDL_Image"]
+	path = engine/libraries/SDL_Image
+	url = https://github.com/libsdl-org/SDL_image.git

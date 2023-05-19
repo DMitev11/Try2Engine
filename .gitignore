@@ -1,0 +1,6 @@
+build/
+engine/libraries
+*/build/
+*/install/
+
+
