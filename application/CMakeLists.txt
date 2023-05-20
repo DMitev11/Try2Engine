@@ -6,9 +6,8 @@ project(Application LANGUAGES CXX)
 add_executable(application ./main.cpp) 
 
 target_compile_features(application PUBLIC cxx_std_17)
-target_link_libraries(application PUBLIC window initialization)
-target_include_directories(application PUBLIC ${CMAKE_SOURCE_DIR}/engine)
-
+target_link_libraries(application PUBLIC objects window initialization render)
+target_include_directories(application PUBLIC ${CMAKE_SOURCE_DIR})
 message(STATUS "Engine Folder: ${CMAKE_SOURCE_DIR}/engine")
 message(STATUS "Source Folder: ${PROJECT_SOURCE_DIR} ")
 set_target_properties(application PROPERTIES

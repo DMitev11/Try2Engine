@@ -1,14 +1,17 @@
-#include "../engine/window/window.h"
-#include "initialization/initialization.h"
+#include "engine/window/window.hpp"
+#include "engine/initialization/initialization.hpp"
 #include <iostream>
-#include <stdexcept>
-int main(int argc, char const *argv[])
+#include <stdexcept> 
+int main(int argc, char const* argv[])
 {
-    if(!Initialization::init(Initialization::DEFAULT_INIT_FLGAS, Initialization::DEFAULT_HINTS)){
-       std::string err = "Cannot initialize";
-       std::cout<<err;
-       throw std::runtime_error(err);
+    if (!initialization::init(
+        initialization::DEFAULT_INIT_FLAGS,
+        initialization::DEFAULT_HINTS))
+    {
+        std::string err = "Cannot initialize";
+        std::cout << err;
+        throw std::runtime_error(err);
     }
-    Window::init();
+    window::createWindow(1000, 1000, "Try2Engine Application", window::DEFAULT_WINDOW_INIT_FLAGS);
     /* code */
 }

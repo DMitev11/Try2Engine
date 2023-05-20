@@ -14,9 +14,12 @@ set_property(GLOBAL PROPERTY USE_FOLDERS ON) # ??
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /std:c++17")
 set(ENGINE_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/engine")
 set(SDL3_DIR "${ENGINE_ROOT}/libraries/SDL/install/cmake")
+set(SDL3_INCLUDE_DIRS "${ENGINE_ROOT}/libraries/SDL/install/include")
 set(SDL3_BIN "${ENGINE_ROOT}/libraries/SDL/install/bin")
 set(SDL3_image_DIR "${ENGINE_ROOT}/libraries/SDL_Image/install/cmake")
+set(SDLIMAGE_INCLUDE_DIR "${ENGINE_ROOT}/libraries/SDL_Image/install/include")
 set(SDL3_image_BIN "${ENGINE_ROOT}/libraries/SDL_Image/install/bin") 
+add_definitions(-DSDL_USED)
  
 # Add source to this project's executable.
 # TODO: Add tests and install targets if needed.
