@@ -1,12 +1,14 @@
 cmake_minimum_required(VERSION 3.12)
 
-# Set project name 
+# Set project name
 project(Application LANGUAGES CXX)
 
-add_executable(application ./main.cpp) 
+add_executable(application ./main.cpp)
+
+add_compile_definitions(SDL_USED)
 
 target_compile_features(application PUBLIC cxx_std_17)
-target_link_libraries(application PUBLIC objects window initialization render)
+target_link_libraries(application PUBLIC window initialization render)
 target_include_directories(application PUBLIC ${CMAKE_SOURCE_DIR})
 message(STATUS "Engine Folder: ${CMAKE_SOURCE_DIR}/engine")
 message(STATUS "Source Folder: ${PROJECT_SOURCE_DIR} ")
