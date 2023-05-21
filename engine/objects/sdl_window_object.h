@@ -11,6 +11,10 @@ namespace objects
         {
             this->window = window;
         }
+        operator SDL_Window *()
+        {
+            return this->window;
+        }
 
       private:
         SDL_Window *window;

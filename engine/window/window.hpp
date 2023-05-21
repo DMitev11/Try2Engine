@@ -3,15 +3,14 @@
 
 #include <vector>
 
+#include "sdl_window_object.h"
 #include "window_object.h"
 namespace window
 {
     template <typename... Args>
-    static objects::Window
-    createWindow(Args...);
+    static objects::SDLWindow *
+    CreateWindow(Args...);
 
-    extern const std::vector<uint32_t> DEFAULT_WINDOW_INIT_FLAGS;
-    extern const std::vector<uint32_t> DEFAULT_RENDERER_INIT_FLAGS;
 #ifdef SDL_USED
 
 #endif
@@ -19,13 +18,11 @@ namespace window
 
 #ifdef SDL_USED
 #include "sdl_window.h"
-const std::vector<uint32_t> window::DEFAULT_WINDOW_INIT_FLAGS = {0x00000020, 0x00004000};
-const std::vector<uint32_t> window::DEFAULT_RENDERER_INIT_FLAGS = {0x00000002};
 template <typename... Args>
-inline static objects::Window
-window::createWindow(Args... args)
+inline static objects::SDLWindow *
+window::CreateWindow(Args... args)
 {
-    return sdl::createWindow(args...);
+    return sdl::CreateWindow(args...);
 }
 
 #endif

@@ -5,6 +5,7 @@ set(
     window_object.h
     sdl_window_object.h
     renderer_object.h
+    sdl_renderer_object.h
 )
 
 set(

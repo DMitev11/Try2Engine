@@ -4,8 +4,8 @@
 
 #include "sdl_window_object.h"
 using namespace window;
-objects::Window
-sdl::createWindow(int height, int width, const char *title, std::vector<uint32_t> flags)
+objects::SDLWindow *
+sdl::CreateWindow(int height, int width, const char *title, std::vector<uint32_t> flags)
 {
     // Create window
     uint32_t flagsOr = 0;
@@ -19,5 +19,5 @@ sdl::createWindow(int height, int width, const char *title, std::vector<uint32_t
         std::string err = ("Window could not be created! SDL Error: %s\n", SDL_GetError());
         throw std::runtime_error(err);
     }
-    return objects::SDLWindow(window, height, width, title);
+    return new objects::SDLWindow(window, height, width, title);
 }
