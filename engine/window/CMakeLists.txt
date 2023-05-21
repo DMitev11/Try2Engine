@@ -2,19 +2,20 @@ cmake_minimum_required(VERSION 3.13)
 
 set(
     HEADER_FILES
-    window.h  
+    window.hpp
+    sdl_window.h
 )
 
 set(
     SOURCE_FILES
-    window.cpp  
+    sdl_window.cpp
 )
 
 add_library(window STATIC ${HEADER_FILES} ${SOURCE_FILES})
 
 find_package(SDL3 REQUIRED)
-find_package(SDL3_image REQUIRED)  
-target_include_directories(window PUBLIC ${SDL3_INCLUDE_DIRS} ${SDLIMAGE_INCLUDE_DIR})
+find_package(SDL3_image REQUIRED)
+target_include_directories(window PUBLIC ${LIBRARY_OBJECTS_INCLUDE} ${SDL3_INCLUDE_DIRS} ${SDLIMAGE_INCLUDE_DIR})
 target_link_libraries(window PUBLIC ${SDL3_LIBRARIES} SDL3_image::SDL3_image)
 
 set_target_properties(window PROPERTIES

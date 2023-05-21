@@ -2,12 +2,12 @@ cmake_minimum_required(VERSION 3.13)
 
 set(
     HEADER_FILES
-    initialization.h   
-    sdl_initialization.h   
+    initialization.hpp
+    sdl_initialization.h
 )
 
 set(
-    SOURCE_FILES   
+    SOURCE_FILES
     sdl_initialization.cpp
 )
 
