@@ -1,9 +1,12 @@
 #pragma once
-#include "window_object.h"
 #include <vector>
+
+#include "window_object.h"
 namespace window
 {
-    namespace sdl {
-        static objects::Window createWindow(int height, int width, const char* title, std::vector<uint32_t> flags);
+    namespace sdl
+    {
+        extern objects::Window
+        createWindow(int height, int width, const char *title, std::vector<uint32_t> flags);
     }
-};
+}; // namespace window

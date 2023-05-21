@@ -1,9 +1,12 @@
 #pragma once
-namespace objects {
-    class Renderer {
-    public:
+namespace objects
+{
+    class Renderer
+    {
+      public:
         ~Renderer() = default;
-    protected:
-        Renderer() {};
+
+      protected:
+        Renderer(){};
     };
-}
+} // namespace objects
