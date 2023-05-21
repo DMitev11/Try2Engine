@@ -91,5 +91,5 @@
     "xutility": "cpp"
   },
   "editor.formatOnSave": true,
-  "C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: Google, IndentWidth: 4, TabWidth: 4, ColumnLimit: 80, AlwaysBreakAfterDefinitionReturnType: All, AlwaysBreakAfterReturnType: All, AlwaysBreakBeforeMultilineStrings: true, BreakBeforeBinaryOperators: NonAssignment, BinPackArguments: false, NamespaceIndentation: All }"
+  "C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: Microsoft, IndentWidth: 4, TabWidth: 4, ColumnLimit: 140, AlwaysBreakAfterDefinitionReturnType: All, AlwaysBreakAfterReturnType: All, AlwaysBreakBeforeMultilineStrings: true, BreakBeforeBinaryOperators: NonAssignment, BinPackArguments: false, NamespaceIndentation: All }"
 }
