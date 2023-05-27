@@ -1,0 +1,1 @@
+cmake -S . -B ./build -DWITH_SDL=TRUE

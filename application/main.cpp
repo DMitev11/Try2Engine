@@ -1,19 +1,30 @@
 #include <iostream>
 #include <stdexcept>
 
+#include "./objects/Visualizer.h"
 #include "engine/initialization/initialization.hpp"
+#include "engine/objects/sdl_texture_object.h"
 #include "engine/objects/sdl_window_object.h"
-#include "engine/render/render.hpp"
-#include "engine/window/window.hpp"
 int
 main(int argc, char const *argv[])
 {
-    if (!initialization::Init())
+    application::Visualizer *vis = application::Visualizer::get();
+    vis->CreateWindow(1000, 1000, "hello");
+    vis->CreateRenderer();
+    vis->SetDrawColor(255, 255, 255, 50);
+    auto res = vis->LoadTexture("assets/linus.jpg");
+    if (!res.success)
     {
-        std::string err = "Cannot initialize";
-        std::cout << err;
-        throw std::runtime_error(err);
+        printf("failed");
+        return 0;
     }
-    objects::SDLWindow *window = window::CreateWindow(1000, 1000, "Try2Engine Application");
-    const objects::Renderer *renderer = render::CreateRenderer(window); /* code */
+    objects::Texture *texture = res.data;
+    objects::SDLTexture *texture2 = static_cast<objects::SDLTexture *>(res.data);
+    while (true)
+    {
+        vis->SetDrawColor(0xFF, 0xFF, 0xFF, 0);
+        vis->ClearRenderer();
+        vis->RenderTexture(texture, 0.f, 0.f);
+        vis->CallFrame();
+    }
 };

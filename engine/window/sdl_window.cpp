@@ -1,10 +1,8 @@
 #include "./sdl_window.h"
-
-#include <stdexcept>
-
 #include "sdl_window_object.h"
+#include <stdexcept>
 using namespace window;
-objects::SDLWindow *
+objects::Window *
 sdl::CreateWindow(int height, int width, const char *title, std::vector<uint32_t> flags)
 {
     // Create window

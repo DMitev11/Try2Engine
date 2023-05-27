@@ -8,7 +8,7 @@ namespace window
     namespace sdl
     {
         const std::vector<uint32_t> kWindowInitFlags = {0x00000020, 0x00004000};
-        extern objects::SDLWindow *
+        extern objects::Window *
         CreateWindow(int height, int width, const char *title, std::vector<uint32_t> flags = kWindowInitFlags);
     } // namespace sdl
 };    // namespace window

@@ -22,6 +22,11 @@ namespace objects
             return this->renderer;
         }
 
+        operator SDL_Window *()
+        {
+            return this->window;
+        }
+
       private:
         SDL_Renderer *renderer;
         SDL_Window *window;

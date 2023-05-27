@@ -1,6 +1,5 @@
 #pragma once
 #include "renderer_object.h"
-#include <vector>
 namespace render
 {
     template <typename... Args>
@@ -10,6 +9,18 @@ namespace render
     template <typename... Args>
     static void
     SetDrawColor(Args...);
+
+    template <typename... Args>
+    static void
+    RenderAsset(Args...);
+
+    template <typename... Args>
+    static void
+    ClearRender(Args...);
+
+    template <typename... Args>
+    static void
+    RenderFrame(Args...);
 
 } // namespace render
 #ifdef SDL_USED
@@ -26,6 +37,27 @@ inline static void
 render::SetDrawColor(Args... args)
 {
     return sdl::SetDrawColor(args...);
+}
+
+template <typename... Args>
+inline static void
+render::RenderAsset(Args... args)
+{
+    return sdl::RenderAsset(args...);
+}
+
+template <typename... Args>
+inline static void
+render::ClearRender(Args... args)
+{
+    return sdl::ClearRender(args...);
+}
+
+template <typename... Args>
+inline static void
+render::RenderFrame(Args... args)
+{
+    return sdl::RenderFrame(args...);
 }
 
 #endif
