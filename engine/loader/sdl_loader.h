@@ -7,9 +7,17 @@ namespace loader
 {
     namespace sdl
     {
+        struct LoadingTextureConfig
+        {
+            struct ColorKey
+            {
+                uint8_t r;
+                uint8_t g;
+                uint8_t b;
+            };
+            ColorKey colorKey;
+        };
         extern objects::Texture *
-        LoadTexture(objects::Renderer *renderer, const char *path);
-        extern objects::Texture *
-        LoadTexture(SDL_Window *window, SDL_Renderer *renderer, const char *path);
+        LoadTexture(objects::Renderer *renderer, const char *path, LoadingTextureConfig config = LoadingTextureConfig());
     }; // namespace sdl
 } // namespace loader

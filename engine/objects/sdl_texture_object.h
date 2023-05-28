@@ -1,3 +1,4 @@
+#pragma once
 #include "texture_object.h"
 #include <SDL3/SDL.h>
 namespace objects

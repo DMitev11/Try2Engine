@@ -1,4 +1,5 @@
 #include "sdl_renderer.h"
+#include "helpers_object.hpp"
 #include "sdl_renderer_object.h"
 #include "sdl_texture_object.h"
 #include "sdl_window_object.h"
@@ -6,28 +7,10 @@
 #include <vector>
 using namespace render;
 
-SDL_Window *
-objectToSdl(objects::Window *window)
-{
-    objects::SDLWindow *const _window = static_cast<objects::SDLWindow *>(window);
-    return (SDL_Window *)*_window;
-}
-SDL_Renderer *
-objectToSdl(objects::Renderer *renderer)
-{
-    objects::SDLRenderer *const _renderer = static_cast<objects::SDLRenderer *>(renderer);
-    return (SDL_Renderer *)*_renderer;
-}
-SDL_Texture *
-objectToSdl(objects::Texture *texture)
-{
-    objects::SDLTexture *const _texture = static_cast<objects::SDLTexture *>(texture);
-    return (SDL_Texture *)*_texture;
-}
 objects::Renderer *
 sdl::CreateRenderer(objects::Window *window, const char *driverName, std::vector<uint32_t> initFlags)
 {
-    return sdl::CreateRenderer(objectToSdl(window), driverName, initFlags);
+    return sdl::CreateRenderer(objects::toSdlWindow(window), driverName, initFlags);
 }
 
 objects::Renderer *
@@ -50,7 +33,7 @@ sdl::CreateRenderer(SDL_Window *window, const char *driverName, std::vector<uint
 void
 sdl::SetDrawColor(objects::Renderer *renderer, uint8_t r, uint8_t g, uint8_t b, uint8_t a)
 {
-    sdl::SetDrawColor(objectToSdl(renderer), r, g, b, a);
+    sdl::SetDrawColor(objects::toSdlRenderer(renderer), r, g, b, a);
 }
 
 void
@@ -62,7 +45,8 @@ sdl::SetDrawColor(SDL_Renderer *renderer, uint8_t r, uint8_t g, uint8_t b, uint8
 void
 sdl::RenderAsset(objects::Renderer *renderer, objects::Texture *texture, float x, float y)
 {
-    return sdl::RenderAsset(objectToSdl(renderer), objectToSdl(texture), (float)texture->width, (float)texture->height, x, y);
+    return sdl::RenderAsset(
+        objects::toSdlRenderer(renderer), objects::toSdlTexture(texture), (float)texture->width, (float)texture->height, x, y);
 }
 
 void
@@ -77,7 +61,7 @@ sdl::RenderAsset(SDL_Renderer *renderer, SDL_Texture *texture, float w, float h,
 void
 sdl::ClearRender(objects::Renderer *renderer)
 {
-    sdl::ClearRender(objectToSdl(renderer));
+    sdl::ClearRender(objects::toSdlRenderer(renderer));
 }
 
 void
@@ -89,7 +73,7 @@ sdl::ClearRender(SDL_Renderer *renderer)
 void
 sdl::RenderFrame(objects::Renderer *renderer)
 {
-    return sdl::RenderFrame(objectToSdl(renderer));
+    return sdl::RenderFrame(objects::toSdlRenderer(renderer));
 }
 
 void

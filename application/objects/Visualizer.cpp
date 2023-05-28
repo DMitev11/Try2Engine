@@ -136,6 +136,40 @@ invalid:
     return ReturnValue<objects::Texture *>{false, nullptr};
 }
 
+#ifdef SDL_USED
+ReturnValue<objects::Texture *>
+Visualizer::LoadTexture(const char *path, loader::LoadingTextureConfig config)
+{
+
+    if (!this->initialized)
+    {
+        printf("Not initialized");
+        goto invalid;
+    }
+    if (!this->window)
+    {
+        printf("Create window first");
+        goto invalid;
+    }
+    if (!this->renderer)
+    {
+        printf("Create renderer first");
+        goto invalid;
+    }
+
+    try
+    {
+        return ReturnValue<objects::Texture *>{true, loader::LoadTexture(this->renderer, path, config)};
+    }
+    catch (const char *e)
+    {
+        printf(e);
+        goto invalid;
+    }
+invalid:
+    return ReturnValue<objects::Texture *>{false, nullptr};
+}
+#endif
 bool
 Visualizer::RenderTexture(objects::Texture *texture, float x, float y)
 {

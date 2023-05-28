@@ -4,18 +4,11 @@
 #include <SDL3/SDL.h>
 #include <SDL_image.h>
 #include <stdio.h>
+
+#include "helpers_object.hpp"
 using namespace loader;
-
 objects::Texture *
-sdl::LoadTexture(objects::Renderer *renderer, const char *path)
-{
-    objects::SDLRenderer *_renderer = static_cast<objects::SDLRenderer *>(renderer);
-
-    return sdl::LoadTexture((SDL_Window *)*_renderer, (SDL_Renderer *)*_renderer, path);
-}
-
-objects::Texture *
-sdl::LoadTexture(SDL_Window *window, SDL_Renderer *renderer, const char *path)
+loadTexture(SDL_Window *window, SDL_Renderer *renderer, const char *path, sdl::LoadingTextureConfig config)
 {
     SDL_Surface *surface = IMG_Load(path);
     if (surface)
@@ -45,4 +38,12 @@ sdl::LoadTexture(SDL_Window *window, SDL_Renderer *renderer, const char *path)
 
 invalid:
     return nullptr;
+}
+
+objects::Texture *
+sdl::LoadTexture(objects::Renderer *renderer, const char *path, sdl::LoadingTextureConfig config)
+{
+    objects::SDLRenderer *_renderer = static_cast<objects::SDLRenderer *>(renderer);
+
+    return loadTexture(objects::toSdlWindow(_renderer), objects::toSdlRenderer(_renderer), path, config);
 }

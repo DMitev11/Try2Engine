@@ -12,7 +12,7 @@ main(int argc, char const *argv[])
     vis->CreateWindow(1000, 1000, "hello");
     vis->CreateRenderer();
     vis->SetDrawColor(255, 255, 255, 50);
-    auto res = vis->LoadTexture("assets/linus.jpg");
+    auto res = vis->LoadTexture("assets/linus.jpg", loader::LoadingTextureConfig());
     if (!res.success)
     {
         printf("failed");
@@ -20,11 +20,13 @@ main(int argc, char const *argv[])
     }
     objects::Texture *texture = res.data;
     objects::SDLTexture *texture2 = static_cast<objects::SDLTexture *>(res.data);
+    float x = 0.f;
+    float y = 0.f;
     while (true)
     {
         vis->SetDrawColor(0xFF, 0xFF, 0xFF, 0);
         vis->ClearRenderer();
-        vis->RenderTexture(texture, 0.f, 0.f);
+        vis->RenderTexture(texture, x, y);
         vis->CallFrame();
     }
 };
