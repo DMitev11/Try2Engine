@@ -1,6 +1,6 @@
 #include "Visualizer.h"
-#include "engine/initialization/initialization.hpp"
-#include "engine/window/window.hpp"
+#include "initialization/initialization.hpp"
+#include "window/window.hpp"
 #include <stdio.h>
 using namespace application;
 
