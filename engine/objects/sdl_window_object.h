@@ -1,7 +1,6 @@
 #pragma once
-#include <SDL3/SDL_video.h>
-
 #include "window_object.h"
+#include <SDL3/SDL_video.h>
 namespace objects
 {
     class SDLWindow final : public Window

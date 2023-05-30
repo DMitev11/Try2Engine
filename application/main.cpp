@@ -2,9 +2,9 @@
 #include <stdexcept>
 
 #include "./objects/Visualizer.h"
-#include "engine/initialization/initialization.hpp"
-#include "engine/objects/sdl_texture_object.h"
-#include "engine/objects/sdl_window_object.h"
+#include "initialization/initialization.hpp"
+#include "objects/sdl_texture_object.h"
+#include "objects/sdl_window_object.h"
 int
 main(int argc, char const *argv[])
 {

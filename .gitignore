@@ -3,4 +3,6 @@ engine/libraries
 */build/
 */install/
 
+.vscode/settings.json
+
 

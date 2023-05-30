@@ -1,7 +1,7 @@
 #pragma once
-#include "engine/loader/loader.hpp"
-#include "engine/render/render.hpp"
-#include "engine/window/window.hpp"
+#include "loader/loader.hpp"
+#include "render/render.hpp"
+#include "window/window.hpp"
 namespace application
 {
     template <typename T> struct ReturnValue
