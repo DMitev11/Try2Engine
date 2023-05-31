@@ -5,6 +5,7 @@ set(
     window_object.h
     renderer_object.h
     texture_object.h
+    object.h
 )
 set(
     SOURCE_FILES
