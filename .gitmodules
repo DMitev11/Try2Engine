@@ -4,3 +4,6 @@
 [submodule "engine/libraries/SDL_Image"]
 	path = engine/libraries/SDL_Image
 	url = https://github.com/libsdl-org/SDL_image.git
+[submodule "engine/libraries/spdlog"]
+	path = engine/libraries/spdlog
+	url = https://github.com/gabime/spdlog.git

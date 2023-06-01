@@ -27,7 +27,7 @@ if(DEFINED WITH_SDL AND WITH_SDL)
     target_compile_definitions(objects PUBLIC SDL_USED)
     find_package(SDL3 REQUIRED)
     find_package(SDL3_image REQUIRED)
-    target_include_directories(objects PUBLIC ${SDL3_INCLUDE_DIRS} ${SDLIMAGE_INCLUDE_DIR})
+    target_include_directories(objects PUBLIC ${SDL3_INCLUDE_DIRS} ${SDLIMAGE_INCLUDE_DIR} ${SPDLOG_INCLUDE_DIRS}/)
     target_link_libraries(objects PUBLIC ${SDL3_LIBRARIES} SDL3_image::SDL3_image)
 endif()
 

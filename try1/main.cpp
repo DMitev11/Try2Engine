@@ -1,33 +1,32 @@
 #include "inc/EventEmitter.h"
 #include "initialization/initialization.hpp"
+#include "logger/logger.h"
 #include "objects/object.h"
 #include "render/render.hpp"
 #include "window/window.hpp"
-#include <SDL3/SDL.h>
-int tickRate = 1;
 using namespace try1;
-int main(int argc, char const *argv[]) {
-    // initialization::Init();
-    // objects::Window *window =
-    //     window::CreateWindow(1000, 1000, "test");
-    // objects::Renderer *renderer =
-    //     render::CreateRenderer(window);
 
-    EventEmitter emitter;
-    std::function<void(int i)> func = [](int i) {
-        std::cout << 12;
-    };
-    emitter.On(0, func);
-    emitter.Once(0, func);
-    emitter.Emit<>(0);
-    int i = 0;
-    // input->Emit(0);
-    // input->Emit(1);
-    // InputSystem *input = new InputSystem();
-    // input->PollInput();
-    // while (true) {
-    //     tickRate++;
+int main(int argc, char const *argv[]) {
+    logger::createConsoleLogger(
+        "asd", logger::ConsoleLoggerTypes::kConsole);
+    logger::log("asd", logger::LogLevel::kInfo, "asdasdsa");
+    // logger::createConsoleSink(
+    //     "asdasd", "s",
+    //     logger::ConsoleLoggerTypes::kConsole);
+    // std::shared_ptr<spdlog::logger> console =
+    //     spdlog::stdout_color_mt("console");
+
+    // console->set_pattern("[%l] %n %v (%s)");
+    // console->info("hello");
+    // SPDLOG_TRACE()
+    // std::function<void(int i)> func = [](int i) {
+    //     std::cout << 12;
     // };
+    // EventEmitter emitter;
+    // emitter.On(0, func);
+    // emitter.Once(0, func);
+    // emitter.Emit<>(0);
+    // int i = 0;
 
     return 0;
 }

@@ -21,6 +21,8 @@ set(SDL3_image_DIR "${ENGINE_ROOT}/libraries/SDL_Image/install/cmake")
 set(SDLIMAGE_INCLUDE_DIR "${ENGINE_ROOT}/libraries/SDL_Image/install/include")
 set(SDL3_image_BIN "${ENGINE_ROOT}/libraries/SDL_Image/install/bin")
 
+set(SPDLOG_INCLUDE_DIRS "${ENGINE_ROOT}/libraries/spdlog/include")
+
 # # Add source to this project's executable.
 # # TODO: Add tests and install targets if needed.
 add_subdirectory("./engine")

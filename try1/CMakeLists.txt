@@ -13,7 +13,7 @@ set(SOURCE_FILES
 add_executable(try1 ${SOURCE_FILES})
 
 target_compile_features(try1 PUBLIC cxx_std_17)
-target_link_libraries(try1 PUBLIC window initialization render loader)
+target_link_libraries(try1 PUBLIC window initialization render loader logger)
 target_include_directories(try1 PUBLIC ${CMAKE_SOURCE_DIR}/engine ${CMAKE_CURRENT_SOURCE_DIR}/)
 message(STATUS "Engine Folder: ${CMAKE_SOURCE_DIR}/engine")
 message(STATUS "Source Folder: ${PROJECT_SOURCE_DIR} ")
