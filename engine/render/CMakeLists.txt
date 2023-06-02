@@ -18,7 +18,8 @@ if(DEFINED WITH_SDL AND WITH_SDL)
 endif()
 
 add_library(render STATIC ${HEADER_FILES} ${SOURCE_FILES})
-target_include_directories(render PUBLIC ${LIBRARY_OBJECTS_INCLUDE})
+target_include_directories(render PUBLIC ${LIBRARY_OBJECTS_INCLUDE} ${ENGINE_ROOT})
+target_link_libraries(render INTERFACE logger)
 
 if(DEFINED WITH_SDL AND WITH_SDL)
     target_compile_definitions(render PUBLIC SDL_USED)

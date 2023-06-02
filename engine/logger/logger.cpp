@@ -97,20 +97,17 @@ void logger::setLoggerLevel(std::string loggerName,
         ->set_level((spdlog::level::level_enum)logLevel);
 }
 
-void logger::log(std::string loggerName, LogLevel logLevel,
+void logger::log(char *const filename, int fileLine,
+                 std::string loggerName, LogLevel logLevel,
                  const char *msg) {
-    switch (logLevel) {
-    case logger::LogLevel::kTrace:
-        return spdlog::get(loggerName)->trace(msg);
-    case logger::LogLevel::kDebug:
-        return spdlog::get(loggerName)->debug(msg);
-    case logger::LogLevel::kInfo:
-        return spdlog::get(loggerName)->info(msg);
-    case logger::LogLevel::kWarn:
-        return spdlog::get(loggerName)->warn(msg);
-    case logger::LogLevel::kErr:
-        return spdlog::get(loggerName)->error(msg);
-    case logger::LogLevel::kCritical:
-        return spdlog::get(loggerName)->critical(msg);
-    }
+    return spdlog::get(loggerName)
+        ->log(spdlog::source_loc{filename, fileLine,
+                                 SPDLOG_FUNCTION},
+              (spdlog::level::level_enum)logLevel, msg);
 }
+
+bool logger::loggerExists(std::string loggerName) {
+    return spdlog::get(loggerName) != nullptr;
+} 
+
+

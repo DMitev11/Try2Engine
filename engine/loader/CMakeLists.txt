@@ -20,7 +20,9 @@ if(DEFINED WITH_SDL AND WITH_SDL)
 endif()
 
 add_library(loader STATIC ${HEADER_FILES} ${SOURCE_FILES})
+target_link_libraries(loader INTERFACE logger)
 target_include_directories(loader PUBLIC ${LIBRARY_OBJECTS_INCLUDE})
+target_include_directories(loader PUBLIC ${ENGINE_ROOT})
 
 if(DEFINED WITH_SDL AND WITH_SDL)
     target_compile_definitions(loader PUBLIC SDL_USED)

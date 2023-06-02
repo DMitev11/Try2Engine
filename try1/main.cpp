@@ -7,9 +7,7 @@
 using namespace try1;
 
 int main(int argc, char const *argv[]) {
-    logger::createConsoleLogger(
-        "asd", logger::ConsoleLoggerTypes::kConsole);
-    logger::log("asd", logger::LogLevel::kInfo, "asdasdsa");
+    LOG_CLIENT_INFO("", "asdasdasd");
     // logger::createConsoleSink(
     //     "asdasd", "s",
     //     logger::ConsoleLoggerTypes::kConsole);
