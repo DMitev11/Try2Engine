@@ -163,16 +163,27 @@ namespace logger {
         return fullError;
     }
 
+/**
+ * @brief Log engine dedicated messages.
+ *
+ * @note Use LOG_CLIENT_<TYPE> (ex. LOG_CLIENT_INFO)
+ *
+ * @param filename __FILE__
+ */
 #define LOG_ENGINE(filename, line, logLevel, prefix,       \
                    error)                                  \
     logger::StaticLogger::engineLog(                       \
-        filename, line, logLevel,                          \
+        __FILE__, __LINE__, logLevel,                      \
         logger::concatError(prefix, error))
 
+/**
+ * @brief Log client dedicated messages.
+ *
+ */
 #define LOG_CLIENT(filename, line, logLevel, prefix,       \
                    error)                                  \
     logger::StaticLogger::clientLog(                       \
-        filename, line, logLevel,                          \
+        __FILE__, __LINE__, logLevel,                      \
         logger::concatError(prefix, error))
 
 #define LOG_ENGINE_ERROR(prefix, error)                    \

@@ -18,6 +18,6 @@ namespace loader
             ColorKey colorKey;
         };
         extern objects::Texture *
-        LoadTexture(objects::Renderer *renderer, const char *path, LoadingTextureConfig config = LoadingTextureConfig());
+        loadTexture(objects::Renderer *renderer, const char *path, LoadingTextureConfig config = LoadingTextureConfig());
     }; // namespace sdl
 } // namespace loader

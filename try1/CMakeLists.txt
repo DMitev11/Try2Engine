@@ -8,7 +8,6 @@ set(HEADER_FILES
     inc/InputSystem.h)
 set(SOURCE_FILES
     main.cpp
-    src/EventEmitter.cpp
     src/InputSystem.cpp)
 add_executable(try1 ${SOURCE_FILES})
 

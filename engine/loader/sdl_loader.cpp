@@ -7,12 +7,10 @@
 #include <SDL_image.h>
 #include <stdio.h>
 #include <string>
-using namespace loader;
-
 objects::Texture *
 loadTexture(SDL_Window *window, SDL_Renderer *renderer,
             const char *path,
-            sdl::LoadingTextureConfig config) {
+            loader::sdl::LoadingTextureConfig config) {
     SDL_Surface *surface = IMG_Load(path);
     if (surface) {
         SDL_SetSurfaceColorKey(
@@ -53,9 +51,9 @@ invalid:
 }
 
 objects::Texture *
-sdl::LoadTexture(objects::Renderer *renderer,
-                 const char *path,
-                 sdl::LoadingTextureConfig config) {
+loader::sdl::loadTexture(objects::Renderer *renderer,
+                         const char *path,
+                         sdl::LoadingTextureConfig config) {
     objects::SDLRenderer *_renderer =
         static_cast<objects::SDLRenderer *>(renderer);
 

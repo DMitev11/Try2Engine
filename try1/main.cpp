@@ -17,14 +17,14 @@ int main(int argc, char const *argv[]) {
     // console->set_pattern("[%l] %n %v (%s)");
     // console->info("hello");
     // SPDLOG_TRACE()
-    // std::function<void(int i)> func = [](int i) {
-    //     std::cout << 12;
-    // };
-    // EventEmitter emitter;
-    // emitter.On(0, func);
-    // emitter.Once(0, func);
-    // emitter.Emit<>(0);
-    // int i = 0;
+    std::function<void(int i)> func = [](int i) {
+        std::cout << 12;
+    };
+    EventEmitter emitter;
+    emitter.On(0, func);
+    emitter.Once(0, func);
+    emitter.Emit<>(0);
+    int i = 0;
 
     return 0;
 }
