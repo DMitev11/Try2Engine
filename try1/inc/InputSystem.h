@@ -23,37 +23,38 @@ namespace try1 {
         kEventKeyboardUp,
         kEventMousePointer,
         kEventMouseDown,
-        kEventMouseUp
+        kEventMouseUp,
+        kEventGamepadDown
     };
     struct Controller {
-        inline Controller(int id, void *input)
+        inline Controller(int id, void* input)
             : id(id), input(input) {}
         EventEmitter eventEmitter;
         const int id;
-        // int xPosPointer;
-        // int yPosPointer;
-        void *input;
+        void* input;
         // void pollInput();
-        virtual void refresh();
-        virtual void terminate();
+        // virtual void refresh();
+        // virtual void terminate();
     };
-    struct GamepadController : public Controller {
-        inline GamepadController(int id, void *input)
-            : Controller(id, input){};
+    struct GamepadController: public Controller {
+        inline GamepadController(int id, void* input)
+            : Controller(id, input) {};
     };
 
     class InputSystem {
-      public:
+    public:
         ~InputSystem() = default;
         InputSystem() = default;
         void init();
-        void pollInput();
-        void pollControllers();
-        void removeController(Controller *controller);
+        void poll();
 
-      private:
+    private:
+        template<typename T>
+        Controller* addController(T event);
+        template<typename T>
+        void removeController(T controller);
         EventEmitter eventEmitter;
-        std::vector<Controller *> activeControllers;
+        std::vector<Controller*> activeControllers;
     };
 
 } // namespace try1

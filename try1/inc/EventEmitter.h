@@ -5,18 +5,18 @@
 #include <unordered_map>
 namespace try1 {
     class EventEmitter {
-      public:
+    public:
         EventEmitter() = default;
         ~EventEmitter() = default;
         template <typename... Args>
         void Emit(int event, Args... args);
         template <typename... Args>
         uint32_t On(int event,
-                    std::function<void(Args...)> cb);
+            std::function<void(Args...)> cb);
         uint32_t On(int event, std::function<void()> cb);
         template <typename... Args>
         uint32_t Once(int event,
-                      std::function<void(Args...)> cb);
+            std::function<void(Args...)> cb);
         uint32_t Once(int event, std::function<void()> cb);
         void Remove(int event, uint32_t id) {
             auto i = this->listeners.find(event);
@@ -24,13 +24,13 @@ namespace try1 {
                 throw std::runtime_error(
                     "invalid event key");
             }
-            auto &map = i->second;
+            auto& map = i->second;
             auto j = map.find(id);
             if (j == map.end()) {
                 throw std::runtime_error(
                     "invalid listener key");
             }
-            std::shared_ptr<ListenerBase> &ptr = j->second;
+            std::shared_ptr<ListenerBase>& ptr = j->second;
             ptr.reset();
             ptr = nullptr;
             map.erase(j);
@@ -40,12 +40,12 @@ namespace try1 {
             return;
         }
 
-      protected:
-        EventEmitter(const EventEmitter &) = delete;
-        EventEmitter(EventEmitter &&) = delete;
+    protected:
+        EventEmitter(const EventEmitter&) = delete;
+        EventEmitter(EventEmitter&&) = delete;
         template <typename... Args>
         uint32_t AddListener(int event, bool callOnce,
-                             std::function<void(Args...)>);
+            std::function<void(Args...)>);
         template <typename... Args>
         void EmitEvent(int event, Args... args);
 
@@ -62,11 +62,11 @@ namespace try1 {
         };
 
         template <typename... Args>
-        struct Listener : public ListenerBase {
+        struct Listener: public ListenerBase {
             Listener() = delete;
 
             Listener(int event, bool callOnce,
-                     std::function<void(Args...)> c)
+                std::function<void(Args...)> c)
                 : ListenerBase(event, callOnce), cb(c) {}
 
             std::function<void(Args...)> cb;
@@ -74,7 +74,7 @@ namespace try1 {
 
         std::unordered_map<
             int, std::map<uint32_t,
-                          std::shared_ptr<ListenerBase>>>
+            std::shared_ptr<ListenerBase>>>
             listeners;
         std::unordered_map<int, uint32_t> lastListener;
     };
@@ -95,7 +95,7 @@ namespace try1 {
             this->listeners.end()) {
             this->listeners[event] =
                 std::map<uint32_t,
-                         std::shared_ptr<ListenerBase>>();
+                std::shared_ptr<ListenerBase>>();
         }
         this->listeners[event][id] =
             std::make_shared<Listener<Args...>>(
@@ -105,15 +105,15 @@ namespace try1 {
     }
     template <typename... Args>
     uint32_t
-    EventEmitter::On(int event,
-                     std::function<void(Args...)> cb) {
+        EventEmitter::On(int event,
+            std::function<void(Args...)> cb) {
         return this->AddListener(event, false, cb);
     }
 
     template <typename... Args>
     uint32_t
-    EventEmitter::Once(int event,
-                       std::function<void(Args...)> cb) {
+        EventEmitter::Once(int event,
+            std::function<void(Args...)> cb) {
         return this->AddListener(event, true, cb);
     }
 
@@ -124,7 +124,7 @@ namespace try1 {
             throw std::runtime_error("invalid event");
         }
         std::vector<uint32_t> keysToDelete;
-        for (const auto &pair : this->listeners[event]) {
+        for (const auto& pair : this->listeners[event]) {
             std::shared_ptr<Listener<Args...>> ptr =
                 std::static_pointer_cast<Listener<Args...>>(
                     pair.second);
