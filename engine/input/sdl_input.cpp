@@ -1,22 +1,23 @@
-#include "logger/logger.h"
-#include "inc/InputSystem.h"
-#include <SDL3/SDL.h>
+#include "input_misc.h"
+#include "sdl_input.h"
+#include <logger/logger.h>  
 #include <cstdlib>
 #include <string>
-using namespace try1;
-void InputSystem::init() {
+using namespace input;
+
+void sdl::SdlInputSystem::init() {
     if (SDL_Init(SDL_INIT_GAMEPAD) < 0) {
         LOG_ENGINE_ERROR("SDL could not initialize! SDL_Error: ", SDL_GetError());
         return;
     }
 }
-
-// continous
-void InputSystem::poll() {
+void sdl::SdlInputSystem::poll() {
     SDL_Event event;
     SDL_PollEvent(&event);
     while (SDL_PollEvent(&event)) {
         switch (event.type) {
+            //Critical error detected c0000374
+
         case SDL_EVENT_GAMEPAD_ADDED: {
             LOG_ENGINE_INFO("InputSystem: ", "Gamepad just connected");
             this->addController(event);
@@ -30,7 +31,7 @@ void InputSystem::poll() {
         case  SDL_EVENT_GAMEPAD_BUTTON_DOWN: {
             int id = event.gdevice.which;
             auto it = std::find_if(activeControllers.begin(), activeControllers.end(),
-                [id](const Controller*& controller) {
+                [id](const Controller* controller) {
                     return controller->id == id;
                 }
             );
@@ -43,7 +44,7 @@ void InputSystem::poll() {
         case  SDL_EVENT_GAMEPAD_BUTTON_UP: {
             int id = event.gdevice.which;
             auto it = std::find_if(activeControllers.begin(), activeControllers.end(),
-                [id](const Controller*& controller) {
+                [id](const Controller* controller) {
                     return controller->id == id;
                 }
             );
@@ -56,7 +57,7 @@ void InputSystem::poll() {
         case  SDL_EVENT_GAMEPAD_AXIS_MOTION: {
             int id = event.gdevice.which;
             auto it = std::find_if(activeControllers.begin(), activeControllers.end(),
-                [id](const Controller*& controller) {
+                [id](const Controller* controller) {
                     return controller->id == id;
                 }
             );
@@ -100,8 +101,7 @@ void InputSystem::poll() {
     }
 }
 
-template<>
-Controller* InputSystem::addController(SDL_Event event) {
+Controller* sdl::SdlInputSystem::addController(SDL_Event event) {
     int controllerId = event.gdevice.which;
     LOG_ENGINE_INFO("InputSystem: ", (std::string("Controller") + std::to_string(controllerId)).c_str());
     for (Controller* controller : activeControllers) {
@@ -114,8 +114,7 @@ Controller* InputSystem::addController(SDL_Event event) {
     return new Controller(controllerId, controller);
 }
 
-template<>
-void InputSystem::removeController(SDL_Event event) {
+void sdl::SdlInputSystem::removeController(SDL_Event event) {
     int controllerId = event.gdevice.which;
     LOG_ENGINE_INFO("InputSystem: ", (std::string("Controller") + std::to_string(controllerId)).c_str());
     for (int i = 0; i < activeControllers.size(); i++) {
@@ -129,8 +128,7 @@ void InputSystem::removeController(SDL_Event event) {
     return;
 }
 
-template<>
-void InputSystem::removeController(int index) {
+void sdl::SdlInputSystem::removeController(int index) {
     if (index < 0 || index >= activeControllers.size()) {
         LOG_ENGINE_WARN("InputSystem: ", (std::string("Controller ") + std::to_string(index) + std::string(" does not exist")).c_str());
         return;
@@ -140,4 +138,3 @@ void InputSystem::removeController(int index) {
     activeControllers.erase(activeControllers.begin() + index);
     return;
 }
-

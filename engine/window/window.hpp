@@ -17,13 +17,13 @@ namespace window {
      * @see objects::Window
      */
     template <typename... Args>
-    static objects::Window *createWindow(Args...);
+    static objects::Window* createWindow(Args...);
 }; // namespace window
 
 #ifdef SDL_USED
 #include <SDL3/SDL.h>
 template <typename... Args>
-inline static objects::Window *
+inline static objects::Window*
 window::createWindow(Args... args) {
     return sdl::createWindow(args...);
 }

@@ -158,8 +158,8 @@ namespace logger {
         const char* error) {
         size_t len = strlen(prefix) + strlen(error);
         char* fullError = new char[len];
-        strcpy_s(fullError, sizeof(fullError), prefix);
-        strcat_s(fullError, sizeof(fullError), error);
+        strcpy_s(fullError, sizeof(fullError) * len, prefix);
+        strcat_s(fullError, sizeof(fullError) * len, error);
         return fullError;
     }
 

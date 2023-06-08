@@ -1,5 +1,5 @@
 #pragma once
-#include "renderer_object.h"
+#include <renderer_object.h>
 namespace render {
     /**
      * @brief Create a Renderer object, to hook on a
@@ -14,7 +14,7 @@ namespace render {
      * @see objects::Renderer
      */
     template <typename... Args>
-    static objects::Renderer *CreateRenderer(Args...);
+    static objects::Renderer* CreateRenderer(Args...);
 
     /**
      * @brief Set a default draw color.
@@ -49,7 +49,7 @@ namespace render {
 #include "sdl_renderer.h"
 
 template <typename... Args>
-inline static objects::Renderer *
+inline static objects::Renderer*
 render::CreateRenderer(Args... args) {
     return sdl::CreateRenderer(args...);
 }

@@ -3,7 +3,7 @@
 #include <iostream>
 #include <map>
 #include <unordered_map>
-namespace try1 {
+namespace utils {
     class EventEmitter {
     public:
         EventEmitter() = default;
@@ -121,7 +121,7 @@ namespace try1 {
     void EventEmitter::EmitEvent(int event, Args... args) {
         if (this->listeners.end() ==
             this->listeners.find(event)) {
-            throw std::runtime_error("invalid event");
+            return;
         }
         std::vector<uint32_t> keysToDelete;
         for (const auto& pair : this->listeners[event]) {
@@ -144,5 +144,4 @@ namespace try1 {
     void EventEmitter::Emit(int event, Args... args) {
         this->EmitEvent(event, args...);
     }
-
-} // namespace try1
+}

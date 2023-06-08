@@ -7,8 +7,7 @@ namespace initialization {
 }; // namespace initialization
 
 #ifdef SDL_USED
-#include "sdl_initialization.h"
-#include <SDL3/SDL.h>
+#include "sdl_initialization.h" 
 template <typename... Args>
 inline bool initialization::init(Args... args) {
     ("SDL Initialization");
