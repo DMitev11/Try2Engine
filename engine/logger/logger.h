@@ -3,7 +3,7 @@
 #include <vector>
 namespace logger {
 
-    static const char *const kDefaultPattern =
+    static const char* const kDefaultPattern =
         "[logger: %n] [level: %l] [ts: %c] [msg: %v] "
         "[caller: %g:%#]";
 
@@ -49,12 +49,12 @@ namespace logger {
      * urgent program breaking errors
      */
     void createConsoleLogger(std::string name,
-                             ConsoleLoggerTypes loggerType);
+        ConsoleLoggerTypes loggerType);
 
     template <typename... Args>
     void createFileLogger(std::string name,
-                          FileLoggerTypes loggerType,
-                          Args... args);
+        FileLoggerTypes loggerType,
+        Args... args);
 
     /**
      * @brief Create a sink, to which a logger can emit
@@ -80,73 +80,73 @@ namespace logger {
     void createConsoleSink(
         std::string loggerName,
         ConsoleLoggerTypes sinkType =
-            ConsoleLoggerTypes::kConsole,
+        ConsoleLoggerTypes::kConsole,
         LogLevel logLevel = LogLevel::kTrace,
         std::string pattern = kDefaultPattern);
 
     template <typename... Args>
     void
-    createFileSink(std::string loggerName, Args... args,
-                   FileLoggerTypes sinkType =
-                       FileLoggerTypes::kBasicFile,
-                   LogLevel logLevel = LogLevel::kTrace,
-                   std::string pattern = kDefaultPattern);
+        createFileSink(std::string loggerName, Args... args,
+            FileLoggerTypes sinkType =
+            FileLoggerTypes::kBasicFile,
+            LogLevel logLevel = LogLevel::kTrace,
+            std::string pattern = kDefaultPattern);
 
     void setLoggerPattern(std::string loggerName,
-                          std::string pattern);
+        std::string pattern);
 
     void setLoggerLevel(std::string loggerName,
-                        LogLevel logLevel);
+        LogLevel logLevel);
 
-    void log(char *const filename, int fileLine,
-             std::string loggerName, LogLevel logLevel,
-             char const *msg);
+    void log(char* const filename, int fileLine,
+        std::string loggerName, LogLevel logLevel,
+        char const* msg);
 
     bool loggerExists(std::string loggerName);
 
     class StaticLogger {
-      private:
-        explicit StaticLogger(char *const name)
-            : name(name){};
+    private:
+        explicit StaticLogger(char* const name)
+            : name(name) {};
         ~StaticLogger() = default;
-        char *const name;
+        char* const name;
 
-      public:
-        static StaticLogger *getClientLogger() {
+    public:
+        static StaticLogger* getClientLogger() {
             if (!logger::loggerExists("Client")) {
                 logger::createConsoleLogger(
                     "Client", ConsoleLoggerTypes::kConsole);
                 logger::setLoggerPattern("Client",
-                                         kDefaultPattern);
+                    kDefaultPattern);
             }
 
             static StaticLogger clientLogger("Client");
             return &clientLogger;
         }
-        static StaticLogger *getEngineLogger() {
+        static StaticLogger* getEngineLogger() {
             if (!logger::loggerExists("Engine")) {
                 logger::createConsoleLogger(
                     "Engine", ConsoleLoggerTypes::kConsole);
                 logger::setLoggerPattern("Engine",
-                                         kDefaultPattern);
+                    kDefaultPattern);
             }
 
             static StaticLogger engineLogger("Engine");
             return &engineLogger;
         }
         inline static void
-        engineLog(char *const filename, int line,
-                  logger::LogLevel logLevel,
-                  char *const msg) {
+            engineLog(char* const filename, int line,
+                logger::LogLevel logLevel,
+                char* const msg) {
             logger::log(
                 filename, line,
                 StaticLogger::getEngineLogger()->name,
                 logLevel, msg);
         }
         inline static void
-        clientLog(char *const filename, int line,
-                  logger::LogLevel logLevel,
-                  char *const msg) {
+            clientLog(char* const filename, int line,
+                logger::LogLevel logLevel,
+                char* const msg) {
             logger::log(
                 filename, line,
                 StaticLogger::getEngineLogger()->name,
@@ -154,25 +154,36 @@ namespace logger {
         }
     };
 
-    inline char *concatError(const char *prefix,
-                             const char *error) {
+    inline char* concatError(const char* prefix,
+        const char* error) {
         size_t len = strlen(prefix) + strlen(error);
-        char *fullError = new char[len];
-        strcpy(fullError, prefix);
-        strcat(fullError, error);
+        char* fullError = new char[len];
+        strcpy_s(fullError, sizeof(fullError) * len, prefix);
+        strcat_s(fullError, sizeof(fullError) * len, error);
         return fullError;
     }
 
+    /**
+     * @brief Log engine dedicated messages.
+     *
+     * @note Use LOG_CLIENT_<TYPE> (ex. LOG_CLIENT_INFO)
+     *
+     * @param filename __FILE__
+     */
 #define LOG_ENGINE(filename, line, logLevel, prefix,       \
                    error)                                  \
     logger::StaticLogger::engineLog(                       \
-        filename, line, logLevel,                          \
+        __FILE__, __LINE__, logLevel,                      \
         logger::concatError(prefix, error))
 
+     /**
+      * @brief Log client dedicated messages.
+      *
+      */
 #define LOG_CLIENT(filename, line, logLevel, prefix,       \
                    error)                                  \
     logger::StaticLogger::clientLog(                       \
-        filename, line, logLevel,                          \
+        __FILE__, __LINE__, logLevel,                      \
         logger::concatError(prefix, error))
 
 #define LOG_ENGINE_ERROR(prefix, error)                    \

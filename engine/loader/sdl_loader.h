@@ -1,7 +1,6 @@
 #pragma once
-
-#include "renderer_object.h"
-#include "texture_object.h"
+#include <renderer_object.h>
+#include <texture_object.h>
 #include <SDL3/SDL.h>
 namespace loader
 {
@@ -17,7 +16,7 @@ namespace loader
             };
             ColorKey colorKey;
         };
-        extern objects::Texture *
-        LoadTexture(objects::Renderer *renderer, const char *path, LoadingTextureConfig config = LoadingTextureConfig());
+        extern objects::Texture*
+            loadTexture(objects::Renderer* renderer, const char* path, LoadingTextureConfig config = LoadingTextureConfig());
     }; // namespace sdl
 } // namespace loader

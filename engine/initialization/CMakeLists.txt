@@ -24,6 +24,8 @@ if(DEFINED WITH_SDL AND WITH_SDL)
 endif()
 
 add_library(initialization ${HEADER_FILES} ${SOURCE_FILES})
+target_link_libraries(initialization INTERFACE logger)
+target_include_directories(initialization PUBLIC ${ENGINE_ROOT})
 
 if(DEFINED WITH_SDL AND WITH_SDL)
     target_compile_definitions(initialization PUBLIC SDL_USED)

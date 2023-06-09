@@ -1,21 +1,16 @@
 #pragma once
 #include <iostream>
 #include <unordered_map>
-namespace initialization
-{
+namespace initialization {
     template <typename... Args>
-    static bool
-    Init(Args... args);
+    static bool init(Args... args);
 }; // namespace initialization
 
 #ifdef SDL_USED
-#include "sdl_initialization.h"
-#include <SDL3/SDL.h>
+#include "sdl_initialization.h" 
 template <typename... Args>
-inline bool
-initialization::Init(Args... args)
-{
-    printf("SDL Initialization");
-    return sdl::Init(args...);
+inline bool initialization::init(Args... args) {
+    ("SDL Initialization");
+    return sdl::init(args...);
 }
 #endif
