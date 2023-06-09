@@ -154,14 +154,13 @@ namespace logger {
         }
     };
 
-    inline char *concatError(const char *prefix,
-                             const char *error) {
-        size_t len =
-            std::strlen(prefix) + std::strlen(error);
-        char *fullError = new char[len + 1];
-        strcpy_s(fullError, len + 1, prefix);
-        strcat_s(fullError, len + 1, error);
-        return fullError;
+    inline char *concatMessage(const char *prefix,
+                               const char *msg) {
+        size_t len = std::strlen(prefix) + std::strlen(msg);
+        char *fullMessage = new char[len + 1];
+        strcpy_s(fullMessage, len + 1, prefix);
+        strcat_s(fullMessage, len + 1, msg);
+        return fullMessage;
     }
 
     /**
@@ -175,7 +174,7 @@ namespace logger {
                    error)                                  \
     logger::StaticLogger::engineLog(                       \
         __FILE__, __LINE__, logLevel,                      \
-        logger::concatError(prefix, error))
+        logger::concatMessage(prefix, error))
 
     /**
      * @brief Log client dedicated messages.
@@ -185,7 +184,7 @@ namespace logger {
                    error)                                  \
     logger::StaticLogger::clientLog(                       \
         __FILE__, __LINE__, logLevel,                      \
-        logger::concatError(prefix, error))
+        logger::concatMessage(prefix, error))
 
 #define LOG_ENGINE_ERROR(prefix, error)                    \
     LOG_ENGINE(__FILE__, __LINE__, logger::LogLevel::kErr, \
