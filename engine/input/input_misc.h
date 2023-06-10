@@ -10,30 +10,43 @@ namespace input {
         kEventMousePointer,
         kEventMouseDown,
         kEventMouseUp,
-        kEventGamepadDown
+        kEventGamepadDown,
+        kEventGamepadCreated
     };
     struct Controller {
-        inline Controller(int id, void* input)
+        inline Controller(int id, void *input)
             : id(id), input(input) {}
         utils::EventEmitter eventEmitter;
         const int id;
-        void* input;
+        void *input;
     };
 
     class InputSystem {
-    public:
+      public:
         ~InputSystem() = default;
         InputSystem() = default;
-        virtual void init() {
-            //override me
+        virtual void init(){
+            // override me
         };
-        virtual void poll() {
-            //override me
+        virtual void poll(){
+            // override me
         };
 
-    protected:
+        utils::EventEmitter *const getEmitter() {
+            return &this->eventEmitter;
+        };
+        Controller *const getController(int id) {
+            for (auto controller :
+                 this->activeControllers) {
+                if (controller->id == id)
+                    return controller;
+            }
+            return nullptr;
+        };
+
+      protected:
         utils::EventEmitter eventEmitter;
-        std::vector<Controller*> activeControllers;
+        std::vector<Controller *> activeControllers;
     };
 
-}
+} // namespace input
