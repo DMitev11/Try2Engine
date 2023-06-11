@@ -105,6 +105,10 @@ void sdl::SdlInputSystem::poll() {
                                 event.button);
         break;
     }
+    case SDL_EVENT_QUIT: {
+        this->eventEmitter.Emit(InputEvents::kEventQuit, 0);
+        break;
+    }
     }
 }
 

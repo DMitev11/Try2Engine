@@ -11,7 +11,8 @@ namespace input {
         kEventMouseDown,
         kEventMouseUp,
         kEventGamepadDown,
-        kEventGamepadCreated
+        kEventGamepadCreated,
+        kEventQuit
     };
     struct Controller {
         inline Controller(int id, void *input)
