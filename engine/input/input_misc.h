@@ -31,6 +31,12 @@ namespace input {
         virtual void poll(){
             // override me
         };
+        virtual void terminate(){
+            // override me
+        };
+        virtual void shutdown(){
+            // override me
+        };
 
         utils::EventEmitter *const getEmitter() {
             return &this->eventEmitter;

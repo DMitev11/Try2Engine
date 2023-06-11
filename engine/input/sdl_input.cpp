@@ -176,3 +176,11 @@ void sdl::SdlInputSystem::removeController(int index) {
                             index);
     return;
 }
+
+void sdl::SdlInputSystem::terminate() {}
+void sdl::SdlInputSystem::shutdown() {
+    if (SDL_WasInit(SDL_INIT_GAMEPAD) == SDL_INIT_GAMEPAD) {
+        SDL_QuitSubSystem(SDL_INIT_GAMEPAD);
+    }
+    return;
+}

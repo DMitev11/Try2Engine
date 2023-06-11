@@ -1,6 +1,8 @@
 #pragma once
 #include <renderer_object.h>
 namespace render {
+
+    template <typename... Args> static bool init(Args...);
     /**
      * @brief Create a Renderer object, to hook on a
      * pre-initialized window Display images, objects,
@@ -14,7 +16,7 @@ namespace render {
      * @see objects::Renderer
      */
     template <typename... Args>
-    static objects::Renderer* CreateRenderer(Args...);
+    static objects::Renderer *CreateRenderer(Args...);
 
     /**
      * @brief Set a default draw color.
@@ -44,12 +46,22 @@ namespace render {
     template <typename... Args>
     static void RenderFrame(Args...);
 
+    template <typename... Args>
+    static void terminate(Args...);
+
+    template <typename... Args>
+    static void shutdown(Args...);
+
 } // namespace render
 #ifdef SDL_USED
 #include "sdl_renderer.h"
 
 template <typename... Args>
-inline static objects::Renderer*
+inline static bool render::init(Args... args) {
+    return sdl::init(args...);
+}
+template <typename... Args>
+inline static objects::Renderer *
 render::CreateRenderer(Args... args) {
     return sdl::CreateRenderer(args...);
 }
@@ -73,4 +85,12 @@ inline static void render::RenderFrame(Args... args) {
     return sdl::RenderFrame(args...);
 }
 
+template <typename... Args>
+inline static void render::terminate(Args...) {
+    return sdl::terminate(args...);
+}
+template <typename... Args>
+inline static void render::shutdown(Args... args) {
+    return sdl::shutdown(args...);
+}
 #endif

@@ -6,12 +6,22 @@ project(Try1 LANGUAGES CXX)
 set(HEADER_FILES
 )
 set(SOURCE_FILES
-    main.cpp )
+    main.cpp)
 add_executable(try1 ${SOURCE_FILES})
 
 target_compile_features(try1 PUBLIC cxx_std_17)
-target_link_libraries(try1 PUBLIC window initialization render loader logger input)
+target_link_libraries(try1 PUBLIC window render loader logger input)
 target_include_directories(try1 PUBLIC ${ENGINE_ROOT} ${CMAKE_CURRENT_SOURCE_DIR}/)
+
+if(DEFINED WITH_SDL AND WITH_SDL)
+    target_compile_definitions(try1 PUBLIC SDL_USED)
+    find_package(SDL3 REQUIRED)
+    find_package(SDL3_image REQUIRED)
+
+    target_include_directories(try1 PUBLIC ${SDL3_INCLUDE_DIRS} ${SDLIMAGE_INCLUDE_DIR})
+    target_link_libraries(try1 PUBLIC ${SDL3_LIBRARIES} SDL3_image::SDL3_image)
+endif()
+
 message(STATUS "Engine Folder: ${CMAKE_SOURCE_DIR}/engine")
 message(STATUS "Source Folder: ${PROJECT_SOURCE_DIR} ")
 set_target_properties(try1 PROPERTIES
