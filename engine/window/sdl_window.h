@@ -23,7 +23,7 @@ namespace window {
         createWindow(int height, int width,
                      const char *title,
                      std::vector<uint32_t> flags = {
-                         SDL_WINDOW_BORDERLESS,
+                         SDL_WINDOW_RESIZABLE,
                          SDL_WINDOW_INPUT_FOCUS});
 
         extern void terminate(objects::Window *window);
