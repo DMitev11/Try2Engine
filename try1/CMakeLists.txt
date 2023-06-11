@@ -4,13 +4,15 @@ cmake_minimum_required(VERSION 3.12)
 project(Try1 LANGUAGES CXX)
 
 set(HEADER_FILES
+    inc/Try1.h
 )
 set(SOURCE_FILES
-    main.cpp)
+    main.cpp
+    src/Try1.cpp)
 add_executable(try1 ${SOURCE_FILES})
 
 target_compile_features(try1 PUBLIC cxx_std_17)
-target_link_libraries(try1 PUBLIC window render loader logger input)
+target_link_libraries(try1 PUBLIC utils window render loader logger input)
 target_include_directories(try1 PUBLIC ${ENGINE_ROOT} ${CMAKE_CURRENT_SOURCE_DIR}/)
 
 if(DEFINED WITH_SDL AND WITH_SDL)
