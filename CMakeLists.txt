@@ -29,3 +29,4 @@ add_subdirectory("./engine")
 
 # add_subdirectory("./application")
 add_subdirectory("./try1")
+add_subdirectory("./entry")

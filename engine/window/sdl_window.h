@@ -2,9 +2,9 @@
 #include <vector>
 
 #include <SDL3/SDL.h>
-#include <sdl_window_object.h>
+#include <objects/sdl_window_object.h>
+#include <objects/window_object.h>
 #include <unordered_map>
-#include <window_object.h>
 namespace window {
     namespace sdl {
 

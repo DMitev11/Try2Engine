@@ -2,8 +2,8 @@
 
 #include <vector>
 
-#include "object.h"
 #include "sdl_window.h"
+#include <objects/object.h>
 namespace window {
     template <typename... Args>
     inline static bool init(Args...);
