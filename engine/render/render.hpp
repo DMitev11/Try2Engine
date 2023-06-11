@@ -86,7 +86,7 @@ inline static void render::RenderFrame(Args... args) {
 }
 
 template <typename... Args>
-inline static void render::terminate(Args...) {
+inline static void render::terminate(Args... args) {
     return sdl::terminate(args...);
 }
 template <typename... Args>
