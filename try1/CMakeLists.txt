@@ -12,8 +12,8 @@ set(SOURCE_FILES
 add_executable(try1 ${SOURCE_FILES})
 
 target_compile_features(try1 PUBLIC cxx_std_17)
-target_link_libraries(try1 PUBLIC utils window render loader logger input)
-target_include_directories(try1 PUBLIC ${ENGINE_ROOT} ${CMAKE_CURRENT_SOURCE_DIR}/)
+target_link_libraries(try1 PUBLIC imgui utils window render loader logger input gui)
+target_include_directories(try1 PUBLIC ${IMGUI_DIR} ${ENGINE_ROOT} ${CMAKE_CURRENT_SOURCE_DIR}/)
 
 if(DEFINED WITH_SDL AND WITH_SDL)
     target_compile_definitions(try1 PUBLIC SDL_USED)
@@ -22,6 +22,12 @@ if(DEFINED WITH_SDL AND WITH_SDL)
 
     target_include_directories(try1 PUBLIC ${SDL3_INCLUDE_DIRS} ${SDLIMAGE_INCLUDE_DIR})
     target_link_libraries(try1 PUBLIC ${SDL3_LIBRARIES} SDL3_image::SDL3_image)
+endif()
+
+if(DEFINED WITH_IMGUI AND WITH_IMGUI)
+    target_compile_definitions(try1 PUBLIC IMGUI_USED)
+    target_link_libraries(try1 PUBLIC imgui)
+    target_include_directories(try1 PUBLIC ${IMGUI_DIR})
 endif()
 
 message(STATUS "Engine Folder: ${CMAKE_SOURCE_DIR}/engine")

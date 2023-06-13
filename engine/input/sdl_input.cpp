@@ -3,6 +3,9 @@
 #include <cstdlib>
 #include <logger/logger.h>
 #include <string>
+#ifdef IMGUI_USED
+#include <libraries/imgui/backends/imgui_impl_sdl3.h>
+#endif
 using namespace input;
 
 void sdl::SdlInputSystem::init() {
@@ -16,6 +19,9 @@ void sdl::SdlInputSystem::init() {
 void sdl::SdlInputSystem::poll() {
     SDL_Event event;
     SDL_PollEvent(&event);
+#ifdef IMGUI_USED
+    ImGui_ImplSDL3_ProcessEvent(&event);
+#endif
     switch (event.type) {
         // Critical error detected c0000374
 
