@@ -1,8 +1,7 @@
 build/
-engine/libraries
+engine/libraries/*
+!engine/libraries/CMakeLists.txt
 */build/
 */install/
 
 .vscode/settings.json
-
-
