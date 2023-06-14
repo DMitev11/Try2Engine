@@ -21,7 +21,7 @@ if(CMAKE_HOST_SYSTEM_NAME STREQUAL "Windows")
 elseif()
 endif()
 
-message(STATUS ${CMAKE_HOST_SYSTEM_NAME})
+include(modules_config.cmake)
 set(SPDLOG_INCLUDE_DIRS "${ENGINE_ROOT}/libraries/spdlog/include")
 
 # # Add source to this project's executable.

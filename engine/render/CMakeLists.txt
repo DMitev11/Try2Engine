@@ -24,9 +24,6 @@ target_link_libraries(render INTERFACE logger)
 if(DEFINED WITH_SDL AND WITH_SDL)
     target_compile_definitions(render PUBLIC SDL_USED)
     target_include_directories(render PUBLIC ${SDL3_INCLUDE_DIRS} ${SDLIMAGE_INCLUDE_DIR})
-
-    find_package(SDL3 REQUIRED)
-    find_package(SDL3_image REQUIRED)
     target_link_libraries(render PUBLIC ${SDL3_LIBRARIES} SDL3_image::SDL3_image)
 endif()
 

@@ -25,7 +25,6 @@ target_link_libraries(window INTERFACE logger)
 if(DEFINED WITH_SDL AND WITH_SDL)
     target_compile_definitions(window PUBLIC SDL_USED)
     target_include_directories(window PUBLIC {SDL3_INCLUDE_DIRS})
-    find_package(SDL3 REQUIRED)
     target_link_libraries(window PUBLIC ${SDL3_LIBRARIES})
 endif()
 

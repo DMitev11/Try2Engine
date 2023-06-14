@@ -29,8 +29,6 @@ set_target_properties(input PROPERTIES
 if(DEFINED WITH_SDL AND WITH_SDL)
     target_compile_definitions(input PUBLIC SDL_USED)
     target_include_directories(input PUBLIC ${SDL3_INCLUDE_DIRS})
-
-    find_package(SDL3 REQUIRED)
     target_link_libraries(input PUBLIC ${SDL3_LIBRARIES})
 endif()
 
