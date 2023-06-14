@@ -24,7 +24,7 @@ target_link_libraries(window INTERFACE logger)
 
 if(DEFINED WITH_SDL AND WITH_SDL)
     target_compile_definitions(window PUBLIC USE_SDL)
-    target_include_directories(window PUBLIC {SDL3_INCLUDE_DIRS})
+    target_include_directories(window PUBLIC ${SDL3_INCLUDE_DIRS})
     target_link_libraries(window PUBLIC ${SDL3_LIBRARIES})
 endif()
 

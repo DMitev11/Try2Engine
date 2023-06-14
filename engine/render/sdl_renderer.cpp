@@ -10,11 +10,9 @@ using namespace render;
 
 bool initialize(std::vector<uint32_t> initFlags) {
     uint32_t flags = 0;
-    for each (uint32_t flag in initFlags) {
-        // Initialize the flag if necessary
-        auto res = SDL_WasInit(flag);
-        if (flag != SDL_WasInit(flag)) {
-            flags = flags | flag;
+    for (int i = 0; i < initFlags.size(); i++) {
+        if (initFlags[i] != SDL_WasInit(initFlags[i])) {
+            flags = flags | initFlags[i];
         }
     }
     // Initialize SDL
@@ -35,8 +33,8 @@ bool sdl::init(std::vector<uint32_t> initFlags) {
 #else
 bool initializeImg(std::vector<uint32_t> imageInitFlags) {
     int imgFlags = 0;
-    for each (int flag in imageInitFlags) {
-        imgFlags = flag | imgFlags;
+    for (int i = 0; i < imageInitFlags.size(); i++) {
+        imgFlags |= imageInitFlags[i];
     }
     if (!(IMG_Init(imgFlags) & imgFlags)) {
         LOG_ENGINE_ERROR(
@@ -67,8 +65,8 @@ sdl::CreateRenderer(SDL_Window *window,
                     const char *driverName,
                     std::vector<uint32_t> initFlags) {
     uint32_t flags = 0;
-    for each (uint32_t flag in initFlags) {
-        flags = flags | flag;
+    for (int i = 0; i < initFlags.size(); i++) {
+        flags |= initFlags[i];
     }
     SDL_Renderer *renderer = SDL_CreateRenderer(
         window, SDL_GetHint(SDL_HINT_RENDER_DRIVER), flags);
@@ -150,10 +148,10 @@ void sdl::terminate(SDL_Renderer *renderer) {
 }
 void sdl::shutdown(std::vector<uint32_t> initFlags) {
     uint32_t flags = 0;
-    for each (uint32_t flag in initFlags) {
+    for (int i = 0; i < initFlags.size(); i++) {
         // Initialize the flag if necessary
-        if (flag == SDL_WasInit(flag)) {
-            flags = flags | flag;
+        if (initFlags[i] == SDL_WasInit(initFlags[i])) {
+            flags |= initFlags[i];
         }
     }
     SDL_QuitSubSystem(flags);

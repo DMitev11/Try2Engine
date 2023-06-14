@@ -1,5 +1,7 @@
 #pragma once
+#include <cstring>
 #include <iostream>
+#include <stdio.h>
 #include <vector>
 namespace logger {
 
@@ -158,8 +160,8 @@ namespace logger {
                                const char *msg) {
         size_t len = std::strlen(prefix) + std::strlen(msg);
         char *fullMessage = new char[len + 1];
-        strcpy_s(fullMessage, len + 1, prefix);
-        strcat_s(fullMessage, len + 1, msg);
+        strcpy(fullMessage, prefix);
+        strcat(fullMessage, msg);
         return fullMessage;
     }
 

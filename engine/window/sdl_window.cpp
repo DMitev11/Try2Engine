@@ -10,10 +10,10 @@ bool sdl::init(
     std::unordered_map<const char *, const char *>
         initHints) {
     uint32_t flags = 0;
-    for each (uint32_t flag in initFlags) {
+    for (int i = 0; i < initFlags.size(); i++) {
         // Initialize the flag if necessary
-        if (flag != SDL_WasInit(flag)) {
-            flags = flags | flag;
+        if (initFlags[i] != SDL_WasInit(initFlags[i])) {
+            flags = flags | initFlags[i];
         }
     }
     // Initialize SDL
@@ -52,8 +52,8 @@ sdl::createWindow(int height, int width, const char *title,
                   std::vector<uint32_t> flags) {
     // Combine all flags
     uint32_t flagsOr = 0;
-    for each (uint32_t flag in flags) {
-        flagsOr = flagsOr | flag;
+    for (int i = 0; i < flags.size(); i++) {
+        flagsOr = flagsOr | flags[i];
     }
     // Create window
     SDL_Window *window =
@@ -85,10 +85,10 @@ void sdl::terminate(SDL_Window *window) {
 
 void sdl::shutdown(std::vector<uint32_t> initFlags) {
     uint32_t flags = 0;
-    for each (uint32_t flag in initFlags) {
+    for (int i = 0; i < initFlags.size(); i++) {
         // Initialize the flag if necessary
-        if (flag == SDL_WasInit(flag)) {
-            flags = flags | flag;
+        if (initFlags[i] == SDL_WasInit(initFlags[i])) {
+            flags = flags | initFlags[i];
         }
     }
     SDL_QuitSubSystem(flags);
