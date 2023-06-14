@@ -28,11 +28,10 @@ set_target_properties(input PROPERTIES
 
 if(DEFINED WITH_SDL AND WITH_SDL)
     target_compile_definitions(input PUBLIC SDL_USED)
-    target_include_directories(input PUBLIC ${SDL3_INCLUDE_DIRS} ${SDLIMAGE_INCLUDE_DIR})
+    target_include_directories(input PUBLIC ${SDL3_INCLUDE_DIRS})
 
     find_package(SDL3 REQUIRED)
-    find_package(SDL3_image REQUIRED)
-    target_link_libraries(input PUBLIC ${SDL3_LIBRARIES} SDL3_image::SDL3_image)
+    target_link_libraries(input PUBLIC ${SDL3_LIBRARIES})
 endif()
 
 if(DEFINED WITH_IMGUI AND WITH_IMGUI)
