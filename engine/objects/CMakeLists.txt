@@ -23,13 +23,6 @@ endif()
 
 add_library(objects STATIC ${HEADER_FILES})
 
-if(DEFINED WITH_SDL AND WITH_SDL)
-    target_compile_definitions(objects PUBLIC SDL_USED)
-    find_package(SDL3 REQUIRED)
-    target_include_directories(objects PUBLIC ${SDL3_INCLUDE_DIRS})
-    target_link_libraries(objects PUBLIC ${SDL3_LIBRARIES})
-endif()
-
 set_target_properties(objects PROPERTIES
     LINKER_LANGUAGE CXX
     RUNTIME_OUTPUT_DIRECTORY_DEBUG ${CMAKE_SOURCE_DIR}/build/debug
