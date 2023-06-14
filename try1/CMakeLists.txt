@@ -27,6 +27,7 @@ set_target_properties(try1 PROPERTIES
 get_target_property(runtime_folder try1 RUNTIME_OUTPUT_DIRECTORY_DEBUG)
 
 if(DEFINED WITH_SDL AND WITH_SDL)
+    if(NOT CMAKE_HOST_SYSTEM_NAME STREQUAL "Linux")
     add_custom_command(
         TARGET try1 POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_directory ${SDL3_BIN}/ ${runtime_folder}/
@@ -36,6 +37,7 @@ if(DEFINED WITH_SDL AND WITH_SDL)
         TARGET try1 POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_directory ${SDL3_image_BIN}/ ${runtime_folder}/
         COMMENT "Copy SDL3_image dynamic binaries")
+    endif()
 endif()
 
 add_custom_command(

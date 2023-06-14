@@ -1,4 +1,5 @@
 #include "gui_layer.h"
+#include <algorithm>
 #include <libraries/imgui/backends/imgui_impl_sdl3.h>
 #include <libraries/imgui/backends/imgui_impl_sdlrenderer3.h>
 #include <libraries/imgui/imgui.h>
@@ -53,6 +54,7 @@ gui::GuiLayer::addWidget(gui::GuiWidget *widget) {
 }
 //@todo replace with id
 void gui::GuiLayer::removeWidget(const char *name) {
+
     this->widgets.erase(std::remove_if(
         this->widgets.begin(), this->widgets.end(),
         [=](gui::GuiWidget *widget) {
