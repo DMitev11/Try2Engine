@@ -1,1 +1,1 @@
-cmake -S . -B ./build -DWITH_SDL=TRUE
+cmake -S . -B ./build -DWITH_SDL=TRUE -DWITH_IMGUI=TRUE -DWITH_STB=TRUE
