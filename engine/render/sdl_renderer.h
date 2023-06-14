@@ -1,21 +1,29 @@
 #pragma once
 
-#include <SDL3/SDL_render.h>
-#include <SDL_image.h>
+#include <SDL3/SDL.h>
 #include <renderer_object.h>
 #include <texture_object.h>
 #include <vector>
 #include <window_object.h>
+
+#ifdef USE_SDL_IMAGE
+#include <SDL_image.h>
+#endif
 namespace render {
     namespace sdl {
         const std::vector<uint32_t> kDefaultInitFlags = {
             SDL_INIT_VIDEO};
+
+#ifdef USE_SDL_IMAGE
         extern bool
         init(std::vector<uint32_t> initFlags =
                  kDefaultInitFlags,
              std::vector<uint32_t> imageInitFlags = {
                  IMG_INIT_JPG, IMG_INIT_PNG});
-
+#else
+        extern bool init(std::vector<uint32_t> initFlags =
+                             kDefaultInitFlags);
+#endif
         extern objects::Renderer *
         CreateRenderer(objects::Window *window,
                        const char *driverName = 0,

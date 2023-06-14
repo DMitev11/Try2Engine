@@ -1,6 +1,12 @@
 if(DEFINED WITH_SDL AND WITH_SDL)
     find_package(SDL3 REQUIRED)
-    find_package(SDL3_image REQUIRED)
+
+    if(DEFINED WITH_SDL_IMAGE AND WITH_SDL_IMAGE)
+        find_package(SDL3_image REQUIRED)
+    elseif(NOT WITH_SDL_IMAGE AND NOT WITH_STB)
+        MESSAGE(FATAL_ERROR "Define -DWITH_SDL_IMAGE or -DWITH_STB (-DWITH_STB for linux)")
+    else()
+    endif()
 endif()
 
 set(IMGUI_DIR
@@ -24,7 +30,7 @@ add_library(imgui STATIC ${IMGUI_SOURCE})
 target_include_directories(imgui PUBLIC ${IMGUI_DIR}/)
 
 if(DEFINED WITH_SDL AND WITH_SDL)
-    target_compile_definitions(imgui PUBLIC SDL_USED)
+    target_compile_definitions(imgui PUBLIC USE_SDL)
     target_include_directories(imgui PUBLIC ${SDL3_INCLUDE_DIRS})
     target_link_libraries(imgui PUBLIC ${SDL3_LIBRARIES})
 endif()

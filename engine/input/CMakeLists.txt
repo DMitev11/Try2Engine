@@ -27,7 +27,7 @@ set_target_properties(input PROPERTIES
 )
 
 if(DEFINED WITH_SDL AND WITH_SDL)
-    target_compile_definitions(input PUBLIC SDL_USED)
+    target_compile_definitions(input PUBLIC USE_SDL)
     target_include_directories(input PUBLIC ${SDL3_INCLUDE_DIRS})
     target_link_libraries(input PUBLIC ${SDL3_LIBRARIES})
 endif()

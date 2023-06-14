@@ -53,7 +53,7 @@ namespace render {
     static void shutdown(Args...);
 
 } // namespace render
-#ifdef SDL_USED
+#ifdef USE_SDL
 #include "sdl_renderer.h"
 
 template <typename... Args>

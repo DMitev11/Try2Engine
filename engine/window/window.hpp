@@ -28,7 +28,7 @@ namespace window {
     static void shutdown(Args...);
 }; // namespace window
 
-#ifdef SDL_USED
+#ifdef USE_SDL
 #include <SDL3/SDL.h>
 template <typename... Args>
 inline static bool window::init(Args... args) {

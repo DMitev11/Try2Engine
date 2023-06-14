@@ -8,8 +8,7 @@
 #include <vector>
 using namespace render;
 
-bool sdl::init(std::vector<uint32_t> initFlags,
-               std::vector<uint32_t> imageInitFlags) {
+bool initialize(std::vector<uint32_t> initFlags) {
     uint32_t flags = 0;
     for each (uint32_t flag in initFlags) {
         // Initialize the flag if necessary
@@ -26,6 +25,15 @@ bool sdl::init(std::vector<uint32_t> initFlags,
         return false;
     }
 
+    return true;
+}
+
+#ifndef USE_SDL_IMAGE
+bool sdl::init(std::vector<uint32_t> initFlags) {
+    return initialize(initFlags);
+}
+#else
+bool initializeImg(std::vector<uint32_t> imageInitFlags) {
     int imgFlags = 0;
     for each (int flag in imageInitFlags) {
         imgFlags = flag | imgFlags;
@@ -39,6 +47,13 @@ bool sdl::init(std::vector<uint32_t> initFlags,
     }
     return true;
 }
+bool sdl::init(std::vector<uint32_t> initFlags,
+               std::vector<uint32_t> imageInitFlags) {
+    return initialize(initFlags) &&
+           initializeImg(imageInitFlags);
+}
+#endif
+
 objects::Renderer *
 sdl::CreateRenderer(objects::Window *window,
                     const char *driverName,
