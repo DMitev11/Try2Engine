@@ -25,6 +25,6 @@ target_include_directories(imgui PUBLIC ${IMGUI_DIR}/)
 
 if(DEFINED WITH_SDL AND WITH_SDL)
     target_compile_definitions(imgui PUBLIC SDL_USED)
-    target_include_directories(imgui PUBLIC {SDL3_INCLUDE_DIRS} ${SDLIMAGE_INCLUDE_DIR})
+    target_include_directories(imgui PUBLIC ${SDL3_INCLUDE_DIRS})
     target_link_libraries(imgui PUBLIC ${SDL3_LIBRARIES})
 endif()
