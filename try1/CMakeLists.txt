@@ -13,7 +13,7 @@ add_executable(try1 ${SOURCE_FILES})
 
 target_compile_features(try1 PUBLIC cxx_std_17)
 target_link_libraries(try1 PUBLIC imgui utils window render loader logger input gui)
-target_include_directories(try1 PUBLIC ${IMGUI_DIR} ${ENGINE_ROOT} ${CMAKE_CURRENT_SOURCE_DIR}/)
+target_include_directories(try1 PUBLIC ${ENGINE_ROOT} ${CMAKE_CURRENT_SOURCE_DIR}/)
 
 message(STATUS "Engine Folder: ${CMAKE_SOURCE_DIR}/engine")
 message(STATUS "Source Folder: ${PROJECT_SOURCE_DIR} ")
@@ -28,15 +28,25 @@ get_target_property(runtime_folder try1 RUNTIME_OUTPUT_DIRECTORY_DEBUG)
 
 if(DEFINED WITH_SDL AND WITH_SDL)
     if(NOT CMAKE_HOST_SYSTEM_NAME STREQUAL "Linux")
-    add_custom_command(
-        TARGET try1 POST_BUILD
-        COMMAND ${CMAKE_COMMAND} -E copy_directory ${SDL3_BIN}/ ${runtime_folder}/
-        COMMENT "Copy SDL3 dynamic binaries")
+        add_custom_command(
+            TARGET try1 POST_BUILD
+            COMMAND ${CMAKE_COMMAND} -E copy_directory ${SDL3_BIN}/ ${runtime_folder}/
+            COMMENT "Copy SDL3 dynamic binaries")
 
-    add_custom_command(
-        TARGET try1 POST_BUILD
-        COMMAND ${CMAKE_COMMAND} -E copy_directory ${SDL3_image_BIN}/ ${runtime_folder}/
-        COMMENT "Copy SDL3_image dynamic binaries")
+        add_custom_command(
+            TARGET try1 POST_BUILD
+            COMMAND ${CMAKE_COMMAND} -E copy_directory ${SDL3_image_BIN}/ ${runtime_folder}/
+            COMMENT "Copy SDL3_image dynamic binaries")
+    else()
+        add_custom_command(
+            TARGET try1 POST_BUILD
+            COMMAND ${CMAKE_COMMAND} -E copy_directory ${SDL3_BIN}/ ${CMAKE_CURRENT_BINARY_DIR}/
+            COMMENT "Copy SDL3 dynamic binaries")
+
+        add_custom_command(
+            TARGET try1 POST_BUILD
+            COMMAND ${CMAKE_COMMAND} -E copy_directory ${SDL3_image_BIN}/ ${CMAKE_CURRENT_BINARY_DIR}/
+            COMMENT "Copy SDL3_image dynamic binaries")
     endif()
 endif()
 

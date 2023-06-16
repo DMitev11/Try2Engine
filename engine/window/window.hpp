@@ -1,9 +1,7 @@
 #pragma once
 
 #include <vector>
-
-#include "object.h"
-#include "sdl_window.h"
+#include <window_object.h>
 namespace window {
     template <typename... Args>
     inline static bool init(Args...);
@@ -29,6 +27,7 @@ namespace window {
 }; // namespace window
 
 #ifdef USE_SDL
+#include "sdl_window.h"
 #include <SDL3/SDL.h>
 template <typename... Args>
 inline static bool window::init(Args... args) {
