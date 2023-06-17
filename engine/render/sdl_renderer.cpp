@@ -9,10 +9,13 @@
 using namespace render;
 
 bool initialize(std::vector<uint32_t> initFlags) {
+
+    // As of SDL's implementation, each flag should be OR'ed
+    // with the rest into an unsigned 32 bit integer
     uint32_t flags = 0;
     for (int i = 0; i < initFlags.size(); i++) {
         if (initFlags[i] != SDL_WasInit(initFlags[i])) {
-            flags = flags | initFlags[i];
+            flags |= initFlags[i];
         }
     }
     // Initialize SDL
@@ -64,10 +67,17 @@ objects::Renderer *
 sdl::CreateRenderer(SDL_Window *window,
                     const char *driverName,
                     std::vector<uint32_t> initFlags) {
+
+    // As of SDL's implementation, each flag should be OR'ed
+    // with the rest into an unsigned 32 bit integer
     uint32_t flags = 0;
     for (int i = 0; i < initFlags.size(); i++) {
         flags |= initFlags[i];
     }
+
+    /**
+     * @see SDL_hints.h for hints
+     */
     SDL_Renderer *renderer = SDL_CreateRenderer(
         window, SDL_GetHint(SDL_HINT_RENDER_DRIVER), flags);
     if (renderer == NULL) {
@@ -102,6 +112,20 @@ void sdl::RenderAsset(objects::Renderer *renderer,
         y);
 }
 
+void sdl::RenderAsset(SDL_Renderer *renderer,
+                      SDL_Texture *texture, float w,
+                      float h, float x, float y) {
+    SDL_FRect quad = {x, y, w, h};
+    int res =
+        SDL_RenderTexture(renderer, texture, 0, &quad);
+    if (res == -1) {
+        LOG_ENGINE_ERROR(
+            "Could not render texture! SDL Error:",
+            SDL_GetError());
+    }
+    return;
+}
+
 objects::TextureSize
 sdl::GetTextureSize(objects::Texture *texture) {
     return sdl::GetTextureSize(
@@ -116,20 +140,6 @@ sdl::GetTextureSize(SDL_Texture *texture) {
     SDL_QueryTexture(texture, nullptr, nullptr, &width,
                      &height);
     return objects::TextureSize(width, height);
-}
-
-void sdl::RenderAsset(SDL_Renderer *renderer,
-                      SDL_Texture *texture, float w,
-                      float h, float x, float y) {
-    SDL_FRect quad = {x, y, w, h};
-    int res =
-        SDL_RenderTexture(renderer, texture, 0, &quad);
-    if (res == -1) {
-        LOG_ENGINE_ERROR(
-            "Could not render texture! SDL Error:",
-            SDL_GetError());
-    }
-    return;
 }
 
 void sdl::ClearRender(objects::Renderer *renderer) {
@@ -163,6 +173,9 @@ void sdl::terminate(SDL_Renderer *renderer) {
     return;
 }
 void sdl::shutdown(std::vector<uint32_t> initFlags) {
+
+    // As of SDL's implementation, each flag should be OR'ed
+    // with the rest into an unsigned 32 bit integer
     uint32_t flags = 0;
     for (int i = 0; i < initFlags.size(); i++) {
         // Initialize the flag if necessary
