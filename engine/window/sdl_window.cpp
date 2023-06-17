@@ -9,11 +9,14 @@ bool sdl::init(
     std::vector<uint32_t> initFlags,
     std::unordered_map<const char *, const char *>
         initHints) {
+
+    // As of SDL's implementation, each flag should be OR'ed
+    // with the rest into an unsigned 32 bit integer
     uint32_t flags = 0;
     for (int i = 0; i < initFlags.size(); i++) {
         // Initialize the flag if necessary
         if (initFlags[i] != SDL_WasInit(initFlags[i])) {
-            flags = flags | initFlags[i];
+            flags |= initFlags[i];
         }
     }
     // Initialize SDL
@@ -24,6 +27,7 @@ bool sdl::init(
         return false;
     }
 
+    // Retrieve all argumented hints and set them one by one
     std::vector<const char *> keys;
     keys.reserve(initHints.size());
 
@@ -50,10 +54,12 @@ bool sdl::init(
 objects::Window *
 sdl::createWindow(int height, int width, const char *title,
                   std::vector<uint32_t> flags) {
-    // Combine all flags
+
+    // As of SDL's implementation, each flag should be OR'ed
+    // with the rest into an unsigned 32 bit integer
     uint32_t flagsOr = 0;
     for (int i = 0; i < flags.size(); i++) {
-        flagsOr = flagsOr | flags[i];
+        flagsOr |= flags[i];
     }
     // Create window
     SDL_Window *window =
@@ -86,9 +92,11 @@ void sdl::terminate(SDL_Window *window) {
 void sdl::shutdown(std::vector<uint32_t> initFlags) {
     uint32_t flags = 0;
     for (int i = 0; i < initFlags.size(); i++) {
-        // Initialize the flag if necessary
+        // Check if the flag have been initialized
+        // SDL_WasInit(<flag>) returns <flag> value if
+        // initialized
         if (initFlags[i] == SDL_WasInit(initFlags[i])) {
-            flags = flags | initFlags[i];
+            flags |= initFlags[i];
         }
     }
     SDL_QuitSubSystem(flags);

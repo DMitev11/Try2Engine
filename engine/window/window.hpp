@@ -2,14 +2,39 @@
 
 #include <vector>
 #include <window_object.h>
+
+/**
+ * @brief Window interactions. \n Initialize or shutdown
+ * window library/libraries. \n Create or terminate a
+ * window based on used ext. libraries to compile
+ * @note Facade
+ *
+ */
 namespace window {
+    /**
+     * @brief Initialize all required libraries to create a
+     * window.
+     *
+     * @tparam Args Variations of flags used during
+     * initalizaiton, based on the library used to create a
+     * window
+    //  * @cond USE_SDL
+    //  * Description: \ref sdl::init "See
+    //  * sdl::init(std::vector<uint32_t>,
+    //  * std::unordered_map<const char *, const char *>)"
+    //  * @endcond
+     * @return true: Sucessful initialization - does not
+     * emit any logger messages. \n false: Unsuccessful
+     * initialization - log errors are emitted for more
+     * information.
+     */
     template <typename... Args>
     inline static bool init(Args...);
     /**
-     * @brief Create a Window object, later used to hook a
+     * @brief Create a Window object. , later used to hook a
      * renderer to, interrupt mouse/keyboard input and more
      *
-     * @param args variadic, depends on the package used for
+     * @tparam variadic, depends on the package used for
      * window creation
      * @return objects::Window* on success, nullptr
      * on fail (should emit an error message in the logger)
@@ -19,13 +44,30 @@ namespace window {
     template <typename... Args>
     static objects::Window *createWindow(Args...);
 
-    template <typename... Args>
-    static void terminate(Args...);
+    /**
+     * @brief Terminate a window
+     *
+     * @param window Window object to be terminated.
+     */
+    static void terminate(objects::Window *window);
 
+    /**
+     * @brief Shutdown window library/libraries.
+     * @warning Do not call until last frame of the
+     * application - could lead to unhandled exceptions and
+     * undefined behaviour
+     *
+     * @tparam Args Flags and settings to be cleaned-up
+     * before closing
+     */
     template <typename... Args>
     static void shutdown(Args...);
 }; // namespace window
 
+/**
+ * @brief Call SDL-dependent implementations of this facade
+ *
+ */
 #ifdef USE_SDL
 #include "sdl_window.h"
 #include <SDL3/SDL.h>
@@ -38,9 +80,10 @@ inline static objects::Window *
 window::createWindow(Args... args) {
     return sdl::createWindow(args...);
 }
-template <typename... Args>
-inline static void window::terminate(Args... args) {
-    return sdl::terminate(args...);
+
+inline static void
+window::terminate(objects::Window *window) {
+    return sdl::terminate(window);
 }
 template <typename... Args>
 inline static void window::shutdown(Args... args) {
