@@ -15,7 +15,7 @@ void utils::LayerStack::shutdown() {
         delete this->layers[i];
         this->layers.erase(this->layers.begin() + i);
     };
-    delete this;
+    this->~LayerStack();
 }
 
 utils::Layer *utils::LayerStack::addLayer(Layer *layer) {
