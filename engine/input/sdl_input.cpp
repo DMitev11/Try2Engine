@@ -3,6 +3,7 @@
 #include <cstdlib>
 #include <logger/logger.h>
 #include <string>
+
 #ifdef IMGUI_USED
 #include <libraries/imgui/backends/imgui_impl_sdl3.h>
 #endif
@@ -19,12 +20,11 @@ void sdl::SdlInputSystem::init() {
 void sdl::SdlInputSystem::poll() {
     SDL_Event event;
     SDL_PollEvent(&event);
+    // Capture input for ImGui if built with the project
 #ifdef IMGUI_USED
     ImGui_ImplSDL3_ProcessEvent(&event);
 #endif
     switch (event.type) {
-        // Critical error detected c0000374
-
     case SDL_EVENT_GAMEPAD_ADDED: {
         LOG_ENGINE_INFO("InputSystem: ",
                         "Gamepad just connected");
@@ -37,6 +37,7 @@ void sdl::SdlInputSystem::poll() {
         this->removeController(event);
         break;
     }
+    case SDL_EVENT_GAMEPAD_BUTTON_UP:
     case SDL_EVENT_GAMEPAD_BUTTON_DOWN: {
         int id = event.gdevice.which;
         auto it = std::find_if(
@@ -48,22 +49,10 @@ void sdl::SdlInputSystem::poll() {
         if (it != activeControllers.end()) {
             Controller *controller = *it;
             controller->eventEmitter.Emit(
-                kEventGamepadDown, event.gbutton.button);
-        }
-        break;
-    }
-    case SDL_EVENT_GAMEPAD_BUTTON_UP: {
-        int id = event.gdevice.which;
-        auto it = std::find_if(
-            activeControllers.begin(),
-            activeControllers.end(),
-            [id](const Controller *controller) {
-                return controller->id == id;
-            });
-        if (it != activeControllers.end()) {
-            Controller *controller = *it;
-            controller->eventEmitter.Emit(
-                kEventGamepadDown, event.gbutton.button);
+                event.gbutton.state == SDL_PRESSED
+                    ? kEventGamepadDown
+                    : kEventGamepadUp,
+                event.gbutton.button);
         }
         break;
     }
@@ -77,21 +66,17 @@ void sdl::SdlInputSystem::poll() {
             });
         if (it != activeControllers.end()) {
             Controller *controller = *it;
-            controller->eventEmitter.Emit(kEventGamepadDown,
+            controller->eventEmitter.Emit(kEventGamepadAxis,
                                           event.gaxis);
         }
         break;
     }
-
+    case SDL_EVENT_KEY_UP:
     case SDL_EVENT_KEY_DOWN: {
         this->eventEmitter.Emit(
-            InputEvents::kEventKeyboardDown,
-            event.key.keysym.sym);
-        break;
-    }
-    case SDL_EVENT_KEY_UP: {
-        this->eventEmitter.Emit(
-            InputEvents::kEventKeyboardUp,
+            event.key.state == SDL_PRESSED
+                ? input::kEventKeyboardDown
+                : input::kEventKeyboardUp,
             event.key.keysym.sym);
         break;
     }
@@ -100,15 +85,17 @@ void sdl::SdlInputSystem::poll() {
             InputEvents::kEventMousePointer, event.motion);
         break;
     }
+    case SDL_EVENT_MOUSE_BUTTON_UP:
     case SDL_EVENT_MOUSE_BUTTON_DOWN: {
-        this->eventEmitter.Emit(
-            InputEvents::kEventMouseDown,
-            event.button.button);
-        break;
-    }
-    case SDL_EVENT_MOUSE_BUTTON_UP: {
-        this->eventEmitter.Emit(InputEvents::kEventMouseUp,
-                                event.button);
+        if (event.button.state == SDL_PRESSED) {
+            this->eventEmitter.Emit(
+                InputEvents::kEventMouseDown,
+                event.button.button);
+        } else if (event.button.state == SDL_RELEASED) {
+            this->eventEmitter.Emit(
+                InputEvents::kEventMouseUp,
+                event.button.button);
+        }
         break;
     }
     case SDL_EVENT_QUIT: {
@@ -189,6 +176,7 @@ void sdl::SdlInputSystem::removeController(int index) {
 
 void sdl::SdlInputSystem::terminate() {}
 void sdl::SdlInputSystem::shutdown() {
+    // Terminate SDL's gamepad input module
     if (SDL_WasInit(SDL_INIT_GAMEPAD) == SDL_INIT_GAMEPAD) {
         SDL_QuitSubSystem(SDL_INIT_GAMEPAD);
     }
