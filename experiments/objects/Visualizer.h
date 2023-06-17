@@ -19,9 +19,9 @@ namespace application
         ReturnValue<objects::Window *>
         CreateWindow(int width, int height, const char *title);
         ReturnValue<objects::Renderer *>
-        CreateRenderer();
+        createRenderer();
         bool
-        SetDrawColor(uint32_t r, uint32_t g, uint32_t b, uint32_t a);
+        setDrawColor(uint32_t r, uint32_t g, uint32_t b, uint32_t a);
         ReturnValue<objects::Texture *>
         LoadTexture(const char *path);
 #ifdef SDL_USED

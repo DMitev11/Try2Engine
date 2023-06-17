@@ -57,16 +57,16 @@ namespace render {
          * @return objects::Renderer*
          */
         extern objects::Renderer *
-        CreateRenderer(objects::Window *window,
+        createRenderer(objects::Window *window,
                        const char *driverName = 0,
                        std::vector<uint32_t> initFlags = {
                            SDL_RENDERER_ACCELERATED});
 
         /**
-         * @see CreateRenderer
+         * @see createRenderer
          */
         extern objects::Renderer *
-        CreateRenderer(SDL_Window *window,
+        createRenderer(SDL_Window *window,
                        const char *driverName = 0,
                        std::vector<uint32_t> initFlags = {
                            SDL_RENDERER_ACCELERATED});
@@ -83,13 +83,13 @@ namespace render {
          * @param a 0-255
          */
         extern void
-        SetDrawColor(objects::Renderer *renderer, uint8_t r,
+        setDrawColor(objects::Renderer *renderer, uint8_t r,
                      uint8_t g, uint8_t b, uint8_t a);
 
         /**
-         * @see SetDrawColor
+         * @see setDrawColor
          */
-        extern void SetDrawColor(SDL_Renderer *renderer,
+        extern void setDrawColor(SDL_Renderer *renderer,
                                  uint8_t r, uint8_t g,
                                  uint8_t b, uint8_t a);
 
@@ -102,13 +102,13 @@ namespace render {
          * @param x on the window
          * @param y on the window
          */
-        extern void RenderAsset(objects::Renderer *renderer,
+        extern void renderAsset(objects::Renderer *renderer,
                                 objects::Texture *texture,
                                 float x, float y);
         /**
-         * @see RenderAsset
+         * @see renderAsset
          */
-        extern void RenderAsset(SDL_Renderer *renderer,
+        extern void renderAsset(SDL_Renderer *renderer,
                                 SDL_Texture *texture,
                                 float w, float h, float x,
                                 float y);
@@ -120,34 +120,34 @@ namespace render {
          * @return objects::TextureSize width and height
          */
         extern objects::TextureSize
-        GetTextureSize(objects::Texture *texture);
+        getTextureSize(objects::Texture *texture);
         /**
-         * @see GetTextureSize
+         * @see getTextureSize
          */
         extern objects::TextureSize
-        GetTextureSize(SDL_Texture *texture);
+        getTextureSize(SDL_Texture *texture);
 
         /**
-         * @see render.hpp#ClearRender
+         * @see render.hpp#clearRenderer
          */
         extern void
-        ClearRender(objects::Renderer *renderer);
+        clearRenderer(objects::Renderer *renderer);
 
         /**
-         * @see render.hpp#ClearRender
+         * @see render.hpp#clearRenderer
          */
-        extern void ClearRender(SDL_Renderer *renderer);
+        extern void clearRenderer(SDL_Renderer *renderer);
 
         /**
-         * @see render.hpp#RenderFrame
+         * @see render.hpp#renderFrame
          */
         extern void
-        RenderFrame(objects::Renderer *renderer);
+        renderFrame(objects::Renderer *renderer);
 
         /**
-         * @see render.hpp#RenderFrame
+         * @see render.hpp#renderFrame
          */
-        extern void RenderFrame(SDL_Renderer *renderer);
+        extern void renderFrame(SDL_Renderer *renderer);
 
         /**
          * @see render.hpp#terminate

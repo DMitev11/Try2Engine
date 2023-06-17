@@ -35,7 +35,7 @@ namespace render {
      * @see objects::Renderer
      */
     template <typename... Args>
-    static objects::Renderer *CreateRenderer(Args...);
+    static objects::Renderer *createRenderer(Args...);
 
     /**
      * @brief Set a default draw color.
@@ -47,7 +47,7 @@ namespace render {
      * (r,g,b,a)
      */
     template <typename... Args>
-    static void SetDrawColor(Args...);
+    static void setDrawColor(Args...);
 
     /**
      * @brief Render an asset(texture, image, etc.) during
@@ -58,7 +58,7 @@ namespace render {
      * depending on the library used to implement the call
      */
     template <typename... Args>
-    static void RenderAsset(objects::Renderer *renderer,
+    static void renderAsset(objects::Renderer *renderer,
                             Args... args);
 
     /**
@@ -67,7 +67,7 @@ namespace render {
      *
      * @param renderer to clear
      */
-    static void ClearRender(objects::Renderer *renderer);
+    static void clearRenderer(objects::Renderer *renderer);
 
     /**
      * @brief Render all buffered data between the previous
@@ -75,7 +75,7 @@ namespace render {
      *
      * @param renderer to render its next frame
      */
-    static void RenderFrame(objects::Renderer *renderer);
+    static void renderFrame(objects::Renderer *renderer);
 
     /**
      * @brief Get the size of a 2D texture.
@@ -85,7 +85,7 @@ namespace render {
      * @return objects::TextureSize width and height
      */
     static objects::TextureSize
-    GetTextureSize(objects::Texture *texture);
+    getTextureSize(objects::Texture *texture);
 
     /**
      * @brief Destroy renderer and cleanup after
@@ -116,39 +116,39 @@ inline static bool render::init(Args... args) {
 }
 template <typename... Args>
 inline static objects::Renderer *
-render::CreateRenderer(Args... args) {
-    return sdl::CreateRenderer(args...);
+render::createRenderer(Args... args) {
+    return sdl::createRenderer(args...);
 }
 template <typename... Args>
-inline static void render::SetDrawColor(Args... args) {
-    return sdl::SetDrawColor(args...);
+inline static void render::setDrawColor(Args... args) {
+    return sdl::setDrawColor(args...);
 }
 
 template <typename... Args>
 inline static void
-render::RenderAsset(objects::Renderer *renderer,
+render::renderAsset(objects::Renderer *renderer,
                     Args... args) {
-    return sdl::RenderAsset(renderer, args...);
+    return sdl::renderAsset(renderer, args...);
 }
 
 inline static objects::TextureSize
-render::GetTextureSize(objects::Texture *texture) {
-    return sdl::GetTextureSize(texture);
+render::getTextureSize(objects::Texture *texture) {
+    return sdl::getTextureSize(texture);
 }
 
 inline static void
-render::ClearRender(objects::Renderer *renderer) {
-    return sdl::ClearRender(renderer);
+render::clearRenderer(objects::Renderer *renderer) {
+    return sdl::clearRenderer(renderer);
 }
 
 inline static void
-render::RenderFrame(objects::Renderer *renderer) {
-    return sdl::RenderFrame(renderer);
+render::renderFrame(objects::Renderer *renderer) {
+    return sdl::renderFrame(renderer);
 }
 
-template <typename... Args>
-inline static void render::terminate(Args... args) {
-    return sdl::terminate(args...);
+inline static void
+render::terminate(objects::Renderer *renderer) {
+    return sdl::terminate(renderer);
 }
 template <typename... Args>
 inline static void render::shutdown(Args... args) {

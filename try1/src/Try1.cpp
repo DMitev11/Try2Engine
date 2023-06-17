@@ -17,7 +17,7 @@ void Try1::run() {
     render::init();
     auto window =
         window::createWindow(1000, 1200, "GuiWindow");
-    auto renderer = render::CreateRenderer(window);
+    auto renderer = render::createRenderer(window);
     auto inputSystem = input::createInputSystem();
     inputSystem->init();
 
@@ -46,10 +46,10 @@ void Try1::run() {
             }));
     while (!exit) {
         inputSystem->poll();
-        render::SetDrawColor(renderer, 255, 0, 0, 255);
+        render::setDrawColor(renderer, 255, 0, 0, 255);
         this->layerStack.tick(0.005f);
-        render::RenderFrame(renderer);
-        render::ClearRender(renderer);
+        render::renderFrame(renderer);
+        render::clearRenderer(renderer);
     }
     this->layerStack.shutdown();
     render::terminate(renderer);

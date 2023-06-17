@@ -83,12 +83,25 @@ namespace window {
                          SDL_WINDOW_INPUT_FOCUS});
 
         /**
-         * @brief
+         * @brief Close a window, and cleanup after that
          *
-         * @param window
+         * @param window Window to terminate
          */
         extern void terminate(objects::Window *window);
+
+        /**
+         * @see sdl::terminate
+         */
         extern void terminate(SDL_Window *window);
+
+        /**
+         * @brief Shutdown SDL3's window creation logic
+         * initialized previously
+         * @see sdl::init
+         *
+         * @param initFlags Each flag represents a part of
+         * SDL to be shutdown
+         */
         extern void
         shutdown(std::vector<uint32_t> initFlags =
                      kDefaultInitFlags);

@@ -56,15 +56,15 @@ bool sdl::init(std::vector<uint32_t> initFlags,
 #endif
 
 objects::Renderer *
-sdl::CreateRenderer(objects::Window *window,
+sdl::createRenderer(objects::Window *window,
                     const char *driverName,
                     std::vector<uint32_t> initFlags) {
-    return sdl::CreateRenderer(objects::toSdlWindow(window),
+    return sdl::createRenderer(objects::toSdlWindow(window),
                                driverName, initFlags);
 }
 
 objects::Renderer *
-sdl::CreateRenderer(SDL_Window *window,
+sdl::createRenderer(SDL_Window *window,
                     const char *driverName,
                     std::vector<uint32_t> initFlags) {
 
@@ -90,29 +90,29 @@ sdl::CreateRenderer(SDL_Window *window,
                                     driverName, initFlags);
 }
 
-void sdl::SetDrawColor(objects::Renderer *renderer,
+void sdl::setDrawColor(objects::Renderer *renderer,
                        uint8_t r, uint8_t g, uint8_t b,
                        uint8_t a) {
-    sdl::SetDrawColor(objects::toSdlRenderer(renderer), r,
+    sdl::setDrawColor(objects::toSdlRenderer(renderer), r,
                       g, b, a);
 }
 
-void sdl::SetDrawColor(SDL_Renderer *renderer, uint8_t r,
+void sdl::setDrawColor(SDL_Renderer *renderer, uint8_t r,
                        uint8_t g, uint8_t b, uint8_t a) {
     SDL_SetRenderDrawColor(renderer, r, g, b, a);
 }
 
-void sdl::RenderAsset(objects::Renderer *renderer,
+void sdl::renderAsset(objects::Renderer *renderer,
                       objects::Texture *texture, float x,
                       float y) {
-    return sdl::RenderAsset(
+    return sdl::renderAsset(
         objects::toSdlRenderer(renderer),
         objects::toSdlTexture(texture),
         (float)texture->width, (float)texture->height, x,
         y);
 }
 
-void sdl::RenderAsset(SDL_Renderer *renderer,
+void sdl::renderAsset(SDL_Renderer *renderer,
                       SDL_Texture *texture, float w,
                       float h, float x, float y) {
     SDL_FRect quad = {x, y, w, h};
@@ -127,13 +127,13 @@ void sdl::RenderAsset(SDL_Renderer *renderer,
 }
 
 objects::TextureSize
-sdl::GetTextureSize(objects::Texture *texture) {
-    return sdl::GetTextureSize(
+sdl::getTextureSize(objects::Texture *texture) {
+    return sdl::getTextureSize(
         objects::toSdlTexture(texture));
 }
 
 objects::TextureSize
-sdl::GetTextureSize(SDL_Texture *texture) {
+sdl::getTextureSize(SDL_Texture *texture) {
 
     int width = 0;
     int height = 0;
@@ -142,20 +142,20 @@ sdl::GetTextureSize(SDL_Texture *texture) {
     return objects::TextureSize(width, height);
 }
 
-void sdl::ClearRender(objects::Renderer *renderer) {
-    sdl::ClearRender(objects::toSdlRenderer(renderer));
+void sdl::clearRenderer(objects::Renderer *renderer) {
+    sdl::clearRenderer(objects::toSdlRenderer(renderer));
 }
 
-void sdl::ClearRender(SDL_Renderer *renderer) {
+void sdl::clearRenderer(SDL_Renderer *renderer) {
     SDL_RenderClear(renderer);
 }
 
-void sdl::RenderFrame(objects::Renderer *renderer) {
-    return sdl::RenderFrame(
+void sdl::renderFrame(objects::Renderer *renderer) {
+    return sdl::renderFrame(
         objects::toSdlRenderer(renderer));
 }
 
-void sdl::RenderFrame(SDL_Renderer *renderer) {
+void sdl::renderFrame(SDL_Renderer *renderer) {
     SDL_RenderPresent(renderer);
 }
 

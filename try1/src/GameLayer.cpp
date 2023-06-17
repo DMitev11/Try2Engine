@@ -8,10 +8,10 @@ void Entity::tick(float delta) {
     this->position = this->body->GetPosition();
 }
 void Entity::render() {
-    auto textureSize = render::GetTextureSize(this->sprite);
+    auto textureSize = render::getTextureSize(this->sprite);
     auto posX = this->position.x - textureSize.w / 2;
     auto posY = this->position.y - textureSize.h / 2;
-    render::RenderAsset(this->renderer, this->sprite, posX,
+    render::renderAsset(this->renderer, this->sprite, posX,
                         posY);
 }
 void hookGamepadAndKeyboardInfoLog(
@@ -56,7 +56,7 @@ void GameLayer::onAttach() {
     b2Vec2 gravity(0.0f, 9.8f); // Set gravity
     this->world = new b2World(gravity);
     auto platformTextureSize =
-        render::GetTextureSize(platformTexture);
+        render::getTextureSize(platformTexture);
 
     // Define ground body
     b2BodyDef platformOneDef;
@@ -87,7 +87,7 @@ void GameLayer::onAttach() {
     auto boxTexture = loader::loadTexture(
         renderer, "assets/box.png", config);
     auto boxTextureSize =
-        render::GetTextureSize(boxTexture);
+        render::getTextureSize(boxTexture);
     b2BodyDef boxBodyDef;
     boxBodyDef.enabled = true;
     boxBodyDef.type = b2_dynamicBody;

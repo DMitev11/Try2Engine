@@ -6,7 +6,7 @@
 /**
  * @brief Window interactions. \n Initialize or shutdown
  * window library/libraries. \n Create or terminate a
- * window based on used ext. libraries to compile
+ * window, based on ext. libraries
  * @note Facade
  *
  */
@@ -18,15 +18,9 @@ namespace window {
      * @tparam Args Variations of flags used during
      * initalizaiton, based on the library used to create a
      * window
-    //  * @cond USE_SDL
-    //  * Description: \ref sdl::init "See
-    //  * sdl::init(std::vector<uint32_t>,
-    //  * std::unordered_map<const char *, const char *>)"
-    //  * @endcond
-     * @return true: Sucessful initialization - does not
-     * emit any logger messages. \n false: Unsuccessful
-     * initialization - log errors are emitted for more
-     * information.
+     * @return true: Sucessful - does not
+     * emit any logger messages. \n false: Unsuccessful -
+     * log errors are emitted for more information.
      */
     template <typename... Args>
     inline static bool init(Args...);

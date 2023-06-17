@@ -44,7 +44,7 @@ invalid:
 }
 
 ReturnValue<objects::Renderer *>
-Visualizer::CreateRenderer()
+Visualizer::createRenderer()
 {
     if (!this->initialized)
     {
@@ -64,7 +64,7 @@ Visualizer::CreateRenderer()
         goto invalid;
     }
 
-    this->renderer = render::CreateRenderer(window);
+    this->renderer = render::createRenderer(window);
     return ReturnValue<objects::Renderer *>{true, this->renderer};
 
 invalid:
@@ -72,7 +72,7 @@ invalid:
 }
 
 bool
-Visualizer::SetDrawColor(uint32_t r, uint32_t g, uint32_t b, uint32_t a)
+Visualizer::setDrawColor(uint32_t r, uint32_t g, uint32_t b, uint32_t a)
 {
     if (!this->initialized)
     {
@@ -92,7 +92,7 @@ Visualizer::SetDrawColor(uint32_t r, uint32_t g, uint32_t b, uint32_t a)
 
     try
     {
-        render::SetDrawColor(this->renderer, r, g, b, a);
+        render::setDrawColor(this->renderer, r, g, b, a);
         return true;
     }
     catch (const char *e)
@@ -192,7 +192,7 @@ Visualizer::RenderTexture(objects::Texture *texture, float x, float y)
 
     try
     {
-        render::RenderAsset(this->renderer, texture, x, y);
+        render::renderAsset(this->renderer, texture, x, y);
         return true;
     }
     catch (const char *e)
@@ -224,7 +224,7 @@ Visualizer::ClearRenderer()
     }
     try
     {
-        render::ClearRender(this->renderer);
+        render::clearRenderer(this->renderer);
         return;
     }
     catch (const char *e)
@@ -254,7 +254,7 @@ Visualizer::CallFrame()
     }
     try
     {
-        render::RenderFrame(this->renderer);
+        render::renderFrame(this->renderer);
         return;
     }
     catch (const char *e)

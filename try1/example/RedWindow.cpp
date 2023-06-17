@@ -8,7 +8,7 @@ int main(int argc, char const *argv[]) {
     window::init();
     auto window = window::createWindow(1000, 1000, "try1");
     render::init();
-    auto renderer = render::CreateRenderer(window);
+    auto renderer = render::createRenderer(window);
     auto input = input::createInputSystem();
     input->init();
 
@@ -18,10 +18,10 @@ int main(int argc, char const *argv[]) {
         std::function([&](int i) { close = true; }));
     while (!close) {
         input->poll();
-        render::ClearRender(renderer);
-        render::SetDrawColor(renderer, 155, 0, 0, 255);
+        render::clearRenderer(renderer);
+        render::setDrawColor(renderer, 155, 0, 0, 255);
 
-        render::RenderFrame(renderer);
+        render::renderFrame(renderer);
     }
     input->terminate();
     input->shutdown();
