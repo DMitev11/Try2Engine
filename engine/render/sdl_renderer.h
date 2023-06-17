@@ -50,6 +50,11 @@ namespace render {
                                 float w, float h, float x,
                                 float y);
 
+        extern objects::TextureSize
+        GetTextureSize(objects::Texture *texture);
+        extern objects::TextureSize
+        GetTextureSize(SDL_Texture *texture);
+
         extern void
         ClearRender(objects::Renderer *renderer);
         extern void ClearRender(SDL_Renderer *renderer);

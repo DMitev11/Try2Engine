@@ -13,3 +13,6 @@
 [submodule "engine/libraries/stb"]
 	path = engine/libraries/stb
 	url = https://github.com/nothings/stb.git
+[submodule "engine/libraries/box2d"]
+	path = engine/libraries/box2d
+	url = https://github.com/erincatto/box2d

@@ -46,6 +46,9 @@ namespace render {
     template <typename... Args>
     static void RenderFrame(Args...);
 
+    static objects::TextureSize
+    GetTextureSize(objects::Texture *texture);
+
     template <typename... Args>
     static void terminate(Args...);
 
@@ -73,6 +76,11 @@ inline static void render::SetDrawColor(Args... args) {
 template <typename... Args>
 inline static void render::RenderAsset(Args... args) {
     return sdl::RenderAsset(args...);
+}
+
+inline static objects::TextureSize
+render::GetTextureSize(objects::Texture *texture) {
+    return sdl::GetTextureSize(texture);
 }
 
 template <typename... Args>

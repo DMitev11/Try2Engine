@@ -34,3 +34,5 @@ if(DEFINED WITH_SDL AND WITH_SDL)
     target_include_directories(imgui PUBLIC ${SDL3_INCLUDE_DIRS})
     target_link_libraries(imgui PUBLIC ${SDL3_LIBRARIES})
 endif()
+
+find_package(box2d REQUIRED)

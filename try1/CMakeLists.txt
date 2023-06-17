@@ -5,15 +5,17 @@ project(Try1 LANGUAGES CXX)
 
 set(HEADER_FILES
     inc/Try1.h
+    inc/GameLayer.h
 )
 set(SOURCE_FILES
     main.cpp
+    src/GameLayer.cpp
     src/Try1.cpp)
 add_executable(try1 ${SOURCE_FILES})
 
 target_compile_features(try1 PUBLIC cxx_std_17)
-target_link_libraries(try1 PUBLIC imgui utils window render loader logger input gui)
-target_include_directories(try1 PUBLIC ${ENGINE_ROOT} ${CMAKE_CURRENT_SOURCE_DIR}/)
+target_link_libraries(try1 PUBLIC imgui utils window render loader logger input gui box2d::box2d)
+target_include_directories(try1 PUBLIC ${ENGINE_ROOT} ${CMAKE_CURRENT_SOURCE_DIR}/ ${box2d_INCLUDE_DIRS})
 
 message(STATUS "Engine Folder: ${CMAKE_SOURCE_DIR}/engine")
 message(STATUS "Source Folder: ${PROJECT_SOURCE_DIR} ")

@@ -102,6 +102,22 @@ void sdl::RenderAsset(objects::Renderer *renderer,
         y);
 }
 
+objects::TextureSize
+sdl::GetTextureSize(objects::Texture *texture) {
+    return sdl::GetTextureSize(
+        objects::toSdlTexture(texture));
+}
+
+objects::TextureSize
+sdl::GetTextureSize(SDL_Texture *texture) {
+
+    int width = 0;
+    int height = 0;
+    SDL_QueryTexture(texture, nullptr, nullptr, &width,
+                     &height);
+    return objects::TextureSize(width, height);
+}
+
 void sdl::RenderAsset(SDL_Renderer *renderer,
                       SDL_Texture *texture, float w,
                       float h, float x, float y) {
