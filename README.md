@@ -18,22 +18,22 @@ Build Tool | [CMake](https://cmake.org/) | Building project on different platfor
 
 ### **Build and run**
 - `Windows (tested on Windows 11):` </br>
-    Requires a pre-installed CMake(3.15 and above) and a C++ compiler (MSVC) with C++17 support. </br>
-    1. Choose a configuration - Debug or Release
-    2. Run its corresponding batch file - GenerateAndBuild<Debug/Release>X64.bat, located in the root folder of the project
-    3. a: Execute Run.bat </br>
-       b: Navigate to ./build/<Debug/Release>, and run try1.exe
+    Requires a pre-installed CMake(3.15 and above) and a C++ compiler (ex. MSVC, GCC) with C++17 support. </br>
+    1. Choose a configuration - *Debug* or *Release*
+    2. Run its corresponding batch file - **GenerateAndBuild<Debug/Release>X64.bat** , located in the root folder of the project
+    3. a: Execute **Run.bat** </br>
+       b: Navigate to <u>./build/<Debug/Release></u>, and run **try1.exe**
 
-- `Linux (testedo on Linux Mint):` </br>
-    Requires a pre-installed CMake, C++, X11 (for SDL) and GLFW (for Box2D) toolkit. For ease of use, these are the commands used to retrieve those kits during the development of the project:
+- `Linux (tested on Linux Mint):` </br>
+    Requires a pre-installed CMake, C++ compiler (ex. GCC), X11 (for SDL) and GLFW (for Box2D) toolkit. For ease of use, these are the commands used to retrieve those kits during the development of the project:
     - ``` sudo apt-get install cmake ```
     - ``` sudo apt-get install build-essential ```
     - ``` sudo apt-get install libx11-dev ```
     - ``` sudo apt-get install xorg-dev libglul-mesa-dev ``` 
-    1. Choose a configuration - Debug or Release
-    2. Run its corresponding shell script - GenerateAndBuild<Debug/Release>X64.sh, located in the root folder of the project
-    3. a: Execute Run.sh </br>
-       b: Navigate to ./build/tr1, and run try1
+    1. Choose a configuration - *Debug* or *Release*
+    2. Run its corresponding shell script - **GenerateAndBuild<Debug/Release>X64.sh**, located in the root folder of the project
+    3. a: Execute **Run.sh** </br>
+       b: Navigate to <u>./build/tr1</u>, and run **try1**
 
 ### **Philosophy and how to contribute?**
 Project with modular architecture. </br>
