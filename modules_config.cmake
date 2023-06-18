@@ -1,5 +1,8 @@
 if(DEFINED WITH_SDL AND WITH_SDL)
-    find_package(SDL3 REQUIRED)
+    find_package(SDL3 REQUIRED) 
+    if(CMAKE_HOST_SYSTEM_NAME STREQUAL "Linux")  
+    set_target_properties(SDL3::SDL3-shared PROPERTIES IMPORTED_LOCATION ${SDL3_LIB})
+    endif()
 
     if(DEFINED WITH_SDL_IMAGE AND WITH_SDL_IMAGE)
         find_package(SDL3_image REQUIRED)
@@ -36,3 +39,6 @@ if(DEFINED WITH_SDL AND WITH_SDL)
 endif()
 
 find_package(box2d REQUIRED)
+if(CMAKE_HOST_SYSTEM_NAME STREQUAL "Linux") 
+set_target_properties(box2d::box2d PROPERTIES IMPORTED_LOCATION ${box2d_LIB})
+endif()

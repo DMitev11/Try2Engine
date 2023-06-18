@@ -35,20 +35,12 @@ if(DEFINED WITH_SDL AND WITH_SDL)
             COMMAND ${CMAKE_COMMAND} -E copy_directory ${SDL3_BIN}/ ${runtime_folder}/
             COMMENT "Copy SDL3 dynamic binaries")
 
-        add_custom_command(
-            TARGET try1 POST_BUILD
-            COMMAND ${CMAKE_COMMAND} -E copy_directory ${SDL3_image_BIN}/ ${runtime_folder}/
-            COMMENT "Copy SDL3_image dynamic binaries")
-    else()
-        add_custom_command(
-            TARGET try1 POST_BUILD
-            COMMAND ${CMAKE_COMMAND} -E copy_directory ${SDL3_BIN}/ ${CMAKE_CURRENT_BINARY_DIR}/
-            COMMENT "Copy SDL3 dynamic binaries")
-
-        add_custom_command(
-            TARGET try1 POST_BUILD
-            COMMAND ${CMAKE_COMMAND} -E copy_directory ${SDL3_image_BIN}/ ${CMAKE_CURRENT_BINARY_DIR}/
-            COMMENT "Copy SDL3_image dynamic binaries")
+        if(DEFINED WITH_SDL_IMAGE AND WITH_SDL_IMAGE)
+            add_custom_command(
+                TARGET try1 POST_BUILD
+                COMMAND ${CMAKE_COMMAND} -E copy_directory ${SDL3_image_BIN}/ ${runtime_folder}/
+                COMMENT "Copy SDL3_image dynamic binaries")
+        endif() 
     endif()
 endif()
 
