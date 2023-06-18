@@ -4,17 +4,12 @@
 #include <stdio.h>
 using namespace application;
 
-Visualizer *
-Visualizer::get()
-{
+Visualizer *Visualizer::get() {
     static Visualizer vis;
     return &vis;
 }
-bool
-Visualizer::Init()
-{
-    if (!initialization::Init())
-    {
+bool Visualizer::Init() {
+    if (!initialization::Init()) {
         throw std::runtime_error("Cannot initialize");
     }
     this->initialized = true;
@@ -22,21 +17,20 @@ Visualizer::Init()
 }
 
 ReturnValue<objects::Window *>
-Visualizer::CreateWindow(int width, int height, const char *title)
-{
-    if (!this->initialized)
-    {
+Visualizer::CreateWindow(int width, int height,
+                         const char *title) {
+    if (!this->initialized) {
         printf("Not initialized");
         this->Init();
         // goto invalid;
     }
-    if (this->window)
-    {
+    if (this->window) {
         printf("Created already");
         goto invalid;
     }
 
-    this->window = window::CreateWindow(width, height, title);
+    this->window =
+        window::CreateWindow(width, height, title);
     return ReturnValue<objects::Window *>{true, window};
 
 invalid:
@@ -44,59 +38,48 @@ invalid:
 }
 
 ReturnValue<objects::Renderer *>
-Visualizer::createRenderer()
-{
-    if (!this->initialized)
-    {
+Visualizer::createRenderer() {
+    if (!this->initialized) {
         printf("Not initialized");
         this->Init();
         // goto invalid;
-    }
-    else if (!this->window)
-    {
+    } else if (!this->window) {
         printf("Create window first");
         goto invalid;
     }
 
-    if (this->renderer)
-    {
+    if (this->renderer) {
         printf("Created already");
         goto invalid;
     }
 
     this->renderer = render::createRenderer(window);
-    return ReturnValue<objects::Renderer *>{true, this->renderer};
+    return ReturnValue<objects::Renderer *>{true,
+                                            this->renderer};
 
 invalid:
     return ReturnValue<objects::Renderer *>{false, nullptr};
 }
 
-bool
-Visualizer::setDrawColor(uint32_t r, uint32_t g, uint32_t b, uint32_t a)
-{
-    if (!this->initialized)
-    {
+bool Visualizer::setDrawColor(uint32_t r, uint32_t g,
+                              uint32_t b, uint32_t a) {
+    if (!this->initialized) {
         printf("Not initialized");
         goto invalid;
     }
-    if (!this->window)
-    {
+    if (!this->window) {
         printf("Create window first");
         goto invalid;
     }
-    if (!this->renderer)
-    {
+    if (!this->renderer) {
         printf("Create renderer first");
         goto invalid;
     }
 
-    try
-    {
+    try {
         render::setDrawColor(this->renderer, r, g, b, a);
         return true;
-    }
-    catch (const char *e)
-    {
+    } catch (const char *e) {
         printf(e);
         goto invalid;
     }
@@ -105,30 +88,25 @@ invalid:
 }
 
 ReturnValue<objects::Texture *>
-Visualizer::LoadTexture(const char *path)
-{
-    if (!this->initialized)
-    {
+Visualizer::LoadTexture(const char *path) {
+    if (!this->initialized) {
         printf("Not initialized");
         goto invalid;
     }
-    if (!this->window)
-    {
+    if (!this->window) {
         printf("Create window first");
         goto invalid;
     }
-    if (!this->renderer)
-    {
+    if (!this->renderer) {
         printf("Create renderer first");
         goto invalid;
     }
 
-    try
-    {
-        return ReturnValue<objects::Texture *>{true, loader::LoadTexture(this->renderer, path)};
-    }
-    catch (const char *e)
-    {
+    try {
+        return ReturnValue<objects::Texture *>{
+            true,
+            loader::LoadTexture(this->renderer, path)};
+    } catch (const char *e) {
         printf(e);
         goto invalid;
     }
@@ -136,33 +114,28 @@ invalid:
     return ReturnValue<objects::Texture *>{false, nullptr};
 }
 
-#ifdef SDL_USED
-ReturnValue<objects::Texture *>
-Visualizer::LoadTexture(const char *path, loader::LoadingTextureConfig config)
-{
+#ifdef USE_SDL
+ReturnValue<objects::Texture *> Visualizer::LoadTexture(
+    const char *path, loader::LoadingTextureConfig config) {
 
-    if (!this->initialized)
-    {
+    if (!this->initialized) {
         printf("Not initialized");
         goto invalid;
     }
-    if (!this->window)
-    {
+    if (!this->window) {
         printf("Create window first");
         goto invalid;
     }
-    if (!this->renderer)
-    {
+    if (!this->renderer) {
         printf("Create renderer first");
         goto invalid;
     }
 
-    try
-    {
-        return ReturnValue<objects::Texture *>{true, loader::LoadTexture(this->renderer, path, config)};
-    }
-    catch (const char *e)
-    {
+    try {
+        return ReturnValue<objects::Texture *>{
+            true, loader::LoadTexture(this->renderer, path,
+                                      config)};
+    } catch (const char *e) {
         printf(e);
         goto invalid;
     }
@@ -170,33 +143,26 @@ invalid:
     return ReturnValue<objects::Texture *>{false, nullptr};
 }
 #endif
-bool
-Visualizer::RenderTexture(objects::Texture *texture, float x, float y)
-{
+bool Visualizer::RenderTexture(objects::Texture *texture,
+                               float x, float y) {
 
-    if (!this->initialized)
-    {
+    if (!this->initialized) {
         printf("Not initialized");
         goto invalid;
     }
-    if (!this->window)
-    {
+    if (!this->window) {
         printf("Create window first");
         goto invalid;
     }
-    if (!this->renderer)
-    {
+    if (!this->renderer) {
         printf("Create renderer first");
         goto invalid;
     }
 
-    try
-    {
+    try {
         render::renderAsset(this->renderer, texture, x, y);
         return true;
-    }
-    catch (const char *e)
-    {
+    } catch (const char *e) {
         printf(e);
         goto invalid;
     }
@@ -204,61 +170,45 @@ invalid:
     return false;
 }
 
-void
-Visualizer::ClearRenderer()
-{
-    if (!this->initialized)
-    {
+void Visualizer::ClearRenderer() {
+    if (!this->initialized) {
         printf("Not initialized");
         return;
     }
-    if (!this->window)
-    {
+    if (!this->window) {
         printf("Create window first");
         return;
     }
-    if (!this->renderer)
-    {
+    if (!this->renderer) {
         printf("Create renderer first");
         return;
     }
-    try
-    {
+    try {
         render::clearRenderer(this->renderer);
         return;
-    }
-    catch (const char *e)
-    {
+    } catch (const char *e) {
         printf(e);
         return;
     }
 }
 
-void
-Visualizer::CallFrame()
-{
-    if (!this->initialized)
-    {
+void Visualizer::CallFrame() {
+    if (!this->initialized) {
         printf("Not initialized");
         return;
     }
-    if (!this->window)
-    {
+    if (!this->window) {
         printf("Create window first");
         return;
     }
-    if (!this->renderer)
-    {
+    if (!this->renderer) {
         printf("Create renderer first");
         return;
     }
-    try
-    {
+    try {
         render::renderFrame(this->renderer);
         return;
-    }
-    catch (const char *e)
-    {
+    } catch (const char *e) {
         printf(e);
         return;
     }

@@ -2,11 +2,29 @@
 #include "input/input.hpp"
 #include "logger/logger.h"
 #include <iostream>
+#include <render/render.hpp>
 #include <string>
 #include <thread>
 #include <window/window.hpp>
 
 int createInputThread(void *data) {
+    auto input = static_cast<input::InputSystem *>(data);
+    auto shutdown = false;
+    while (!shutdown) {
+        input->poll();
+    }
+    input->terminate();
+    // Shutdown the input system, because its the last entry
+    input->shutdown();
+    return 0;
+}
+
+int main(int argc, char const *argv[]) {
+    window::init();
+    auto window = window::createWindow(
+        1000, 1000, "Multithreaded Input");
+    render::init();
+    auto renderer = render::createRenderer(window);
 
     // Create input system instance
     input::InputSystem *input = input::createInputSystem();
@@ -33,31 +51,22 @@ int createInputThread(void *data) {
     input->getEmitter()->On(input::kEventGamepadCreated,
                             handleControllerConnect);
 
-    auto shutdown = static_cast<bool *>(data);
-    while (!shutdown) {
-        input->poll();
-    }
-    input->terminate();
-    // Shutdown the input system, because its the last entry
-    input->shutdown();
-    return 0;
-}
+    // Handle closing the window
+    input->getEmitter()->On(
+        input::kEventQuit, std::function([&](int i) {
+            LOG_CLIENT_INFO("SHould", "shutdown");
+        }));
 
-int main(int argc, char const *argv[]) {
-    window::init();
-    window::createWindow(1000, 1000, "Multithreaded Input");
+    // Handle closing the window
+    input->getEmitter()->On(
+        input::kEventMouseDown, std::function([&](int i) {
+            LOG_CLIENT_INFO("Mouse Button: ",
+                            std::to_string(i).c_str());
+        }));
 
     int returnValue;
-    bool stop = false;
     auto thread = SDL_CreateThread(createInputThread,
-                                   "pollInput", &stop);
-    int i = 0;
-    while (i < 100) {
-        LOG_CLIENT_INFO("Tick #: ",
-                        std::to_string(i).c_str());
-        i++;
-    }
-    stop = true;
+                                   "pollInput", input);
     SDL_WaitThread(thread, &returnValue);
     SDL_Quit();
     return 0;

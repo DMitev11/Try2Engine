@@ -2,7 +2,12 @@
 #include "sdl_renderer_object.h"
 #include "sdl_texture_object.h"
 #include "sdl_window_object.h"
+
+/**
+ * @brief Conversion methods for ease of use
+ */
 namespace objects {
+#ifdef USE_SDL
     inline SDL_Window *
     toSdlWindow(objects::Window *window) {
         objects::SDLWindow *const _window =
@@ -28,4 +33,5 @@ namespace objects {
             static_cast<objects::SDLTexture *>(texture);
         return (SDL_Texture *)*_texture;
     };
+#endif
 } // namespace objects

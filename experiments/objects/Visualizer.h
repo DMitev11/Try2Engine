@@ -24,7 +24,7 @@ namespace application
         setDrawColor(uint32_t r, uint32_t g, uint32_t b, uint32_t a);
         ReturnValue<objects::Texture *>
         LoadTexture(const char *path);
-#ifdef SDL_USED
+#ifdef USE_SDL
         ReturnValue<objects::Texture *>
         LoadTexture(const char *path, loader::sdl::LoadingTextureConfig config);
 #endif
