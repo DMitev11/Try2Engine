@@ -3,24 +3,31 @@
 #include <libraries/imgui/backends/imgui_impl_sdl3.h>
 #include <libraries/imgui/backends/imgui_impl_sdlrenderer3.h>
 #include <libraries/imgui/imgui.h>
+#include <objects/helpers_object.hpp>
 #include <objects/sdl_renderer_object.h>
+
+/**
+ * @brief SDL-based implementation, where "ImGui" requires
+ * binding to a specific window and knowing which render to
+ * use for displaying all buffered widget data (per frame)
+ *
+ */
 void gui::GuiLayer::onAttach() {
     IMGUI_CHECKVERSION();
     ImGui::SetCurrentContext(ImGui::CreateContext());
     ImGuiIO &io = ImGui::GetIO();
     (void)io;
-    io.ConfigFlags |=
-        ImGuiConfigFlags_NavEnableKeyboard; // Enable
-                                            // Keyboard
-                                            // Controls
-    io.ConfigFlags |=
-        ImGuiConfigFlags_NavEnableGamepad; // Enable Gamepad
-                                           // Controls
 
-    auto renderer =
-        static_cast<objects::SDLRenderer *>(this->renderer);
-    auto sdlRenderer = (SDL_Renderer *)*renderer;
-    auto sdlWindow = (SDL_Window *)*renderer;
+    // Enable navigating with keyboard
+    io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
+    // Enable navigating with gamepad/controller
+    io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;
+
+    auto sdlRenderer =
+        objects::toSdlRenderer(this->renderer);
+    auto sdlWindow = objects::toSdlWindow(this->renderer);
+
+    // Personal preference
     ImGui::StyleColorsDark();
     ImGui_ImplSDL3_InitForSDLRenderer(sdlWindow,
                                       sdlRenderer);
@@ -62,13 +69,18 @@ void gui::GuiLayer::removeWidget(const char *name) {
         }));
 }
 void gui::GuiLayer::end() {
+    // Buffer render data
     ImGui::Render();
+    // Send that buffer data to this->renderer
     ImGui_ImplSDLRenderer3_RenderDrawData(
         ImGui::GetDrawData());
 }
 
 void gui::GuiLayer::onDetach() {
+    // Remove "ImGui" from the SDL renderer
     ImGui_ImplSDLRenderer3_Shutdown();
+    // Remove "ImGui" from the SDL window
     ImGui_ImplSDL3_Shutdown();
+    // Cleanup
     ImGui::DestroyContext();
 }
