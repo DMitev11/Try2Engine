@@ -1,5 +1,5 @@
 
-cmake_minimum_required(VERSION 3.12)
+cmake_minimum_required(VERSION 3.15)
 project(engine LANGUAGES CXX)
 
 # Add a custom path to the CMAKE_PREFIX_PATH variable

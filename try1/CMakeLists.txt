@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.12)
+cmake_minimum_required(VERSION 3.15)
 
 # Set project name
 project(Try1 LANGUAGES CXX)
@@ -40,7 +40,7 @@ if(DEFINED WITH_SDL AND WITH_SDL)
                 TARGET try1 POST_BUILD
                 COMMAND ${CMAKE_COMMAND} -E copy_directory ${SDL3_image_BIN}/ ${runtime_folder}/
                 COMMENT "Copy SDL3_image dynamic binaries")
-        endif() 
+        endif()
     endif()
 endif()
 

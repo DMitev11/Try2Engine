@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.13)
+cmake_minimum_required(VERSION 3.15)
 
 add_library(logger STATIC logger.h logger.cpp)
 target_include_directories(logger PUBLIC ${SPDLOG_INCLUDE_DIRS})
