@@ -4,7 +4,7 @@
 #include <logger/logger.h>
 #include <string>
 
-#ifdef IMGUI_USED
+#ifdef USE_IMGUI
 #include <libraries/imgui/backends/imgui_impl_sdl3.h>
 #endif
 using namespace input;
@@ -21,7 +21,7 @@ void sdl::SdlInputSystem::poll() {
     SDL_Event event;
     SDL_PollEvent(&event);
     // Capture input for ImGui if built with the project
-#ifdef IMGUI_USED
+#ifdef USE_IMGUI
     ImGui_ImplSDL3_ProcessEvent(&event);
 #endif
     switch (event.type) {

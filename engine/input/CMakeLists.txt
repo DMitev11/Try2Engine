@@ -33,7 +33,7 @@ if(DEFINED WITH_SDL AND WITH_SDL)
 endif()
 
 if(DEFINED WITH_IMGUI AND WITH_IMGUI)
-    target_compile_definitions(input PUBLIC IMGUI_USED)
+    target_compile_definitions(input PUBLIC USE_IMGUI)
     target_link_libraries(input PUBLIC imgui)
     target_include_directories(input PUBLIC ${IMGUI_DIR})
 endif()
