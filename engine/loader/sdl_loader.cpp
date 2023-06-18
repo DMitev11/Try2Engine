@@ -7,6 +7,28 @@
 #include <stdio.h>
 #include <string>
 
+#ifdef USE_SDL_IMAGE
+bool initializeImg(std::vector<uint32_t> imageInitFlags) {
+    int imgFlags = 0;
+    for (int i = 0; i < imageInitFlags.size(); i++) {
+        imgFlags |= imageInitFlags[i];
+    }
+    if (!(IMG_Init(imgFlags) & imgFlags)) {
+        LOG_ENGINE_ERROR(
+            "SDL_image could not initialize! SDL_image "
+            "Error: ",
+            IMG_GetError());
+        return false;
+    }
+    return true;
+}
+bool sdl::init(std::vector<uint32_t> imageInitFlags) {
+    return initializeImg(imageInitFlags);
+}
+#else
+bool loader::sdl::init() { return true; }
+#endif
+
 #ifdef USE_STB
 #ifndef STB_IMAGE_IMPLEMENTATION
 #define STB_IMAGE_IMPLEMENTATION
@@ -50,6 +72,7 @@ loadTexture(SDL_Window *window, SDL_Renderer *renderer,
 #include <SDL_image.h>
 
 objects::Texture *
+
 loadTexture(SDL_Window *window, SDL_Renderer *renderer,
             const char *path,
             loader::sdl::LoadingTextureConfig config) {

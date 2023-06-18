@@ -1,5 +1,6 @@
 #pragma once
 #include <renderer_object.h>
+#include <texture_object.h>
 /**
  * @brief Rendering interactions. \n Initialize or shutdown
  * a rendering library/libraries. \n Create or terminate a

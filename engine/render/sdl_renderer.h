@@ -6,9 +6,6 @@
 #include <vector>
 #include <window_object.h>
 
-#ifdef USE_SDL_IMAGE
-#include <SDL_image.h>
-#endif
 namespace render {
     namespace sdl {
         /**
@@ -23,14 +20,6 @@ namespace render {
          */
         const std::vector<uint32_t> kDefaultInitFlags = {
             SDL_INIT_VIDEO};
-
-#ifdef USE_SDL_IMAGE
-        extern bool
-        init(std::vector<uint32_t> initFlags =
-                 kDefaultInitFlags,
-             std::vector<uint32_t> imageInitFlags = {
-                 IMG_INIT_JPG, IMG_INIT_PNG});
-#else
         /**
          * @brief Initialize SDL rendering libary.
          *
@@ -44,7 +33,6 @@ namespace render {
          */
         extern bool init(std::vector<uint32_t> initFlags =
                              kDefaultInitFlags);
-#endif
         /**
          * @brief Create a Renderer object to render on
          *

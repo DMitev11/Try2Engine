@@ -15,6 +15,7 @@ Try1::Try1(){
 void Try1::run() {
     window::init();
     render::init();
+    loader::init();
     auto window =
         window::createWindow(1000, 1200, "GuiWindow");
     auto renderer = render::createRenderer(window);
