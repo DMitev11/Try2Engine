@@ -1,0 +1,44 @@
+\doxysection{loop.\+h}
+\hypertarget{loop_8h_source}{}\label{loop_8h_source}\index{engine/utils/loop.h@{engine/utils/loop.h}}
+\mbox{\hyperlink{loop_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceutils}{utils}}\ \{}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classutils_1_1_loop_events}{LoopEvents}}\ \{}
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classutils_1_1_loop_events_a73635283996b27e0a78ae5e1b9733660}{LoopEvents}}()\{\};}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classutils_1_1_loop_events_a79f13606f2cffbb1c6d022e00ebc41ae}{\string~LoopEvents}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classutils_1_1_loop_events_a61a9359f0a49820dfbcd0c7e6ccff330}{init}}()\{\};}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classutils_1_1_loop_events_ae47e73d2c5d36c45fdf8e2a15cb49faf}{tick}}(\textcolor{keywordtype}{float}\ delta)\{\};}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classutils_1_1_loop_events_a874a9c9ece22e9376b20eca67e3935c8}{terminate}}()\{\};}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classutils_1_1_loop_events_ad85422c0090161a3edc70a6c67a153d1}{shutdown}}()\{\};}
+\DoxyCodeLine{00037\ \ \ \ \ \};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classutils_1_1_loop_component}{LoopComponent}}\ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classutils_1_1_loop_component_a44a151242253ac2f59950a01db5d2db3}{LoopComponent}}()\{\};}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classutils_1_1_loop_component_a10a87c490ed70cac68a85707f7c54494}{\string~LoopComponent}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classutils_1_1_loop_component_a33b5a5c3ef122f661763c49e30726665}{onInit}}()\{\};}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classutils_1_1_loop_component_acd0dce5d6facb7cc73bc842833f90872}{onTick}}(\textcolor{keywordtype}{float}\ delta)\{\};}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classutils_1_1_loop_component_adb667918913cdbbc29c74f6825711adb}{onTerminate}}()\{\};}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classutils_1_1_loop_component_af4d47233d1a46b9c906a5626b1f33f63}{onShutdown}}()\{\};}
+\DoxyCodeLine{00054\ \ \ \ \ \};}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classutils_1_1_layer_component}{LayerComponent}}\ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classutils_1_1_layer_component_a58ce2aea575abf923c9398bd4d51d3b4}{LayerComponent}}()\{\};}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classutils_1_1_layer_component_a3ca6f7eec4e684af0e272078f5ba3bb5}{\string~LayerComponent}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classutils_1_1_layer_component_a565d0e574e00831d67860c2e3ae145f4}{onAttach}}()\{\};}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classutils_1_1_layer_component_a49d164bc63bf216cda40ab1e24a1c45d}{onTick}}(\textcolor{keywordtype}{float}\ delta)\{\};}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classutils_1_1_layer_component_a7066536013a6ddf368f3c46e8c6ceca0}{onDetach}}()\{\};}
+\DoxyCodeLine{00083\ \ \ \ \ \};}
+\DoxyCodeLine{00084\ \}\ \textcolor{comment}{//\ namespace\ utils}}
+
+\end{DoxyCode}

@@ -1,0 +1,73 @@
+\doxysection{input\+\_\+misc.\+h}
+\hypertarget{input__misc_8h_source}{}\label{input__misc_8h_source}\index{engine/input/input\_misc.h@{engine/input/input\_misc.h}}
+\mbox{\hyperlink{input__misc_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{event__emitter_8hpp}{utils/event\_emitter.hpp}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceinput}{input}}\ \{}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{namespaceinput_a509991978ea186a69ddfea6e1f8d2ecd}{KeyCode}};}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{namespaceinput_a428ed2b7ddf972dda814d1cb486f5e0e}{InputEvents}}\ :\ \mbox{\hyperlink{namespaceinput_a509991978ea186a69ddfea6e1f8d2ecd}{KeyCode}}\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceinput_a428ed2b7ddf972dda814d1cb486f5e0ea17e827fbb54ff99b91258456e9212b61}{kEventKeyboardDown}},}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceinput_a428ed2b7ddf972dda814d1cb486f5e0ea2cebf997f57112ad357894e56f9533af}{kEventKeyboardUp}},}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceinput_a428ed2b7ddf972dda814d1cb486f5e0eaebae6b0be85a6fec717d77fee1e1d828}{kEventMousePointer}},}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceinput_a428ed2b7ddf972dda814d1cb486f5e0ea29e643887a3f9340d1e26138b5a132bb}{kEventMouseDown}},}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceinput_a428ed2b7ddf972dda814d1cb486f5e0ea5a7b7ee306b5cccbc383bf7694da4938}{kEventMouseUp}},}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceinput_a428ed2b7ddf972dda814d1cb486f5e0ea551773af9b80b54f6245b2378de21bda}{kEventGamepadAxis}},}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceinput_a428ed2b7ddf972dda814d1cb486f5e0eab9e6edec032fea3f6e632cfefd579d31}{kEventGamepadDown}},}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceinput_a428ed2b7ddf972dda814d1cb486f5e0ea15d1636b215b623a88311158906609f3}{kEventGamepadUp}},}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceinput_a428ed2b7ddf972dda814d1cb486f5e0ea782098e81e752b7b7aea60c6127ba430}{kEventGamepadCreated}},}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceinput_a428ed2b7ddf972dda814d1cb486f5e0ea5883a91aadb7657facd7241c9edecafa}{kEventQuit}}}
+\DoxyCodeLine{00031\ \ \ \ \ \};}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structinput_1_1_controller}{Controller}}\ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{structinput_1_1_controller_adf7fc2c73b465878d8ae3b296a63df7f}{Controller}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{namespaceinput}{input}})}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{structinput_1_1_controller_a13784f1cce3c7410b543ea8666f907e2}{id}}(\mbox{\hyperlink{structinput_1_1_controller_a13784f1cce3c7410b543ea8666f907e2}{id}}),\ \mbox{\hyperlink{namespaceinput}{input}}(\mbox{\hyperlink{namespaceinput}{input}})\ \{\}}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classutils_1_1_event_emitter}{utils::EventEmitter}}\ \mbox{\hyperlink{structinput_1_1_controller_aa7d8af2a0e1cb77c7bfe9db6a9a5cc21}{eventEmitter}};}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structinput_1_1_controller_a13784f1cce3c7410b543ea8666f907e2}{id}};}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{structinput_1_1_controller_a7d17decebf06d274a53ed694d0352893}{input}};}
+\DoxyCodeLine{00044\ \ \ \ \ \};}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classinput_1_1_input_system}{InputSystem}}\ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classinput_1_1_input_system_aedf266cfefe52c6081d7a764c0841a3d}{\string~InputSystem}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classinput_1_1_input_system_a605272d3ccb7a274ebd681ea403b7728}{InputSystem}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classinput_1_1_input_system_a51f9e671294678880335c813af717219}{init}}()\{}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ override\ me}}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classinput_1_1_input_system_ae87190c043262be98732ee6b35fbd881}{poll}}()\{}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ override\ me}}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classinput_1_1_input_system_a8ee03540b5901589131e513744086484}{terminate}}()\{}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ override\ me}}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classinput_1_1_input_system_a8603d8bfe5d2d0878979fa516928c489}{shutdown}}()\{}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ override\ me}}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classutils_1_1_event_emitter}{utils::EventEmitter}}\ *\textcolor{keyword}{const}\ \mbox{\hyperlink{classinput_1_1_input_system_ad9fea74dd05c4ec1bd9248f81e7ec111}{getEmitter}}()\ \{}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \&this-\/>\mbox{\hyperlink{classinput_1_1_input_system_ad3431524bf2fb6da3767b628876294dc}{eventEmitter}};}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structinput_1_1_controller}{Controller}}\ *\textcolor{keyword}{const}\ \mbox{\hyperlink{classinput_1_1_input_system_a90be8d2752b78538b61d1cc9418c5165}{getController}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id})\ \{}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ controller\ :}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classinput_1_1_input_system_a4cc82ab77b3aa70b4a820fe2ac3db5e8}{activeControllers}})\ \{}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (controller-\/>id\ ==\ \textcolor{keywordtype}{id})}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ controller;}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classutils_1_1_event_emitter}{utils::EventEmitter}}\ \mbox{\hyperlink{classinput_1_1_input_system_ad3431524bf2fb6da3767b628876294dc}{eventEmitter}};}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ std::vector<Controller\ *>\ \mbox{\hyperlink{classinput_1_1_input_system_a4cc82ab77b3aa70b4a820fe2ac3db5e8}{activeControllers}};}
+\DoxyCodeLine{00143\ \ \ \ \ \};}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \}\ \textcolor{comment}{//\ namespace\ input}}
+
+\end{DoxyCode}

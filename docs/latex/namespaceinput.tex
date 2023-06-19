@@ -1,0 +1,112 @@
+\doxysection{input Namespace Reference}
+\hypertarget{namespaceinput}{}\label{namespaceinput}\index{input@{input}}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceinput_1_1sdl}{sdl}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structinput_1_1_controller}{Controller}}
+\begin{DoxyCompactList}\small\item\em Instance of a created and connected gamepad/controller. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classinput_1_1_input_system}{Input\+System}}
+\begin{DoxyCompactList}\small\item\em Separate instances of created input systems with different origin should be allowed. ~\newline
+ Emits events on detected implemented input from input devices. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef int \mbox{\hyperlink{namespaceinput_a509991978ea186a69ddfea6e1f8d2ecd}{Key\+Code}}
+\begin{DoxyCompactList}\small\item\em Clarification that each input event should be int. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{namespaceinput_a428ed2b7ddf972dda814d1cb486f5e0e}{Input\+Events}} \+: Key\+Code \{ \newline
+\mbox{\hyperlink{namespaceinput_a428ed2b7ddf972dda814d1cb486f5e0ea17e827fbb54ff99b91258456e9212b61}{k\+Event\+Keyboard\+Down}}
+, \mbox{\hyperlink{namespaceinput_a428ed2b7ddf972dda814d1cb486f5e0ea2cebf997f57112ad357894e56f9533af}{k\+Event\+Keyboard\+Up}}
+, \mbox{\hyperlink{namespaceinput_a428ed2b7ddf972dda814d1cb486f5e0eaebae6b0be85a6fec717d77fee1e1d828}{k\+Event\+Mouse\+Pointer}}
+, \mbox{\hyperlink{namespaceinput_a428ed2b7ddf972dda814d1cb486f5e0ea29e643887a3f9340d1e26138b5a132bb}{k\+Event\+Mouse\+Down}}
+, \newline
+\mbox{\hyperlink{namespaceinput_a428ed2b7ddf972dda814d1cb486f5e0ea5a7b7ee306b5cccbc383bf7694da4938}{k\+Event\+Mouse\+Up}}
+, \mbox{\hyperlink{namespaceinput_a428ed2b7ddf972dda814d1cb486f5e0ea551773af9b80b54f6245b2378de21bda}{k\+Event\+Gamepad\+Axis}}
+, \mbox{\hyperlink{namespaceinput_a428ed2b7ddf972dda814d1cb486f5e0eab9e6edec032fea3f6e632cfefd579d31}{k\+Event\+Gamepad\+Down}}
+, \mbox{\hyperlink{namespaceinput_a428ed2b7ddf972dda814d1cb486f5e0ea15d1636b215b623a88311158906609f3}{k\+Event\+Gamepad\+Up}}
+, \newline
+\mbox{\hyperlink{namespaceinput_a428ed2b7ddf972dda814d1cb486f5e0ea782098e81e752b7b7aea60c6127ba430}{k\+Event\+Gamepad\+Created}}
+, \mbox{\hyperlink{namespaceinput_a428ed2b7ddf972dda814d1cb486f5e0ea5883a91aadb7657facd7241c9edecafa}{k\+Event\+Quit}}
+ \}
+\begin{DoxyCompactList}\small\item\em Based on available input devices for a game or an application. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{namespaceinput_a509991978ea186a69ddfea6e1f8d2ecd}\label{namespaceinput_a509991978ea186a69ddfea6e1f8d2ecd} 
+\index{input@{input}!KeyCode@{KeyCode}}
+\index{KeyCode@{KeyCode}!input@{input}}
+\doxysubsubsection{\texorpdfstring{KeyCode}{KeyCode}}
+{\footnotesize\ttfamily typedef int \mbox{\hyperlink{namespaceinput_a509991978ea186a69ddfea6e1f8d2ecd}{input\+::\+Key\+Code}}}
+
+
+
+Clarification that each input event should be int. 
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{namespaceinput_a428ed2b7ddf972dda814d1cb486f5e0e}\label{namespaceinput_a428ed2b7ddf972dda814d1cb486f5e0e} 
+\index{input@{input}!InputEvents@{InputEvents}}
+\index{InputEvents@{InputEvents}!input@{input}}
+\doxysubsubsection{\texorpdfstring{InputEvents}{InputEvents}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{namespaceinput_a428ed2b7ddf972dda814d1cb486f5e0e}{input\+::\+Input\+Events}} \+: \mbox{\hyperlink{namespaceinput_a509991978ea186a69ddfea6e1f8d2ecd}{Key\+Code}}}
+
+
+
+Based on available input devices for a game or an application. 
+
+\begin{DoxyNote}{Note}
+Will expand in the future 
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+Use enum rather than just an int, as order could change =\texorpdfstring{$>$}{>} key value will change 
+\end{DoxyWarning}
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kEventKeyboardDown@{kEventKeyboardDown}!input@{input}}\index{input@{input}!kEventKeyboardDown@{kEventKeyboardDown}}}\Hypertarget{namespaceinput_a428ed2b7ddf972dda814d1cb486f5e0ea17e827fbb54ff99b91258456e9212b61}\label{namespaceinput_a428ed2b7ddf972dda814d1cb486f5e0ea17e827fbb54ff99b91258456e9212b61} 
+k\+Event\+Keyboard\+Down&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kEventKeyboardUp@{kEventKeyboardUp}!input@{input}}\index{input@{input}!kEventKeyboardUp@{kEventKeyboardUp}}}\Hypertarget{namespaceinput_a428ed2b7ddf972dda814d1cb486f5e0ea2cebf997f57112ad357894e56f9533af}\label{namespaceinput_a428ed2b7ddf972dda814d1cb486f5e0ea2cebf997f57112ad357894e56f9533af} 
+k\+Event\+Keyboard\+Up&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kEventMousePointer@{kEventMousePointer}!input@{input}}\index{input@{input}!kEventMousePointer@{kEventMousePointer}}}\Hypertarget{namespaceinput_a428ed2b7ddf972dda814d1cb486f5e0eaebae6b0be85a6fec717d77fee1e1d828}\label{namespaceinput_a428ed2b7ddf972dda814d1cb486f5e0eaebae6b0be85a6fec717d77fee1e1d828} 
+k\+Event\+Mouse\+Pointer&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kEventMouseDown@{kEventMouseDown}!input@{input}}\index{input@{input}!kEventMouseDown@{kEventMouseDown}}}\Hypertarget{namespaceinput_a428ed2b7ddf972dda814d1cb486f5e0ea29e643887a3f9340d1e26138b5a132bb}\label{namespaceinput_a428ed2b7ddf972dda814d1cb486f5e0ea29e643887a3f9340d1e26138b5a132bb} 
+k\+Event\+Mouse\+Down&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kEventMouseUp@{kEventMouseUp}!input@{input}}\index{input@{input}!kEventMouseUp@{kEventMouseUp}}}\Hypertarget{namespaceinput_a428ed2b7ddf972dda814d1cb486f5e0ea5a7b7ee306b5cccbc383bf7694da4938}\label{namespaceinput_a428ed2b7ddf972dda814d1cb486f5e0ea5a7b7ee306b5cccbc383bf7694da4938} 
+k\+Event\+Mouse\+Up&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kEventGamepadAxis@{kEventGamepadAxis}!input@{input}}\index{input@{input}!kEventGamepadAxis@{kEventGamepadAxis}}}\Hypertarget{namespaceinput_a428ed2b7ddf972dda814d1cb486f5e0ea551773af9b80b54f6245b2378de21bda}\label{namespaceinput_a428ed2b7ddf972dda814d1cb486f5e0ea551773af9b80b54f6245b2378de21bda} 
+k\+Event\+Gamepad\+Axis&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kEventGamepadDown@{kEventGamepadDown}!input@{input}}\index{input@{input}!kEventGamepadDown@{kEventGamepadDown}}}\Hypertarget{namespaceinput_a428ed2b7ddf972dda814d1cb486f5e0eab9e6edec032fea3f6e632cfefd579d31}\label{namespaceinput_a428ed2b7ddf972dda814d1cb486f5e0eab9e6edec032fea3f6e632cfefd579d31} 
+k\+Event\+Gamepad\+Down&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kEventGamepadUp@{kEventGamepadUp}!input@{input}}\index{input@{input}!kEventGamepadUp@{kEventGamepadUp}}}\Hypertarget{namespaceinput_a428ed2b7ddf972dda814d1cb486f5e0ea15d1636b215b623a88311158906609f3}\label{namespaceinput_a428ed2b7ddf972dda814d1cb486f5e0ea15d1636b215b623a88311158906609f3} 
+k\+Event\+Gamepad\+Up&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kEventGamepadCreated@{kEventGamepadCreated}!input@{input}}\index{input@{input}!kEventGamepadCreated@{kEventGamepadCreated}}}\Hypertarget{namespaceinput_a428ed2b7ddf972dda814d1cb486f5e0ea782098e81e752b7b7aea60c6127ba430}\label{namespaceinput_a428ed2b7ddf972dda814d1cb486f5e0ea782098e81e752b7b7aea60c6127ba430} 
+k\+Event\+Gamepad\+Created&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kEventQuit@{kEventQuit}!input@{input}}\index{input@{input}!kEventQuit@{kEventQuit}}}\Hypertarget{namespaceinput_a428ed2b7ddf972dda814d1cb486f5e0ea5883a91aadb7657facd7241c9edecafa}\label{namespaceinput_a428ed2b7ddf972dda814d1cb486f5e0ea5883a91aadb7657facd7241c9edecafa} 
+k\+Event\+Quit&\\
+\hline
+
+\end{DoxyEnumFields}

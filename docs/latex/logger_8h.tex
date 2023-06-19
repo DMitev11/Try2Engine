@@ -1,0 +1,299 @@
+\doxysection{engine/logger/logger.h File Reference}
+\hypertarget{logger_8h}{}\label{logger_8h}\index{engine/logger/logger.h@{engine/logger/logger.h}}
+{\ttfamily \#include $<$cstring$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classlogger_1_1_static_logger}{logger\+::\+Static\+Logger}}
+\begin{DoxyCompactList}\small\item\em Generalization in the project. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacelogger}{logger}}
+\begin{DoxyCompactList}\small\item\em Based on the spdlog\textquotesingle{}s implementation. ~\newline
+ Use to emit engine and client logs to a separate logger, instead of cout (which emits to a default output stream) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{logger_8h_a9f6e6a5a98452d310635a7320c8a3183}{LOG\+\_\+\+ENGINE}}(filename,  line,  log\+Level,  prefix,  error)
+\begin{DoxyCompactList}\small\item\em Log engine dedicated messages. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{logger_8h_a34f2bc3378df913af4b1a9ffc0b0da79}{LOG\+\_\+\+CLIENT}}(filename,  line,  log\+Level,  prefix,  error)
+\begin{DoxyCompactList}\small\item\em Log engine dedicated messages. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{logger_8h_a77faaf9fac0831902b20d4fdbb87fb2b}{LOG\+\_\+\+ENGINE\+\_\+\+ERROR}}(prefix,  error)
+\begin{DoxyCompactList}\small\item\em Log engine dedicated messages, at \"{}\+Error\"{} level. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{logger_8h_a5ff96d87866679c3774d41085551608d}{LOG\+\_\+\+ENGINE\+\_\+\+CRITICAL}}(prefix,  error)
+\begin{DoxyCompactList}\small\item\em Log engine dedicated messages, at \"{}\+Critical\"{} level. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{logger_8h_a03b7db4d2d6fa1512d8d0841ff455904}{LOG\+\_\+\+ENGINE\+\_\+\+INFO}}(prefix,  error)
+\begin{DoxyCompactList}\small\item\em Log engine dedicated messages, at \"{}\+Info\"{} level. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{logger_8h_ad88831a234a374264dc21fa0ae6211c5}{LOG\+\_\+\+ENGINE\+\_\+\+WARN}}(prefix,  error)
+\begin{DoxyCompactList}\small\item\em Log engine dedicated messages, at \"{}\+Warn\"{} level. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{logger_8h_aed88a4f72f67c5ac664985b4eecb458b}{LOG\+\_\+\+CLIENT\+\_\+\+ERROR}}(prefix,  error)
+\begin{DoxyCompactList}\small\item\em Log client dedicated messages, at \"{}\+Error\"{} level. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{logger_8h_a234958a9236994e727450c783e7bc500}{LOG\+\_\+\+CLIENT\+\_\+\+CRITICAL}}(prefix,  error)
+\begin{DoxyCompactList}\small\item\em Log client dedicated messages, at \"{}\+Critical\"{} level. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{logger_8h_a9af0e3aa6ab7c633979289111481dcaa}{LOG\+\_\+\+CLIENT\+\_\+\+INFO}}(prefix,  error)
+\begin{DoxyCompactList}\small\item\em Log client dedicated messages, at \"{}\+Info\"{} level. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{logger_8h_a6acad4c9835ffa8a2f6437a28c6becc8}{LOG\+\_\+\+CLIENT\+\_\+\+WARN}}(prefix,  error)
+\begin{DoxyCompactList}\small\item\em Log client dedicated messages, at \"{}\+Warn\"{} level. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2}{logger\+::\+Log\+Level}} \{ \newline
+\mbox{\hyperlink{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2a6f7502c963b900831773c265c768d818}{logger\+::k\+Trace}}
+, \mbox{\hyperlink{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2a261345fea93f5ed76d6fcece5958bb1f}{logger\+::k\+Debug}}
+, \mbox{\hyperlink{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2a10ef91b7e6f399b4a6eeac7e233bb72e}{logger\+::k\+Info}}
+, \mbox{\hyperlink{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2a86486e2bdb6930bc9a29c57abe5805ba}{logger\+::k\+Warn}}
+, \newline
+\mbox{\hyperlink{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2aa00406022624ad57581dddf1f135b0d4}{logger\+::k\+Err}}
+, \mbox{\hyperlink{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2a6754129f912d44f1bee553aeda1a2ee4}{logger\+::k\+Critical}}
+ \}
+\begin{DoxyCompactList}\small\item\em All levels of logging. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{namespacelogger_a7008ddac10210be5b71f2aa880cea7e2}{logger\+::\+Console\+Logger\+Types}} \{ \mbox{\hyperlink{namespacelogger_a7008ddac10210be5b71f2aa880cea7e2a057f49b4a91c2c9ec20f08b2aad6f3ff}{logger\+::k\+Console}}
+, \mbox{\hyperlink{namespacelogger_a7008ddac10210be5b71f2aa880cea7e2aab175b8a77710924c69de508b85e0b90}{logger\+::k\+Console\+Error}}
+ \}
+\begin{DoxyCompactList}\small\item\em Types of console loggers. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{namespacelogger_a85919e64d5e829ed702a395a9071c952}{logger\+::\+File\+Logger\+Types}} \{ \mbox{\hyperlink{namespacelogger_a85919e64d5e829ed702a395a9071c952a195959d81393056e7e63bde23ecbb5ac}{logger\+::k\+Basic\+File}}
+, \mbox{\hyperlink{namespacelogger_a85919e64d5e829ed702a395a9071c952a4e3ee640a3b6a37e97534e7505fc6457}{logger\+::k\+Multiple\+Files}}
+, \mbox{\hyperlink{namespacelogger_a85919e64d5e829ed702a395a9071c952ac9a29951fb32ac9ab38a13c96082407f}{logger\+::k\+Daily\+File}}
+ \}
+\begin{DoxyCompactList}\small\item\em Types of file loggers. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{namespacelogger_a557c7ef1427522e98ca4bfb49a125013}{logger\+::create\+Console\+Logger}} (std\+::string name, \mbox{\hyperlink{namespacelogger_a7008ddac10210be5b71f2aa880cea7e2}{Console\+Logger\+Types}} logger\+Type)
+\begin{DoxyCompactList}\small\item\em Create a logger to emit messages. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename... Args$>$ }\\void \mbox{\hyperlink{namespacelogger_a3ea24e2c0fa2ce729ee8b6c0051786ee}{logger\+::create\+File\+Logger}} (std\+::string name, \mbox{\hyperlink{namespacelogger_a85919e64d5e829ed702a395a9071c952}{File\+Logger\+Types}} logger\+Type, Args... args)
+\item 
+void \mbox{\hyperlink{namespacelogger_a5e7aa0bacba2c1a70397c66af93f9511}{logger\+::create\+Console\+Sink}} (std\+::string logger\+Name, \mbox{\hyperlink{namespacelogger_a7008ddac10210be5b71f2aa880cea7e2}{Console\+Logger\+Types}} sink\+Type=\mbox{\hyperlink{namespacelogger_a7008ddac10210be5b71f2aa880cea7e2a057f49b4a91c2c9ec20f08b2aad6f3ff}{Console\+Logger\+Types\+::k\+Console}}, \mbox{\hyperlink{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2}{Log\+Level}} log\+Level=\mbox{\hyperlink{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2a6f7502c963b900831773c265c768d818}{Log\+Level\+::k\+Trace}}, std\+::string pattern=k\+Default\+Pattern)
+\begin{DoxyCompactList}\small\item\em Create a sink, to which a logger can emit messages. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename... Args$>$ }\\void \mbox{\hyperlink{namespacelogger_a376d71fe05556219f1f9aad6445edf1a}{logger\+::create\+File\+Sink}} (std\+::string logger\+Name, Args... args, \mbox{\hyperlink{namespacelogger_a85919e64d5e829ed702a395a9071c952}{File\+Logger\+Types}} sink\+Type=\mbox{\hyperlink{namespacelogger_a85919e64d5e829ed702a395a9071c952a195959d81393056e7e63bde23ecbb5ac}{File\+Logger\+Types\+::k\+Basic\+File}}, \mbox{\hyperlink{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2}{Log\+Level}} log\+Level=\mbox{\hyperlink{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2a6f7502c963b900831773c265c768d818}{Log\+Level\+::k\+Trace}}, std\+::string pattern=k\+Default\+Pattern)
+\item 
+void \mbox{\hyperlink{namespacelogger_a7fbafefebfe176ecdbafd645dc0e78dd}{logger\+::set\+Logger\+Pattern}} (std\+::string logger\+Name, std\+::string pattern)
+\begin{DoxyCompactList}\small\item\em Set logger pattern to be used by a logger. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacelogger_a95d7ebf969023bd17ee2c4d3b7235005}{logger\+::set\+Logger\+Level}} (std\+::string logger\+Name, \mbox{\hyperlink{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2}{Log\+Level}} log\+Level)
+\begin{DoxyCompactList}\small\item\em Set the logging level of a logger. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacelogger_a061e78855d8273e4387a803c269939bc}{logger\+::log}} (char \texorpdfstring{$\ast$}{*}const filename, int file\+Line, std\+::string logger\+Name, \mbox{\hyperlink{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2}{Log\+Level}} log\+Level, char const \texorpdfstring{$\ast$}{*}msg)
+\begin{DoxyCompactList}\small\item\em Log a message to a specific logger. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespacelogger_a0f49d7980c0fca0ab40b9d83d584c719}{logger\+::logger\+Exists}} (std\+::string logger\+Name)
+\begin{DoxyCompactList}\small\item\em Returns if a specific logger exists for logging. \end{DoxyCompactList}\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespacelogger_a14b2dd9471150bf0323d2d4cb4c1dfb1}{logger\+::concat\+Message}} (const char \texorpdfstring{$\ast$}{*}prefix, const char \texorpdfstring{$\ast$}{*}msg)
+\begin{DoxyCompactList}\small\item\em Concatenate prefix of a message and the actual message. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{logger_8h_a34f2bc3378df913af4b1a9ffc0b0da79}\label{logger_8h_a34f2bc3378df913af4b1a9ffc0b0da79} 
+\index{logger.h@{logger.h}!LOG\_CLIENT@{LOG\_CLIENT}}
+\index{LOG\_CLIENT@{LOG\_CLIENT}!logger.h@{logger.h}}
+\doxysubsubsection{\texorpdfstring{LOG\_CLIENT}{LOG\_CLIENT}}
+{\footnotesize\ttfamily \#define LOG\+\_\+\+CLIENT(\begin{DoxyParamCaption}\item[{}]{filename,  }\item[{}]{line,  }\item[{}]{log\+Level,  }\item[{}]{prefix,  }\item[{}]{error }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classlogger_1_1_static_logger_a798af870b8d9a006fc42d6ba2c0720ee}{logger::StaticLogger::clientLog}}(\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \_\_FILE\_\_,\ \_\_LINE\_\_,\ logLevel,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacelogger_a14b2dd9471150bf0323d2d4cb4c1dfb1}{logger::concatMessage}}(prefix,\ error))}
+
+\end{DoxyCode}
+
+
+Log engine dedicated messages. 
+
+\begin{DoxySeeAlso}{See also}
+logger\+::\+LOG\+\_\+\+ENGINE 
+\end{DoxySeeAlso}
+\Hypertarget{logger_8h_a234958a9236994e727450c783e7bc500}\label{logger_8h_a234958a9236994e727450c783e7bc500} 
+\index{logger.h@{logger.h}!LOG\_CLIENT\_CRITICAL@{LOG\_CLIENT\_CRITICAL}}
+\index{LOG\_CLIENT\_CRITICAL@{LOG\_CLIENT\_CRITICAL}!logger.h@{logger.h}}
+\doxysubsubsection{\texorpdfstring{LOG\_CLIENT\_CRITICAL}{LOG\_CLIENT\_CRITICAL}}
+{\footnotesize\ttfamily \#define LOG\+\_\+\+CLIENT\+\_\+\+CRITICAL(\begin{DoxyParamCaption}\item[{}]{prefix,  }\item[{}]{error }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{logger_8h_a34f2bc3378df913af4b1a9ffc0b0da79}{LOG\_CLIENT}}(\_\_FILE\_\_,\ \_\_LINE\_\_,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2a6754129f912d44f1bee553aeda1a2ee4}{logger::LogLevel::kCritical}},\ prefix,\ error)}
+
+\end{DoxyCode}
+
+
+Log client dedicated messages, at \"{}\+Critical\"{} level. 
+
+\begin{DoxySeeAlso}{See also}
+logger\+::\+LOG\+\_\+\+CLIENT 
+
+\doxylink{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2}{logger\+::\+Log\+Level} 
+\end{DoxySeeAlso}
+\Hypertarget{logger_8h_aed88a4f72f67c5ac664985b4eecb458b}\label{logger_8h_aed88a4f72f67c5ac664985b4eecb458b} 
+\index{logger.h@{logger.h}!LOG\_CLIENT\_ERROR@{LOG\_CLIENT\_ERROR}}
+\index{LOG\_CLIENT\_ERROR@{LOG\_CLIENT\_ERROR}!logger.h@{logger.h}}
+\doxysubsubsection{\texorpdfstring{LOG\_CLIENT\_ERROR}{LOG\_CLIENT\_ERROR}}
+{\footnotesize\ttfamily \#define LOG\+\_\+\+CLIENT\+\_\+\+ERROR(\begin{DoxyParamCaption}\item[{}]{prefix,  }\item[{}]{error }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{logger_8h_a34f2bc3378df913af4b1a9ffc0b0da79}{LOG\_CLIENT}}(\_\_FILE\_\_,\ \_\_LINE\_\_,\ \mbox{\hyperlink{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2aa00406022624ad57581dddf1f135b0d4}{logger::LogLevel::kErr}},\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ prefix,\ error)}
+
+\end{DoxyCode}
+
+
+Log client dedicated messages, at \"{}\+Error\"{} level. 
+
+\begin{DoxySeeAlso}{See also}
+logger\+::\+LOG\+\_\+\+CLIENT 
+
+\doxylink{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2}{logger\+::\+Log\+Level} 
+\end{DoxySeeAlso}
+\Hypertarget{logger_8h_a9af0e3aa6ab7c633979289111481dcaa}\label{logger_8h_a9af0e3aa6ab7c633979289111481dcaa} 
+\index{logger.h@{logger.h}!LOG\_CLIENT\_INFO@{LOG\_CLIENT\_INFO}}
+\index{LOG\_CLIENT\_INFO@{LOG\_CLIENT\_INFO}!logger.h@{logger.h}}
+\doxysubsubsection{\texorpdfstring{LOG\_CLIENT\_INFO}{LOG\_CLIENT\_INFO}}
+{\footnotesize\ttfamily \#define LOG\+\_\+\+CLIENT\+\_\+\+INFO(\begin{DoxyParamCaption}\item[{}]{prefix,  }\item[{}]{error }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{logger_8h_a34f2bc3378df913af4b1a9ffc0b0da79}{LOG\_CLIENT}}(\_\_FILE\_\_,\ \_\_LINE\_\_,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2a10ef91b7e6f399b4a6eeac7e233bb72e}{logger::LogLevel::kInfo}},\ prefix,\ error)}
+
+\end{DoxyCode}
+
+
+Log client dedicated messages, at \"{}\+Info\"{} level. 
+
+\begin{DoxySeeAlso}{See also}
+logger\+::\+LOG\+\_\+\+CLIENT 
+
+\doxylink{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2}{logger\+::\+Log\+Level} 
+\end{DoxySeeAlso}
+\Hypertarget{logger_8h_a6acad4c9835ffa8a2f6437a28c6becc8}\label{logger_8h_a6acad4c9835ffa8a2f6437a28c6becc8} 
+\index{logger.h@{logger.h}!LOG\_CLIENT\_WARN@{LOG\_CLIENT\_WARN}}
+\index{LOG\_CLIENT\_WARN@{LOG\_CLIENT\_WARN}!logger.h@{logger.h}}
+\doxysubsubsection{\texorpdfstring{LOG\_CLIENT\_WARN}{LOG\_CLIENT\_WARN}}
+{\footnotesize\ttfamily \#define LOG\+\_\+\+CLIENT\+\_\+\+WARN(\begin{DoxyParamCaption}\item[{}]{prefix,  }\item[{}]{error }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{logger_8h_a34f2bc3378df913af4b1a9ffc0b0da79}{LOG\_CLIENT}}(\_\_FILE\_\_,\ \_\_LINE\_\_,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2a86486e2bdb6930bc9a29c57abe5805ba}{logger::LogLevel::kWarn}},\ prefix,\ error)}
+
+\end{DoxyCode}
+
+
+Log client dedicated messages, at \"{}\+Warn\"{} level. 
+
+\begin{DoxySeeAlso}{See also}
+logger\+::\+LOG\+\_\+\+CLIENT 
+
+\doxylink{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2}{logger\+::\+Log\+Level} 
+\end{DoxySeeAlso}
+\Hypertarget{logger_8h_a9f6e6a5a98452d310635a7320c8a3183}\label{logger_8h_a9f6e6a5a98452d310635a7320c8a3183} 
+\index{logger.h@{logger.h}!LOG\_ENGINE@{LOG\_ENGINE}}
+\index{LOG\_ENGINE@{LOG\_ENGINE}!logger.h@{logger.h}}
+\doxysubsubsection{\texorpdfstring{LOG\_ENGINE}{LOG\_ENGINE}}
+{\footnotesize\ttfamily \#define LOG\+\_\+\+ENGINE(\begin{DoxyParamCaption}\item[{}]{filename,  }\item[{}]{line,  }\item[{}]{log\+Level,  }\item[{}]{prefix,  }\item[{}]{error }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classlogger_1_1_static_logger_aa402378676a5b662e6ee6cd4ba44d996}{logger::StaticLogger::engineLog}}(\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \_\_FILE\_\_,\ \_\_LINE\_\_,\ logLevel,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacelogger_a14b2dd9471150bf0323d2d4cb4c1dfb1}{logger::concatMessage}}(prefix,\ error))}
+
+\end{DoxyCode}
+
+
+Log engine dedicated messages. 
+
+\begin{DoxyNote}{Note}
+Use LOG\+\_\+\+CLIENT\+\_\+$<$\+TYPE$>$ (ex. LOG\+\_\+\+CLIENT\+\_\+\+INFO) 
+
+Catches {\bfseries{FILE}} and {\bfseries{LINE}} macros from the file that called the macro
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\doxylink{namespacelogger_a061e78855d8273e4387a803c269939bc}{logger\+::log} 
+\end{DoxySeeAlso}
+\Hypertarget{logger_8h_a5ff96d87866679c3774d41085551608d}\label{logger_8h_a5ff96d87866679c3774d41085551608d} 
+\index{logger.h@{logger.h}!LOG\_ENGINE\_CRITICAL@{LOG\_ENGINE\_CRITICAL}}
+\index{LOG\_ENGINE\_CRITICAL@{LOG\_ENGINE\_CRITICAL}!logger.h@{logger.h}}
+\doxysubsubsection{\texorpdfstring{LOG\_ENGINE\_CRITICAL}{LOG\_ENGINE\_CRITICAL}}
+{\footnotesize\ttfamily \#define LOG\+\_\+\+ENGINE\+\_\+\+CRITICAL(\begin{DoxyParamCaption}\item[{}]{prefix,  }\item[{}]{error }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{logger_8h_a9f6e6a5a98452d310635a7320c8a3183}{LOG\_ENGINE}}(\_\_FILE\_\_,\ \_\_LINE\_\_,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2a6754129f912d44f1bee553aeda1a2ee4}{logger::LogLevel::kCritical}},\ prefix,\ error)}
+
+\end{DoxyCode}
+
+
+Log engine dedicated messages, at \"{}\+Critical\"{} level. 
+
+\begin{DoxySeeAlso}{See also}
+logger\+::\+LOG\+\_\+\+ENGINE 
+
+\doxylink{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2}{logger\+::\+Log\+Level} 
+\end{DoxySeeAlso}
+\Hypertarget{logger_8h_a77faaf9fac0831902b20d4fdbb87fb2b}\label{logger_8h_a77faaf9fac0831902b20d4fdbb87fb2b} 
+\index{logger.h@{logger.h}!LOG\_ENGINE\_ERROR@{LOG\_ENGINE\_ERROR}}
+\index{LOG\_ENGINE\_ERROR@{LOG\_ENGINE\_ERROR}!logger.h@{logger.h}}
+\doxysubsubsection{\texorpdfstring{LOG\_ENGINE\_ERROR}{LOG\_ENGINE\_ERROR}}
+{\footnotesize\ttfamily \#define LOG\+\_\+\+ENGINE\+\_\+\+ERROR(\begin{DoxyParamCaption}\item[{}]{prefix,  }\item[{}]{error }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{logger_8h_a9f6e6a5a98452d310635a7320c8a3183}{LOG\_ENGINE}}(\_\_FILE\_\_,\ \_\_LINE\_\_,\ \mbox{\hyperlink{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2aa00406022624ad57581dddf1f135b0d4}{logger::LogLevel::kErr}},\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ prefix,\ error)}
+
+\end{DoxyCode}
+
+
+Log engine dedicated messages, at \"{}\+Error\"{} level. 
+
+\begin{DoxySeeAlso}{See also}
+logger\+::\+LOG\+\_\+\+ENGINE 
+
+\doxylink{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2}{logger\+::\+Log\+Level} 
+\end{DoxySeeAlso}
+\Hypertarget{logger_8h_a03b7db4d2d6fa1512d8d0841ff455904}\label{logger_8h_a03b7db4d2d6fa1512d8d0841ff455904} 
+\index{logger.h@{logger.h}!LOG\_ENGINE\_INFO@{LOG\_ENGINE\_INFO}}
+\index{LOG\_ENGINE\_INFO@{LOG\_ENGINE\_INFO}!logger.h@{logger.h}}
+\doxysubsubsection{\texorpdfstring{LOG\_ENGINE\_INFO}{LOG\_ENGINE\_INFO}}
+{\footnotesize\ttfamily \#define LOG\+\_\+\+ENGINE\+\_\+\+INFO(\begin{DoxyParamCaption}\item[{}]{prefix,  }\item[{}]{error }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{logger_8h_a9f6e6a5a98452d310635a7320c8a3183}{LOG\_ENGINE}}(\_\_FILE\_\_,\ \_\_LINE\_\_,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2a10ef91b7e6f399b4a6eeac7e233bb72e}{logger::LogLevel::kInfo}},\ prefix,\ error)}
+
+\end{DoxyCode}
+
+
+Log engine dedicated messages, at \"{}\+Info\"{} level. 
+
+\begin{DoxySeeAlso}{See also}
+logger\+::\+LOG\+\_\+\+ENGINE 
+
+\doxylink{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2}{logger\+::\+Log\+Level} 
+\end{DoxySeeAlso}
+\Hypertarget{logger_8h_ad88831a234a374264dc21fa0ae6211c5}\label{logger_8h_ad88831a234a374264dc21fa0ae6211c5} 
+\index{logger.h@{logger.h}!LOG\_ENGINE\_WARN@{LOG\_ENGINE\_WARN}}
+\index{LOG\_ENGINE\_WARN@{LOG\_ENGINE\_WARN}!logger.h@{logger.h}}
+\doxysubsubsection{\texorpdfstring{LOG\_ENGINE\_WARN}{LOG\_ENGINE\_WARN}}
+{\footnotesize\ttfamily \#define LOG\+\_\+\+ENGINE\+\_\+\+WARN(\begin{DoxyParamCaption}\item[{}]{prefix,  }\item[{}]{error }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{logger_8h_a9f6e6a5a98452d310635a7320c8a3183}{LOG\_ENGINE}}(\_\_FILE\_\_,\ \_\_LINE\_\_,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2a86486e2bdb6930bc9a29c57abe5805ba}{logger::LogLevel::kWarn}},\ prefix,\ error)}
+
+\end{DoxyCode}
+
+
+Log engine dedicated messages, at \"{}\+Warn\"{} level. 
+
+\begin{DoxySeeAlso}{See also}
+logger\+::\+LOG\+\_\+\+ENGINE 
+
+\doxylink{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2}{logger\+::\+Log\+Level} 
+\end{DoxySeeAlso}

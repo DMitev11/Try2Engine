@@ -1,0 +1,52 @@
+\doxysection{gui\+\_\+widget.\+h}
+\hypertarget{gui__widget_8h_source}{}\label{gui__widget_8h_source}\index{engine/gui/core/gui\_widget.h@{engine/gui/core/gui\_widget.h}}
+\mbox{\hyperlink{gui__widget_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <libraries/imgui/imgui.h>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00005\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacegui}{gui}}\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classgui_1_1_gui_widget}{GuiWidget}}\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgui_1_1_gui_widget_af82e45366f30c98f6c67f25a5d27e4c9}{GuiWidget}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{classgui_1_1_gui_widget_a7e76213353a41779b9ed70f3cf68fe97}{name}},}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<int>\ \mbox{\hyperlink{classgui_1_1_gui_widget_af25ea7b238770ade707fc9b4e57ee994}{flags}}\ =\ \{\})}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classgui_1_1_gui_widget_a7e76213353a41779b9ed70f3cf68fe97}{name}}(\mbox{\hyperlink{classgui_1_1_gui_widget_a7e76213353a41779b9ed70f3cf68fe97}{name}}),\ \mbox{\hyperlink{classgui_1_1_gui_widget_af25ea7b238770ade707fc9b4e57ee994}{flags}}(calculateFlags(\mbox{\hyperlink{classgui_1_1_gui_widget_af25ea7b238770ade707fc9b4e57ee994}{flags}}))\{\};}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classgui_1_1_gui_widget_a208f524fe0c7c2070d40b8b8a1307963}{\string~GuiWidget}}()\{\};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgui_1_1_gui_widget_a443b4933b167ac9e1f95136ae9e836b7}{begin}}()\ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ ImGui::Begin(\mbox{\hyperlink{classgui_1_1_gui_widget_a7e76213353a41779b9ed70f3cf68fe97}{name}},\ \mbox{\hyperlink{classgui_1_1_gui_widget_acdc3296b4cbe1a6366c3af49350d6d7c}{close}},\ \mbox{\hyperlink{classgui_1_1_gui_widget_af25ea7b238770ade707fc9b4e57ee994}{flags}});}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgui_1_1_gui_widget_a978ece50a8ef46a8963cf0d04cc28138}{end}}()\ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ ImGui::End();}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//@todo\ fix\ -\/\ doesn't\ change}}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (*\mbox{\hyperlink{classgui_1_1_gui_widget_acdc3296b4cbe1a6366c3af49350d6d7c}{close}})\ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ \textcolor{keyword}{this};}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgui_1_1_gui_widget_a42ad684907ce28bc79804b306627292a}{render}}()\{}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ override\ me}}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{classgui_1_1_gui_widget_a1828488bddcea5013ba46bc8d4f4828f}{getName}}()\ \{}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::string(\mbox{\hyperlink{classgui_1_1_gui_widget_a7e76213353a41779b9ed70f3cf68fe97}{name}}).c\_str();}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{classgui_1_1_gui_widget_a7e76213353a41779b9ed70f3cf68fe97}{name}};}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classgui_1_1_gui_widget_af25ea7b238770ade707fc9b4e57ee994}{flags}};}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ *\mbox{\hyperlink{classgui_1_1_gui_widget_acdc3296b4cbe1a6366c3af49350d6d7c}{close}}\ =\ \textcolor{keyword}{new}\ bool(\textcolor{keyword}{false});}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ calculateFlags(std::vector<int>\ \mbox{\hyperlink{classgui_1_1_gui_widget_af25ea7b238770ade707fc9b4e57ee994}{flags}})\ \{}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \_flags\ =\ 0;}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ flag\ :\ \mbox{\hyperlink{classgui_1_1_gui_widget_af25ea7b238770ade707fc9b4e57ee994}{flags}})\ \{}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_flags\ |=\ flag;}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_flags;}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00075\ \ \ \ \ \};}
+\DoxyCodeLine{00076\ \}\ \textcolor{comment}{//\ namespace\ gui}}
+
+\end{DoxyCode}

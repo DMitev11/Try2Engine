@@ -1,0 +1,179 @@
+\doxysection{window\+::sdl Namespace Reference}
+\hypertarget{namespacewindow_1_1sdl}{}\label{namespacewindow_1_1sdl}\index{window::sdl@{window::sdl}}
+
+
+Implementation based on namespace window public facade.  
+
+
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{namespacewindow_1_1sdl_a0fd8987f1ce1f5ff366ea1430a4307bf}{init}} (std\+::vector$<$ uint32\+\_\+t $>$ init\+Flags=\mbox{\hyperlink{namespacewindow_1_1sdl_a6c1361549883c45eb1acb0ee15f595ce}{k\+Default\+Init\+Flags}}, std\+::unordered\+\_\+map$<$ const char \texorpdfstring{$\ast$}{*}, const char \texorpdfstring{$\ast$}{*} $>$ hint\+Flags=\mbox{\hyperlink{namespacewindow_1_1sdl_a44786eab04d91144cc1446273f6a1eda}{k\+Defaul\+Init\+Hints}})
+\begin{DoxyCompactList}\small\item\em Initialize window creation logic. Initialize {\ttfamily flags} (/ref k\+Default\+Init\+Flags) and set hints(although not necessary) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classobjects_1_1_window}{objects\+::\+Window}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespacewindow_1_1sdl_a34983b948ce5c608608a0b5998d4370f}{create\+Window}} (int height, int width, const char \texorpdfstring{$\ast$}{*}title, std\+::vector$<$ uint32\+\_\+t $>$ flags=\{ SDL\+\_\+\+WINDOW\+\_\+\+RESIZABLE, SDL\+\_\+\+WINDOW\+\_\+\+INPUT\+\_\+\+FOCUS\})
+\begin{DoxyCompactList}\small\item\em Create a Window object using SDL. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacewindow_1_1sdl_a772f8553c89a07172da2361f4ab2d988}{terminate}} (\mbox{\hyperlink{classobjects_1_1_window}{objects\+::\+Window}} \texorpdfstring{$\ast$}{*}window)
+\begin{DoxyCompactList}\small\item\em Close a window, and cleanup after that. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacewindow_1_1sdl_a20e0b3c05c4520b0ff8d1227705e6c9e}{terminate}} (SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}window)
+\item 
+void \mbox{\hyperlink{namespacewindow_1_1sdl_a537f2b8c5ac6930f0503f0d0501edd83}{shutdown}} (std\+::vector$<$ uint32\+\_\+t $>$ init\+Flags=\mbox{\hyperlink{namespacewindow_1_1sdl_a6c1361549883c45eb1acb0ee15f595ce}{k\+Default\+Init\+Flags}})
+\begin{DoxyCompactList}\small\item\em Shutdown SDL3\textquotesingle{}s window creation logic initialized previously. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const std\+::vector$<$ uint32\+\_\+t $>$ \mbox{\hyperlink{namespacewindow_1_1sdl_a6c1361549883c45eb1acb0ee15f595ce}{k\+Default\+Init\+Flags}}
+\begin{DoxyCompactList}\small\item\em Default flags to initialize window creation logic. Defaults are based on what\textquotesingle{}s only necessary to create a window. \end{DoxyCompactList}\item 
+const std\+::unordered\+\_\+map$<$ const char \texorpdfstring{$\ast$}{*}, const char \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{namespacewindow_1_1sdl_a44786eab04d91144cc1446273f6a1eda}{k\+Defaul\+Init\+Hints}}
+\begin{DoxyCompactList}\small\item\em Default hints to intialize window creation logic with. Each hints represents a different setting in SDL. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation based on namespace window public facade. 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespacewindow_1_1sdl_a34983b948ce5c608608a0b5998d4370f}\label{namespacewindow_1_1sdl_a34983b948ce5c608608a0b5998d4370f} 
+\index{window::sdl@{window::sdl}!createWindow@{createWindow}}
+\index{createWindow@{createWindow}!window::sdl@{window::sdl}}
+\doxysubsubsection{\texorpdfstring{createWindow()}{createWindow()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classobjects_1_1_window}{objects\+::\+Window}} \texorpdfstring{$\ast$}{*} window\+::sdl\+::create\+Window (\begin{DoxyParamCaption}\item[{int}]{height,  }\item[{int}]{width,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{title,  }\item[{std\+::vector$<$ uint32\+\_\+t $>$}]{flags = {\ttfamily \{~SDL\+\_\+WINDOW\+\_\+RESIZABLE,~SDL\+\_\+WINDOW\+\_\+INPUT\+\_\+FOCUS\}} }\end{DoxyParamCaption})}
+
+
+
+Create a Window object using SDL. 
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{sdl__window__object_8h}{sdl\+\_\+window\+\_\+object.\+h} 
+\end{DoxySeeAlso}
+\begin{DoxyWarning}{Warning}
+Call \doxylink{namespacewindow_1_1sdl_a0fd8987f1ce1f5ff366ea1430a4307bf}{sdl\+::init} first
+\end{DoxyWarning}
+
+\begin{DoxyParams}{Parameters}
+{\em height} & in natural numbers \\
+\hline
+{\em width} & in natural numbers \\
+\hline
+{\em title} & displayed in navbar \\
+\hline
+{\em flags} & specific for this window. Each flag represents an enabled behaviour \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+SDL\+\_\+video.\+h\+::\+SDL\+\_\+\+Window\+Flags
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+\doxylink{classobjects_1_1_window}{objects\+::\+Window}\texorpdfstring{$\ast$}{*} used in other parts of the engine 
+\end{DoxyReturn}
+\Hypertarget{namespacewindow_1_1sdl_a0fd8987f1ce1f5ff366ea1430a4307bf}\label{namespacewindow_1_1sdl_a0fd8987f1ce1f5ff366ea1430a4307bf} 
+\index{window::sdl@{window::sdl}!init@{init}}
+\index{init@{init}!window::sdl@{window::sdl}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily bool window\+::sdl\+::init (\begin{DoxyParamCaption}\item[{std\+::vector$<$ uint32\+\_\+t $>$}]{init\+Flags = {\ttfamily \mbox{\hyperlink{namespacewindow_1_1sdl_a6c1361549883c45eb1acb0ee15f595ce}{k\+Default\+Init\+Flags}}},  }\item[{std\+::unordered\+\_\+map$<$ const char \texorpdfstring{$\ast$}{*}, const char \texorpdfstring{$\ast$}{*} $>$}]{hint\+Flags = {\ttfamily \mbox{\hyperlink{namespacewindow_1_1sdl_a44786eab04d91144cc1446273f6a1eda}{k\+Defaul\+Init\+Hints}}} }\end{DoxyParamCaption})}
+
+
+
+Initialize window creation logic. Initialize {\ttfamily flags} (/ref k\+Default\+Init\+Flags) and set hints(although not necessary) 
+
+\begin{DoxyNote}{Note}
+SDL3 does not require initialization but SDL2 does. Recommended calling it for consistency in external code and easy translation between different external libraries
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em init\+Flags} & to initialize \\
+\hline
+{\em hint\+Flags} & to set \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true\+: Successful initializaiton ~\newline
+ false\+: Unsuccessful initialization -\/ look into logger emitted messages for further info 
+\end{DoxyReturn}
+\Hypertarget{namespacewindow_1_1sdl_a537f2b8c5ac6930f0503f0d0501edd83}\label{namespacewindow_1_1sdl_a537f2b8c5ac6930f0503f0d0501edd83} 
+\index{window::sdl@{window::sdl}!shutdown@{shutdown}}
+\index{shutdown@{shutdown}!window::sdl@{window::sdl}}
+\doxysubsubsection{\texorpdfstring{shutdown()}{shutdown()}}
+{\footnotesize\ttfamily void window\+::sdl\+::shutdown (\begin{DoxyParamCaption}\item[{std\+::vector$<$ uint32\+\_\+t $>$}]{init\+Flags = {\ttfamily \mbox{\hyperlink{namespacewindow_1_1sdl_a6c1361549883c45eb1acb0ee15f595ce}{k\+Default\+Init\+Flags}}} }\end{DoxyParamCaption})}
+
+
+
+Shutdown SDL3\textquotesingle{}s window creation logic initialized previously. 
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{namespacewindow_1_1sdl_a0fd8987f1ce1f5ff366ea1430a4307bf}{sdl\+::init}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em init\+Flags} & Each flag represents a part of SDL to be shutdown \\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespacewindow_1_1sdl_a772f8553c89a07172da2361f4ab2d988}\label{namespacewindow_1_1sdl_a772f8553c89a07172da2361f4ab2d988} 
+\index{window::sdl@{window::sdl}!terminate@{terminate}}
+\index{terminate@{terminate}!window::sdl@{window::sdl}}
+\doxysubsubsection{\texorpdfstring{terminate()}{terminate()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void window\+::sdl\+::terminate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classobjects_1_1_window}{objects\+::\+Window}} \texorpdfstring{$\ast$}{*}}]{window }\end{DoxyParamCaption})}
+
+
+
+Close a window, and cleanup after that. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & Window to terminate \\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespacewindow_1_1sdl_a20e0b3c05c4520b0ff8d1227705e6c9e}\label{namespacewindow_1_1sdl_a20e0b3c05c4520b0ff8d1227705e6c9e} 
+\index{window::sdl@{window::sdl}!terminate@{terminate}}
+\index{terminate@{terminate}!window::sdl@{window::sdl}}
+\doxysubsubsection{\texorpdfstring{terminate()}{terminate()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void window\+::sdl\+::terminate (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}}]{window }\end{DoxyParamCaption})}
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{namespacewindow_1_1sdl_a772f8553c89a07172da2361f4ab2d988}{sdl\+::terminate} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{namespacewindow_1_1sdl_a44786eab04d91144cc1446273f6a1eda}\label{namespacewindow_1_1sdl_a44786eab04d91144cc1446273f6a1eda} 
+\index{window::sdl@{window::sdl}!kDefaulInitHints@{kDefaulInitHints}}
+\index{kDefaulInitHints@{kDefaulInitHints}!window::sdl@{window::sdl}}
+\doxysubsubsection{\texorpdfstring{kDefaulInitHints}{kDefaulInitHints}}
+{\footnotesize\ttfamily const std\+::unordered\+\_\+map$<$const char \texorpdfstring{$\ast$}{*}, const char \texorpdfstring{$\ast$}{*}$>$ window\+::sdl\+::k\+Defaul\+Init\+Hints}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}SDL\_HINT\_RENDER\_SCALE\_QUALITY"{}},\ \textcolor{stringliteral}{"{}1"{}}\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}SDL\_HINT\_FRAMEBUFFER\_ACCELERATION"{}},\ \textcolor{stringliteral}{"{}1"{}}\}\}}
+
+\end{DoxyCode}
+
+
+Default hints to intialize window creation logic with. Each hints represents a different setting in SDL. 
+
+\begin{DoxySeeAlso}{See also}
+SDL\+\_\+hints.\+h 
+\end{DoxySeeAlso}
+\Hypertarget{namespacewindow_1_1sdl_a6c1361549883c45eb1acb0ee15f595ce}\label{namespacewindow_1_1sdl_a6c1361549883c45eb1acb0ee15f595ce} 
+\index{window::sdl@{window::sdl}!kDefaultInitFlags@{kDefaultInitFlags}}
+\index{kDefaultInitFlags@{kDefaultInitFlags}!window::sdl@{window::sdl}}
+\doxysubsubsection{\texorpdfstring{kDefaultInitFlags}{kDefaultInitFlags}}
+{\footnotesize\ttfamily const std\+::vector$<$uint32\+\_\+t$>$ window\+::sdl\+::k\+Default\+Init\+Flags}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ SDL\_INIT\_VIDEO\}}
+
+\end{DoxyCode}
+
+
+Default flags to initialize window creation logic. Defaults are based on what\textquotesingle{}s only necessary to create a window. 
+
+\begin{DoxyNote}{Note}
+Each flag represents a different part of SDL which can be utilized. {\ttfamily SDL\+\_\+\+INIT\+\_\+\+VIDEO} is the default flag for window creation 
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+SDL\+\_\+init.\+h\+::\+SDL\+\_\+\+Init\+Flags 
+\end{DoxySeeAlso}

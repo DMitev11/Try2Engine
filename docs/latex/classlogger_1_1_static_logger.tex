@@ -1,0 +1,97 @@
+\doxysection{logger\+::Static\+Logger Class Reference}
+\hypertarget{classlogger_1_1_static_logger}{}\label{classlogger_1_1_static_logger}\index{logger::StaticLogger@{logger::StaticLogger}}
+
+
+Generalization in the project.  
+
+
+
+
+{\ttfamily \#include $<$logger.\+h$>$}
+
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classlogger_1_1_static_logger}{Static\+Logger}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classlogger_1_1_static_logger_a6b45e41f120ec7f2f4178866ac8fdba3}{get\+Client\+Logger}} ()
+\begin{DoxyCompactList}\small\item\em Retrieve \"{}\+Client\"{} logger. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{classlogger_1_1_static_logger}{Static\+Logger}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classlogger_1_1_static_logger_a84f0dce13845c98a09b4e32f170fe46b}{get\+Engine\+Logger}} ()
+\begin{DoxyCompactList}\small\item\em Retrieve \"{}\+Engine\"{} logger. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classlogger_1_1_static_logger_aa402378676a5b662e6ee6cd4ba44d996}{engine\+Log}} (char \texorpdfstring{$\ast$}{*}const filename, int line, \mbox{\hyperlink{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2}{logger\+::\+Log\+Level}} log\+Level, char \texorpdfstring{$\ast$}{*}const msg)
+\begin{DoxyCompactList}\small\item\em Log messages to \doxylink{classlogger_1_1_static_logger_a84f0dce13845c98a09b4e32f170fe46b}{Static\+Logger\+::get\+Engine\+Logger()} logger (\"{}\+Engine\"{} logger) \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classlogger_1_1_static_logger_a798af870b8d9a006fc42d6ba2c0720ee}{client\+Log}} (char \texorpdfstring{$\ast$}{*}const filename, int line, \mbox{\hyperlink{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2}{logger\+::\+Log\+Level}} log\+Level, char \texorpdfstring{$\ast$}{*}const msg)
+\begin{DoxyCompactList}\small\item\em Log messages to \doxylink{classlogger_1_1_static_logger_a84f0dce13845c98a09b4e32f170fe46b}{Static\+Logger\+::get\+Engine\+Logger()} logger (\"{}\+Client\"{} logger) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Generalization in the project. 
+
+\begin{DoxyNote}{Note}
+Used to emit messages from around the project, without the necessity to create instances of loggers and emit from each. ~\newline
+\"{}\+Client\"{} logger should be used to emit application-\/based messages \"{}\+Engine\"{} logger shoule be used to emit messages from modules 
+\end{DoxyNote}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classlogger_1_1_static_logger_a798af870b8d9a006fc42d6ba2c0720ee}\label{classlogger_1_1_static_logger_a798af870b8d9a006fc42d6ba2c0720ee} 
+\index{logger::StaticLogger@{logger::StaticLogger}!clientLog@{clientLog}}
+\index{clientLog@{clientLog}!logger::StaticLogger@{logger::StaticLogger}}
+\doxysubsubsection{\texorpdfstring{clientLog()}{clientLog()}}
+{\footnotesize\ttfamily static void logger\+::\+Static\+Logger\+::client\+Log (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}const}]{filename,  }\item[{int}]{line,  }\item[{\mbox{\hyperlink{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2}{logger\+::\+Log\+Level}}}]{log\+Level,  }\item[{char \texorpdfstring{$\ast$}{*}const}]{msg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Log messages to \doxylink{classlogger_1_1_static_logger_a84f0dce13845c98a09b4e32f170fe46b}{Static\+Logger\+::get\+Engine\+Logger()} logger (\"{}\+Client\"{} logger) 
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{namespacelogger_a061e78855d8273e4387a803c269939bc}{logger\+::log} 
+\end{DoxySeeAlso}
+\Hypertarget{classlogger_1_1_static_logger_aa402378676a5b662e6ee6cd4ba44d996}\label{classlogger_1_1_static_logger_aa402378676a5b662e6ee6cd4ba44d996} 
+\index{logger::StaticLogger@{logger::StaticLogger}!engineLog@{engineLog}}
+\index{engineLog@{engineLog}!logger::StaticLogger@{logger::StaticLogger}}
+\doxysubsubsection{\texorpdfstring{engineLog()}{engineLog()}}
+{\footnotesize\ttfamily static void logger\+::\+Static\+Logger\+::engine\+Log (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}const}]{filename,  }\item[{int}]{line,  }\item[{\mbox{\hyperlink{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2}{logger\+::\+Log\+Level}}}]{log\+Level,  }\item[{char \texorpdfstring{$\ast$}{*}const}]{msg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Log messages to \doxylink{classlogger_1_1_static_logger_a84f0dce13845c98a09b4e32f170fe46b}{Static\+Logger\+::get\+Engine\+Logger()} logger (\"{}\+Engine\"{} logger) 
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{namespacelogger_a061e78855d8273e4387a803c269939bc}{logger\+::log} 
+\end{DoxySeeAlso}
+\Hypertarget{classlogger_1_1_static_logger_a6b45e41f120ec7f2f4178866ac8fdba3}\label{classlogger_1_1_static_logger_a6b45e41f120ec7f2f4178866ac8fdba3} 
+\index{logger::StaticLogger@{logger::StaticLogger}!getClientLogger@{getClientLogger}}
+\index{getClientLogger@{getClientLogger}!logger::StaticLogger@{logger::StaticLogger}}
+\doxysubsubsection{\texorpdfstring{getClientLogger()}{getClientLogger()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classlogger_1_1_static_logger}{Static\+Logger}} \texorpdfstring{$\ast$}{*} logger\+::\+Static\+Logger\+::get\+Client\+Logger (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Retrieve \"{}\+Client\"{} logger. 
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{classlogger_1_1_static_logger}{Static\+Logger}
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+Static\+Logger\texorpdfstring{$\ast$}{*} static, instance of spdlog logger created if it does not exist already 
+\end{DoxyReturn}
+\Hypertarget{classlogger_1_1_static_logger_a84f0dce13845c98a09b4e32f170fe46b}\label{classlogger_1_1_static_logger_a84f0dce13845c98a09b4e32f170fe46b} 
+\index{logger::StaticLogger@{logger::StaticLogger}!getEngineLogger@{getEngineLogger}}
+\index{getEngineLogger@{getEngineLogger}!logger::StaticLogger@{logger::StaticLogger}}
+\doxysubsubsection{\texorpdfstring{getEngineLogger()}{getEngineLogger()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classlogger_1_1_static_logger}{Static\+Logger}} \texorpdfstring{$\ast$}{*} logger\+::\+Static\+Logger\+::get\+Engine\+Logger (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Retrieve \"{}\+Engine\"{} logger. 
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{classlogger_1_1_static_logger}{Static\+Logger}
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+Static\+Logger\texorpdfstring{$\ast$}{*} static, instance of spdlog logger created if it does not exist already 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+engine/logger/\mbox{\hyperlink{logger_8h}{logger.\+h}}\end{DoxyCompactItemize}

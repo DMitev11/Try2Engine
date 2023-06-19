@@ -1,0 +1,300 @@
+\doxysection{utils\+::Event\+Emitter Class Reference}
+\hypertarget{classutils_1_1_event_emitter}{}\label{classutils_1_1_event_emitter}\index{utils::EventEmitter@{utils::EventEmitter}}
+
+
+Bind listeners and emit events, based on bindings \href{https://www.rioki.org/2014/12/29/eventemitter-in-c.html}{\texttt{ https\+://www.\+rioki.\+org/2014/12/29/eventemitter-\/in-\/c.\+html}}.  
+
+
+
+
+{\ttfamily \#include $<$event\+\_\+emitter.\+hpp$>$}
+
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structutils_1_1_event_emitter_1_1_listener}{Listener}}
+\begin{DoxyCompactList}\small\item\em Derivative defining possible variations of listeners, based on what events are handled by all event emitters, therefore what are all possible parameters for a callback/handler. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structutils_1_1_event_emitter_1_1_listener_base}{Listener\+Base}}
+\begin{DoxyCompactList}\small\item\em Shared data between each listener. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classutils_1_1_event_emitter_a03b038bc762deedd42489d282700d881}{Event\+Emitter}} ()=default
+\item 
+\mbox{\hyperlink{classutils_1_1_event_emitter_a8a2af8f520cb2aecb76a7983faf2e006}{\texorpdfstring{$\sim$}{\string~}\+Event\+Emitter}} ()=default
+\item 
+{\footnotesize template$<$typename... Args$>$ }\\void \mbox{\hyperlink{classutils_1_1_event_emitter_a9d402686891913ffa999a175506f7fe9}{Emit}} (int event, Args... args)
+\begin{DoxyCompactList}\small\item\em Emit an event from the subject which has an instance of this class. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename... Args$>$ }\\uint32\+\_\+t \mbox{\hyperlink{classutils_1_1_event_emitter_ad5951fb2197b05a772272cb9d5e66af9}{On}} (int event, std\+::function$<$ void(Args...)$>$ cb)
+\begin{DoxyCompactList}\small\item\em Bind a listener to a specific event. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{classutils_1_1_event_emitter_a16ee805068c350dab6971eda8ab8a9e2}{On}} (int event, std\+::function$<$ void()$>$ cb)
+\item 
+{\footnotesize template$<$typename... Args$>$ }\\uint32\+\_\+t \mbox{\hyperlink{classutils_1_1_event_emitter_aa761f0251b46ed59a82f71e5044761fc}{Once}} (int event, std\+::function$<$ void(Args...)$>$ cb)
+\begin{DoxyCompactList}\small\item\em Similar to {\ttfamily On} but the listener (and its callback/handler) is removed after handling a single event emit. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{classutils_1_1_event_emitter_a2f7ca445469e2eb2e50dc97c99f0a306}{Once}} (int event, std\+::function$<$ void()$>$ cb)
+\item 
+void \mbox{\hyperlink{classutils_1_1_event_emitter_a24e2e0020720cef00adc7276395a9ba7}{Remove}} (int event, uint32\+\_\+t id)
+\begin{DoxyCompactList}\small\item\em Remove an event listener (and its callback/handler) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classutils_1_1_event_emitter_aab1d4801d69af04a3eb17ec19df1eb51}{Event\+Emitter}} (const \mbox{\hyperlink{classutils_1_1_event_emitter}{Event\+Emitter}} \&)=delete
+\item 
+\mbox{\hyperlink{classutils_1_1_event_emitter_a49b8d912133982984d88565ea1bde647}{Event\+Emitter}} (\mbox{\hyperlink{classutils_1_1_event_emitter}{Event\+Emitter}} \&\&)=delete
+\item 
+{\footnotesize template$<$typename... Args$>$ }\\uint32\+\_\+t \mbox{\hyperlink{classutils_1_1_event_emitter_a4b80f456f8d5214c7a3231f080cb5181}{Add\+Listener}} (int event, bool call\+Once, std\+::function$<$ void(Args...)$>$)
+\begin{DoxyCompactList}\small\item\em Called by On and Once. Adds a new event listener (and a handler/callback for it) and returns a unique id (for the event) corresponding to it. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename... Args$>$ }\\void \mbox{\hyperlink{classutils_1_1_event_emitter_a9803e9edae1a026416b50e3de961b154}{Emit\+Event}} (int event, Args... args)
+\begin{DoxyCompactList}\small\item\em Called by \doxylink{classutils_1_1_event_emitter_a9d402686891913ffa999a175506f7fe9}{Event\+Emitter\+::\+Emit}. ~\newline
+ Checks if there are any listeners to the argumented type of event, retrieves all listeners and calls their callbacks/handlers. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unordered\+\_\+map$<$ int, std\+::map$<$ uint32\+\_\+t, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structutils_1_1_event_emitter_1_1_listener_base}{Listener\+Base}} $>$ $>$ $>$ \mbox{\hyperlink{classutils_1_1_event_emitter_af0c20406d32821d12d2023a0ba8cf082}{listeners}}
+\begin{DoxyCompactList}\small\item\em Storage of listeners. \end{DoxyCompactList}\item 
+std\+::unordered\+\_\+map$<$ int, uint32\+\_\+t $>$ \mbox{\hyperlink{classutils_1_1_event_emitter_a632a0d6e7fe993395ea5d1e541b5aeba}{last\+Listener}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Bind listeners and emit events, based on bindings \href{https://www.rioki.org/2014/12/29/eventemitter-in-c.html}{\texttt{ https\+://www.\+rioki.\+org/2014/12/29/eventemitter-\/in-\/c.\+html}}. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classutils_1_1_event_emitter_a03b038bc762deedd42489d282700d881}\label{classutils_1_1_event_emitter_a03b038bc762deedd42489d282700d881} 
+\index{utils::EventEmitter@{utils::EventEmitter}!EventEmitter@{EventEmitter}}
+\index{EventEmitter@{EventEmitter}!utils::EventEmitter@{utils::EventEmitter}}
+\doxysubsubsection{\texorpdfstring{EventEmitter()}{EventEmitter()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily utils\+::\+Event\+Emitter\+::\+Event\+Emitter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\Hypertarget{classutils_1_1_event_emitter_a8a2af8f520cb2aecb76a7983faf2e006}\label{classutils_1_1_event_emitter_a8a2af8f520cb2aecb76a7983faf2e006} 
+\index{utils::EventEmitter@{utils::EventEmitter}!````~EventEmitter@{\texorpdfstring{$\sim$}{\string~}EventEmitter}}
+\index{````~EventEmitter@{\texorpdfstring{$\sim$}{\string~}EventEmitter}!utils::EventEmitter@{utils::EventEmitter}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}EventEmitter()}{\string~EventEmitter()}}
+{\footnotesize\ttfamily utils\+::\+Event\+Emitter\+::\texorpdfstring{$\sim$}{\string~}\+Event\+Emitter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\Hypertarget{classutils_1_1_event_emitter_aab1d4801d69af04a3eb17ec19df1eb51}\label{classutils_1_1_event_emitter_aab1d4801d69af04a3eb17ec19df1eb51} 
+\index{utils::EventEmitter@{utils::EventEmitter}!EventEmitter@{EventEmitter}}
+\index{EventEmitter@{EventEmitter}!utils::EventEmitter@{utils::EventEmitter}}
+\doxysubsubsection{\texorpdfstring{EventEmitter()}{EventEmitter()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily utils\+::\+Event\+Emitter\+::\+Event\+Emitter (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classutils_1_1_event_emitter}{Event\+Emitter}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [delete]}}
+
+\Hypertarget{classutils_1_1_event_emitter_a49b8d912133982984d88565ea1bde647}\label{classutils_1_1_event_emitter_a49b8d912133982984d88565ea1bde647} 
+\index{utils::EventEmitter@{utils::EventEmitter}!EventEmitter@{EventEmitter}}
+\index{EventEmitter@{EventEmitter}!utils::EventEmitter@{utils::EventEmitter}}
+\doxysubsubsection{\texorpdfstring{EventEmitter()}{EventEmitter()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily utils\+::\+Event\+Emitter\+::\+Event\+Emitter (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classutils_1_1_event_emitter}{Event\+Emitter}} \&\&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [delete]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classutils_1_1_event_emitter_a4b80f456f8d5214c7a3231f080cb5181}\label{classutils_1_1_event_emitter_a4b80f456f8d5214c7a3231f080cb5181} 
+\index{utils::EventEmitter@{utils::EventEmitter}!AddListener@{AddListener}}
+\index{AddListener@{AddListener}!utils::EventEmitter@{utils::EventEmitter}}
+\doxysubsubsection{\texorpdfstring{AddListener()}{AddListener()}}
+{\footnotesize\ttfamily template$<$typename... Args$>$ \\
+uint32\+\_\+t utils\+::\+Event\+Emitter\+::\+Add\+Listener (\begin{DoxyParamCaption}\item[{int}]{event,  }\item[{bool}]{call\+Once,  }\item[{std\+::function$<$ void(Args...)$>$}]{cb }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Called by On and Once. Adds a new event listener (and a handler/callback for it) and returns a unique id (for the event) corresponding to it. 
+
+\begin{DoxyWarning}{Warning}
+Ids overlap for different event types =\texorpdfstring{$>$}{>} id \"{}1\"{} could be valid for event \"{}1\"{} and event \"{}2\"{} simultaneously
+\end{DoxyWarning}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Args} & variadic, based on the emitted event \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em event} & Type of the event \\
+\hline
+{\em call\+Once} & If the listener should be deleted after a single call of the callback \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint32\+\_\+t Id of the listener 
+\end{DoxyReturn}
+\Hypertarget{classutils_1_1_event_emitter_a9d402686891913ffa999a175506f7fe9}\label{classutils_1_1_event_emitter_a9d402686891913ffa999a175506f7fe9} 
+\index{utils::EventEmitter@{utils::EventEmitter}!Emit@{Emit}}
+\index{Emit@{Emit}!utils::EventEmitter@{utils::EventEmitter}}
+\doxysubsubsection{\texorpdfstring{Emit()}{Emit()}}
+{\footnotesize\ttfamily template$<$typename... Args$>$ \\
+void utils\+::\+Event\+Emitter\+::\+Emit (\begin{DoxyParamCaption}\item[{int}]{event,  }\item[{Args...}]{args }\end{DoxyParamCaption})}
+
+
+
+Emit an event from the subject which has an instance of this class. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Args} & Based of what each event emits. ~\newline
+There\textquotesingle{}s not a concrete amount or type of arguments which can be emitted when emitting an event \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em event} & Type of event to emit \\
+\hline
+{\em args} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classutils_1_1_event_emitter_a9803e9edae1a026416b50e3de961b154}\label{classutils_1_1_event_emitter_a9803e9edae1a026416b50e3de961b154} 
+\index{utils::EventEmitter@{utils::EventEmitter}!EmitEvent@{EmitEvent}}
+\index{EmitEvent@{EmitEvent}!utils::EventEmitter@{utils::EventEmitter}}
+\doxysubsubsection{\texorpdfstring{EmitEvent()}{EmitEvent()}}
+{\footnotesize\ttfamily template$<$typename... Args$>$ \\
+void utils\+::\+Event\+Emitter\+::\+Emit\+Event (\begin{DoxyParamCaption}\item[{int}]{event,  }\item[{Args...}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Called by \doxylink{classutils_1_1_event_emitter_a9d402686891913ffa999a175506f7fe9}{Event\+Emitter\+::\+Emit}. ~\newline
+ Checks if there are any listeners to the argumented type of event, retrieves all listeners and calls their callbacks/handlers. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Args} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em event} & Type of event \\
+\hline
+{\em args} & Parameters for that type of event emit \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classutils_1_1_event_emitter_a16ee805068c350dab6971eda8ab8a9e2}\label{classutils_1_1_event_emitter_a16ee805068c350dab6971eda8ab8a9e2} 
+\index{utils::EventEmitter@{utils::EventEmitter}!On@{On}}
+\index{On@{On}!utils::EventEmitter@{utils::EventEmitter}}
+\doxysubsubsection{\texorpdfstring{On()}{On()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily uint32\+\_\+t utils\+::\+Event\+Emitter\+::\+On (\begin{DoxyParamCaption}\item[{int}]{event,  }\item[{std\+::function$<$ void()$>$}]{cb }\end{DoxyParamCaption})}
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{classutils_1_1_event_emitter_ad5951fb2197b05a772272cb9d5e66af9}{Event\+Emitter\+::\+On} 
+\end{DoxySeeAlso}
+\begin{DoxyNote}{Note}
+Allows for parameterless functions as callbacks 
+\end{DoxyNote}
+\Hypertarget{classutils_1_1_event_emitter_ad5951fb2197b05a772272cb9d5e66af9}\label{classutils_1_1_event_emitter_ad5951fb2197b05a772272cb9d5e66af9} 
+\index{utils::EventEmitter@{utils::EventEmitter}!On@{On}}
+\index{On@{On}!utils::EventEmitter@{utils::EventEmitter}}
+\doxysubsubsection{\texorpdfstring{On()}{On()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename... Args$>$ \\
+uint32\+\_\+t utils\+::\+Event\+Emitter\+::\+On (\begin{DoxyParamCaption}\item[{int}]{event,  }\item[{std\+::function$<$ void(Args...)$>$}]{cb }\end{DoxyParamCaption})}
+
+
+
+Bind a listener to a specific event. 
+
+\begin{DoxyNote}{Note}
+Each listener should know the type and amount of argument which used during an emit of specific event
+\end{DoxyNote}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Args} & Based on what does an event emit \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em event} & Type of event \\
+\hline
+{\em cb} & supports only std\+::function, but std\+::function($<$lambda$>$) is a valid callback too \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint32\+\_\+t id of the listener 
+\end{DoxyReturn}
+\Hypertarget{classutils_1_1_event_emitter_a2f7ca445469e2eb2e50dc97c99f0a306}\label{classutils_1_1_event_emitter_a2f7ca445469e2eb2e50dc97c99f0a306} 
+\index{utils::EventEmitter@{utils::EventEmitter}!Once@{Once}}
+\index{Once@{Once}!utils::EventEmitter@{utils::EventEmitter}}
+\doxysubsubsection{\texorpdfstring{Once()}{Once()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily uint32\+\_\+t utils\+::\+Event\+Emitter\+::\+Once (\begin{DoxyParamCaption}\item[{int}]{event,  }\item[{std\+::function$<$ void()$>$}]{cb }\end{DoxyParamCaption})}
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{classutils_1_1_event_emitter_aa761f0251b46ed59a82f71e5044761fc}{Event\+Emitter\+::\+Once} 
+\end{DoxySeeAlso}
+\begin{DoxyNote}{Note}
+Allows for parameterless functions as callbacks 
+\end{DoxyNote}
+\Hypertarget{classutils_1_1_event_emitter_aa761f0251b46ed59a82f71e5044761fc}\label{classutils_1_1_event_emitter_aa761f0251b46ed59a82f71e5044761fc} 
+\index{utils::EventEmitter@{utils::EventEmitter}!Once@{Once}}
+\index{Once@{Once}!utils::EventEmitter@{utils::EventEmitter}}
+\doxysubsubsection{\texorpdfstring{Once()}{Once()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename... Args$>$ \\
+uint32\+\_\+t utils\+::\+Event\+Emitter\+::\+Once (\begin{DoxyParamCaption}\item[{int}]{event,  }\item[{std\+::function$<$ void(Args...)$>$}]{cb }\end{DoxyParamCaption})}
+
+
+
+Similar to {\ttfamily On} but the listener (and its callback/handler) is removed after handling a single event emit. 
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{classutils_1_1_event_emitter_ad5951fb2197b05a772272cb9d5e66af9}{Event\+Emitter\+::\+On}
+\end{DoxySeeAlso}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Args} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em event} & Type of event to emit \\
+\hline
+{\em cb} & supports only std\+::function, but std\+::function($<$lambda$>$) is a valid callback too \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint32\+\_\+t id of the listener 
+\end{DoxyReturn}
+\Hypertarget{classutils_1_1_event_emitter_a24e2e0020720cef00adc7276395a9ba7}\label{classutils_1_1_event_emitter_a24e2e0020720cef00adc7276395a9ba7} 
+\index{utils::EventEmitter@{utils::EventEmitter}!Remove@{Remove}}
+\index{Remove@{Remove}!utils::EventEmitter@{utils::EventEmitter}}
+\doxysubsubsection{\texorpdfstring{Remove()}{Remove()}}
+{\footnotesize\ttfamily void utils\+::\+Event\+Emitter\+::\+Remove (\begin{DoxyParamCaption}\item[{int}]{event,  }\item[{uint32\+\_\+t}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Remove an event listener (and its callback/handler) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & Type of event to which is bound \\
+\hline
+{\em id} & of the listener \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classutils_1_1_event_emitter_a632a0d6e7fe993395ea5d1e541b5aeba}\label{classutils_1_1_event_emitter_a632a0d6e7fe993395ea5d1e541b5aeba} 
+\index{utils::EventEmitter@{utils::EventEmitter}!lastListener@{lastListener}}
+\index{lastListener@{lastListener}!utils::EventEmitter@{utils::EventEmitter}}
+\doxysubsubsection{\texorpdfstring{lastListener}{lastListener}}
+{\footnotesize\ttfamily std\+::unordered\+\_\+map$<$int, uint32\+\_\+t$>$ utils\+::\+Event\+Emitter\+::last\+Listener\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{classutils_1_1_event_emitter_af0c20406d32821d12d2023a0ba8cf082}\label{classutils_1_1_event_emitter_af0c20406d32821d12d2023a0ba8cf082} 
+\index{utils::EventEmitter@{utils::EventEmitter}!listeners@{listeners}}
+\index{listeners@{listeners}!utils::EventEmitter@{utils::EventEmitter}}
+\doxysubsubsection{\texorpdfstring{listeners}{listeners}}
+{\footnotesize\ttfamily std\+::unordered\+\_\+map$<$ int, std\+::map$<$uint32\+\_\+t, std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{structutils_1_1_event_emitter_1_1_listener_base}{Listener\+Base}}$>$ $>$ $>$ utils\+::\+Event\+Emitter\+::listeners\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Storage of listeners. 
+
+\begin{DoxyNote}{Note}
+Unordered map for all events, as possible types of events do not need to belong to a single enum =\texorpdfstring{$>$}{>} every int is a valid event type. An event emit must care only for all listeners to the emitted event type. An $<$int$>$ could be shared between two event types (eventA = 1, eventB = 1), but only if their argument list differs
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+Emit (by the same event emitter) of 2 different event types with the same Id and same argument list could lead to unhandled behaviour
+\end{DoxyWarning}
+\begin{DoxyNote}{Note}
+Map for listeners of an event type, as ids of listeners should be unique, for the event type. {\ttfamily last\+Listener} do not decrement, only increment to prevent overlapping ids ex. \doxylink{structutils_1_1_event_emitter_1_1_listener}{Listener} \"{}3\"{} gets removed, but \doxylink{structutils_1_1_event_emitter_1_1_listener}{Listener} \"{}2\"{} should still be valid 
+\end{DoxyNote}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+engine/utils/\mbox{\hyperlink{event__emitter_8hpp}{event\+\_\+emitter.\+hpp}}\end{DoxyCompactItemize}

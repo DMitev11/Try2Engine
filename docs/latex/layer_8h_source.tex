@@ -1,0 +1,31 @@
+\doxysection{layer.\+h}
+\hypertarget{layer_8h_source}{}\label{layer_8h_source}\index{engine/utils/layer.h@{engine/utils/layer.h}}
+\mbox{\hyperlink{layer_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{loop_8h}{loop.h}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00004\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceutils}{utils}}\ \{}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classutils_1_1_layer}{Layer}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classutils_1_1_layer_component}{LayerComponent}}\ \{}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classutils_1_1_layer_ad4aba0c726e9c2f44d4ccfd55f30ae06}{onAttach}}()\{\};}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classutils_1_1_layer_af6dd1e90821b1b789b95792657097386}{onDetach}}()\{\};}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classutils_1_1_layer_a6077ff5bf6e5f02125977db2bda9d30c}{onTick}}(\textcolor{keywordtype}{float}\ delta)\{\};}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \mbox{\hyperlink{classutils_1_1_layer_ac29e23611c7130147be3571d31a53e36}{getName}}()\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::string(\mbox{\hyperlink{classutils_1_1_layer_ab06480ec1c844361d5e3a7c493b6b338}{name}});}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classutils_1_1_layer_ac84e458d68a1f35e56bbc31d15499637}{Layer}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{classutils_1_1_layer_ab06480ec1c844361d5e3a7c493b6b338}{name}}\ =\ \textcolor{stringliteral}{"{}Layer"{}})\ :\ \mbox{\hyperlink{classutils_1_1_layer_ab06480ec1c844361d5e3a7c493b6b338}{name}}(\mbox{\hyperlink{classutils_1_1_layer_ab06480ec1c844361d5e3a7c493b6b338}{name}})\ \{\}}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classutils_1_1_layer_a7fc23aad206ba169dd8480f41a165caf}{\string~Layer}}()\{\};}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classutils_1_1_layer_ac77de0ea27b593abc7fcf004e1ccea5c}{Layer}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classutils_1_1_layer}{Layer}}\ \&)\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classutils_1_1_layer_ad9510c39523006d647f612bf994617f6}{Layer}}(\mbox{\hyperlink{classutils_1_1_layer}{Layer}}\ \&\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{classutils_1_1_layer_ab06480ec1c844361d5e3a7c493b6b338}{name}};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classutils_1_1_layer_stack}{LayerStack}};}
+\DoxyCodeLine{00036\ \ \ \ \ \};}
+\DoxyCodeLine{00037\ \}\ \textcolor{comment}{//\ namespace\ utils}}
+
+\end{DoxyCode}

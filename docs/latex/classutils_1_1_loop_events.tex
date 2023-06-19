@@ -1,0 +1,115 @@
+\doxysection{utils\+::Loop\+Events Class Reference}
+\hypertarget{classutils_1_1_loop_events}{}\label{classutils_1_1_loop_events}\index{utils::LoopEvents@{utils::LoopEvents}}
+
+
+Based on usual game/simulation runtime events.  
+
+
+
+
+{\ttfamily \#include $<$loop.\+h$>$}
+
+Inheritance diagram for utils\+::Loop\+Events\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classutils_1_1_loop_events}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classutils_1_1_loop_events_a73635283996b27e0a78ae5e1b9733660}{Loop\+Events}} ()
+\item 
+virtual \mbox{\hyperlink{classutils_1_1_loop_events_a79f13606f2cffbb1c6d022e00ebc41ae}{\texorpdfstring{$\sim$}{\string~}\+Loop\+Events}} ()=default
+\item 
+virtual void \mbox{\hyperlink{classutils_1_1_loop_events_a61a9359f0a49820dfbcd0c7e6ccff330}{init}} ()
+\begin{DoxyCompactList}\small\item\em Called logic specific for the deriving class. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classutils_1_1_loop_events_ae47e73d2c5d36c45fdf8e2a15cb49faf}{tick}} (float delta)
+\begin{DoxyCompactList}\small\item\em Called on every frame update of the application. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classutils_1_1_loop_events_a874a9c9ece22e9376b20eca67e3935c8}{terminate}} ()
+\begin{DoxyCompactList}\small\item\em Called when destroying and cleaning the instance of class which derives from this. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classutils_1_1_loop_events_ad85422c0090161a3edc70a6c67a153d1}{shutdown}} ()
+\begin{DoxyCompactList}\small\item\em On sudden application lifetime termination (user called \"{}\+Quit\"{} and similar cases) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Based on usual game/simulation runtime events. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classutils_1_1_loop_events_a73635283996b27e0a78ae5e1b9733660}\label{classutils_1_1_loop_events_a73635283996b27e0a78ae5e1b9733660} 
+\index{utils::LoopEvents@{utils::LoopEvents}!LoopEvents@{LoopEvents}}
+\index{LoopEvents@{LoopEvents}!utils::LoopEvents@{utils::LoopEvents}}
+\doxysubsubsection{\texorpdfstring{LoopEvents()}{LoopEvents()}}
+{\footnotesize\ttfamily utils\+::\+Loop\+Events\+::\+Loop\+Events (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classutils_1_1_loop_events_a79f13606f2cffbb1c6d022e00ebc41ae}\label{classutils_1_1_loop_events_a79f13606f2cffbb1c6d022e00ebc41ae} 
+\index{utils::LoopEvents@{utils::LoopEvents}!````~LoopEvents@{\texorpdfstring{$\sim$}{\string~}LoopEvents}}
+\index{````~LoopEvents@{\texorpdfstring{$\sim$}{\string~}LoopEvents}!utils::LoopEvents@{utils::LoopEvents}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}LoopEvents()}{\string~LoopEvents()}}
+{\footnotesize\ttfamily virtual utils\+::\+Loop\+Events\+::\texorpdfstring{$\sim$}{\string~}\+Loop\+Events (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classutils_1_1_loop_events_a61a9359f0a49820dfbcd0c7e6ccff330}\label{classutils_1_1_loop_events_a61a9359f0a49820dfbcd0c7e6ccff330} 
+\index{utils::LoopEvents@{utils::LoopEvents}!init@{init}}
+\index{init@{init}!utils::LoopEvents@{utils::LoopEvents}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily virtual void utils\+::\+Loop\+Events\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Called logic specific for the deriving class. 
+
+
+
+Reimplemented in \mbox{\hyperlink{classutils_1_1_layer_stack_a1922d8a73e297a312888f0329ee940ad}{utils\+::\+Layer\+Stack}}.
+
+\Hypertarget{classutils_1_1_loop_events_ad85422c0090161a3edc70a6c67a153d1}\label{classutils_1_1_loop_events_ad85422c0090161a3edc70a6c67a153d1} 
+\index{utils::LoopEvents@{utils::LoopEvents}!shutdown@{shutdown}}
+\index{shutdown@{shutdown}!utils::LoopEvents@{utils::LoopEvents}}
+\doxysubsubsection{\texorpdfstring{shutdown()}{shutdown()}}
+{\footnotesize\ttfamily virtual void utils\+::\+Loop\+Events\+::shutdown (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+On sudden application lifetime termination (user called \"{}\+Quit\"{} and similar cases) 
+
+
+
+Reimplemented in \mbox{\hyperlink{classutils_1_1_layer_stack_abb1cc4d85b582d6ea0734caed941a725}{utils\+::\+Layer\+Stack}}.
+
+\Hypertarget{classutils_1_1_loop_events_a874a9c9ece22e9376b20eca67e3935c8}\label{classutils_1_1_loop_events_a874a9c9ece22e9376b20eca67e3935c8} 
+\index{utils::LoopEvents@{utils::LoopEvents}!terminate@{terminate}}
+\index{terminate@{terminate}!utils::LoopEvents@{utils::LoopEvents}}
+\doxysubsubsection{\texorpdfstring{terminate()}{terminate()}}
+{\footnotesize\ttfamily virtual void utils\+::\+Loop\+Events\+::terminate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Called when destroying and cleaning the instance of class which derives from this. 
+
+\Hypertarget{classutils_1_1_loop_events_ae47e73d2c5d36c45fdf8e2a15cb49faf}\label{classutils_1_1_loop_events_ae47e73d2c5d36c45fdf8e2a15cb49faf} 
+\index{utils::LoopEvents@{utils::LoopEvents}!tick@{tick}}
+\index{tick@{tick}!utils::LoopEvents@{utils::LoopEvents}}
+\doxysubsubsection{\texorpdfstring{tick()}{tick()}}
+{\footnotesize\ttfamily virtual void utils\+::\+Loop\+Events\+::tick (\begin{DoxyParamCaption}\item[{float}]{delta }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Called on every frame update of the application. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em delta} & time between previous and current frame \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \mbox{\hyperlink{classutils_1_1_layer_stack_a2f16182907b03c4b0d65a86046f53ff6}{utils\+::\+Layer\+Stack}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+engine/utils/\mbox{\hyperlink{loop_8h}{loop.\+h}}\end{DoxyCompactItemize}

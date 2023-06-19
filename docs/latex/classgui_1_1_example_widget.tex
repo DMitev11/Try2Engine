@@ -1,0 +1,87 @@
+\doxysection{gui\+::Example\+Widget Class Reference}
+\hypertarget{classgui_1_1_example_widget}{}\label{classgui_1_1_example_widget}\index{gui::ExampleWidget@{gui::ExampleWidget}}
+
+
+{\ttfamily \#include $<$example\+\_\+widget.\+h$>$}
+
+Inheritance diagram for gui\+::Example\+Widget\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classgui_1_1_example_widget}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classgui_1_1_example_widget_a827b56ae673acf9e4a1358a54ed5a68c}{Example\+Widget}} (const char \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{classgui_1_1_gui_widget_a7e76213353a41779b9ed70f3cf68fe97}{name}}, std\+::vector$<$ int $>$ \mbox{\hyperlink{classgui_1_1_gui_widget_af25ea7b238770ade707fc9b4e57ee994}{flags}}=\{\})
+\item 
+\mbox{\hyperlink{classgui_1_1_example_widget_a2e11947593c248a10782bf5712a4c7a2}{\texorpdfstring{$\sim$}{\string~}\+Example\+Widget}} () override
+\item 
+void \mbox{\hyperlink{classgui_1_1_example_widget_a0720761f3f39fcb4c20521096a8008d1}{render}} () override
+\begin{DoxyCompactList}\small\item\em Override to present which elements should be rendered in this widget/window, and if there should be any logic bound to changes in those elements (radio button being clicked, slider moved etc.) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classgui_1_1_gui_widget}{gui\+::\+Gui\+Widget}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classgui_1_1_gui_widget_af82e45366f30c98f6c67f25a5d27e4c9}{Gui\+Widget}} (const char \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{classgui_1_1_gui_widget_a7e76213353a41779b9ed70f3cf68fe97}{name}}, std\+::vector$<$ int $>$ \mbox{\hyperlink{classgui_1_1_gui_widget_af25ea7b238770ade707fc9b4e57ee994}{flags}}=\{\})
+\item 
+virtual \mbox{\hyperlink{classgui_1_1_gui_widget_a208f524fe0c7c2070d40b8b8a1307963}{\texorpdfstring{$\sim$}{\string~}\+Gui\+Widget}} ()
+\item 
+virtual void \mbox{\hyperlink{classgui_1_1_gui_widget_a443b4933b167ac9e1f95136ae9e836b7}{begin}} ()
+\begin{DoxyCompactList}\small\item\em Call it to buffer this widget/window for the next frame. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classgui_1_1_gui_widget_a978ece50a8ef46a8963cf0d04cc28138}{end}} ()
+\begin{DoxyCompactList}\small\item\em Call it to stop appending new elements to the widget/window. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classgui_1_1_gui_widget_a42ad684907ce28bc79804b306627292a}{render}} ()
+\begin{DoxyCompactList}\small\item\em Override to present which elements should be rendered in this widget/window, and if there should be any logic bound to changes in those elements (radio button being clicked, slider moved etc.) \end{DoxyCompactList}\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classgui_1_1_gui_widget_a1828488bddcea5013ba46bc8d4f4828f}{get\+Name}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classgui_1_1_gui_widget}{gui\+::\+Gui\+Widget}}}
+\begin{DoxyCompactItemize}
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classgui_1_1_gui_widget_a7e76213353a41779b9ed70f3cf68fe97}{name}}
+\item 
+const int \mbox{\hyperlink{classgui_1_1_gui_widget_af25ea7b238770ade707fc9b4e57ee994}{flags}}
+\item 
+bool \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classgui_1_1_gui_widget_acdc3296b4cbe1a6366c3af49350d6d7c}{close}} = new bool(false)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classgui_1_1_example_widget_a827b56ae673acf9e4a1358a54ed5a68c}\label{classgui_1_1_example_widget_a827b56ae673acf9e4a1358a54ed5a68c} 
+\index{gui::ExampleWidget@{gui::ExampleWidget}!ExampleWidget@{ExampleWidget}}
+\index{ExampleWidget@{ExampleWidget}!gui::ExampleWidget@{gui::ExampleWidget}}
+\doxysubsubsection{\texorpdfstring{ExampleWidget()}{ExampleWidget()}}
+{\footnotesize\ttfamily gui\+::\+Example\+Widget\+::\+Example\+Widget (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{name,  }\item[{std\+::vector$<$ int $>$}]{flags = {\ttfamily \{\}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classgui_1_1_example_widget_a2e11947593c248a10782bf5712a4c7a2}\label{classgui_1_1_example_widget_a2e11947593c248a10782bf5712a4c7a2} 
+\index{gui::ExampleWidget@{gui::ExampleWidget}!````~ExampleWidget@{\texorpdfstring{$\sim$}{\string~}ExampleWidget}}
+\index{````~ExampleWidget@{\texorpdfstring{$\sim$}{\string~}ExampleWidget}!gui::ExampleWidget@{gui::ExampleWidget}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}ExampleWidget()}{\string~ExampleWidget()}}
+{\footnotesize\ttfamily gui\+::\+Example\+Widget\+::\texorpdfstring{$\sim$}{\string~}\+Example\+Widget (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classgui_1_1_example_widget_a0720761f3f39fcb4c20521096a8008d1}\label{classgui_1_1_example_widget_a0720761f3f39fcb4c20521096a8008d1} 
+\index{gui::ExampleWidget@{gui::ExampleWidget}!render@{render}}
+\index{render@{render}!gui::ExampleWidget@{gui::ExampleWidget}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily void gui\+::\+Example\+Widget\+::render (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Override to present which elements should be rendered in this widget/window, and if there should be any logic bound to changes in those elements (radio button being clicked, slider moved etc.) 
+
+\begin{DoxySeeAlso}{See also}
+\"{}gui\+::\+Example\+Widget\"{} 
+\end{DoxySeeAlso}
+
+
+Reimplemented from \mbox{\hyperlink{classgui_1_1_gui_widget_a42ad684907ce28bc79804b306627292a}{gui\+::\+Gui\+Widget}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+engine/gui/widgets/\mbox{\hyperlink{example__widget_8h}{example\+\_\+widget.\+h}}\item 
+engine/gui/widgets/\mbox{\hyperlink{example__widget_8cpp}{example\+\_\+widget.\+cpp}}\end{DoxyCompactItemize}

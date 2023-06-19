@@ -1,0 +1,22 @@
+\doxysection{engine/utils/event\+\_\+emitter.hpp File Reference}
+\hypertarget{event__emitter_8hpp}{}\label{event__emitter_8hpp}\index{engine/utils/event\_emitter.hpp@{engine/utils/event\_emitter.hpp}}
+{\ttfamily \#include $<$functional$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$logger/logger.\+h$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$unordered\+\_\+map$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classutils_1_1_event_emitter}{utils\+::\+Event\+Emitter}}
+\begin{DoxyCompactList}\small\item\em Bind listeners and emit events, based on bindings \href{https://www.rioki.org/2014/12/29/eventemitter-in-c.html}{\texttt{ https\+://www.\+rioki.\+org/2014/12/29/eventemitter-\/in-\/c.\+html}}. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structutils_1_1_event_emitter_1_1_listener_base}{utils\+::\+Event\+Emitter\+::\+Listener\+Base}}
+\begin{DoxyCompactList}\small\item\em Shared data between each listener. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structutils_1_1_event_emitter_1_1_listener}{utils\+::\+Event\+Emitter\+::\+Listener$<$ Args $>$}}
+\begin{DoxyCompactList}\small\item\em Derivative defining possible variations of listeners, based on what events are handled by all event emitters, therefore what are all possible parameters for a callback/handler. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceutils}{utils}}
+\end{DoxyCompactItemize}

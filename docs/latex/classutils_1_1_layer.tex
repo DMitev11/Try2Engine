@@ -1,0 +1,187 @@
+\doxysection{utils\+::Layer Class Reference}
+\hypertarget{classutils_1_1_layer}{}\label{classutils_1_1_layer}\index{utils::Layer@{utils::Layer}}
+
+
+A layer, member of layer stack.  
+
+
+
+
+{\ttfamily \#include $<$layer.\+h$>$}
+
+Inheritance diagram for utils\+::Layer\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classutils_1_1_layer}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{classutils_1_1_layer_ad4aba0c726e9c2f44d4ccfd55f30ae06}{on\+Attach}} ()
+\begin{DoxyCompactList}\small\item\em Called right after a layer have been attached to a {\ttfamily \doxylink{classutils_1_1_layer_stack}{utils\+::\+Layer\+Stack}} \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classutils_1_1_layer_af6dd1e90821b1b789b95792657097386}{on\+Detach}} ()
+\begin{DoxyCompactList}\small\item\em Called right before a layer is detached from a {\ttfamily \doxylink{classutils_1_1_layer_stack}{utils\+::\+Layer\+Stack}} \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classutils_1_1_layer_a6077ff5bf6e5f02125977db2bda9d30c}{on\+Tick}} (float delta)
+\begin{DoxyCompactList}\small\item\em Called when a {\ttfamily \doxylink{classutils_1_1_layer_stack}{utils\+::\+Layer\+Stack}} update {\ttfamily Tick} is called. \end{DoxyCompactList}\item 
+const std\+::string \mbox{\hyperlink{classutils_1_1_layer_ac29e23611c7130147be3571d31a53e36}{get\+Name}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classutils_1_1_layer_component}{utils\+::\+Layer\+Component}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classutils_1_1_layer_component_a58ce2aea575abf923c9398bd4d51d3b4}{Layer\+Component}} ()
+\item 
+virtual \mbox{\hyperlink{classutils_1_1_layer_component_a3ca6f7eec4e684af0e272078f5ba3bb5}{\texorpdfstring{$\sim$}{\string~}\+Layer\+Component}} ()=default
+\item 
+virtual void \mbox{\hyperlink{classutils_1_1_layer_component_a565d0e574e00831d67860c2e3ae145f4}{on\+Attach}} ()
+\begin{DoxyCompactList}\small\item\em Called right after a layer have been attached to a {\ttfamily \doxylink{classutils_1_1_layer_stack}{utils\+::\+Layer\+Stack}} \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classutils_1_1_layer_component_a49d164bc63bf216cda40ab1e24a1c45d}{on\+Tick}} (float delta)
+\begin{DoxyCompactList}\small\item\em Called when a {\ttfamily \doxylink{classutils_1_1_layer_stack}{utils\+::\+Layer\+Stack}} update {\ttfamily Tick} is called. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classutils_1_1_layer_component_a7066536013a6ddf368f3c46e8c6ceca0}{on\+Detach}} ()
+\begin{DoxyCompactList}\small\item\em Called right before a layer is detached from a {\ttfamily \doxylink{classutils_1_1_layer_stack}{utils\+::\+Layer\+Stack}} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classutils_1_1_layer_ac84e458d68a1f35e56bbc31d15499637}{Layer}} (const char \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{classutils_1_1_layer_ab06480ec1c844361d5e3a7c493b6b338}{name}}=\"{}Layer\"{})
+\item 
+virtual \mbox{\hyperlink{classutils_1_1_layer_a7fc23aad206ba169dd8480f41a165caf}{\texorpdfstring{$\sim$}{\string~}\+Layer}} ()
+\item 
+\mbox{\hyperlink{classutils_1_1_layer_ac77de0ea27b593abc7fcf004e1ccea5c}{Layer}} (const \mbox{\hyperlink{classutils_1_1_layer}{Layer}} \&)=default
+\item 
+\mbox{\hyperlink{classutils_1_1_layer_ad9510c39523006d647f612bf994617f6}{Layer}} (\mbox{\hyperlink{classutils_1_1_layer}{Layer}} \&\&)=delete
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classutils_1_1_layer_ab06480ec1c844361d5e3a7c493b6b338}{name}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classutils_1_1_layer_a91a714b8c4bffe8f1fe59114b319fade}{Layer\+Stack}}
+\begin{DoxyCompactList}\small\item\em Only a \doxylink{classutils_1_1_layer_stack}{Layer\+Stack} should be able to create and contain a layer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A layer, member of layer stack. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classutils_1_1_layer_ac84e458d68a1f35e56bbc31d15499637}\label{classutils_1_1_layer_ac84e458d68a1f35e56bbc31d15499637} 
+\index{utils::Layer@{utils::Layer}!Layer@{Layer}}
+\index{Layer@{Layer}!utils::Layer@{utils::Layer}}
+\doxysubsubsection{\texorpdfstring{Layer()}{Layer()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily utils\+::\+Layer\+::\+Layer (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{name = {\ttfamily \"{}Layer\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+\Hypertarget{classutils_1_1_layer_a7fc23aad206ba169dd8480f41a165caf}\label{classutils_1_1_layer_a7fc23aad206ba169dd8480f41a165caf} 
+\index{utils::Layer@{utils::Layer}!````~Layer@{\texorpdfstring{$\sim$}{\string~}Layer}}
+\index{````~Layer@{\texorpdfstring{$\sim$}{\string~}Layer}!utils::Layer@{utils::Layer}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Layer()}{\string~Layer()}}
+{\footnotesize\ttfamily virtual utils\+::\+Layer\+::\texorpdfstring{$\sim$}{\string~}\+Layer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+\Hypertarget{classutils_1_1_layer_ac77de0ea27b593abc7fcf004e1ccea5c}\label{classutils_1_1_layer_ac77de0ea27b593abc7fcf004e1ccea5c} 
+\index{utils::Layer@{utils::Layer}!Layer@{Layer}}
+\index{Layer@{Layer}!utils::Layer@{utils::Layer}}
+\doxysubsubsection{\texorpdfstring{Layer()}{Layer()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily utils\+::\+Layer\+::\+Layer (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classutils_1_1_layer}{Layer}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [default]}}
+
+\Hypertarget{classutils_1_1_layer_ad9510c39523006d647f612bf994617f6}\label{classutils_1_1_layer_ad9510c39523006d647f612bf994617f6} 
+\index{utils::Layer@{utils::Layer}!Layer@{Layer}}
+\index{Layer@{Layer}!utils::Layer@{utils::Layer}}
+\doxysubsubsection{\texorpdfstring{Layer()}{Layer()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily utils\+::\+Layer\+::\+Layer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classutils_1_1_layer}{Layer}} \&\&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [delete]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classutils_1_1_layer_ac29e23611c7130147be3571d31a53e36}\label{classutils_1_1_layer_ac29e23611c7130147be3571d31a53e36} 
+\index{utils::Layer@{utils::Layer}!getName@{getName}}
+\index{getName@{getName}!utils::Layer@{utils::Layer}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily const std\+::string utils\+::\+Layer\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classutils_1_1_layer_ad4aba0c726e9c2f44d4ccfd55f30ae06}\label{classutils_1_1_layer_ad4aba0c726e9c2f44d4ccfd55f30ae06} 
+\index{utils::Layer@{utils::Layer}!onAttach@{onAttach}}
+\index{onAttach@{onAttach}!utils::Layer@{utils::Layer}}
+\doxysubsubsection{\texorpdfstring{onAttach()}{onAttach()}}
+{\footnotesize\ttfamily virtual void utils\+::\+Layer\+::on\+Attach (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Called right after a layer have been attached to a {\ttfamily \doxylink{classutils_1_1_layer_stack}{utils\+::\+Layer\+Stack}} 
+
+
+
+Reimplemented from \mbox{\hyperlink{classutils_1_1_layer_component_a565d0e574e00831d67860c2e3ae145f4}{utils\+::\+Layer\+Component}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{class_layer_try_ab68f21ab4a71c8eb6331e549cff72473}{Layer\+Try}}, \mbox{\hyperlink{classgui_1_1_gui_layer_a16f2e9d5d6de79c4e9be8d73d72b63a8}{gui\+::\+Gui\+Layer}}, and \mbox{\hyperlink{classtry1_1_1_game_layer_afad6bf8078b034cf824e3650fddc2386}{try1\+::\+Game\+Layer}}.
+
+\Hypertarget{classutils_1_1_layer_af6dd1e90821b1b789b95792657097386}\label{classutils_1_1_layer_af6dd1e90821b1b789b95792657097386} 
+\index{utils::Layer@{utils::Layer}!onDetach@{onDetach}}
+\index{onDetach@{onDetach}!utils::Layer@{utils::Layer}}
+\doxysubsubsection{\texorpdfstring{onDetach()}{onDetach()}}
+{\footnotesize\ttfamily virtual void utils\+::\+Layer\+::on\+Detach (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Called right before a layer is detached from a {\ttfamily \doxylink{classutils_1_1_layer_stack}{utils\+::\+Layer\+Stack}} 
+
+
+
+Reimplemented from \mbox{\hyperlink{classutils_1_1_layer_component_a7066536013a6ddf368f3c46e8c6ceca0}{utils\+::\+Layer\+Component}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{class_layer_try_a62121c5150891dcf41f15948f5d05acd}{Layer\+Try}}, \mbox{\hyperlink{classgui_1_1_gui_layer_a92f9294c3562c5eed1b893e696a44b78}{gui\+::\+Gui\+Layer}}, and \mbox{\hyperlink{classtry1_1_1_game_layer_a82077a83a8ece9b823a605f966c7dcfc}{try1\+::\+Game\+Layer}}.
+
+\Hypertarget{classutils_1_1_layer_a6077ff5bf6e5f02125977db2bda9d30c}\label{classutils_1_1_layer_a6077ff5bf6e5f02125977db2bda9d30c} 
+\index{utils::Layer@{utils::Layer}!onTick@{onTick}}
+\index{onTick@{onTick}!utils::Layer@{utils::Layer}}
+\doxysubsubsection{\texorpdfstring{onTick()}{onTick()}}
+{\footnotesize\ttfamily virtual void utils\+::\+Layer\+::on\+Tick (\begin{DoxyParamCaption}\item[{float}]{delta }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Called when a {\ttfamily \doxylink{classutils_1_1_layer_stack}{utils\+::\+Layer\+Stack}} update {\ttfamily Tick} is called. 
+
+
+
+Reimplemented from \mbox{\hyperlink{classutils_1_1_layer_component_a49d164bc63bf216cda40ab1e24a1c45d}{utils\+::\+Layer\+Component}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{class_layer_try_a75921d474bd1d5a31dfd87ec64c16fe6}{Layer\+Try}}, \mbox{\hyperlink{classgui_1_1_gui_layer_a2e9f541d5d3b80cebf0a764fc912c077}{gui\+::\+Gui\+Layer}}, and \mbox{\hyperlink{classtry1_1_1_game_layer_aaa0164930f596f22fa3bf28c0171f9d4}{try1\+::\+Game\+Layer}}.
+
+
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{classutils_1_1_layer_a91a714b8c4bffe8f1fe59114b319fade}\label{classutils_1_1_layer_a91a714b8c4bffe8f1fe59114b319fade} 
+\index{utils::Layer@{utils::Layer}!LayerStack@{LayerStack}}
+\index{LayerStack@{LayerStack}!utils::Layer@{utils::Layer}}
+\doxysubsubsection{\texorpdfstring{LayerStack}{LayerStack}}
+{\footnotesize\ttfamily friend class \mbox{\hyperlink{classutils_1_1_layer_stack}{Layer\+Stack}}\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Only a \doxylink{classutils_1_1_layer_stack}{Layer\+Stack} should be able to create and contain a layer. 
+
+\begin{DoxyNote}{Note}
+As a {\ttfamily \doxylink{classutils_1_1_entry}{utils\+::\+Entry}} is a friend of {\ttfamily \doxylink{classutils_1_1_layer_stack}{utils\+::\+Layer\+Stack}}, entries could create layers and add them to a \doxylink{classutils_1_1_layer_stack}{Layer\+Stack} 
+\end{DoxyNote}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classutils_1_1_layer_ab06480ec1c844361d5e3a7c493b6b338}\label{classutils_1_1_layer_ab06480ec1c844361d5e3a7c493b6b338} 
+\index{utils::Layer@{utils::Layer}!name@{name}}
+\index{name@{name}!utils::Layer@{utils::Layer}}
+\doxysubsubsection{\texorpdfstring{name}{name}}
+{\footnotesize\ttfamily const char\texorpdfstring{$\ast$}{*} utils\+::\+Layer\+::name\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+engine/utils/\mbox{\hyperlink{layer_8h}{layer.\+h}}\end{DoxyCompactItemize}

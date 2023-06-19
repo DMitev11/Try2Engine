@@ -1,0 +1,346 @@
+\doxysection{logger Namespace Reference}
+\hypertarget{namespacelogger}{}\label{namespacelogger}\index{logger@{logger}}
+
+
+Based on the spdlog\textquotesingle{}s implementation. ~\newline
+ Use to emit engine and client logs to a separate logger, instead of cout (which emits to a default output stream)  
+
+
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classlogger_1_1_static_logger}{Static\+Logger}}
+\begin{DoxyCompactList}\small\item\em Generalization in the project. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2}{Log\+Level}} \{ \newline
+\mbox{\hyperlink{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2a6f7502c963b900831773c265c768d818}{k\+Trace}}
+, \mbox{\hyperlink{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2a261345fea93f5ed76d6fcece5958bb1f}{k\+Debug}}
+, \mbox{\hyperlink{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2a10ef91b7e6f399b4a6eeac7e233bb72e}{k\+Info}}
+, \mbox{\hyperlink{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2a86486e2bdb6930bc9a29c57abe5805ba}{k\+Warn}}
+, \newline
+\mbox{\hyperlink{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2aa00406022624ad57581dddf1f135b0d4}{k\+Err}}
+, \mbox{\hyperlink{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2a6754129f912d44f1bee553aeda1a2ee4}{k\+Critical}}
+ \}
+\begin{DoxyCompactList}\small\item\em All levels of logging. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{namespacelogger_a7008ddac10210be5b71f2aa880cea7e2}{Console\+Logger\+Types}} \{ \mbox{\hyperlink{namespacelogger_a7008ddac10210be5b71f2aa880cea7e2a057f49b4a91c2c9ec20f08b2aad6f3ff}{k\+Console}}
+, \mbox{\hyperlink{namespacelogger_a7008ddac10210be5b71f2aa880cea7e2aab175b8a77710924c69de508b85e0b90}{k\+Console\+Error}}
+ \}
+\begin{DoxyCompactList}\small\item\em Types of console loggers. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{namespacelogger_a85919e64d5e829ed702a395a9071c952}{File\+Logger\+Types}} \{ \mbox{\hyperlink{namespacelogger_a85919e64d5e829ed702a395a9071c952a195959d81393056e7e63bde23ecbb5ac}{k\+Basic\+File}}
+, \mbox{\hyperlink{namespacelogger_a85919e64d5e829ed702a395a9071c952a4e3ee640a3b6a37e97534e7505fc6457}{k\+Multiple\+Files}}
+, \mbox{\hyperlink{namespacelogger_a85919e64d5e829ed702a395a9071c952ac9a29951fb32ac9ab38a13c96082407f}{k\+Daily\+File}}
+ \}
+\begin{DoxyCompactList}\small\item\em Types of file loggers. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{namespacelogger_a557c7ef1427522e98ca4bfb49a125013}{create\+Console\+Logger}} (std\+::string name, \mbox{\hyperlink{namespacelogger_a7008ddac10210be5b71f2aa880cea7e2}{Console\+Logger\+Types}} logger\+Type)
+\begin{DoxyCompactList}\small\item\em Create a logger to emit messages. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename... Args$>$ }\\void \mbox{\hyperlink{namespacelogger_a3ea24e2c0fa2ce729ee8b6c0051786ee}{create\+File\+Logger}} (std\+::string name, \mbox{\hyperlink{namespacelogger_a85919e64d5e829ed702a395a9071c952}{File\+Logger\+Types}} logger\+Type, Args... args)
+\item 
+void \mbox{\hyperlink{namespacelogger_a5e7aa0bacba2c1a70397c66af93f9511}{create\+Console\+Sink}} (std\+::string logger\+Name, \mbox{\hyperlink{namespacelogger_a7008ddac10210be5b71f2aa880cea7e2}{Console\+Logger\+Types}} sink\+Type=\mbox{\hyperlink{namespacelogger_a7008ddac10210be5b71f2aa880cea7e2a057f49b4a91c2c9ec20f08b2aad6f3ff}{Console\+Logger\+Types\+::k\+Console}}, \mbox{\hyperlink{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2}{Log\+Level}} log\+Level=\mbox{\hyperlink{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2a6f7502c963b900831773c265c768d818}{Log\+Level\+::k\+Trace}}, std\+::string pattern=k\+Default\+Pattern)
+\begin{DoxyCompactList}\small\item\em Create a sink, to which a logger can emit messages. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename... Args$>$ }\\void \mbox{\hyperlink{namespacelogger_a376d71fe05556219f1f9aad6445edf1a}{create\+File\+Sink}} (std\+::string logger\+Name, Args... args, \mbox{\hyperlink{namespacelogger_a85919e64d5e829ed702a395a9071c952}{File\+Logger\+Types}} sink\+Type=\mbox{\hyperlink{namespacelogger_a85919e64d5e829ed702a395a9071c952a195959d81393056e7e63bde23ecbb5ac}{File\+Logger\+Types\+::k\+Basic\+File}}, \mbox{\hyperlink{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2}{Log\+Level}} log\+Level=\mbox{\hyperlink{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2a6f7502c963b900831773c265c768d818}{Log\+Level\+::k\+Trace}}, std\+::string pattern=k\+Default\+Pattern)
+\item 
+void \mbox{\hyperlink{namespacelogger_a7fbafefebfe176ecdbafd645dc0e78dd}{set\+Logger\+Pattern}} (std\+::string logger\+Name, std\+::string pattern)
+\begin{DoxyCompactList}\small\item\em Set logger pattern to be used by a logger. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacelogger_a95d7ebf969023bd17ee2c4d3b7235005}{set\+Logger\+Level}} (std\+::string logger\+Name, \mbox{\hyperlink{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2}{Log\+Level}} log\+Level)
+\begin{DoxyCompactList}\small\item\em Set the logging level of a logger. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacelogger_a061e78855d8273e4387a803c269939bc}{log}} (char \texorpdfstring{$\ast$}{*}const filename, int file\+Line, std\+::string logger\+Name, \mbox{\hyperlink{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2}{Log\+Level}} log\+Level, char const \texorpdfstring{$\ast$}{*}msg)
+\begin{DoxyCompactList}\small\item\em Log a message to a specific logger. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespacelogger_a0f49d7980c0fca0ab40b9d83d584c719}{logger\+Exists}} (std\+::string logger\+Name)
+\begin{DoxyCompactList}\small\item\em Returns if a specific logger exists for logging. \end{DoxyCompactList}\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespacelogger_a14b2dd9471150bf0323d2d4cb4c1dfb1}{concat\+Message}} (const char \texorpdfstring{$\ast$}{*}prefix, const char \texorpdfstring{$\ast$}{*}msg)
+\begin{DoxyCompactList}\small\item\em Concatenate prefix of a message and the actual message. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Based on the spdlog\textquotesingle{}s implementation. ~\newline
+ Use to emit engine and client logs to a separate logger, instead of cout (which emits to a default output stream) 
+
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{namespacelogger_a7008ddac10210be5b71f2aa880cea7e2}\label{namespacelogger_a7008ddac10210be5b71f2aa880cea7e2} 
+\index{logger@{logger}!ConsoleLoggerTypes@{ConsoleLoggerTypes}}
+\index{ConsoleLoggerTypes@{ConsoleLoggerTypes}!logger@{logger}}
+\doxysubsubsection{\texorpdfstring{ConsoleLoggerTypes}{ConsoleLoggerTypes}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{namespacelogger_a7008ddac10210be5b71f2aa880cea7e2}{logger\+::\+Console\+Logger\+Types}}}
+
+
+
+Types of console loggers. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kConsole@{kConsole}!logger@{logger}}\index{logger@{logger}!kConsole@{kConsole}}}\Hypertarget{namespacelogger_a7008ddac10210be5b71f2aa880cea7e2a057f49b4a91c2c9ec20f08b2aad6f3ff}\label{namespacelogger_a7008ddac10210be5b71f2aa880cea7e2a057f49b4a91c2c9ec20f08b2aad6f3ff} 
+k\+Console&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kConsoleError@{kConsoleError}!logger@{logger}}\index{logger@{logger}!kConsoleError@{kConsoleError}}}\Hypertarget{namespacelogger_a7008ddac10210be5b71f2aa880cea7e2aab175b8a77710924c69de508b85e0b90}\label{namespacelogger_a7008ddac10210be5b71f2aa880cea7e2aab175b8a77710924c69de508b85e0b90} 
+k\+Console\+Error&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{namespacelogger_a85919e64d5e829ed702a395a9071c952}\label{namespacelogger_a85919e64d5e829ed702a395a9071c952} 
+\index{logger@{logger}!FileLoggerTypes@{FileLoggerTypes}}
+\index{FileLoggerTypes@{FileLoggerTypes}!logger@{logger}}
+\doxysubsubsection{\texorpdfstring{FileLoggerTypes}{FileLoggerTypes}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{namespacelogger_a85919e64d5e829ed702a395a9071c952}{logger\+::\+File\+Logger\+Types}}}
+
+
+
+Types of file loggers. 
+
+\begin{DoxyWarning}{Warning}
+not tested 
+\end{DoxyWarning}
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kBasicFile@{kBasicFile}!logger@{logger}}\index{logger@{logger}!kBasicFile@{kBasicFile}}}\Hypertarget{namespacelogger_a85919e64d5e829ed702a395a9071c952a195959d81393056e7e63bde23ecbb5ac}\label{namespacelogger_a85919e64d5e829ed702a395a9071c952a195959d81393056e7e63bde23ecbb5ac} 
+k\+Basic\+File&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kMultipleFiles@{kMultipleFiles}!logger@{logger}}\index{logger@{logger}!kMultipleFiles@{kMultipleFiles}}}\Hypertarget{namespacelogger_a85919e64d5e829ed702a395a9071c952a4e3ee640a3b6a37e97534e7505fc6457}\label{namespacelogger_a85919e64d5e829ed702a395a9071c952a4e3ee640a3b6a37e97534e7505fc6457} 
+k\+Multiple\+Files&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kDailyFile@{kDailyFile}!logger@{logger}}\index{logger@{logger}!kDailyFile@{kDailyFile}}}\Hypertarget{namespacelogger_a85919e64d5e829ed702a395a9071c952ac9a29951fb32ac9ab38a13c96082407f}\label{namespacelogger_a85919e64d5e829ed702a395a9071c952ac9a29951fb32ac9ab38a13c96082407f} 
+k\+Daily\+File&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2}\label{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2} 
+\index{logger@{logger}!LogLevel@{LogLevel}}
+\index{LogLevel@{LogLevel}!logger@{logger}}
+\doxysubsubsection{\texorpdfstring{LogLevel}{LogLevel}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2}{logger\+::\+Log\+Level}}}
+
+
+
+All levels of logging. 
+
+\begin{DoxyAttention}{Attention}
+Priority is set bottom to top.~\newline
+If logger level is set to Trace =\texorpdfstring{$>$}{>} all messages would emit. If set to Warn =\texorpdfstring{$>$}{>} all messages from Warn to Critical would emit, but anything before(\+Debug, Info, Trace) would not. 
+\end{DoxyAttention}
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kTrace@{kTrace}!logger@{logger}}\index{logger@{logger}!kTrace@{kTrace}}}\Hypertarget{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2a6f7502c963b900831773c265c768d818}\label{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2a6f7502c963b900831773c265c768d818} 
+k\+Trace&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kDebug@{kDebug}!logger@{logger}}\index{logger@{logger}!kDebug@{kDebug}}}\Hypertarget{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2a261345fea93f5ed76d6fcece5958bb1f}\label{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2a261345fea93f5ed76d6fcece5958bb1f} 
+k\+Debug&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kInfo@{kInfo}!logger@{logger}}\index{logger@{logger}!kInfo@{kInfo}}}\Hypertarget{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2a10ef91b7e6f399b4a6eeac7e233bb72e}\label{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2a10ef91b7e6f399b4a6eeac7e233bb72e} 
+k\+Info&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kWarn@{kWarn}!logger@{logger}}\index{logger@{logger}!kWarn@{kWarn}}}\Hypertarget{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2a86486e2bdb6930bc9a29c57abe5805ba}\label{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2a86486e2bdb6930bc9a29c57abe5805ba} 
+k\+Warn&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kErr@{kErr}!logger@{logger}}\index{logger@{logger}!kErr@{kErr}}}\Hypertarget{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2aa00406022624ad57581dddf1f135b0d4}\label{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2aa00406022624ad57581dddf1f135b0d4} 
+k\+Err&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kCritical@{kCritical}!logger@{logger}}\index{logger@{logger}!kCritical@{kCritical}}}\Hypertarget{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2a6754129f912d44f1bee553aeda1a2ee4}\label{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2a6754129f912d44f1bee553aeda1a2ee4} 
+k\+Critical&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespacelogger_a14b2dd9471150bf0323d2d4cb4c1dfb1}\label{namespacelogger_a14b2dd9471150bf0323d2d4cb4c1dfb1} 
+\index{logger@{logger}!concatMessage@{concatMessage}}
+\index{concatMessage@{concatMessage}!logger@{logger}}
+\doxysubsubsection{\texorpdfstring{concatMessage()}{concatMessage()}}
+{\footnotesize\ttfamily char \texorpdfstring{$\ast$}{*} logger\+::concat\+Message (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{prefix,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{msg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Concatenate prefix of a message and the actual message. 
+
+\begin{DoxyNote}{Note}
+Should be replaced by variadic amount of const char\texorpdfstring{$\ast$}{*} messages, combined in a stream =\texorpdfstring{$>$}{>} const char\texorpdfstring{$\ast$}{*} 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em prefix} & \\
+\hline
+{\em msg} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+char\texorpdfstring{$\ast$}{*} 
+\end{DoxyReturn}
+\Hypertarget{namespacelogger_a557c7ef1427522e98ca4bfb49a125013}\label{namespacelogger_a557c7ef1427522e98ca4bfb49a125013} 
+\index{logger@{logger}!createConsoleLogger@{createConsoleLogger}}
+\index{createConsoleLogger@{createConsoleLogger}!logger@{logger}}
+\doxysubsubsection{\texorpdfstring{createConsoleLogger()}{createConsoleLogger()}}
+{\footnotesize\ttfamily void logger\+::create\+Console\+Logger (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{\mbox{\hyperlink{namespacelogger_a7008ddac10210be5b71f2aa880cea7e2}{Console\+Logger\+Types}}}]{logger\+Type }\end{DoxyParamCaption})}
+
+
+
+Create a logger to emit messages. 
+
+\begin{DoxyAttention}{Attention}
+Its a collective of sinks. 
+\end{DoxyAttention}
+\begin{DoxySeeAlso}{See also}
+\doxylink{namespacelogger_a5e7aa0bacba2c1a70397c66af93f9511}{logger\+::create\+Console\+Sink}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Used for distinct it from other loggers \\
+\hline
+{\em logger\+Type} & Normal console messages, or very urgent program breaking errors \\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespacelogger_a5e7aa0bacba2c1a70397c66af93f9511}\label{namespacelogger_a5e7aa0bacba2c1a70397c66af93f9511} 
+\index{logger@{logger}!createConsoleSink@{createConsoleSink}}
+\index{createConsoleSink@{createConsoleSink}!logger@{logger}}
+\doxysubsubsection{\texorpdfstring{createConsoleSink()}{createConsoleSink()}}
+{\footnotesize\ttfamily void logger\+::create\+Console\+Sink (\begin{DoxyParamCaption}\item[{std\+::string}]{logger\+Name,  }\item[{\mbox{\hyperlink{namespacelogger_a7008ddac10210be5b71f2aa880cea7e2}{Console\+Logger\+Types}}}]{sink\+Type = {\ttfamily \mbox{\hyperlink{namespacelogger_a7008ddac10210be5b71f2aa880cea7e2a057f49b4a91c2c9ec20f08b2aad6f3ff}{Console\+Logger\+Types\+::k\+Console}}},  }\item[{\mbox{\hyperlink{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2}{Log\+Level}}}]{log\+Level = {\ttfamily \mbox{\hyperlink{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2a6f7502c963b900831773c265c768d818}{Log\+Level\+::k\+Trace}}},  }\item[{std\+::string}]{pattern = {\ttfamily kDefaultPattern} }\end{DoxyParamCaption})}
+
+
+
+Create a sink, to which a logger can emit messages. 
+
+\begin{DoxyNote}{Note}
+Its one of many (1...n) outputs of 1 logger.~\newline
+Can have different differrent message pattern, stylization and level.~\newline
+ 
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\doxylink{namespacelogger_a5e7aa0bacba2c1a70397c66af93f9511}{logger\+::create\+Console\+Sink}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em logger\+Name} & Logger to attach this sink to \\
+\hline
+{\em sink\+Type} & Same as console logger types \\
+\hline
+{\em log\+Level} & Same as console logger levels \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\doxylink{namespacelogger_a557c7ef1427522e98ca4bfb49a125013}{logger\+::create\+Console\+Logger}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em pattern} & Defines a message pattern to be used for logging \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\href{https://github.com/gabime/spdlog/wiki/3.-Custom-formatting\#pattern-flags}{\texttt{ https\+://github.\+com/gabime/spdlog/wiki/3.-\/\+Custom-\/formatting\#pattern-\/flags}} 
+\end{DoxySeeAlso}
+\Hypertarget{namespacelogger_a3ea24e2c0fa2ce729ee8b6c0051786ee}\label{namespacelogger_a3ea24e2c0fa2ce729ee8b6c0051786ee} 
+\index{logger@{logger}!createFileLogger@{createFileLogger}}
+\index{createFileLogger@{createFileLogger}!logger@{logger}}
+\doxysubsubsection{\texorpdfstring{createFileLogger()}{createFileLogger()}}
+{\footnotesize\ttfamily template$<$typename... Args$>$ \\
+void logger\+::create\+File\+Logger (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{\mbox{\hyperlink{namespacelogger_a85919e64d5e829ed702a395a9071c952}{File\+Logger\+Types}}}]{logger\+Type,  }\item[{Args...}]{args }\end{DoxyParamCaption})}
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{namespacelogger_a557c7ef1427522e98ca4bfb49a125013}{create\+Console\+Logger}
+\end{DoxySeeAlso}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Args} & variadic, as different parameters are used to initialize file loggers, based on the type \\
+\hline
+\end{DoxyTemplParams}
+\Hypertarget{namespacelogger_a376d71fe05556219f1f9aad6445edf1a}\label{namespacelogger_a376d71fe05556219f1f9aad6445edf1a} 
+\index{logger@{logger}!createFileSink@{createFileSink}}
+\index{createFileSink@{createFileSink}!logger@{logger}}
+\doxysubsubsection{\texorpdfstring{createFileSink()}{createFileSink()}}
+{\footnotesize\ttfamily template$<$typename... Args$>$ \\
+void logger\+::create\+File\+Sink (\begin{DoxyParamCaption}\item[{std\+::string}]{logger\+Name,  }\item[{Args...}]{args,  }\item[{\mbox{\hyperlink{namespacelogger_a85919e64d5e829ed702a395a9071c952}{File\+Logger\+Types}}}]{sink\+Type = {\ttfamily \mbox{\hyperlink{namespacelogger_a85919e64d5e829ed702a395a9071c952a195959d81393056e7e63bde23ecbb5ac}{File\+Logger\+Types\+::k\+Basic\+File}}},  }\item[{\mbox{\hyperlink{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2}{Log\+Level}}}]{log\+Level = {\ttfamily \mbox{\hyperlink{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2a6f7502c963b900831773c265c768d818}{Log\+Level\+::k\+Trace}}},  }\item[{std\+::string}]{pattern = {\ttfamily kDefaultPattern} }\end{DoxyParamCaption})}
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{namespacelogger_a5e7aa0bacba2c1a70397c66af93f9511}{create\+Console\+Sink} 
+\end{DoxySeeAlso}
+\Hypertarget{namespacelogger_a061e78855d8273e4387a803c269939bc}\label{namespacelogger_a061e78855d8273e4387a803c269939bc} 
+\index{logger@{logger}!log@{log}}
+\index{log@{log}!logger@{logger}}
+\doxysubsubsection{\texorpdfstring{log()}{log()}}
+{\footnotesize\ttfamily void logger\+::log (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}const}]{filename,  }\item[{int}]{file\+Line,  }\item[{std\+::string}]{logger\+Name,  }\item[{\mbox{\hyperlink{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2}{Log\+Level}}}]{log\+Level,  }\item[{char const \texorpdfstring{$\ast$}{*}}]{msg }\end{DoxyParamCaption})}
+
+
+
+Log a message to a specific logger. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & File of which the message comes from \\
+\hline
+{\em file\+Line} & File line which calls this message log \\
+\hline
+{\em logger\+Name} & Logger which will emit the message \\
+\hline
+{\em log\+Level} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\doxylink{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2}{Log\+Level}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespacelogger_a0f49d7980c0fca0ab40b9d83d584c719}\label{namespacelogger_a0f49d7980c0fca0ab40b9d83d584c719} 
+\index{logger@{logger}!loggerExists@{loggerExists}}
+\index{loggerExists@{loggerExists}!logger@{logger}}
+\doxysubsubsection{\texorpdfstring{loggerExists()}{loggerExists()}}
+{\footnotesize\ttfamily bool logger\+::logger\+Exists (\begin{DoxyParamCaption}\item[{std\+::string}]{logger\+Name }\end{DoxyParamCaption})}
+
+
+
+Returns if a specific logger exists for logging. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em logger\+Name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+\Hypertarget{namespacelogger_a95d7ebf969023bd17ee2c4d3b7235005}\label{namespacelogger_a95d7ebf969023bd17ee2c4d3b7235005} 
+\index{logger@{logger}!setLoggerLevel@{setLoggerLevel}}
+\index{setLoggerLevel@{setLoggerLevel}!logger@{logger}}
+\doxysubsubsection{\texorpdfstring{setLoggerLevel()}{setLoggerLevel()}}
+{\footnotesize\ttfamily void logger\+::set\+Logger\+Level (\begin{DoxyParamCaption}\item[{std\+::string}]{logger\+Name,  }\item[{\mbox{\hyperlink{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2}{logger\+::\+Log\+Level}}}]{log\+Level }\end{DoxyParamCaption})}
+
+
+
+Set the logging level of a logger. 
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2}{Log\+Level} 
+\end{DoxySeeAlso}
+\Hypertarget{namespacelogger_a7fbafefebfe176ecdbafd645dc0e78dd}\label{namespacelogger_a7fbafefebfe176ecdbafd645dc0e78dd} 
+\index{logger@{logger}!setLoggerPattern@{setLoggerPattern}}
+\index{setLoggerPattern@{setLoggerPattern}!logger@{logger}}
+\doxysubsubsection{\texorpdfstring{setLoggerPattern()}{setLoggerPattern()}}
+{\footnotesize\ttfamily void logger\+::set\+Logger\+Pattern (\begin{DoxyParamCaption}\item[{std\+::string}]{logger\+Name,  }\item[{std\+::string}]{pattern }\end{DoxyParamCaption})}
+
+
+
+Set logger pattern to be used by a logger. 
+
+\begin{DoxyNote}{Note}
+Patterns could be set to a whole logger(overwrites its sink patterns), or a specific sink ~\newline
+ As sinks can have their patterns set during initialization, patterns for loggers could be set explicitly 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em logger\+Name} & \\
+\hline
+{\em pattern} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\href{https://github.com/gabime/spdlog/wiki/3.-Custom-formatting\#pattern-flags}{\texttt{ https\+://github.\+com/gabime/spdlog/wiki/3.-\/\+Custom-\/formatting\#pattern-\/flags}} 
+\end{DoxySeeAlso}

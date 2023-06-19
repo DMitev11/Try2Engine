@@ -1,0 +1,34 @@
+\doxysection{layer\+\_\+stack.\+h}
+\hypertarget{layer__stack_8h_source}{}\label{layer__stack_8h_source}\index{engine/utils/layer\_stack.h@{engine/utils/layer\_stack.h}}
+\mbox{\hyperlink{layer__stack_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{layer_8h}{layer.h}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{loop_8h}{loop.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00005\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceutils}{utils}}\ \{}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classutils_1_1_layer_stack}{LayerStack}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classutils_1_1_loop_events}{LoopEvents}}\ \{}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classutils_1_1_layer}{Layer}}\ *\mbox{\hyperlink{classutils_1_1_layer_stack_a2345b9e75446bc238fab6e7f4b7d7c65}{addLayer}}(\mbox{\hyperlink{classutils_1_1_layer}{Layer}}\ *);}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classutils_1_1_layer_stack_af1b84529a22ecabc0430dd09d6164c19}{removeLayer}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *name);}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classutils_1_1_layer_stack_a1922d8a73e297a312888f0329ee940ad}{init}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classutils_1_1_layer_stack_a2f16182907b03c4b0d65a86046f53ff6}{tick}}(\textcolor{keywordtype}{float}\ delta)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classutils_1_1_layer_stack_abb1cc4d85b582d6ea0734caed941a725}{shutdown}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classutils_1_1_layer_stack}{LayerStack}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classutils_1_1_layer_stack}{\string~LayerStack}}()\{\};}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ std::vector<Layer\ *>\ layers;}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ LayerStack(LayerStack\ \&const)\ =\ delete;\ //C4227}}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classutils_1_1_layer_stack}{LayerStack}}(\mbox{\hyperlink{classutils_1_1_layer_stack}{LayerStack}}\ \&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classutils_1_1_layer_stack}{LayerStack}}(\mbox{\hyperlink{classutils_1_1_layer_stack}{LayerStack}}\ \&\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classutils_1_1_entry}{Entry}};}
+\DoxyCodeLine{00069\ \ \ \ \ \};}
+\DoxyCodeLine{00070\ \}\ \textcolor{comment}{//\ namespace\ utils}}
+
+\end{DoxyCode}

@@ -1,0 +1,50 @@
+\chapter{Try2\+Engine}
+\hypertarget{md__r_e_a_d_m_e}{}\label{md__r_e_a_d_m_e}\index{Try2Engine@{Try2Engine}}
+\label{md__r_e_a_d_m_e_autotoc_md0}%
+\Hypertarget{md__r_e_a_d_m_e_autotoc_md0}%
+Cross-\/platform open-\/source 2D/3D game engine in the works.  Licensed under GPLv3 (and will continue to be), hence using it as a template or basis for other projects is permitted.  All libraries utilized in this project must be royalty free.
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ module   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ library   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ description    }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ module   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ library   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ description    }\\\cline{1-3}
+\endhead
+Window   &\href{https://github.com/libsdl-org/SDL}{\texttt{ SDL3}}   &Initialize and create a window. Hook input, renderer, audio and others    \\\cline{1-3}
+2D Renderer   &\href{https://github.com/libsdl-org/SDL}{\texttt{ SDL3\texorpdfstring{$\ast$}{*}}}   &2D images, textures, sprites, and in the future -\/ tilemaps    \\\cline{1-3}
+3D Render   &?? (TBD)   &Render 3D meshes, models, skeletons and or more    \\\cline{1-3}
+Audio   &?? (TBD)   &Play and mix audio queues on demand    \\\cline{1-3}
+2D Asset loading   &\href{https://github.com/nothings/stb}{\texttt{ STB\+\_\+image}} \href{https://github.com/libsdl-org/SDL_image}{\texttt{ SDL\+\_\+\+Image}}   &Image loading    \\\cline{1-3}
+Input   &\href{https://github.com/libsdl-org/SDL}{\texttt{ SDL3}}   &Polling data sent from input devices; Connect/\+Disconnect, create and destroy controllers    \\\cline{1-3}
+Logger   &\href{https://github.com/gabime/spdlog}{\texttt{ spdlog}}   &Logging messages, errors and more    \\\cline{1-3}
+GUI   &\href{https://github.com/ocornut/imgui}{\texttt{ Im\+Gui}}   &GUI for in-\/engine windows and widgets (object properties, settings modifications and others)    \\\cline{1-3}
+Tests   &\href{https://github.com/google/googletest}{\texttt{ gtest}}   &Testing of modules and logic    \\\cline{1-3}
+Build Tool   &\href{https://cmake.org/}{\texttt{ CMake}}   &Building project on different platforms (tested on Linux Mint and Windows)   \\\cline{1-3}
+\end{longtabu}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md1}{}\doxysubsection{\texorpdfstring{$<$strong$>$\+Build and run$<$/strong$>$}{<strong>Build and run</strong>}}\label{md__r_e_a_d_m_e_autotoc_md1}
+
+\begin{DoxyItemize}
+\item {\ttfamily Windows (tested on Windows 11)\+:}  Requires a pre-\/installed CMake(3.\+15 and above) and a C++ compiler (MSVC) with C++17 support. 
+\begin{DoxyEnumerate}
+\item Choose a configuration -\/ Debug or Release
+\item Run its corresponding batch file -\/ Generate\+And\+Build\texorpdfstring{$<$}{<}Debug/\+Release\texorpdfstring{$>$}{>}X64.\+bat, located in the root folder of the project
+\item a\+: Execute Run.\+bat  b\+: Navigate to ./build/\texorpdfstring{$<$}{<}Debug/\+Release\texorpdfstring{$>$}{>}, and run try1.\+exe
+\end{DoxyEnumerate}
+\item {\ttfamily Linux (testedo on Linux Mint)\+:}  Requires a pre-\/installed CMake, C++, X11 (for SDL) and GLFW (for Box2D) toolkit. For ease of use, these are the commands used to retrieve those kits during the development of the project\+:
+\begin{DoxyItemize}
+\item {\ttfamily sudo apt-\/get install cmake}
+\item {\ttfamily sudo apt-\/get install build-\/essential}
+\item {\ttfamily sudo apt-\/get install libx11-\/dev}
+\item {\ttfamily sudo apt-\/get install xorg-\/dev libglul-\/mesa-\/dev}
+\end{DoxyItemize}
+\begin{DoxyEnumerate}
+\item Choose a configuration -\/ Debug or Release
+\item Run its corresponding shell script -\/ Generate\+And\+Build\texorpdfstring{$<$}{<}Debug/\+Release\texorpdfstring{$>$}{>}X64.\+sh, located in the root folder of the project
+\item a\+: Execute Run.\+sh  b\+: Navigate to ./build/tr1, and run \doxylink{namespacetry1}{try1}
+\end{DoxyEnumerate}
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md2}{}\doxysubsection{\texorpdfstring{$<$strong$>$\+Philosophy and how to contribute?$<$/strong$>$}{<strong>Philosophy and how to contribute?</strong>}}\label{md__r_e_a_d_m_e_autotoc_md2}
+Project with modular architecture.  Every module in the project should be implemented with the intend that its libraries could change in the future.  This project adheres to the principle that every module should be initially implemented as an {\bfseries{adapter}}, {\bfseries{facade}}, {\bfseries{template}} or a similar structural and creational patterns. This approach enables the internals of each module to evolve independently, while the code that utilizes each module remains unchanged.  {\itshape {\itshape Creational}} patterns are up to personal preference.  All libraries should be either {\bfseries{vendored}} (and added as submodules) or fetched in a {\ttfamily CMake} configuration file 

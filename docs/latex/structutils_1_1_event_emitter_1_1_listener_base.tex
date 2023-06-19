@@ -1,0 +1,85 @@
+\doxysection{utils\+::Event\+Emitter\+::Listener\+Base Struct Reference}
+\hypertarget{structutils_1_1_event_emitter_1_1_listener_base}{}\label{structutils_1_1_event_emitter_1_1_listener_base}\index{utils::EventEmitter::ListenerBase@{utils::EventEmitter::ListenerBase}}
+
+
+Shared data between each listener.  
+
+
+
+
+{\ttfamily \#include $<$event\+\_\+emitter.\+hpp$>$}
+
+Inheritance diagram for utils\+::Event\+Emitter\+::Listener\+Base\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{structutils_1_1_event_emitter_1_1_listener_base}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structutils_1_1_event_emitter_1_1_listener_base_a1e4d4e5d7721e95ea944b723ce810b39}{Listener\+Base}} ()=delete
+\item 
+\mbox{\hyperlink{structutils_1_1_event_emitter_1_1_listener_base_a000b6e692f576b7df0448746f6beabd5}{Listener\+Base}} (int \mbox{\hyperlink{structutils_1_1_event_emitter_1_1_listener_base_a28ca8fc774b4c5151cc1b9216af9d370}{event}}, bool \mbox{\hyperlink{structutils_1_1_event_emitter_1_1_listener_base_a2c41e764db62c54817a6b64213161c32}{call\+Once}})
+\item 
+virtual \mbox{\hyperlink{structutils_1_1_event_emitter_1_1_listener_base_a9d046dd320cffd7807d37a2dd6074d6b}{\texorpdfstring{$\sim$}{\string~}\+Listener\+Base}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const int \mbox{\hyperlink{structutils_1_1_event_emitter_1_1_listener_base_a28ca8fc774b4c5151cc1b9216af9d370}{event}}
+\begin{DoxyCompactList}\small\item\em Type of an event emit. \end{DoxyCompactList}\item 
+const bool \mbox{\hyperlink{structutils_1_1_event_emitter_1_1_listener_base_a2c41e764db62c54817a6b64213161c32}{call\+Once}}
+\begin{DoxyCompactList}\small\item\em If it should be deleted after a single callback/handler call. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Shared data between each listener. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{structutils_1_1_event_emitter_1_1_listener_base_a1e4d4e5d7721e95ea944b723ce810b39}\label{structutils_1_1_event_emitter_1_1_listener_base_a1e4d4e5d7721e95ea944b723ce810b39} 
+\index{utils::EventEmitter::ListenerBase@{utils::EventEmitter::ListenerBase}!ListenerBase@{ListenerBase}}
+\index{ListenerBase@{ListenerBase}!utils::EventEmitter::ListenerBase@{utils::EventEmitter::ListenerBase}}
+\doxysubsubsection{\texorpdfstring{ListenerBase()}{ListenerBase()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily utils\+::\+Event\+Emitter\+::\+Listener\+Base\+::\+Listener\+Base (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{structutils_1_1_event_emitter_1_1_listener_base_a000b6e692f576b7df0448746f6beabd5}\label{structutils_1_1_event_emitter_1_1_listener_base_a000b6e692f576b7df0448746f6beabd5} 
+\index{utils::EventEmitter::ListenerBase@{utils::EventEmitter::ListenerBase}!ListenerBase@{ListenerBase}}
+\index{ListenerBase@{ListenerBase}!utils::EventEmitter::ListenerBase@{utils::EventEmitter::ListenerBase}}
+\doxysubsubsection{\texorpdfstring{ListenerBase()}{ListenerBase()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily utils\+::\+Event\+Emitter\+::\+Listener\+Base\+::\+Listener\+Base (\begin{DoxyParamCaption}\item[{int}]{event,  }\item[{bool}]{call\+Once }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structutils_1_1_event_emitter_1_1_listener_base_a9d046dd320cffd7807d37a2dd6074d6b}\label{structutils_1_1_event_emitter_1_1_listener_base_a9d046dd320cffd7807d37a2dd6074d6b} 
+\index{utils::EventEmitter::ListenerBase@{utils::EventEmitter::ListenerBase}!````~ListenerBase@{\texorpdfstring{$\sim$}{\string~}ListenerBase}}
+\index{````~ListenerBase@{\texorpdfstring{$\sim$}{\string~}ListenerBase}!utils::EventEmitter::ListenerBase@{utils::EventEmitter::ListenerBase}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}ListenerBase()}{\string~ListenerBase()}}
+{\footnotesize\ttfamily virtual utils\+::\+Event\+Emitter\+::\+Listener\+Base\+::\texorpdfstring{$\sim$}{\string~}\+Listener\+Base (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structutils_1_1_event_emitter_1_1_listener_base_a2c41e764db62c54817a6b64213161c32}\label{structutils_1_1_event_emitter_1_1_listener_base_a2c41e764db62c54817a6b64213161c32} 
+\index{utils::EventEmitter::ListenerBase@{utils::EventEmitter::ListenerBase}!callOnce@{callOnce}}
+\index{callOnce@{callOnce}!utils::EventEmitter::ListenerBase@{utils::EventEmitter::ListenerBase}}
+\doxysubsubsection{\texorpdfstring{callOnce}{callOnce}}
+{\footnotesize\ttfamily const bool utils\+::\+Event\+Emitter\+::\+Listener\+Base\+::call\+Once}
+
+
+
+If it should be deleted after a single callback/handler call. 
+
+\Hypertarget{structutils_1_1_event_emitter_1_1_listener_base_a28ca8fc774b4c5151cc1b9216af9d370}\label{structutils_1_1_event_emitter_1_1_listener_base_a28ca8fc774b4c5151cc1b9216af9d370} 
+\index{utils::EventEmitter::ListenerBase@{utils::EventEmitter::ListenerBase}!event@{event}}
+\index{event@{event}!utils::EventEmitter::ListenerBase@{utils::EventEmitter::ListenerBase}}
+\doxysubsubsection{\texorpdfstring{event}{event}}
+{\footnotesize\ttfamily const int utils\+::\+Event\+Emitter\+::\+Listener\+Base\+::event}
+
+
+
+Type of an event emit. 
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+engine/utils/\mbox{\hyperlink{event__emitter_8hpp}{event\+\_\+emitter.\+hpp}}\end{DoxyCompactItemize}

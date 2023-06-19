@@ -1,0 +1,60 @@
+\doxysection{Visualizer.\+h}
+\hypertarget{_visualizer_8h_source}{}\label{_visualizer_8h_source}\index{experiments/objects/Visualizer.h@{experiments/objects/Visualizer.h}}
+\mbox{\hyperlink{_visualizer_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{loader_8hpp}{loader/loader.hpp}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{render_8hpp}{render/render.hpp}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{window_8hpp}{window/window.hpp}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceapplication}{application}}}
+\DoxyCodeLine{00006\ \{}
+\DoxyCodeLine{00007\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structapplication_1_1_return_value}{ReturnValue}}}
+\DoxyCodeLine{00008\ \ \ \ \ \{}
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structapplication_1_1_return_value_a0baf5cba336fa331df9e6c5ea4051eff}{success}};}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ T\ \mbox{\hyperlink{structapplication_1_1_return_value_ad9d31837b3d2c66b22bdfb9e5d92e971}{data}};}
+\DoxyCodeLine{00011\ \ \ \ \ \};}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classapplication_1_1_visualizer}{Visualizer}}}
+\DoxyCodeLine{00014\ \ \ \ \ \{}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classapplication_1_1_visualizer}{Visualizer}}\ *}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classapplication_1_1_visualizer_a7bdd5cde5198b992ff5cb5158320e687}{get}}();}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structapplication_1_1_return_value}{ReturnValue<objects::Window\ *>}}}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classapplication_1_1_visualizer_a2842feea5429347341da5a515995ff80}{CreateWindow}}(\textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *title);}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structapplication_1_1_return_value}{ReturnValue<objects::Renderer\ *>}}}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classapplication_1_1_visualizer_a839ab275eda70264e3f634cf243127f3}{createRenderer}}();}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classapplication_1_1_visualizer_a2b8343214621565011acf36083356d1e}{setDrawColor}}(uint32\_t\ r,\ uint32\_t\ g,\ uint32\_t\ b,\ uint32\_t\ a);}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structapplication_1_1_return_value}{ReturnValue<objects::Texture\ *>}}}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classapplication_1_1_visualizer_af207814e41c664b47216c35d9839c9cf}{LoadTexture}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *path);}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#ifdef\ USE\_SDL}}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structapplication_1_1_return_value}{ReturnValue<objects::Texture\ *>}}}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classapplication_1_1_visualizer_af207814e41c664b47216c35d9839c9cf}{LoadTexture}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *path,\ \mbox{\hyperlink{structloader_1_1sdl_1_1_loading_texture_config}{loader::sdl::LoadingTextureConfig}}\ config);}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classapplication_1_1_visualizer_aef3f0822cde4e65194e08f57b52c0ace}{RenderTexture}}(\mbox{\hyperlink{classobjects_1_1_texture}{objects::Texture}}\ *texture,\ \textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y);}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classapplication_1_1_visualizer_aff2befccd142effc53d44629cea960de}{ClearRenderer}}();}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classapplication_1_1_visualizer_a0c19e09d0dc067753ddd912898223c47}{CallFrame}}();}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classapplication_1_1_visualizer}{Visualizer}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classapplication_1_1_visualizer}{\string~Visualizer}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classapplication_1_1_visualizer_adf8dbc5a08f37644c62df3c18364c92c}{Init}}();}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{comment}{//@todo\ for\ later}}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ template<typename\ T>}}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ ReturnValue<T>\ Execute(<LAMBDA>)}}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classapplication_1_1_visualizer_af4ae0fcb8ee427759c11af4830f54be3}{initialized}};}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classobjects_1_1_renderer}{objects::Renderer}}\ *\mbox{\hyperlink{classapplication_1_1_visualizer_ab4fcac56a554829003dffdc60672d4ce}{renderer}};}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classobjects_1_1_window}{objects::Window}}\ *\mbox{\hyperlink{classapplication_1_1_visualizer_a81255d6cb22e90d792d3638362b53107}{window}};}
+\DoxyCodeLine{00053\ \ \ \ \ \};}
+\DoxyCodeLine{00054\ \}\ \textcolor{comment}{//\ namespace\ application}}
+
+\end{DoxyCode}

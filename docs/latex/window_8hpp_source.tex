@@ -1,0 +1,46 @@
+\doxysection{window.\+hpp}
+\hypertarget{window_8hpp_source}{}\label{window_8hpp_source}\index{engine/window/window.hpp@{engine/window/window.hpp}}
+\mbox{\hyperlink{window_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{window__object_8h}{window\_object.h}}>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacewindow}{window}}\ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespaceloader_1_1sdl_a33879066060dac09c61c59fb5b391f1e}{init}}(Args...);}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classobjects_1_1_window}{objects::Window}}\ *\mbox{\hyperlink{namespacewindow_1_1sdl_a34983b948ce5c608608a0b5998d4370f}{createWindow}}(Args...);}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacerender_1_1sdl_a61a2937d89ecbe095c71e1905ba6c87d}{terminate}}(\mbox{\hyperlink{classobjects_1_1_window}{objects::Window}}\ *\mbox{\hyperlink{namespacewindow}{window}});}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacerender_1_1sdl_a910ff332ce2bbffcf0268261e69284fc}{shutdown}}(Args...);}
+\DoxyCodeLine{00059\ \};\ \textcolor{comment}{//\ namespace\ window}}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#ifdef\ USE\_SDL}}
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{sdl__window_8h}{sdl\_window.h}}"{}}}
+\DoxyCodeLine{00067\ \textcolor{preprocessor}{\#include\ <SDL3/SDL.h>}}
+\DoxyCodeLine{00068\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00069\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ window::init(Args...\ args)\ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordflow}{return}\ sdl::init(args...);}
+\DoxyCodeLine{00071\ \}}
+\DoxyCodeLine{00072\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00073\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \mbox{\hyperlink{classobjects_1_1_window}{objects::Window}}\ *}
+\DoxyCodeLine{00074\ window::createWindow(Args...\ args)\ \{}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordflow}{return}\ sdl::createWindow(args...);}
+\DoxyCodeLine{00076\ \}}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00079\ window::terminate(\mbox{\hyperlink{classobjects_1_1_window}{objects::Window}}\ *\mbox{\hyperlink{namespacewindow}{window}})\ \{}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordflow}{return}\ sdl::terminate(\mbox{\hyperlink{namespacewindow}{window}});}
+\DoxyCodeLine{00081\ \}}
+\DoxyCodeLine{00082\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00083\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ window::shutdown(Args...\ args)\ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordflow}{return}\ sdl::shutdown(args...);}
+\DoxyCodeLine{00085\ \}}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

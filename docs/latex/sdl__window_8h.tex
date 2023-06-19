@@ -1,0 +1,36 @@
+\doxysection{engine/window/sdl\+\_\+window.h File Reference}
+\hypertarget{sdl__window_8h}{}\label{sdl__window_8h}\index{engine/window/sdl\_window.h@{engine/window/sdl\_window.h}}
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$SDL3/\+SDL.\+h$>$}\newline
+{\ttfamily \#include $<$sdl\+\_\+window\+\_\+object.\+h$>$}\newline
+{\ttfamily \#include $<$unordered\+\_\+map$>$}\newline
+{\ttfamily \#include $<$window\+\_\+object.\+h$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacewindow}{window}}
+\begin{DoxyCompactList}\small\item\em Window interactions. ~\newline
+ Initialize or shutdown window library/libraries. ~\newline
+ Create or terminate a window, based on ext. libraries. \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacewindow_1_1sdl}{window\+::sdl}}
+\begin{DoxyCompactList}\small\item\em Implementation based on namespace window public facade. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{namespacewindow_1_1sdl_a0fd8987f1ce1f5ff366ea1430a4307bf}{window\+::sdl\+::init}} (std\+::vector$<$ uint32\+\_\+t $>$ init\+Flags=\mbox{\hyperlink{namespacewindow_1_1sdl_a6c1361549883c45eb1acb0ee15f595ce}{k\+Default\+Init\+Flags}}, std\+::unordered\+\_\+map$<$ const char \texorpdfstring{$\ast$}{*}, const char \texorpdfstring{$\ast$}{*} $>$ hint\+Flags=\mbox{\hyperlink{namespacewindow_1_1sdl_a44786eab04d91144cc1446273f6a1eda}{k\+Defaul\+Init\+Hints}})
+\begin{DoxyCompactList}\small\item\em Initialize window creation logic. Initialize {\ttfamily flags} (/ref k\+Default\+Init\+Flags) and set hints(although not necessary) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classobjects_1_1_window}{objects\+::\+Window}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespacewindow_1_1sdl_a34983b948ce5c608608a0b5998d4370f}{window\+::sdl\+::create\+Window}} (int height, int width, const char \texorpdfstring{$\ast$}{*}title, std\+::vector$<$ uint32\+\_\+t $>$ flags=\{ SDL\+\_\+\+WINDOW\+\_\+\+RESIZABLE, SDL\+\_\+\+WINDOW\+\_\+\+INPUT\+\_\+\+FOCUS\})
+\begin{DoxyCompactList}\small\item\em Create a Window object using SDL. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacewindow_1_1sdl_a772f8553c89a07172da2361f4ab2d988}{window\+::sdl\+::terminate}} (\mbox{\hyperlink{classobjects_1_1_window}{objects\+::\+Window}} \texorpdfstring{$\ast$}{*}window)
+\begin{DoxyCompactList}\small\item\em Close a window, and cleanup after that. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacewindow_1_1sdl_a20e0b3c05c4520b0ff8d1227705e6c9e}{window\+::sdl\+::terminate}} (SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}window)
+\item 
+void \mbox{\hyperlink{namespacewindow_1_1sdl_a537f2b8c5ac6930f0503f0d0501edd83}{window\+::sdl\+::shutdown}} (std\+::vector$<$ uint32\+\_\+t $>$ init\+Flags=\mbox{\hyperlink{namespacewindow_1_1sdl_a6c1361549883c45eb1acb0ee15f595ce}{k\+Default\+Init\+Flags}})
+\begin{DoxyCompactList}\small\item\em Shutdown SDL3\textquotesingle{}s window creation logic initialized previously. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const std\+::vector$<$ uint32\+\_\+t $>$ \mbox{\hyperlink{namespacewindow_1_1sdl_a6c1361549883c45eb1acb0ee15f595ce}{window\+::sdl\+::k\+Default\+Init\+Flags}}
+\begin{DoxyCompactList}\small\item\em Default flags to initialize window creation logic. Defaults are based on what\textquotesingle{}s only necessary to create a window. \end{DoxyCompactList}\item 
+const std\+::unordered\+\_\+map$<$ const char \texorpdfstring{$\ast$}{*}, const char \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{namespacewindow_1_1sdl_a44786eab04d91144cc1446273f6a1eda}{window\+::sdl\+::k\+Defaul\+Init\+Hints}}
+\begin{DoxyCompactList}\small\item\em Default hints to intialize window creation logic with. Each hints represents a different setting in SDL. \end{DoxyCompactList}\end{DoxyCompactItemize}

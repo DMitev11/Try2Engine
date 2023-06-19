@@ -1,0 +1,45 @@
+\doxysection{sdl\+\_\+window.\+h}
+\hypertarget{sdl__window_8h_source}{}\label{sdl__window_8h_source}\index{engine/window/sdl\_window.h@{engine/window/sdl\_window.h}}
+\mbox{\hyperlink{sdl__window_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <SDL3/SDL.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{sdl__window__object_8h}{sdl\_window\_object.h}}>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{window__object_8h}{window\_object.h}}>}}
+\DoxyCodeLine{00008\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacewindow}{window}}\ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{namespace\ }sdl\ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<uint32\_t>\ \mbox{\hyperlink{namespacewindow_1_1sdl_a6c1361549883c45eb1acb0ee15f595ce}{kDefaultInitFlags}}\ =\ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_INIT\_VIDEO\};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::unordered\_map<const\ char\ *,\ const\ char\ *>}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacewindow_1_1sdl_a44786eab04d91144cc1446273f6a1eda}{kDefaulInitHints}}\ =\ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}SDL\_HINT\_RENDER\_SCALE\_QUALITY"{}},\ \textcolor{stringliteral}{"{}1"{}}\},}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}SDL\_HINT\_FRAMEBUFFER\_ACCELERATION"{}},\ \textcolor{stringliteral}{"{}1"{}}\}\};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacewindow_1_1sdl_a0fd8987f1ce1f5ff366ea1430a4307bf}{init}}(std::vector<uint32\_t>\ initFlags\ =}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacewindow_1_1sdl_a6c1361549883c45eb1acb0ee15f595ce}{kDefaultInitFlags}},}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ std::unordered\_map<const\ char\ *,\ const\ char\ *>}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ hintFlags\ =\ \mbox{\hyperlink{namespacewindow_1_1sdl_a44786eab04d91144cc1446273f6a1eda}{kDefaulInitHints}});}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \textcolor{keyword}{extern}\ \mbox{\hyperlink{classobjects_1_1_window}{objects::Window}}\ *}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacewindow_1_1sdl_a34983b948ce5c608608a0b5998d4370f}{createWindow}}(\textcolor{keywordtype}{int}\ height,\ \textcolor{keywordtype}{int}\ width,}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *title,}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<uint32\_t>\ flags\ =\ \{}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_WINDOW\_RESIZABLE,}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_WINDOW\_INPUT\_FOCUS\});}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacewindow_1_1sdl_a772f8553c89a07172da2361f4ab2d988}{terminate}}(\mbox{\hyperlink{classobjects_1_1_window}{objects::Window}}\ *\mbox{\hyperlink{namespacewindow}{window}});}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacewindow_1_1sdl_a772f8553c89a07172da2361f4ab2d988}{terminate}}(SDL\_Window\ *\mbox{\hyperlink{namespacewindow}{window}});}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacewindow_1_1sdl_a537f2b8c5ac6930f0503f0d0501edd83}{shutdown}}(std::vector<uint32\_t>\ initFlags\ =}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacewindow_1_1sdl_a6c1361549883c45eb1acb0ee15f595ce}{kDefaultInitFlags}});}
+\DoxyCodeLine{00108\ \ \ \ \ \}\ \textcolor{comment}{//\ namespace\ sdl}}
+\DoxyCodeLine{00109\ \};\ \ \ \ \textcolor{comment}{//\ namespace\ window}}
+
+\end{DoxyCode}

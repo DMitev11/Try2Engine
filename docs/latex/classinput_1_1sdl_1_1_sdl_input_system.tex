@@ -1,0 +1,206 @@
+\doxysection{input\+::sdl\+::Sdl\+Input\+System Class Reference}
+\hypertarget{classinput_1_1sdl_1_1_sdl_input_system}{}\label{classinput_1_1sdl_1_1_sdl_input_system}\index{input::sdl::SdlInputSystem@{input::sdl::SdlInputSystem}}
+
+
+SDL3-\/based implementation of the \doxylink{classinput_1_1_input_system}{Input\+System}.  
+
+
+
+
+{\ttfamily \#include $<$sdl\+\_\+input.\+h$>$}
+
+Inheritance diagram for input\+::sdl\+::Sdl\+Input\+System\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classinput_1_1sdl_1_1_sdl_input_system}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classinput_1_1sdl_1_1_sdl_input_system_a9c47d1220f4ef31a7abbcf80c03c4bbf}{\texorpdfstring{$\sim$}{\string~}\+Sdl\+Input\+System}} ()=default
+\item 
+\mbox{\hyperlink{classinput_1_1sdl_1_1_sdl_input_system_a8ceb443be36fdf4f9fe31e05ee5678e6}{Sdl\+Input\+System}} ()=default
+\item 
+void \mbox{\hyperlink{classinput_1_1sdl_1_1_sdl_input_system_a05d2c0cdfbe6a11359127f15909ca0d8}{init}} () override
+\begin{DoxyCompactList}\small\item\em Initialize library/libraries used to poll input, based on the implementation. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classinput_1_1sdl_1_1_sdl_input_system_ab26a4bfbebe703a55c73b818561b301b}{poll}} () override
+\begin{DoxyCompactList}\small\item\em Run each frame on a separate thread. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classinput_1_1sdl_1_1_sdl_input_system_a3390345aea4bc638081b664f275a00c2}{terminate}} () override
+\begin{DoxyCompactList}\small\item\em Terminate current input system instance. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classinput_1_1sdl_1_1_sdl_input_system_a585178bff54806e0a7f6e6ab47862c82}{shutdown}} () override
+\begin{DoxyCompactList}\small\item\em Shutdown all libraries related to this implementation of the input system. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classinput_1_1_input_system}{input\+::\+Input\+System}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classinput_1_1_input_system_aedf266cfefe52c6081d7a764c0841a3d}{\texorpdfstring{$\sim$}{\string~}\+Input\+System}} ()=default
+\item 
+\mbox{\hyperlink{classinput_1_1_input_system_a605272d3ccb7a274ebd681ea403b7728}{Input\+System}} ()=default
+\item 
+virtual void \mbox{\hyperlink{classinput_1_1_input_system_a51f9e671294678880335c813af717219}{init}} ()
+\begin{DoxyCompactList}\small\item\em Initialize library/libraries used to poll input, based on the implementation. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classinput_1_1_input_system_ae87190c043262be98732ee6b35fbd881}{poll}} ()
+\begin{DoxyCompactList}\small\item\em Run each frame on a separate thread. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classinput_1_1_input_system_a8ee03540b5901589131e513744086484}{terminate}} ()
+\begin{DoxyCompactList}\small\item\em Terminate current input system instance. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classinput_1_1_input_system_a8603d8bfe5d2d0878979fa516928c489}{shutdown}} ()
+\begin{DoxyCompactList}\small\item\em Shutdown all libraries related to this implementation of the input system. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classutils_1_1_event_emitter}{utils\+::\+Event\+Emitter}} \texorpdfstring{$\ast$}{*}const \mbox{\hyperlink{classinput_1_1_input_system_ad9fea74dd05c4ec1bd9248f81e7ec111}{get\+Emitter}} ()
+\begin{DoxyCompactList}\small\item\em Retrieve a pointer of the event emitter. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structinput_1_1_controller}{Controller}} \texorpdfstring{$\ast$}{*}const \mbox{\hyperlink{classinput_1_1_input_system_a90be8d2752b78538b61d1cc9418c5165}{get\+Controller}} (int id)
+\begin{DoxyCompactList}\small\item\em Get a pointer to one of the connected controllers to this input system. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structinput_1_1_controller}{Controller}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classinput_1_1sdl_1_1_sdl_input_system_a0917fd3bfb165b4cf2f38a0c20a6b19e}{add\+Controller}} (SDL\+\_\+\+Event event)
+\begin{DoxyCompactList}\small\item\em Initialize and create a controller. Pushed to the inherited controllers vector. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classinput_1_1sdl_1_1_sdl_input_system_acbc24ab76e519ed527a1ba8b69e00c48}{remove\+Controller}} (SDL\+\_\+\+Event controller)
+\begin{DoxyCompactList}\small\item\em Destroy a controller and clean after. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classinput_1_1sdl_1_1_sdl_input_system_af698c981e8e94c2823c4b74824c9ef13}{remove\+Controller}} (int index)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classinput_1_1_input_system}{input\+::\+Input\+System}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classutils_1_1_event_emitter}{utils\+::\+Event\+Emitter}} \mbox{\hyperlink{classinput_1_1_input_system_ad3431524bf2fb6da3767b628876294dc}{event\+Emitter}}
+\begin{DoxyCompactList}\small\item\em Retrieve a pointer of the event emitter. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{structinput_1_1_controller}{Controller}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{classinput_1_1_input_system_a4cc82ab77b3aa70b4a820fe2ac3db5e8}{active\+Controllers}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+SDL3-\/based implementation of the \doxylink{classinput_1_1_input_system}{Input\+System}. 
+
+\begin{DoxySeeAlso}{See also}
+input\+\_\+misc.\+h\+::\+Input\+System 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classinput_1_1sdl_1_1_sdl_input_system_a9c47d1220f4ef31a7abbcf80c03c4bbf}\label{classinput_1_1sdl_1_1_sdl_input_system_a9c47d1220f4ef31a7abbcf80c03c4bbf} 
+\index{input::sdl::SdlInputSystem@{input::sdl::SdlInputSystem}!````~SdlInputSystem@{\texorpdfstring{$\sim$}{\string~}SdlInputSystem}}
+\index{````~SdlInputSystem@{\texorpdfstring{$\sim$}{\string~}SdlInputSystem}!input::sdl::SdlInputSystem@{input::sdl::SdlInputSystem}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}SdlInputSystem()}{\string~SdlInputSystem()}}
+{\footnotesize\ttfamily input\+::sdl\+::\+Sdl\+Input\+System\+::\texorpdfstring{$\sim$}{\string~}\+Sdl\+Input\+System (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\Hypertarget{classinput_1_1sdl_1_1_sdl_input_system_a8ceb443be36fdf4f9fe31e05ee5678e6}\label{classinput_1_1sdl_1_1_sdl_input_system_a8ceb443be36fdf4f9fe31e05ee5678e6} 
+\index{input::sdl::SdlInputSystem@{input::sdl::SdlInputSystem}!SdlInputSystem@{SdlInputSystem}}
+\index{SdlInputSystem@{SdlInputSystem}!input::sdl::SdlInputSystem@{input::sdl::SdlInputSystem}}
+\doxysubsubsection{\texorpdfstring{SdlInputSystem()}{SdlInputSystem()}}
+{\footnotesize\ttfamily input\+::sdl\+::\+Sdl\+Input\+System\+::\+Sdl\+Input\+System (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classinput_1_1sdl_1_1_sdl_input_system_a0917fd3bfb165b4cf2f38a0c20a6b19e}\label{classinput_1_1sdl_1_1_sdl_input_system_a0917fd3bfb165b4cf2f38a0c20a6b19e} 
+\index{input::sdl::SdlInputSystem@{input::sdl::SdlInputSystem}!addController@{addController}}
+\index{addController@{addController}!input::sdl::SdlInputSystem@{input::sdl::SdlInputSystem}}
+\doxysubsubsection{\texorpdfstring{addController()}{addController()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structinput_1_1_controller}{Controller}} \texorpdfstring{$\ast$}{*} sdl\+::\+Sdl\+Input\+System\+::add\+Controller (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Event}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Initialize and create a controller. Pushed to the inherited controllers vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & Event noting that a controller have been connected to the current system \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+valid\+: Controller\texorpdfstring{$\ast$}{*} (could return an already created controller with the same id), invalid\+: nullptr 
+\end{DoxyReturn}
+\Hypertarget{classinput_1_1sdl_1_1_sdl_input_system_a05d2c0cdfbe6a11359127f15909ca0d8}\label{classinput_1_1sdl_1_1_sdl_input_system_a05d2c0cdfbe6a11359127f15909ca0d8} 
+\index{input::sdl::SdlInputSystem@{input::sdl::SdlInputSystem}!init@{init}}
+\index{init@{init}!input::sdl::SdlInputSystem@{input::sdl::SdlInputSystem}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void sdl\+::\+Sdl\+Input\+System\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Initialize library/libraries used to poll input, based on the implementation. 
+
+
+
+Reimplemented from \mbox{\hyperlink{classinput_1_1_input_system_a51f9e671294678880335c813af717219}{input\+::\+Input\+System}}.
+
+\Hypertarget{classinput_1_1sdl_1_1_sdl_input_system_ab26a4bfbebe703a55c73b818561b301b}\label{classinput_1_1sdl_1_1_sdl_input_system_ab26a4bfbebe703a55c73b818561b301b} 
+\index{input::sdl::SdlInputSystem@{input::sdl::SdlInputSystem}!poll@{poll}}
+\index{poll@{poll}!input::sdl::SdlInputSystem@{input::sdl::SdlInputSystem}}
+\doxysubsubsection{\texorpdfstring{poll()}{poll()}}
+{\footnotesize\ttfamily void sdl\+::\+Sdl\+Input\+System\+::poll (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Run each frame on a separate thread. 
+
+
+
+Reimplemented from \mbox{\hyperlink{classinput_1_1_input_system_ae87190c043262be98732ee6b35fbd881}{input\+::\+Input\+System}}.
+
+\Hypertarget{classinput_1_1sdl_1_1_sdl_input_system_af698c981e8e94c2823c4b74824c9ef13}\label{classinput_1_1sdl_1_1_sdl_input_system_af698c981e8e94c2823c4b74824c9ef13} 
+\index{input::sdl::SdlInputSystem@{input::sdl::SdlInputSystem}!removeController@{removeController}}
+\index{removeController@{removeController}!input::sdl::SdlInputSystem@{input::sdl::SdlInputSystem}}
+\doxysubsubsection{\texorpdfstring{removeController()}{removeController()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void sdl\+::\+Sdl\+Input\+System\+::remove\+Controller (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{classinput_1_1sdl_1_1_sdl_input_system_acbc24ab76e519ed527a1ba8b69e00c48}{remove\+Controller}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em index} & of the controller which should be destroyed manually, and cleaned after \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classinput_1_1sdl_1_1_sdl_input_system_acbc24ab76e519ed527a1ba8b69e00c48}\label{classinput_1_1sdl_1_1_sdl_input_system_acbc24ab76e519ed527a1ba8b69e00c48} 
+\index{input::sdl::SdlInputSystem@{input::sdl::SdlInputSystem}!removeController@{removeController}}
+\index{removeController@{removeController}!input::sdl::SdlInputSystem@{input::sdl::SdlInputSystem}}
+\doxysubsubsection{\texorpdfstring{removeController()}{removeController()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void sdl\+::\+Sdl\+Input\+System\+::remove\+Controller (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Event}]{controller }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Destroy a controller and clean after. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & Event noting that a controller have been been disconnected from the current system \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classinput_1_1sdl_1_1_sdl_input_system_a585178bff54806e0a7f6e6ab47862c82}\label{classinput_1_1sdl_1_1_sdl_input_system_a585178bff54806e0a7f6e6ab47862c82} 
+\index{input::sdl::SdlInputSystem@{input::sdl::SdlInputSystem}!shutdown@{shutdown}}
+\index{shutdown@{shutdown}!input::sdl::SdlInputSystem@{input::sdl::SdlInputSystem}}
+\doxysubsubsection{\texorpdfstring{shutdown()}{shutdown()}}
+{\footnotesize\ttfamily void sdl\+::\+Sdl\+Input\+System\+::shutdown (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Shutdown all libraries related to this implementation of the input system. 
+
+\begin{DoxyWarning}{Warning}
+Do not call this method until all instances of the current implementation haven\textquotesingle{}t been terminate -\/ otherwise could lead to undefined and unhandled behaviour 
+\end{DoxyWarning}
+
+
+Reimplemented from \mbox{\hyperlink{classinput_1_1_input_system_a8603d8bfe5d2d0878979fa516928c489}{input\+::\+Input\+System}}.
+
+\Hypertarget{classinput_1_1sdl_1_1_sdl_input_system_a3390345aea4bc638081b664f275a00c2}\label{classinput_1_1sdl_1_1_sdl_input_system_a3390345aea4bc638081b664f275a00c2} 
+\index{input::sdl::SdlInputSystem@{input::sdl::SdlInputSystem}!terminate@{terminate}}
+\index{terminate@{terminate}!input::sdl::SdlInputSystem@{input::sdl::SdlInputSystem}}
+\doxysubsubsection{\texorpdfstring{terminate()}{terminate()}}
+{\footnotesize\ttfamily void sdl\+::\+Sdl\+Input\+System\+::terminate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Terminate current input system instance. 
+
+
+
+Reimplemented from \mbox{\hyperlink{classinput_1_1_input_system_a8ee03540b5901589131e513744086484}{input\+::\+Input\+System}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+engine/input/\mbox{\hyperlink{sdl__input_8h}{sdl\+\_\+input.\+h}}\item 
+engine/input/\mbox{\hyperlink{sdl__input_8cpp}{sdl\+\_\+input.\+cpp}}\end{DoxyCompactItemize}

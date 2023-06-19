@@ -1,0 +1,93 @@
+\doxysection{utils\+::Entry Class Reference}
+\hypertarget{classutils_1_1_entry}{}\label{classutils_1_1_entry}\index{utils::Entry@{utils::Entry}}
+
+
+\doxylink{classutils_1_1_entry}{Entry} point of an application.  
+
+
+
+
+{\ttfamily \#include $<$entry.\+h$>$}
+
+Inheritance diagram for utils\+::Entry\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classutils_1_1_entry}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classutils_1_1_entry_a3685869567e29a800670ac2763372039}{Entry}} ()=default
+\item 
+virtual \mbox{\hyperlink{classutils_1_1_entry_a9c7133fa381faf2029f75e91ea92bac9}{\texorpdfstring{$\sim$}{\string~}\+Entry}} ()
+\item 
+virtual void \mbox{\hyperlink{classutils_1_1_entry_a086396ce0634e63fa23bd809324d2c41}{run}} ()=0
+\begin{DoxyCompactList}\small\item\em All continous logic of this {\ttfamily \doxylink{classutils_1_1_entry}{Entry}} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classutils_1_1_layer_stack}{Layer\+Stack}} \mbox{\hyperlink{classutils_1_1_entry_a580eeaff6bcede97b449759e51d3b5a6}{layer\+Stack}}
+\begin{DoxyCompactList}\small\item\em An application should be able to run several layers at oncem and call their events consecutively. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{classutils_1_1_entry}{Entry} point of an application. 
+
+\begin{DoxyNote}{Note}
+All implementations of this class should handle their runtime. ~\newline
+ End of {\ttfamily run} should end the lifetime of the running applicatioin 
+\end{DoxyNote}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classutils_1_1_entry_a3685869567e29a800670ac2763372039}\label{classutils_1_1_entry_a3685869567e29a800670ac2763372039} 
+\index{utils::Entry@{utils::Entry}!Entry@{Entry}}
+\index{Entry@{Entry}!utils::Entry@{utils::Entry}}
+\doxysubsubsection{\texorpdfstring{Entry()}{Entry()}}
+{\footnotesize\ttfamily utils\+::\+Entry\+::\+Entry (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\Hypertarget{classutils_1_1_entry_a9c7133fa381faf2029f75e91ea92bac9}\label{classutils_1_1_entry_a9c7133fa381faf2029f75e91ea92bac9} 
+\index{utils::Entry@{utils::Entry}!````~Entry@{\texorpdfstring{$\sim$}{\string~}Entry}}
+\index{````~Entry@{\texorpdfstring{$\sim$}{\string~}Entry}!utils::Entry@{utils::Entry}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Entry()}{\string~Entry()}}
+{\footnotesize\ttfamily virtual utils\+::\+Entry\+::\texorpdfstring{$\sim$}{\string~}\+Entry (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classutils_1_1_entry_a086396ce0634e63fa23bd809324d2c41}\label{classutils_1_1_entry_a086396ce0634e63fa23bd809324d2c41} 
+\index{utils::Entry@{utils::Entry}!run@{run}}
+\index{run@{run}!utils::Entry@{utils::Entry}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily virtual void utils\+::\+Entry\+::run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+All continous logic of this {\ttfamily \doxylink{classutils_1_1_entry}{Entry}} 
+
+
+
+Implemented in \mbox{\hyperlink{classtry1_1_1_try1_a16534f3fe0692d0783ab3e90d78c61c2}{try1\+::\+Try1}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classutils_1_1_entry_a580eeaff6bcede97b449759e51d3b5a6}\label{classutils_1_1_entry_a580eeaff6bcede97b449759e51d3b5a6} 
+\index{utils::Entry@{utils::Entry}!layerStack@{layerStack}}
+\index{layerStack@{layerStack}!utils::Entry@{utils::Entry}}
+\doxysubsubsection{\texorpdfstring{layerStack}{layerStack}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classutils_1_1_layer_stack}{Layer\+Stack}} utils\+::\+Entry\+::layer\+Stack\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+An application should be able to run several layers at oncem and call their events consecutively. 
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{classutils_1_1_layer_stack}{utils\+::\+Layer\+Stack} 
+\end{DoxySeeAlso}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+engine/utils/\mbox{\hyperlink{entry_8h}{entry.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,56 @@
+\doxysection{engine/render/sdl\+\_\+renderer.h File Reference}
+\hypertarget{sdl__renderer_8h}{}\label{sdl__renderer_8h}\index{engine/render/sdl\_renderer.h@{engine/render/sdl\_renderer.h}}
+{\ttfamily \#include $<$SDL3/\+SDL.\+h$>$}\newline
+{\ttfamily \#include $<$renderer\+\_\+object.\+h$>$}\newline
+{\ttfamily \#include $<$texture\+\_\+object.\+h$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$window\+\_\+object.\+h$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacerender}{render}}
+\begin{DoxyCompactList}\small\item\em Rendering interactions. ~\newline
+ Initialize or shutdown a rendering library/libraries. ~\newline
+ Create or terminate a renderer based on ext. libraries. \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacerender_1_1sdl}{render\+::sdl}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{namespacerender_1_1sdl_a1d13b3fea1daeaf57f3c56b75a4a8dc0}{render\+::sdl\+::init}} (std\+::vector$<$ uint32\+\_\+t $>$ init\+Flags=\mbox{\hyperlink{namespacerender_1_1sdl_a3b4e381c0786eb2e3d9b9e5055127674}{k\+Default\+Init\+Flags}})
+\begin{DoxyCompactList}\small\item\em Initialize SDL rendering libary. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classobjects_1_1_renderer}{objects\+::\+Renderer}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespacerender_1_1sdl_ad9263cee01dc6390ced8a8e9bfa80b09}{render\+::sdl\+::create\+Renderer}} (\mbox{\hyperlink{classobjects_1_1_window}{objects\+::\+Window}} \texorpdfstring{$\ast$}{*}window, const char \texorpdfstring{$\ast$}{*}driver\+Name=0, std\+::vector$<$ uint32\+\_\+t $>$ init\+Flags=\{ SDL\+\_\+\+RENDERER\+\_\+\+ACCELERATED\})
+\begin{DoxyCompactList}\small\item\em Create a Renderer object to render on. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classobjects_1_1_renderer}{objects\+::\+Renderer}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespacerender_1_1sdl_a9b98ae8848135125103e0ead0d4efeed}{render\+::sdl\+::create\+Renderer}} (SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}window, const char \texorpdfstring{$\ast$}{*}driver\+Name=0, std\+::vector$<$ uint32\+\_\+t $>$ init\+Flags=\{ SDL\+\_\+\+RENDERER\+\_\+\+ACCELERATED\})
+\item 
+void \mbox{\hyperlink{namespacerender_1_1sdl_a70a645962abcee011d2ce8cf3ed0ecd1}{render\+::sdl\+::set\+Draw\+Color}} (\mbox{\hyperlink{classobjects_1_1_renderer}{objects\+::\+Renderer}} \texorpdfstring{$\ast$}{*}renderer, uint8\+\_\+t r, uint8\+\_\+t g, uint8\+\_\+t b, uint8\+\_\+t a)
+\begin{DoxyCompactList}\small\item\em Set the drawing color, if renderer is used to draw clear colors. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacerender_1_1sdl_aefa27b9584921fd0f87a3bfed1e70206}{render\+::sdl\+::set\+Draw\+Color}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, uint8\+\_\+t r, uint8\+\_\+t g, uint8\+\_\+t b, uint8\+\_\+t a)
+\item 
+void \mbox{\hyperlink{namespacerender_1_1sdl_a99d9d81c843017c98488a8020d1b61bc}{render\+::sdl\+::render\+Asset}} (\mbox{\hyperlink{classobjects_1_1_renderer}{objects\+::\+Renderer}} \texorpdfstring{$\ast$}{*}renderer, \mbox{\hyperlink{classobjects_1_1_texture}{objects\+::\+Texture}} \texorpdfstring{$\ast$}{*}texture, float x, float y)
+\begin{DoxyCompactList}\small\item\em Draw a 2D asset(texture, img etc.) on the screen during next frame. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacerender_1_1sdl_af98eabe0042bb7ebb5e3808ce9c060eb}{render\+::sdl\+::render\+Asset}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}texture, float w, float h, float x, float y)
+\item 
+\mbox{\hyperlink{structobjects_1_1_texture_size}{objects\+::\+Texture\+Size}} \mbox{\hyperlink{namespacerender_1_1sdl_ac28142eee6f6e1f6691d7e0cf18b0dff}{render\+::sdl\+::get\+Texture\+Size}} (\mbox{\hyperlink{classobjects_1_1_texture}{objects\+::\+Texture}} \texorpdfstring{$\ast$}{*}texture)
+\begin{DoxyCompactList}\small\item\em Get the width and height of a 2D asset. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structobjects_1_1_texture_size}{objects\+::\+Texture\+Size}} \mbox{\hyperlink{namespacerender_1_1sdl_aa3ab964c5c628000146e4d9bd78b9e02}{render\+::sdl\+::get\+Texture\+Size}} (SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}texture)
+\item 
+void \mbox{\hyperlink{namespacerender_1_1sdl_aa7bfa6d82cae88414db0b648667c6cd5}{render\+::sdl\+::clear\+Renderer}} (\mbox{\hyperlink{classobjects_1_1_renderer}{objects\+::\+Renderer}} \texorpdfstring{$\ast$}{*}renderer)
+\item 
+void \mbox{\hyperlink{namespacerender_1_1sdl_a501cce287011a22a1be460b4d07ab3e3}{render\+::sdl\+::clear\+Renderer}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer)
+\item 
+void \mbox{\hyperlink{namespacerender_1_1sdl_a4187a2bf867ea6d6e90cfd08a4ee6a12}{render\+::sdl\+::render\+Frame}} (\mbox{\hyperlink{classobjects_1_1_renderer}{objects\+::\+Renderer}} \texorpdfstring{$\ast$}{*}renderer)
+\item 
+void \mbox{\hyperlink{namespacerender_1_1sdl_a44442f0ec52c941b706c5c2a142f4ef6}{render\+::sdl\+::render\+Frame}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer)
+\item 
+void \mbox{\hyperlink{namespacerender_1_1sdl_a61a2937d89ecbe095c71e1905ba6c87d}{render\+::sdl\+::terminate}} (\mbox{\hyperlink{classobjects_1_1_renderer}{objects\+::\+Renderer}} \texorpdfstring{$\ast$}{*}renderer)
+\item 
+void \mbox{\hyperlink{namespacerender_1_1sdl_ab59185eb21778475c74729fc83d947b3}{render\+::sdl\+::terminate}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer)
+\item 
+void \mbox{\hyperlink{namespacerender_1_1sdl_a910ff332ce2bbffcf0268261e69284fc}{render\+::sdl\+::shutdown}} (std\+::vector$<$ uint32\+\_\+t $>$ init\+Flags=\mbox{\hyperlink{namespacerender_1_1sdl_a3b4e381c0786eb2e3d9b9e5055127674}{k\+Default\+Init\+Flags}})
+\begin{DoxyCompactList}\small\item\em Shutdown all rendering related modules of SDL. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const std\+::vector$<$ uint32\+\_\+t $>$ \mbox{\hyperlink{namespacerender_1_1sdl_a3b4e381c0786eb2e3d9b9e5055127674}{render\+::sdl\+::k\+Default\+Init\+Flags}}
+\begin{DoxyCompactList}\small\item\em Default initialization flags, used to start module/s of SDL used during rendering. \end{DoxyCompactList}\end{DoxyCompactItemize}

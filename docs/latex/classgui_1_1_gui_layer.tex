@@ -1,0 +1,263 @@
+\doxysection{gui\+::Gui\+Layer Class Reference}
+\hypertarget{classgui_1_1_gui_layer}{}\label{classgui_1_1_gui_layer}\index{gui::GuiLayer@{gui::GuiLayer}}
+
+
+Graphical User Interface layer.  
+
+
+
+
+{\ttfamily \#include $<$gui\+\_\+layer.\+h$>$}
+
+Inheritance diagram for gui\+::Gui\+Layer\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classgui_1_1_gui_layer}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classgui_1_1_gui_layer_a441cbe85ad53174fb290ad827ef6be9a}{Gui\+Layer}} (const char \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{classutils_1_1_layer_ab06480ec1c844361d5e3a7c493b6b338}{name}}, \mbox{\hyperlink{classobjects_1_1_renderer}{objects\+::\+Renderer}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{classgui_1_1_gui_layer_a5a710f5f5b4bd25a20aa309fa3e7cd4f}{renderer}})
+\item 
+\mbox{\hyperlink{classgui_1_1_gui_layer_a3983e96caa8d9078449c5e034af3ad27}{\texorpdfstring{$\sim$}{\string~}\+Gui\+Layer}} () override
+\item 
+void \mbox{\hyperlink{classgui_1_1_gui_layer_a16f2e9d5d6de79c4e9be8d73d72b63a8}{on\+Attach}} () override
+\begin{DoxyCompactList}\small\item\em SDL-\/based implementation, where \"{}\+Im\+Gui\"{} requires binding to a specific window and knowing which render to use for displaying all buffered widget data (per frame) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classgui_1_1_gui_layer_a92f9294c3562c5eed1b893e696a44b78}{on\+Detach}} () override
+\begin{DoxyCompactList}\small\item\em Called right before a layer is detached from a {\ttfamily \doxylink{classutils_1_1_layer_stack}{utils\+::\+Layer\+Stack}} \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classgui_1_1_gui_layer_a2e9f541d5d3b80cebf0a764fc912c077}{on\+Tick}} (float delta) override
+\begin{DoxyCompactList}\small\item\em Called when a {\ttfamily \doxylink{classutils_1_1_layer_stack}{utils\+::\+Layer\+Stack}} update {\ttfamily Tick} is called. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classgui_1_1_gui_widget}{Gui\+Widget}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classgui_1_1_gui_layer_aea87ee1564114278bb47ea1bc3256477}{add\+Widget}} (\mbox{\hyperlink{classgui_1_1_gui_widget}{Gui\+Widget}} \texorpdfstring{$\ast$}{*}widget)
+\begin{DoxyCompactList}\small\item\em Attach a widget to this layer and call \"{}on\+Attach\"{}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classgui_1_1_gui_layer_a8309222c9baabc916f4222df96c63509}{remove\+Widget}} (const char \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{classutils_1_1_layer_ab06480ec1c844361d5e3a7c493b6b338}{name}})
+\begin{DoxyCompactList}\small\item\em Detach a widget. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classgui_1_1_gui_layer_a1a2e6a0d6131b5f145d85001c9a0fc90}{begin}} ()
+\begin{DoxyCompactList}\small\item\em Based on \"{}\+Im\+Gui\"{}. ~\newline
+ Each frame begins with \"{}\+Im\+Gui\"{} calling \"{}\+New\+Frame\"{}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classgui_1_1_gui_layer_aaa52dc911639ba94e2e8ac6db3cf5b57}{render}} ()
+\begin{DoxyCompactList}\small\item\em Render each widget in a sequence. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classgui_1_1_gui_layer_abff96c96677d426621e82686b00b1c6c}{end}} ()
+\begin{DoxyCompactList}\small\item\em Based on \"{}\+Im\+Gui\"{}. ~\newline
+ Each frame begins with \"{}\+Im\+Gui\"{} calling \"{}\+End\+Frame\"{}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classutils_1_1_layer}{utils\+::\+Layer}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{classutils_1_1_layer_ad4aba0c726e9c2f44d4ccfd55f30ae06}{on\+Attach}} ()
+\begin{DoxyCompactList}\small\item\em Called right after a layer have been attached to a {\ttfamily \doxylink{classutils_1_1_layer_stack}{utils\+::\+Layer\+Stack}} \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classutils_1_1_layer_af6dd1e90821b1b789b95792657097386}{on\+Detach}} ()
+\begin{DoxyCompactList}\small\item\em Called right before a layer is detached from a {\ttfamily \doxylink{classutils_1_1_layer_stack}{utils\+::\+Layer\+Stack}} \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classutils_1_1_layer_a6077ff5bf6e5f02125977db2bda9d30c}{on\+Tick}} (float delta)
+\begin{DoxyCompactList}\small\item\em Called when a {\ttfamily \doxylink{classutils_1_1_layer_stack}{utils\+::\+Layer\+Stack}} update {\ttfamily Tick} is called. \end{DoxyCompactList}\item 
+const std\+::string \mbox{\hyperlink{classutils_1_1_layer_ac29e23611c7130147be3571d31a53e36}{get\+Name}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classutils_1_1_layer_component}{utils\+::\+Layer\+Component}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classutils_1_1_layer_component_a58ce2aea575abf923c9398bd4d51d3b4}{Layer\+Component}} ()
+\item 
+virtual \mbox{\hyperlink{classutils_1_1_layer_component_a3ca6f7eec4e684af0e272078f5ba3bb5}{\texorpdfstring{$\sim$}{\string~}\+Layer\+Component}} ()=default
+\item 
+virtual void \mbox{\hyperlink{classutils_1_1_layer_component_a565d0e574e00831d67860c2e3ae145f4}{on\+Attach}} ()
+\begin{DoxyCompactList}\small\item\em Called right after a layer have been attached to a {\ttfamily \doxylink{classutils_1_1_layer_stack}{utils\+::\+Layer\+Stack}} \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classutils_1_1_layer_component_a49d164bc63bf216cda40ab1e24a1c45d}{on\+Tick}} (float delta)
+\begin{DoxyCompactList}\small\item\em Called when a {\ttfamily \doxylink{classutils_1_1_layer_stack}{utils\+::\+Layer\+Stack}} update {\ttfamily Tick} is called. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classutils_1_1_layer_component_a7066536013a6ddf368f3c46e8c6ceca0}{on\+Detach}} ()
+\begin{DoxyCompactList}\small\item\em Called right before a layer is detached from a {\ttfamily \doxylink{classutils_1_1_layer_stack}{utils\+::\+Layer\+Stack}} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classobjects_1_1_renderer}{objects\+::\+Renderer}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classgui_1_1_gui_layer_a5a710f5f5b4bd25a20aa309fa3e7cd4f}{renderer}}
+\begin{DoxyCompactList}\small\item\em Which renderer should be used to render all widgets. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classgui_1_1_gui_widget}{Gui\+Widget}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{classgui_1_1_gui_layer_a8a43f6f2b9266edfc23d15b10d086b75}{widgets}}
+\begin{DoxyCompactList}\small\item\em All bound widgets. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classutils_1_1_layer}{utils\+::\+Layer}}}
+\begin{DoxyCompactItemize}
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classutils_1_1_layer_ab06480ec1c844361d5e3a7c493b6b338}{name}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classutils_1_1_layer}{utils\+::\+Layer}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classutils_1_1_layer_ac84e458d68a1f35e56bbc31d15499637}{Layer}} (const char \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{classutils_1_1_layer_ab06480ec1c844361d5e3a7c493b6b338}{name}}=\"{}Layer\"{})
+\item 
+virtual \mbox{\hyperlink{classutils_1_1_layer_a7fc23aad206ba169dd8480f41a165caf}{\texorpdfstring{$\sim$}{\string~}\+Layer}} ()
+\item 
+\mbox{\hyperlink{classutils_1_1_layer_ac77de0ea27b593abc7fcf004e1ccea5c}{Layer}} (const \mbox{\hyperlink{classutils_1_1_layer}{Layer}} \&)=default
+\item 
+\mbox{\hyperlink{classutils_1_1_layer_ad9510c39523006d647f612bf994617f6}{Layer}} (\mbox{\hyperlink{classutils_1_1_layer}{Layer}} \&\&)=delete
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Graphical User Interface layer. 
+
+\begin{DoxyNote}{Note}
+Purpose of this layer is to be a collection of widgets, which should render with the same priority. All widgets bound to an instance of this layer should interchange which widget could be on top of another, but all of them should be below the next rendered \"{}\+Layer\"{}
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+Enforcing widgets (belonging to a layer) to render below all widgets of a layer with higher priority, is to be implemented
+
+This class should be abstracted to an adapter class, as GUI could be implemented based on other libraries than \"{}\+Im\+Gui\"{} only 
+\end{DoxyWarning}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classgui_1_1_gui_layer_a441cbe85ad53174fb290ad827ef6be9a}\label{classgui_1_1_gui_layer_a441cbe85ad53174fb290ad827ef6be9a} 
+\index{gui::GuiLayer@{gui::GuiLayer}!GuiLayer@{GuiLayer}}
+\index{GuiLayer@{GuiLayer}!gui::GuiLayer@{gui::GuiLayer}}
+\doxysubsubsection{\texorpdfstring{GuiLayer()}{GuiLayer()}}
+{\footnotesize\ttfamily gui\+::\+Gui\+Layer\+::\+Gui\+Layer (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{name,  }\item[{\mbox{\hyperlink{classobjects_1_1_renderer}{objects\+::\+Renderer}} \texorpdfstring{$\ast$}{*}}]{renderer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classgui_1_1_gui_layer_a3983e96caa8d9078449c5e034af3ad27}\label{classgui_1_1_gui_layer_a3983e96caa8d9078449c5e034af3ad27} 
+\index{gui::GuiLayer@{gui::GuiLayer}!````~GuiLayer@{\texorpdfstring{$\sim$}{\string~}GuiLayer}}
+\index{````~GuiLayer@{\texorpdfstring{$\sim$}{\string~}GuiLayer}!gui::GuiLayer@{gui::GuiLayer}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}GuiLayer()}{\string~GuiLayer()}}
+{\footnotesize\ttfamily gui\+::\+Gui\+Layer\+::\texorpdfstring{$\sim$}{\string~}\+Gui\+Layer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classgui_1_1_gui_layer_aea87ee1564114278bb47ea1bc3256477}\label{classgui_1_1_gui_layer_aea87ee1564114278bb47ea1bc3256477} 
+\index{gui::GuiLayer@{gui::GuiLayer}!addWidget@{addWidget}}
+\index{addWidget@{addWidget}!gui::GuiLayer@{gui::GuiLayer}}
+\doxysubsubsection{\texorpdfstring{addWidget()}{addWidget()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classgui_1_1_gui_widget}{gui\+::\+Gui\+Widget}} \texorpdfstring{$\ast$}{*} gui\+::\+Gui\+Layer\+::add\+Widget (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classgui_1_1_gui_widget}{gui\+::\+Gui\+Widget}} \texorpdfstring{$\ast$}{*}}]{widget }\end{DoxyParamCaption})}
+
+
+
+Attach a widget to this layer and call \"{}on\+Attach\"{}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em widget} & to be rendered \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Gui\+Widget\texorpdfstring{$\ast$}{*} 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxylink{classgui_1_1_gui_widget}{gui\+::\+Gui\+Widget} 
+\end{DoxySeeAlso}
+\Hypertarget{classgui_1_1_gui_layer_a1a2e6a0d6131b5f145d85001c9a0fc90}\label{classgui_1_1_gui_layer_a1a2e6a0d6131b5f145d85001c9a0fc90} 
+\index{gui::GuiLayer@{gui::GuiLayer}!begin@{begin}}
+\index{begin@{begin}!gui::GuiLayer@{gui::GuiLayer}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily void gui\+::\+Gui\+Layer\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Based on \"{}\+Im\+Gui\"{}. ~\newline
+ Each frame begins with \"{}\+Im\+Gui\"{} calling \"{}\+New\+Frame\"{}. 
+
+\Hypertarget{classgui_1_1_gui_layer_abff96c96677d426621e82686b00b1c6c}\label{classgui_1_1_gui_layer_abff96c96677d426621e82686b00b1c6c} 
+\index{gui::GuiLayer@{gui::GuiLayer}!end@{end}}
+\index{end@{end}!gui::GuiLayer@{gui::GuiLayer}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}}
+{\footnotesize\ttfamily void gui\+::\+Gui\+Layer\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Based on \"{}\+Im\+Gui\"{}. ~\newline
+ Each frame begins with \"{}\+Im\+Gui\"{} calling \"{}\+End\+Frame\"{}. 
+
+\Hypertarget{classgui_1_1_gui_layer_a16f2e9d5d6de79c4e9be8d73d72b63a8}\label{classgui_1_1_gui_layer_a16f2e9d5d6de79c4e9be8d73d72b63a8} 
+\index{gui::GuiLayer@{gui::GuiLayer}!onAttach@{onAttach}}
+\index{onAttach@{onAttach}!gui::GuiLayer@{gui::GuiLayer}}
+\doxysubsubsection{\texorpdfstring{onAttach()}{onAttach()}}
+{\footnotesize\ttfamily void gui\+::\+Gui\+Layer\+::on\+Attach (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+SDL-\/based implementation, where \"{}\+Im\+Gui\"{} requires binding to a specific window and knowing which render to use for displaying all buffered widget data (per frame) 
+
+
+
+Reimplemented from \mbox{\hyperlink{classutils_1_1_layer_ad4aba0c726e9c2f44d4ccfd55f30ae06}{utils\+::\+Layer}}.
+
+\Hypertarget{classgui_1_1_gui_layer_a92f9294c3562c5eed1b893e696a44b78}\label{classgui_1_1_gui_layer_a92f9294c3562c5eed1b893e696a44b78} 
+\index{gui::GuiLayer@{gui::GuiLayer}!onDetach@{onDetach}}
+\index{onDetach@{onDetach}!gui::GuiLayer@{gui::GuiLayer}}
+\doxysubsubsection{\texorpdfstring{onDetach()}{onDetach()}}
+{\footnotesize\ttfamily void gui\+::\+Gui\+Layer\+::on\+Detach (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Called right before a layer is detached from a {\ttfamily \doxylink{classutils_1_1_layer_stack}{utils\+::\+Layer\+Stack}} 
+
+
+
+Reimplemented from \mbox{\hyperlink{classutils_1_1_layer_af6dd1e90821b1b789b95792657097386}{utils\+::\+Layer}}.
+
+\Hypertarget{classgui_1_1_gui_layer_a2e9f541d5d3b80cebf0a764fc912c077}\label{classgui_1_1_gui_layer_a2e9f541d5d3b80cebf0a764fc912c077} 
+\index{gui::GuiLayer@{gui::GuiLayer}!onTick@{onTick}}
+\index{onTick@{onTick}!gui::GuiLayer@{gui::GuiLayer}}
+\doxysubsubsection{\texorpdfstring{onTick()}{onTick()}}
+{\footnotesize\ttfamily void gui\+::\+Gui\+Layer\+::on\+Tick (\begin{DoxyParamCaption}\item[{float}]{delta }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Called when a {\ttfamily \doxylink{classutils_1_1_layer_stack}{utils\+::\+Layer\+Stack}} update {\ttfamily Tick} is called. 
+
+
+
+Reimplemented from \mbox{\hyperlink{classutils_1_1_layer_a6077ff5bf6e5f02125977db2bda9d30c}{utils\+::\+Layer}}.
+
+\Hypertarget{classgui_1_1_gui_layer_a8309222c9baabc916f4222df96c63509}\label{classgui_1_1_gui_layer_a8309222c9baabc916f4222df96c63509} 
+\index{gui::GuiLayer@{gui::GuiLayer}!removeWidget@{removeWidget}}
+\index{removeWidget@{removeWidget}!gui::GuiLayer@{gui::GuiLayer}}
+\doxysubsubsection{\texorpdfstring{removeWidget()}{removeWidget()}}
+{\footnotesize\ttfamily void gui\+::\+Gui\+Layer\+::remove\+Widget (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{name }\end{DoxyParamCaption})}
+
+
+
+Detach a widget. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & of the widget to remove \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+should be replaced by an unique id, as all widgets should be able to have duplicate names 
+\end{DoxyWarning}
+\Hypertarget{classgui_1_1_gui_layer_aaa52dc911639ba94e2e8ac6db3cf5b57}\label{classgui_1_1_gui_layer_aaa52dc911639ba94e2e8ac6db3cf5b57} 
+\index{gui::GuiLayer@{gui::GuiLayer}!render@{render}}
+\index{render@{render}!gui::GuiLayer@{gui::GuiLayer}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily void gui\+::\+Gui\+Layer\+::render (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Render each widget in a sequence. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classgui_1_1_gui_layer_a5a710f5f5b4bd25a20aa309fa3e7cd4f}\label{classgui_1_1_gui_layer_a5a710f5f5b4bd25a20aa309fa3e7cd4f} 
+\index{gui::GuiLayer@{gui::GuiLayer}!renderer@{renderer}}
+\index{renderer@{renderer}!gui::GuiLayer@{gui::GuiLayer}}
+\doxysubsubsection{\texorpdfstring{renderer}{renderer}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classobjects_1_1_renderer}{objects\+::\+Renderer}}\texorpdfstring{$\ast$}{*} gui\+::\+Gui\+Layer\+::renderer\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Which renderer should be used to render all widgets. 
+
+\Hypertarget{classgui_1_1_gui_layer_a8a43f6f2b9266edfc23d15b10d086b75}\label{classgui_1_1_gui_layer_a8a43f6f2b9266edfc23d15b10d086b75} 
+\index{gui::GuiLayer@{gui::GuiLayer}!widgets@{widgets}}
+\index{widgets@{widgets}!gui::GuiLayer@{gui::GuiLayer}}
+\doxysubsubsection{\texorpdfstring{widgets}{widgets}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{classgui_1_1_gui_widget}{Gui\+Widget}} \texorpdfstring{$\ast$}{*}$>$ gui\+::\+Gui\+Layer\+::widgets\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+All bound widgets. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+engine/gui/core/\mbox{\hyperlink{gui__layer_8h}{gui\+\_\+layer.\+h}}\item 
+engine/gui/core/\mbox{\hyperlink{gui__layer_8cpp}{gui\+\_\+layer.\+cpp}}\end{DoxyCompactItemize}

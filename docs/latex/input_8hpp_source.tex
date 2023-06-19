@@ -1,0 +1,23 @@
+\doxysection{input.\+hpp}
+\hypertarget{input_8hpp_source}{}\label{input_8hpp_source}\index{engine/input/input.hpp@{engine/input/input.hpp}}
+\mbox{\hyperlink{input_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{input__misc_8h}{input\_misc.h}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceinput}{input}}\ \{}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classinput_1_1_input_system}{InputSystem}}\ *createInputSystem(Args...);}
+\DoxyCodeLine{00015\ \}\ \textcolor{comment}{//\ namespace\ input}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#ifdef\ USE\_SDL}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{sdl__input_8h}{sdl\_input.h}}"{}}}
+\DoxyCodeLine{00019\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00020\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \mbox{\hyperlink{classinput_1_1_input_system}{input::InputSystem}}\ *}
+\DoxyCodeLine{00021\ input::createInputSystem(Args...)\ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceinput}{input}}\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classinput_1_1sdl_1_1_sdl_input_system}{input::sdl::SdlInputSystem}}();}
+\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{namespaceinput}{input}}-\/>init();}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceinput}{input}};}
+\DoxyCodeLine{00025\ \}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

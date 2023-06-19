@@ -1,0 +1,28 @@
+\doxysection{sdl\+\_\+input.\+h}
+\hypertarget{sdl__input_8h_source}{}\label{sdl__input_8h_source}\index{engine/input/sdl\_input.h@{engine/input/sdl\_input.h}}
+\mbox{\hyperlink{sdl__input_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{input__misc_8h}{input\_misc.h}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <SDL3/SDL.h>}}
+\DoxyCodeLine{00004\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceinput}{input}}\ \{}
+\DoxyCodeLine{00005\ \ \ \ \ \textcolor{keyword}{namespace\ }sdl\ \{}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classinput_1_1sdl_1_1_sdl_input_system}{SdlInputSystem}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classinput_1_1_input_system}{InputSystem}}\ \{}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classinput_1_1sdl_1_1_sdl_input_system_a9c47d1220f4ef31a7abbcf80c03c4bbf}{\string~SdlInputSystem}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classinput_1_1sdl_1_1_sdl_input_system_a8ceb443be36fdf4f9fe31e05ee5678e6}{SdlInputSystem}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classinput_1_1sdl_1_1_sdl_input_system_a05d2c0cdfbe6a11359127f15909ca0d8}{init}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classinput_1_1sdl_1_1_sdl_input_system_ab26a4bfbebe703a55c73b818561b301b}{poll}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classinput_1_1sdl_1_1_sdl_input_system_a3390345aea4bc638081b664f275a00c2}{terminate}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classinput_1_1sdl_1_1_sdl_input_system_a585178bff54806e0a7f6e6ab47862c82}{shutdown}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structinput_1_1_controller}{Controller}}\ *\mbox{\hyperlink{classinput_1_1sdl_1_1_sdl_input_system_a0917fd3bfb165b4cf2f38a0c20a6b19e}{addController}}(SDL\_Event\ event);}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classinput_1_1sdl_1_1_sdl_input_system_acbc24ab76e519ed527a1ba8b69e00c48}{removeController}}(SDL\_Event\ controller);}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classinput_1_1sdl_1_1_sdl_input_system_acbc24ab76e519ed527a1ba8b69e00c48}{removeController}}(\textcolor{keywordtype}{int}\ index);}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00050\ \ \ \ \ \};\ \textcolor{comment}{//\ namespace\ sdl}}
+\DoxyCodeLine{00051\ \}\ \textcolor{comment}{//\ namespace\ input}}
+
+\end{DoxyCode}

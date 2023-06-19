@@ -1,0 +1,303 @@
+\doxysection{render\+::sdl Namespace Reference}
+\hypertarget{namespacerender_1_1sdl}{}\label{namespacerender_1_1sdl}\index{render::sdl@{render::sdl}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{namespacerender_1_1sdl_a1d13b3fea1daeaf57f3c56b75a4a8dc0}{init}} (std\+::vector$<$ uint32\+\_\+t $>$ init\+Flags=\mbox{\hyperlink{namespacerender_1_1sdl_a3b4e381c0786eb2e3d9b9e5055127674}{k\+Default\+Init\+Flags}})
+\begin{DoxyCompactList}\small\item\em Initialize SDL rendering libary. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classobjects_1_1_renderer}{objects\+::\+Renderer}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespacerender_1_1sdl_ad9263cee01dc6390ced8a8e9bfa80b09}{create\+Renderer}} (\mbox{\hyperlink{classobjects_1_1_window}{objects\+::\+Window}} \texorpdfstring{$\ast$}{*}window, const char \texorpdfstring{$\ast$}{*}driver\+Name=0, std\+::vector$<$ uint32\+\_\+t $>$ init\+Flags=\{ SDL\+\_\+\+RENDERER\+\_\+\+ACCELERATED\})
+\begin{DoxyCompactList}\small\item\em Create a Renderer object to render on. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classobjects_1_1_renderer}{objects\+::\+Renderer}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespacerender_1_1sdl_a9b98ae8848135125103e0ead0d4efeed}{create\+Renderer}} (SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}window, const char \texorpdfstring{$\ast$}{*}driver\+Name=0, std\+::vector$<$ uint32\+\_\+t $>$ init\+Flags=\{ SDL\+\_\+\+RENDERER\+\_\+\+ACCELERATED\})
+\item 
+void \mbox{\hyperlink{namespacerender_1_1sdl_a70a645962abcee011d2ce8cf3ed0ecd1}{set\+Draw\+Color}} (\mbox{\hyperlink{classobjects_1_1_renderer}{objects\+::\+Renderer}} \texorpdfstring{$\ast$}{*}renderer, uint8\+\_\+t r, uint8\+\_\+t g, uint8\+\_\+t b, uint8\+\_\+t a)
+\begin{DoxyCompactList}\small\item\em Set the drawing color, if renderer is used to draw clear colors. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacerender_1_1sdl_aefa27b9584921fd0f87a3bfed1e70206}{set\+Draw\+Color}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, uint8\+\_\+t r, uint8\+\_\+t g, uint8\+\_\+t b, uint8\+\_\+t a)
+\item 
+void \mbox{\hyperlink{namespacerender_1_1sdl_a99d9d81c843017c98488a8020d1b61bc}{render\+Asset}} (\mbox{\hyperlink{classobjects_1_1_renderer}{objects\+::\+Renderer}} \texorpdfstring{$\ast$}{*}renderer, \mbox{\hyperlink{classobjects_1_1_texture}{objects\+::\+Texture}} \texorpdfstring{$\ast$}{*}texture, float x, float y)
+\begin{DoxyCompactList}\small\item\em Draw a 2D asset(texture, img etc.) on the screen during next frame. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacerender_1_1sdl_af98eabe0042bb7ebb5e3808ce9c060eb}{render\+Asset}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}texture, float w, float h, float x, float y)
+\item 
+\mbox{\hyperlink{structobjects_1_1_texture_size}{objects\+::\+Texture\+Size}} \mbox{\hyperlink{namespacerender_1_1sdl_ac28142eee6f6e1f6691d7e0cf18b0dff}{get\+Texture\+Size}} (\mbox{\hyperlink{classobjects_1_1_texture}{objects\+::\+Texture}} \texorpdfstring{$\ast$}{*}texture)
+\begin{DoxyCompactList}\small\item\em Get the width and height of a 2D asset. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structobjects_1_1_texture_size}{objects\+::\+Texture\+Size}} \mbox{\hyperlink{namespacerender_1_1sdl_aa3ab964c5c628000146e4d9bd78b9e02}{get\+Texture\+Size}} (SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}texture)
+\item 
+void \mbox{\hyperlink{namespacerender_1_1sdl_aa7bfa6d82cae88414db0b648667c6cd5}{clear\+Renderer}} (\mbox{\hyperlink{classobjects_1_1_renderer}{objects\+::\+Renderer}} \texorpdfstring{$\ast$}{*}renderer)
+\item 
+void \mbox{\hyperlink{namespacerender_1_1sdl_a501cce287011a22a1be460b4d07ab3e3}{clear\+Renderer}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer)
+\item 
+void \mbox{\hyperlink{namespacerender_1_1sdl_a4187a2bf867ea6d6e90cfd08a4ee6a12}{render\+Frame}} (\mbox{\hyperlink{classobjects_1_1_renderer}{objects\+::\+Renderer}} \texorpdfstring{$\ast$}{*}renderer)
+\item 
+void \mbox{\hyperlink{namespacerender_1_1sdl_a44442f0ec52c941b706c5c2a142f4ef6}{render\+Frame}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer)
+\item 
+void \mbox{\hyperlink{namespacerender_1_1sdl_a61a2937d89ecbe095c71e1905ba6c87d}{terminate}} (\mbox{\hyperlink{classobjects_1_1_renderer}{objects\+::\+Renderer}} \texorpdfstring{$\ast$}{*}renderer)
+\item 
+void \mbox{\hyperlink{namespacerender_1_1sdl_ab59185eb21778475c74729fc83d947b3}{terminate}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer)
+\item 
+void \mbox{\hyperlink{namespacerender_1_1sdl_a910ff332ce2bbffcf0268261e69284fc}{shutdown}} (std\+::vector$<$ uint32\+\_\+t $>$ init\+Flags=\mbox{\hyperlink{namespacerender_1_1sdl_a3b4e381c0786eb2e3d9b9e5055127674}{k\+Default\+Init\+Flags}})
+\begin{DoxyCompactList}\small\item\em Shutdown all rendering related modules of SDL. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const std\+::vector$<$ uint32\+\_\+t $>$ \mbox{\hyperlink{namespacerender_1_1sdl_a3b4e381c0786eb2e3d9b9e5055127674}{k\+Default\+Init\+Flags}}
+\begin{DoxyCompactList}\small\item\em Default initialization flags, used to start module/s of SDL used during rendering. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespacerender_1_1sdl_aa7bfa6d82cae88414db0b648667c6cd5}\label{namespacerender_1_1sdl_aa7bfa6d82cae88414db0b648667c6cd5} 
+\index{render::sdl@{render::sdl}!clearRenderer@{clearRenderer}}
+\index{clearRenderer@{clearRenderer}!render::sdl@{render::sdl}}
+\doxysubsubsection{\texorpdfstring{clearRenderer()}{clearRenderer()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void render\+::sdl\+::clear\+Renderer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classobjects_1_1_renderer}{objects\+::\+Renderer}} \texorpdfstring{$\ast$}{*}}]{renderer }\end{DoxyParamCaption})}
+
+\begin{DoxySeeAlso}{See also}
+render.\+hpp\+::clear\+Renderer 
+\end{DoxySeeAlso}
+\Hypertarget{namespacerender_1_1sdl_a501cce287011a22a1be460b4d07ab3e3}\label{namespacerender_1_1sdl_a501cce287011a22a1be460b4d07ab3e3} 
+\index{render::sdl@{render::sdl}!clearRenderer@{clearRenderer}}
+\index{clearRenderer@{clearRenderer}!render::sdl@{render::sdl}}
+\doxysubsubsection{\texorpdfstring{clearRenderer()}{clearRenderer()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void render\+::sdl\+::clear\+Renderer (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer }\end{DoxyParamCaption})}
+
+\begin{DoxySeeAlso}{See also}
+render.\+hpp\+::clear\+Renderer 
+\end{DoxySeeAlso}
+\Hypertarget{namespacerender_1_1sdl_ad9263cee01dc6390ced8a8e9bfa80b09}\label{namespacerender_1_1sdl_ad9263cee01dc6390ced8a8e9bfa80b09} 
+\index{render::sdl@{render::sdl}!createRenderer@{createRenderer}}
+\index{createRenderer@{createRenderer}!render::sdl@{render::sdl}}
+\doxysubsubsection{\texorpdfstring{createRenderer()}{createRenderer()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classobjects_1_1_renderer}{objects\+::\+Renderer}} \texorpdfstring{$\ast$}{*} render\+::sdl\+::create\+Renderer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classobjects_1_1_window}{objects\+::\+Window}} \texorpdfstring{$\ast$}{*}}]{window,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{driver\+Name = {\ttfamily 0},  }\item[{std\+::vector$<$ uint32\+\_\+t $>$}]{init\+Flags = {\ttfamily \{~SDL\+\_\+RENDERER\+\_\+ACCELERATED\}} }\end{DoxyParamCaption})}
+
+
+
+Create a Renderer object to render on. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & To bind the renderer on \\
+\hline
+{\em driver\+Name} & Name of the video driver which should be used for rendering. Defaults to first find video driver if {\ttfamily 0} used as argument \\
+\hline
+{\em init\+Flags} & Used during renderer creation \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+SDL\+\_\+render.\+h\+::\+SDL\+\_\+\+Renderer\+Flags 
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+\doxylink{classobjects_1_1_renderer}{objects\+::\+Renderer}\texorpdfstring{$\ast$}{*} 
+\end{DoxyReturn}
+\Hypertarget{namespacerender_1_1sdl_a9b98ae8848135125103e0ead0d4efeed}\label{namespacerender_1_1sdl_a9b98ae8848135125103e0ead0d4efeed} 
+\index{render::sdl@{render::sdl}!createRenderer@{createRenderer}}
+\index{createRenderer@{createRenderer}!render::sdl@{render::sdl}}
+\doxysubsubsection{\texorpdfstring{createRenderer()}{createRenderer()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classobjects_1_1_renderer}{objects\+::\+Renderer}} \texorpdfstring{$\ast$}{*} render\+::sdl\+::create\+Renderer (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}}]{window,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{driver\+Name = {\ttfamily 0},  }\item[{std\+::vector$<$ uint32\+\_\+t $>$}]{init\+Flags = {\ttfamily \{~SDL\+\_\+RENDERER\+\_\+ACCELERATED\}} }\end{DoxyParamCaption})}
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{namespacerender_1_1sdl_ad9263cee01dc6390ced8a8e9bfa80b09}{create\+Renderer} 
+\end{DoxySeeAlso}
+\begin{DoxySeeAlso}{See also}
+SDL\+\_\+hints.\+h for hints
+\end{DoxySeeAlso}
+\Hypertarget{namespacerender_1_1sdl_ac28142eee6f6e1f6691d7e0cf18b0dff}\label{namespacerender_1_1sdl_ac28142eee6f6e1f6691d7e0cf18b0dff} 
+\index{render::sdl@{render::sdl}!getTextureSize@{getTextureSize}}
+\index{getTextureSize@{getTextureSize}!render::sdl@{render::sdl}}
+\doxysubsubsection{\texorpdfstring{getTextureSize()}{getTextureSize()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structobjects_1_1_texture_size}{objects\+::\+Texture\+Size}} render\+::sdl\+::get\+Texture\+Size (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classobjects_1_1_texture}{objects\+::\+Texture}} \texorpdfstring{$\ast$}{*}}]{texture }\end{DoxyParamCaption})}
+
+
+
+Get the width and height of a 2D asset. 
+
+\begin{DoxyNote}{Note}
+Should be renamed to {\ttfamily Get2\+DTexture\+Size}
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em texture} & size of which should be received \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{structobjects_1_1_texture_size}{objects\+::\+Texture\+Size} width and height 
+\end{DoxyReturn}
+\Hypertarget{namespacerender_1_1sdl_aa3ab964c5c628000146e4d9bd78b9e02}\label{namespacerender_1_1sdl_aa3ab964c5c628000146e4d9bd78b9e02} 
+\index{render::sdl@{render::sdl}!getTextureSize@{getTextureSize}}
+\index{getTextureSize@{getTextureSize}!render::sdl@{render::sdl}}
+\doxysubsubsection{\texorpdfstring{getTextureSize()}{getTextureSize()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structobjects_1_1_texture_size}{objects\+::\+Texture\+Size}} render\+::sdl\+::get\+Texture\+Size (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{texture }\end{DoxyParamCaption})}
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{namespacerender_1_1sdl_ac28142eee6f6e1f6691d7e0cf18b0dff}{get\+Texture\+Size} 
+\end{DoxySeeAlso}
+\Hypertarget{namespacerender_1_1sdl_a1d13b3fea1daeaf57f3c56b75a4a8dc0}\label{namespacerender_1_1sdl_a1d13b3fea1daeaf57f3c56b75a4a8dc0} 
+\index{render::sdl@{render::sdl}!init@{init}}
+\index{init@{init}!render::sdl@{render::sdl}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily bool render\+::sdl\+::init (\begin{DoxyParamCaption}\item[{std\+::vector$<$ uint32\+\_\+t $>$}]{init\+Flags = {\ttfamily \mbox{\hyperlink{namespacerender_1_1sdl_a3b4e381c0786eb2e3d9b9e5055127674}{k\+Default\+Init\+Flags}}} }\end{DoxyParamCaption})}
+
+
+
+Initialize SDL rendering libary. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em init\+Flags} & Used to initialize modules of SDL used for rendering \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\doxylink{namespacerender_1_1sdl_a3b4e381c0786eb2e3d9b9e5055127674}{k\+Default\+Init\+Flags} 
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+true Successful -\/ no logs should emit 
+
+false Unsuccessful -\/ emits logs for further information 
+\end{DoxyReturn}
+\Hypertarget{namespacerender_1_1sdl_a99d9d81c843017c98488a8020d1b61bc}\label{namespacerender_1_1sdl_a99d9d81c843017c98488a8020d1b61bc} 
+\index{render::sdl@{render::sdl}!renderAsset@{renderAsset}}
+\index{renderAsset@{renderAsset}!render::sdl@{render::sdl}}
+\doxysubsubsection{\texorpdfstring{renderAsset()}{renderAsset()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void render\+::sdl\+::render\+Asset (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classobjects_1_1_renderer}{objects\+::\+Renderer}} \texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{\mbox{\hyperlink{classobjects_1_1_texture}{objects\+::\+Texture}} \texorpdfstring{$\ast$}{*}}]{texture,  }\item[{float}]{x,  }\item[{float}]{y }\end{DoxyParamCaption})}
+
+
+
+Draw a 2D asset(texture, img etc.) on the screen during next frame. 
+
+\begin{DoxyNote}{Note}
+Should be renamed to {\ttfamily Render2\+DAsset} 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & To render the asset on \\
+\hline
+{\em texture} & To render \\
+\hline
+{\em x} & on the window \\
+\hline
+{\em y} & on the window \\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespacerender_1_1sdl_af98eabe0042bb7ebb5e3808ce9c060eb}\label{namespacerender_1_1sdl_af98eabe0042bb7ebb5e3808ce9c060eb} 
+\index{render::sdl@{render::sdl}!renderAsset@{renderAsset}}
+\index{renderAsset@{renderAsset}!render::sdl@{render::sdl}}
+\doxysubsubsection{\texorpdfstring{renderAsset()}{renderAsset()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void render\+::sdl\+::render\+Asset (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{texture,  }\item[{float}]{w,  }\item[{float}]{h,  }\item[{float}]{x,  }\item[{float}]{y }\end{DoxyParamCaption})}
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{namespacerender_1_1sdl_a99d9d81c843017c98488a8020d1b61bc}{render\+Asset} 
+\end{DoxySeeAlso}
+\Hypertarget{namespacerender_1_1sdl_a4187a2bf867ea6d6e90cfd08a4ee6a12}\label{namespacerender_1_1sdl_a4187a2bf867ea6d6e90cfd08a4ee6a12} 
+\index{render::sdl@{render::sdl}!renderFrame@{renderFrame}}
+\index{renderFrame@{renderFrame}!render::sdl@{render::sdl}}
+\doxysubsubsection{\texorpdfstring{renderFrame()}{renderFrame()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void render\+::sdl\+::render\+Frame (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classobjects_1_1_renderer}{objects\+::\+Renderer}} \texorpdfstring{$\ast$}{*}}]{renderer }\end{DoxyParamCaption})}
+
+\begin{DoxySeeAlso}{See also}
+render.\+hpp\+::render\+Frame 
+\end{DoxySeeAlso}
+\Hypertarget{namespacerender_1_1sdl_a44442f0ec52c941b706c5c2a142f4ef6}\label{namespacerender_1_1sdl_a44442f0ec52c941b706c5c2a142f4ef6} 
+\index{render::sdl@{render::sdl}!renderFrame@{renderFrame}}
+\index{renderFrame@{renderFrame}!render::sdl@{render::sdl}}
+\doxysubsubsection{\texorpdfstring{renderFrame()}{renderFrame()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void render\+::sdl\+::render\+Frame (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer }\end{DoxyParamCaption})}
+
+\begin{DoxySeeAlso}{See also}
+render.\+hpp\+::render\+Frame 
+\end{DoxySeeAlso}
+\Hypertarget{namespacerender_1_1sdl_a70a645962abcee011d2ce8cf3ed0ecd1}\label{namespacerender_1_1sdl_a70a645962abcee011d2ce8cf3ed0ecd1} 
+\index{render::sdl@{render::sdl}!setDrawColor@{setDrawColor}}
+\index{setDrawColor@{setDrawColor}!render::sdl@{render::sdl}}
+\doxysubsubsection{\texorpdfstring{setDrawColor()}{setDrawColor()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void render\+::sdl\+::set\+Draw\+Color (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classobjects_1_1_renderer}{objects\+::\+Renderer}} \texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{uint8\+\_\+t}]{r,  }\item[{uint8\+\_\+t}]{g,  }\item[{uint8\+\_\+t}]{b,  }\item[{uint8\+\_\+t}]{a }\end{DoxyParamCaption})}
+
+
+
+Set the drawing color, if renderer is used to draw clear colors. 
+
+\begin{DoxySeeAlso}{See also}
+Clear\+Renderer
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & to set the drawing color for \\
+\hline
+{\em r} & 0-\/255 \\
+\hline
+{\em g} & 0-\/255 \\
+\hline
+{\em b} & 0-\/255 \\
+\hline
+{\em a} & 0-\/255 \\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespacerender_1_1sdl_aefa27b9584921fd0f87a3bfed1e70206}\label{namespacerender_1_1sdl_aefa27b9584921fd0f87a3bfed1e70206} 
+\index{render::sdl@{render::sdl}!setDrawColor@{setDrawColor}}
+\index{setDrawColor@{setDrawColor}!render::sdl@{render::sdl}}
+\doxysubsubsection{\texorpdfstring{setDrawColor()}{setDrawColor()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void render\+::sdl\+::set\+Draw\+Color (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{uint8\+\_\+t}]{r,  }\item[{uint8\+\_\+t}]{g,  }\item[{uint8\+\_\+t}]{b,  }\item[{uint8\+\_\+t}]{a }\end{DoxyParamCaption})}
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{namespacerender_1_1sdl_a70a645962abcee011d2ce8cf3ed0ecd1}{set\+Draw\+Color} 
+\end{DoxySeeAlso}
+\Hypertarget{namespacerender_1_1sdl_a910ff332ce2bbffcf0268261e69284fc}\label{namespacerender_1_1sdl_a910ff332ce2bbffcf0268261e69284fc} 
+\index{render::sdl@{render::sdl}!shutdown@{shutdown}}
+\index{shutdown@{shutdown}!render::sdl@{render::sdl}}
+\doxysubsubsection{\texorpdfstring{shutdown()}{shutdown()}}
+{\footnotesize\ttfamily void render\+::sdl\+::shutdown (\begin{DoxyParamCaption}\item[{std\+::vector$<$ uint32\+\_\+t $>$}]{init\+Flags = {\ttfamily \mbox{\hyperlink{namespacerender_1_1sdl_a3b4e381c0786eb2e3d9b9e5055127674}{k\+Default\+Init\+Flags}}} }\end{DoxyParamCaption})}
+
+
+
+Shutdown all rendering related modules of SDL. 
+
+\begin{DoxyWarning}{Warning}
+Do not call until last frame of all renderers, or the application itself -\/ could lead to unhandled exceptions and undefined behaviour
+\end{DoxyWarning}
+
+\begin{DoxyParams}{Parameters}
+{\em init\+Flags} & for each module. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\doxylink{namespacerender_1_1sdl_a3b4e381c0786eb2e3d9b9e5055127674}{k\+Default\+Init\+Flags} 
+\end{DoxySeeAlso}
+\Hypertarget{namespacerender_1_1sdl_a61a2937d89ecbe095c71e1905ba6c87d}\label{namespacerender_1_1sdl_a61a2937d89ecbe095c71e1905ba6c87d} 
+\index{render::sdl@{render::sdl}!terminate@{terminate}}
+\index{terminate@{terminate}!render::sdl@{render::sdl}}
+\doxysubsubsection{\texorpdfstring{terminate()}{terminate()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void render\+::sdl\+::terminate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classobjects_1_1_renderer}{objects\+::\+Renderer}} \texorpdfstring{$\ast$}{*}}]{renderer }\end{DoxyParamCaption})}
+
+\begin{DoxySeeAlso}{See also}
+render.\+hpp\+::terminate 
+\end{DoxySeeAlso}
+\Hypertarget{namespacerender_1_1sdl_ab59185eb21778475c74729fc83d947b3}\label{namespacerender_1_1sdl_ab59185eb21778475c74729fc83d947b3} 
+\index{render::sdl@{render::sdl}!terminate@{terminate}}
+\index{terminate@{terminate}!render::sdl@{render::sdl}}
+\doxysubsubsection{\texorpdfstring{terminate()}{terminate()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void render\+::sdl\+::terminate (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer }\end{DoxyParamCaption})}
+
+\begin{DoxySeeAlso}{See also}
+render.\+hpp\+::terminate 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{namespacerender_1_1sdl_a3b4e381c0786eb2e3d9b9e5055127674}\label{namespacerender_1_1sdl_a3b4e381c0786eb2e3d9b9e5055127674} 
+\index{render::sdl@{render::sdl}!kDefaultInitFlags@{kDefaultInitFlags}}
+\index{kDefaultInitFlags@{kDefaultInitFlags}!render::sdl@{render::sdl}}
+\doxysubsubsection{\texorpdfstring{kDefaultInitFlags}{kDefaultInitFlags}}
+{\footnotesize\ttfamily const std\+::vector$<$uint32\+\_\+t$>$ render\+::sdl\+::k\+Default\+Init\+Flags}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ SDL\_INIT\_VIDEO\}}
+
+\end{DoxyCode}
+
+
+Default initialization flags, used to start module/s of SDL used during rendering. 
+
+\begin{DoxyNote}{Note}
+Each flag represents a different part of SDL which can be utilized. {\ttfamily SDL\+\_\+\+INIT\+\_\+\+VIDEO} is the default flag for renderer creation 
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+SDL\+\_\+init.\+h\+::\+SDL\+\_\+\+Init\+Flags 
+\end{DoxySeeAlso}

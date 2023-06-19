@@ -1,0 +1,178 @@
+\doxysection{logger.\+h}
+\hypertarget{logger_8h_source}{}\label{logger_8h_source}\index{engine/logger/logger.h@{engine/logger/logger.h}}
+\mbox{\hyperlink{logger_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <cstring>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00011\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacelogger}{logger}}\ \{}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\textcolor{keyword}{const}\ kDefaultPattern\ =}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}[logger:\ \%n]\ [level:\ \%l]\ [ts:\ \%c]\ [msg:\ \%v]\ "{}}}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}[caller:\ \%g:\%\#]"{}};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2}{LogLevel}}\ \{}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2a6f7502c963b900831773c265c768d818}{kTrace}},}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2a261345fea93f5ed76d6fcece5958bb1f}{kDebug}},}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2a10ef91b7e6f399b4a6eeac7e233bb72e}{kInfo}},}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2a86486e2bdb6930bc9a29c57abe5805ba}{kWarn}},}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2aa00406022624ad57581dddf1f135b0d4}{kErr}},}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2a6754129f912d44f1bee553aeda1a2ee4}{kCritical}}}
+\DoxyCodeLine{00042\ \ \ \ \ \};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{namespacelogger_a7008ddac10210be5b71f2aa880cea7e2}{ConsoleLoggerTypes}}\ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacelogger_a7008ddac10210be5b71f2aa880cea7e2a057f49b4a91c2c9ec20f08b2aad6f3ff}{kConsole}},}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacelogger_a7008ddac10210be5b71f2aa880cea7e2aab175b8a77710924c69de508b85e0b90}{kConsoleError}},}
+\DoxyCodeLine{00051\ \ \ \ \ \};}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{namespacelogger_a85919e64d5e829ed702a395a9071c952}{FileLoggerTypes}}\ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacelogger_a85919e64d5e829ed702a395a9071c952a195959d81393056e7e63bde23ecbb5ac}{kBasicFile}},}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacelogger_a85919e64d5e829ed702a395a9071c952a4e3ee640a3b6a37e97534e7505fc6457}{kMultipleFiles}},}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacelogger_a85919e64d5e829ed702a395a9071c952ac9a29951fb32ac9ab38a13c96082407f}{kDailyFile}},}
+\DoxyCodeLine{00061\ \ \ \ \ \};}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacelogger_a557c7ef1427522e98ca4bfb49a125013}{createConsoleLogger}}(std::string\ name,}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacelogger_a7008ddac10210be5b71f2aa880cea7e2}{ConsoleLoggerTypes}}\ loggerType);}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacelogger_a3ea24e2c0fa2ce729ee8b6c0051786ee}{createFileLogger}}(std::string\ name,}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacelogger_a85919e64d5e829ed702a395a9071c952}{FileLoggerTypes}}\ loggerType,}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Args...\ args);}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacelogger_a5e7aa0bacba2c1a70397c66af93f9511}{createConsoleSink}}(}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ std::string\ loggerName,}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacelogger_a7008ddac10210be5b71f2aa880cea7e2}{ConsoleLoggerTypes}}\ sinkType\ =}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacelogger_a7008ddac10210be5b71f2aa880cea7e2a057f49b4a91c2c9ec20f08b2aad6f3ff}{ConsoleLoggerTypes::kConsole}},}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2}{LogLevel}}\ logLevel\ =\ \mbox{\hyperlink{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2a6f7502c963b900831773c265c768d818}{LogLevel::kTrace}},}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ std::string\ pattern\ =\ kDefaultPattern);}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00120\ \ \ \ \ \mbox{\hyperlink{namespacelogger_a376d71fe05556219f1f9aad6445edf1a}{createFileSink}}(std::string\ loggerName,\ Args...\ args,}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacelogger_a85919e64d5e829ed702a395a9071c952}{FileLoggerTypes}}\ sinkType\ =}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacelogger_a85919e64d5e829ed702a395a9071c952a195959d81393056e7e63bde23ecbb5ac}{FileLoggerTypes::kBasicFile}},}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2}{LogLevel}}\ logLevel\ =\ \mbox{\hyperlink{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2a6f7502c963b900831773c265c768d818}{LogLevel::kTrace}},}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ pattern\ =\ kDefaultPattern);}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacelogger_a7fbafefebfe176ecdbafd645dc0e78dd}{setLoggerPattern}}(std::string\ loggerName,}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ pattern);}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacelogger_a95d7ebf969023bd17ee2c4d3b7235005}{setLoggerLevel}}(std::string\ loggerName,}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2}{LogLevel}}\ logLevel);}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00163\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacelogger_a061e78855d8273e4387a803c269939bc}{log}}(\textcolor{keywordtype}{char}\ *\textcolor{keyword}{const}\ filename,\ \textcolor{keywordtype}{int}\ fileLine,}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ loggerName,\ \mbox{\hyperlink{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2}{LogLevel}}\ logLevel,}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ \textcolor{keyword}{const}\ *msg);}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00174\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespacelogger_a0f49d7980c0fca0ab40b9d83d584c719}{loggerExists}}(std::string\ loggerName);}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00186\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classlogger_1_1_static_logger}{StaticLogger}}\ \{}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classlogger_1_1_static_logger}{StaticLogger}}(\textcolor{keywordtype}{char}\ *\textcolor{keyword}{const}\ name)}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \ \ \ \ :\ name(name)\{\};}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlogger_1_1_static_logger}{\string~StaticLogger}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ *\textcolor{keyword}{const}\ name;}
+\DoxyCodeLine{00192\ }
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classlogger_1_1_static_logger}{StaticLogger}}\ *\mbox{\hyperlink{classlogger_1_1_static_logger_a6b45e41f120ec7f2f4178866ac8fdba3}{getClientLogger}}()\ \{}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{namespacelogger_a0f49d7980c0fca0ab40b9d83d584c719}{logger::loggerExists}}(\textcolor{stringliteral}{"{}Client"{}}))\ \{}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacelogger_a557c7ef1427522e98ca4bfb49a125013}{logger::createConsoleLogger}}(}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Client"{}},\ \mbox{\hyperlink{namespacelogger_a7008ddac10210be5b71f2aa880cea7e2a057f49b4a91c2c9ec20f08b2aad6f3ff}{ConsoleLoggerTypes::kConsole}});}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacelogger_a7fbafefebfe176ecdbafd645dc0e78dd}{logger::setLoggerPattern}}(\textcolor{stringliteral}{"{}Client"{}},}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ kDefaultPattern);}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00208\ }
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classlogger_1_1_static_logger}{StaticLogger}}\ clientLogger(\textcolor{stringliteral}{"{}Client"{}});}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \&clientLogger;}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00212\ }
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classlogger_1_1_static_logger}{StaticLogger}}\ *\mbox{\hyperlink{classlogger_1_1_static_logger_a84f0dce13845c98a09b4e32f170fe46b}{getEngineLogger}}()\ \{}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{namespacelogger_a0f49d7980c0fca0ab40b9d83d584c719}{logger::loggerExists}}(\textcolor{stringliteral}{"{}Engine"{}}))\ \{}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacelogger_a557c7ef1427522e98ca4bfb49a125013}{logger::createConsoleLogger}}(}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Engine"{}},\ \mbox{\hyperlink{namespacelogger_a7008ddac10210be5b71f2aa880cea7e2a057f49b4a91c2c9ec20f08b2aad6f3ff}{ConsoleLoggerTypes::kConsole}});}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacelogger_a7fbafefebfe176ecdbafd645dc0e78dd}{logger::setLoggerPattern}}(\textcolor{stringliteral}{"{}Engine"{}},}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ kDefaultPattern);}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00227\ }
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classlogger_1_1_static_logger}{StaticLogger}}\ engineLogger(\textcolor{stringliteral}{"{}Engine"{}});}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \&engineLogger;}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00231\ }
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlogger_1_1_static_logger_aa402378676a5b662e6ee6cd4ba44d996}{engineLog}}(\textcolor{keywordtype}{char}\ *\textcolor{keyword}{const}\ filename,\ \textcolor{keywordtype}{int}\ line,}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2}{logger::LogLevel}}\ logLevel,}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ *\textcolor{keyword}{const}\ msg)\ \{}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacelogger_a061e78855d8273e4387a803c269939bc}{logger::log}}(}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ filename,\ line,}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlogger_1_1_static_logger_a84f0dce13845c98a09b4e32f170fe46b}{StaticLogger::getEngineLogger}}()-\/>name,}
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ logLevel,\ msg);}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00247\ }
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlogger_1_1_static_logger_a798af870b8d9a006fc42d6ba2c0720ee}{clientLog}}(\textcolor{keywordtype}{char}\ *\textcolor{keyword}{const}\ filename,\ \textcolor{keywordtype}{int}\ line,}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacelogger_a08ef41fb8da9e671d65fcbd87b6574a2}{logger::LogLevel}}\ logLevel,}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ *\textcolor{keyword}{const}\ msg)\ \{}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacelogger_a061e78855d8273e4387a803c269939bc}{logger::log}}(}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ filename,\ line,}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classlogger_1_1_static_logger_a6b45e41f120ec7f2f4178866ac8fdba3}{StaticLogger::getClientLogger}}()-\/>name,}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ logLevel,\ msg);}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00263\ \ \ \ \ \};}
+\DoxyCodeLine{00264\ }
+\DoxyCodeLine{00275\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{namespacelogger_a14b2dd9471150bf0323d2d4cb4c1dfb1}{concatMessage}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *prefix,}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *msg)\ \{}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ len\ =\ std::strlen(prefix)\ +\ std::strlen(msg);}
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ *fullMessage\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{char}[len\ +\ 1];}
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ strcpy(fullMessage,\ prefix);}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ strcat(fullMessage,\ msg);}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ fullMessage;}
+\DoxyCodeLine{00282\ \ \ \ \ \}}
+\DoxyCodeLine{00283\ }
+\DoxyCodeLine{00293\ \textcolor{preprocessor}{\#define\ LOG\_ENGINE(filename,\ line,\ logLevel,\ prefix,\ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00294\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ error)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00295\ \textcolor{preprocessor}{\ \ \ \ logger::StaticLogger::engineLog(\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00296\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \_\_FILE\_\_,\ \_\_LINE\_\_,\ logLevel,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00297\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ logger::concatMessage(prefix,\ error))}}
+\DoxyCodeLine{00298\ }
+\DoxyCodeLine{00304\ \textcolor{preprocessor}{\#define\ LOG\_CLIENT(filename,\ line,\ logLevel,\ prefix,\ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00305\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ error)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00306\ \textcolor{preprocessor}{\ \ \ \ logger::StaticLogger::clientLog(\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00307\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \_\_FILE\_\_,\ \_\_LINE\_\_,\ logLevel,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00308\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ logger::concatMessage(prefix,\ error))}}
+\DoxyCodeLine{00309\ }
+\DoxyCodeLine{00317\ \textcolor{preprocessor}{\#define\ LOG\_ENGINE\_ERROR(prefix,\ error)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00318\ \textcolor{preprocessor}{\ \ \ \ LOG\_ENGINE(\_\_FILE\_\_,\ \_\_LINE\_\_,\ logger::LogLevel::kErr,\ \(\backslash\)}}
+\DoxyCodeLine{00319\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ prefix,\ error)}}
+\DoxyCodeLine{00320\ }
+\DoxyCodeLine{00328\ \textcolor{preprocessor}{\#define\ LOG\_ENGINE\_CRITICAL(prefix,\ error)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00329\ \textcolor{preprocessor}{\ \ \ \ LOG\_ENGINE(\_\_FILE\_\_,\ \_\_LINE\_\_,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00330\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ logger::LogLevel::kCritical,\ prefix,\ error)}}
+\DoxyCodeLine{00331\ }
+\DoxyCodeLine{00338\ \textcolor{preprocessor}{\#define\ LOG\_ENGINE\_INFO(prefix,\ error)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00339\ \textcolor{preprocessor}{\ \ \ \ LOG\_ENGINE(\_\_FILE\_\_,\ \_\_LINE\_\_,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00340\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ logger::LogLevel::kInfo,\ prefix,\ error)}}
+\DoxyCodeLine{00341\ }
+\DoxyCodeLine{00348\ \textcolor{preprocessor}{\#define\ LOG\_ENGINE\_WARN(prefix,\ error)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00349\ \textcolor{preprocessor}{\ \ \ \ LOG\_ENGINE(\_\_FILE\_\_,\ \_\_LINE\_\_,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00350\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ logger::LogLevel::kWarn,\ prefix,\ error)}}
+\DoxyCodeLine{00351\ }
+\DoxyCodeLine{00359\ \textcolor{preprocessor}{\#define\ LOG\_CLIENT\_ERROR(prefix,\ error)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00360\ \textcolor{preprocessor}{\ \ \ \ LOG\_CLIENT(\_\_FILE\_\_,\ \_\_LINE\_\_,\ logger::LogLevel::kErr,\ \(\backslash\)}}
+\DoxyCodeLine{00361\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ prefix,\ error)}}
+\DoxyCodeLine{00362\ }
+\DoxyCodeLine{00370\ \textcolor{preprocessor}{\#define\ LOG\_CLIENT\_CRITICAL(prefix,\ error)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00371\ \textcolor{preprocessor}{\ \ \ \ LOG\_CLIENT(\_\_FILE\_\_,\ \_\_LINE\_\_,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00372\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ logger::LogLevel::kCritical,\ prefix,\ error)}}
+\DoxyCodeLine{00373\ }
+\DoxyCodeLine{00381\ \textcolor{preprocessor}{\#define\ LOG\_CLIENT\_INFO(prefix,\ error)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00382\ \textcolor{preprocessor}{\ \ \ \ LOG\_CLIENT(\_\_FILE\_\_,\ \_\_LINE\_\_,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00383\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ logger::LogLevel::kInfo,\ prefix,\ error)}}
+\DoxyCodeLine{00384\ }
+\DoxyCodeLine{00392\ \textcolor{preprocessor}{\#define\ LOG\_CLIENT\_WARN(prefix,\ error)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00393\ \textcolor{preprocessor}{\ \ \ \ LOG\_CLIENT(\_\_FILE\_\_,\ \_\_LINE\_\_,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00394\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ logger::LogLevel::kWarn,\ prefix,\ error)}}
+\DoxyCodeLine{00395\ \}\ \textcolor{comment}{//\ namespace\ logger}}
+
+\end{DoxyCode}

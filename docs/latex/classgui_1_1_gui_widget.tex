@@ -1,0 +1,145 @@
+\doxysection{gui\+::Gui\+Widget Class Reference}
+\hypertarget{classgui_1_1_gui_widget}{}\label{classgui_1_1_gui_widget}\index{gui::GuiWidget@{gui::GuiWidget}}
+
+
+Widgets /n Based on \"{}\+Im\+Gui\"{} windows.  
+
+
+
+
+{\ttfamily \#include $<$gui\+\_\+widget.\+h$>$}
+
+Inheritance diagram for gui\+::Gui\+Widget\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classgui_1_1_gui_widget}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classgui_1_1_gui_widget_af82e45366f30c98f6c67f25a5d27e4c9}{Gui\+Widget}} (const char \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{classgui_1_1_gui_widget_a7e76213353a41779b9ed70f3cf68fe97}{name}}, std\+::vector$<$ int $>$ \mbox{\hyperlink{classgui_1_1_gui_widget_af25ea7b238770ade707fc9b4e57ee994}{flags}}=\{\})
+\item 
+virtual \mbox{\hyperlink{classgui_1_1_gui_widget_a208f524fe0c7c2070d40b8b8a1307963}{\texorpdfstring{$\sim$}{\string~}\+Gui\+Widget}} ()
+\item 
+virtual void \mbox{\hyperlink{classgui_1_1_gui_widget_a443b4933b167ac9e1f95136ae9e836b7}{begin}} ()
+\begin{DoxyCompactList}\small\item\em Call it to buffer this widget/window for the next frame. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classgui_1_1_gui_widget_a978ece50a8ef46a8963cf0d04cc28138}{end}} ()
+\begin{DoxyCompactList}\small\item\em Call it to stop appending new elements to the widget/window. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classgui_1_1_gui_widget_a42ad684907ce28bc79804b306627292a}{render}} ()
+\begin{DoxyCompactList}\small\item\em Override to present which elements should be rendered in this widget/window, and if there should be any logic bound to changes in those elements (radio button being clicked, slider moved etc.) \end{DoxyCompactList}\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classgui_1_1_gui_widget_a1828488bddcea5013ba46bc8d4f4828f}{get\+Name}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classgui_1_1_gui_widget_a7e76213353a41779b9ed70f3cf68fe97}{name}}
+\item 
+const int \mbox{\hyperlink{classgui_1_1_gui_widget_af25ea7b238770ade707fc9b4e57ee994}{flags}}
+\item 
+bool \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classgui_1_1_gui_widget_acdc3296b4cbe1a6366c3af49350d6d7c}{close}} = new bool(false)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Widgets /n Based on \"{}\+Im\+Gui\"{} windows. 
+
+\begin{DoxyNote}{Note}
+Override with all necessary logic for a widget(member variables, methods etc.) and most importantly \textquotesingle{}\doxylink{classgui_1_1_gui_widget_a42ad684907ce28bc79804b306627292a}{render()}\textquotesingle{} -\/
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+This class should be abstracted to an adapter class, as GUI could be implemented based on other libraries than \"{}\+Im\+Gui\"{} only 
+\end{DoxyWarning}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classgui_1_1_gui_widget_af82e45366f30c98f6c67f25a5d27e4c9}\label{classgui_1_1_gui_widget_af82e45366f30c98f6c67f25a5d27e4c9} 
+\index{gui::GuiWidget@{gui::GuiWidget}!GuiWidget@{GuiWidget}}
+\index{GuiWidget@{GuiWidget}!gui::GuiWidget@{gui::GuiWidget}}
+\doxysubsubsection{\texorpdfstring{GuiWidget()}{GuiWidget()}}
+{\footnotesize\ttfamily gui\+::\+Gui\+Widget\+::\+Gui\+Widget (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{name,  }\item[{std\+::vector$<$ int $>$}]{flags = {\ttfamily \{\}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classgui_1_1_gui_widget_a208f524fe0c7c2070d40b8b8a1307963}\label{classgui_1_1_gui_widget_a208f524fe0c7c2070d40b8b8a1307963} 
+\index{gui::GuiWidget@{gui::GuiWidget}!````~GuiWidget@{\texorpdfstring{$\sim$}{\string~}GuiWidget}}
+\index{````~GuiWidget@{\texorpdfstring{$\sim$}{\string~}GuiWidget}!gui::GuiWidget@{gui::GuiWidget}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}GuiWidget()}{\string~GuiWidget()}}
+{\footnotesize\ttfamily virtual gui\+::\+Gui\+Widget\+::\texorpdfstring{$\sim$}{\string~}\+Gui\+Widget (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classgui_1_1_gui_widget_a443b4933b167ac9e1f95136ae9e836b7}\label{classgui_1_1_gui_widget_a443b4933b167ac9e1f95136ae9e836b7} 
+\index{gui::GuiWidget@{gui::GuiWidget}!begin@{begin}}
+\index{begin@{begin}!gui::GuiWidget@{gui::GuiWidget}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily virtual void gui\+::\+Gui\+Widget\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Call it to buffer this widget/window for the next frame. 
+
+\begin{DoxyNote}{Note}
+Before \"{}render()\"{} 
+\end{DoxyNote}
+\Hypertarget{classgui_1_1_gui_widget_a978ece50a8ef46a8963cf0d04cc28138}\label{classgui_1_1_gui_widget_a978ece50a8ef46a8963cf0d04cc28138} 
+\index{gui::GuiWidget@{gui::GuiWidget}!end@{end}}
+\index{end@{end}!gui::GuiWidget@{gui::GuiWidget}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}}
+{\footnotesize\ttfamily virtual void gui\+::\+Gui\+Widget\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Call it to stop appending new elements to the widget/window. 
+
+\begin{DoxyNote}{Note}
+After \"{}render()\"{} 
+\end{DoxyNote}
+\Hypertarget{classgui_1_1_gui_widget_a1828488bddcea5013ba46bc8d4f4828f}\label{classgui_1_1_gui_widget_a1828488bddcea5013ba46bc8d4f4828f} 
+\index{gui::GuiWidget@{gui::GuiWidget}!getName@{getName}}
+\index{getName@{getName}!gui::GuiWidget@{gui::GuiWidget}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily const char \texorpdfstring{$\ast$}{*} gui\+::\+Gui\+Widget\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classgui_1_1_gui_widget_a42ad684907ce28bc79804b306627292a}\label{classgui_1_1_gui_widget_a42ad684907ce28bc79804b306627292a} 
+\index{gui::GuiWidget@{gui::GuiWidget}!render@{render}}
+\index{render@{render}!gui::GuiWidget@{gui::GuiWidget}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily virtual void gui\+::\+Gui\+Widget\+::render (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Override to present which elements should be rendered in this widget/window, and if there should be any logic bound to changes in those elements (radio button being clicked, slider moved etc.) 
+
+\begin{DoxySeeAlso}{See also}
+\"{}gui\+::\+Example\+Widget\"{} 
+\end{DoxySeeAlso}
+
+
+Reimplemented in \mbox{\hyperlink{classgui_1_1_example_widget_a0720761f3f39fcb4c20521096a8008d1}{gui\+::\+Example\+Widget}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classgui_1_1_gui_widget_acdc3296b4cbe1a6366c3af49350d6d7c}\label{classgui_1_1_gui_widget_acdc3296b4cbe1a6366c3af49350d6d7c} 
+\index{gui::GuiWidget@{gui::GuiWidget}!close@{close}}
+\index{close@{close}!gui::GuiWidget@{gui::GuiWidget}}
+\doxysubsubsection{\texorpdfstring{close}{close}}
+{\footnotesize\ttfamily bool\texorpdfstring{$\ast$}{*} gui\+::\+Gui\+Widget\+::close = new bool(false)\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{classgui_1_1_gui_widget_af25ea7b238770ade707fc9b4e57ee994}\label{classgui_1_1_gui_widget_af25ea7b238770ade707fc9b4e57ee994} 
+\index{gui::GuiWidget@{gui::GuiWidget}!flags@{flags}}
+\index{flags@{flags}!gui::GuiWidget@{gui::GuiWidget}}
+\doxysubsubsection{\texorpdfstring{flags}{flags}}
+{\footnotesize\ttfamily const int gui\+::\+Gui\+Widget\+::flags\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{classgui_1_1_gui_widget_a7e76213353a41779b9ed70f3cf68fe97}\label{classgui_1_1_gui_widget_a7e76213353a41779b9ed70f3cf68fe97} 
+\index{gui::GuiWidget@{gui::GuiWidget}!name@{name}}
+\index{name@{name}!gui::GuiWidget@{gui::GuiWidget}}
+\doxysubsubsection{\texorpdfstring{name}{name}}
+{\footnotesize\ttfamily const char\texorpdfstring{$\ast$}{*} gui\+::\+Gui\+Widget\+::name\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+engine/gui/core/\mbox{\hyperlink{gui__widget_8h}{gui\+\_\+widget.\+h}}\end{DoxyCompactItemize}

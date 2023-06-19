@@ -1,0 +1,126 @@
+\doxysection{application\+::Visualizer Class Reference}
+\hypertarget{classapplication_1_1_visualizer}{}\label{classapplication_1_1_visualizer}\index{application::Visualizer@{application::Visualizer}}
+
+
+{\ttfamily \#include $<$Visualizer.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structapplication_1_1_return_value}{Return\+Value}}$<$ \mbox{\hyperlink{classobjects_1_1_window}{objects\+::\+Window}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{classapplication_1_1_visualizer_a2842feea5429347341da5a515995ff80}{Create\+Window}} (int width, int height, const char \texorpdfstring{$\ast$}{*}title)
+\item 
+\mbox{\hyperlink{structapplication_1_1_return_value}{Return\+Value}}$<$ \mbox{\hyperlink{classobjects_1_1_renderer}{objects\+::\+Renderer}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{classapplication_1_1_visualizer_a839ab275eda70264e3f634cf243127f3}{create\+Renderer}} ()
+\item 
+bool \mbox{\hyperlink{classapplication_1_1_visualizer_a2b8343214621565011acf36083356d1e}{set\+Draw\+Color}} (uint32\+\_\+t r, uint32\+\_\+t g, uint32\+\_\+t b, uint32\+\_\+t a)
+\item 
+\mbox{\hyperlink{structapplication_1_1_return_value}{Return\+Value}}$<$ \mbox{\hyperlink{classobjects_1_1_texture}{objects\+::\+Texture}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{classapplication_1_1_visualizer_af207814e41c664b47216c35d9839c9cf}{Load\+Texture}} (const char \texorpdfstring{$\ast$}{*}path)
+\item 
+bool \mbox{\hyperlink{classapplication_1_1_visualizer_aef3f0822cde4e65194e08f57b52c0ace}{Render\+Texture}} (\mbox{\hyperlink{classobjects_1_1_texture}{objects\+::\+Texture}} \texorpdfstring{$\ast$}{*}texture, float x, float y)
+\item 
+void \mbox{\hyperlink{classapplication_1_1_visualizer_aff2befccd142effc53d44629cea960de}{Clear\+Renderer}} ()
+\item 
+void \mbox{\hyperlink{classapplication_1_1_visualizer_a0c19e09d0dc067753ddd912898223c47}{Call\+Frame}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classapplication_1_1_visualizer}{Visualizer}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classapplication_1_1_visualizer_a7bdd5cde5198b992ff5cb5158320e687}{get}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classapplication_1_1_visualizer_adf8dbc5a08f37644c62df3c18364c92c}{Init}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classapplication_1_1_visualizer_af4ae0fcb8ee427759c11af4830f54be3}{initialized}}
+\item 
+\mbox{\hyperlink{classobjects_1_1_renderer}{objects\+::\+Renderer}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classapplication_1_1_visualizer_ab4fcac56a554829003dffdc60672d4ce}{renderer}}
+\item 
+\mbox{\hyperlink{classobjects_1_1_window}{objects\+::\+Window}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classapplication_1_1_visualizer_a81255d6cb22e90d792d3638362b53107}{window}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classapplication_1_1_visualizer_a0c19e09d0dc067753ddd912898223c47}\label{classapplication_1_1_visualizer_a0c19e09d0dc067753ddd912898223c47} 
+\index{application::Visualizer@{application::Visualizer}!CallFrame@{CallFrame}}
+\index{CallFrame@{CallFrame}!application::Visualizer@{application::Visualizer}}
+\doxysubsubsection{\texorpdfstring{CallFrame()}{CallFrame()}}
+{\footnotesize\ttfamily void Visualizer\+::\+Call\+Frame (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classapplication_1_1_visualizer_aff2befccd142effc53d44629cea960de}\label{classapplication_1_1_visualizer_aff2befccd142effc53d44629cea960de} 
+\index{application::Visualizer@{application::Visualizer}!ClearRenderer@{ClearRenderer}}
+\index{ClearRenderer@{ClearRenderer}!application::Visualizer@{application::Visualizer}}
+\doxysubsubsection{\texorpdfstring{ClearRenderer()}{ClearRenderer()}}
+{\footnotesize\ttfamily void Visualizer\+::\+Clear\+Renderer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classapplication_1_1_visualizer_a839ab275eda70264e3f634cf243127f3}\label{classapplication_1_1_visualizer_a839ab275eda70264e3f634cf243127f3} 
+\index{application::Visualizer@{application::Visualizer}!createRenderer@{createRenderer}}
+\index{createRenderer@{createRenderer}!application::Visualizer@{application::Visualizer}}
+\doxysubsubsection{\texorpdfstring{createRenderer()}{createRenderer()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structapplication_1_1_return_value}{Return\+Value}}$<$ \mbox{\hyperlink{classobjects_1_1_renderer}{objects\+::\+Renderer}} \texorpdfstring{$\ast$}{*} $>$ Visualizer\+::create\+Renderer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classapplication_1_1_visualizer_a2842feea5429347341da5a515995ff80}\label{classapplication_1_1_visualizer_a2842feea5429347341da5a515995ff80} 
+\index{application::Visualizer@{application::Visualizer}!CreateWindow@{CreateWindow}}
+\index{CreateWindow@{CreateWindow}!application::Visualizer@{application::Visualizer}}
+\doxysubsubsection{\texorpdfstring{CreateWindow()}{CreateWindow()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structapplication_1_1_return_value}{Return\+Value}}$<$ \mbox{\hyperlink{classobjects_1_1_window}{objects\+::\+Window}} \texorpdfstring{$\ast$}{*} $>$ Visualizer\+::\+Create\+Window (\begin{DoxyParamCaption}\item[{int}]{width,  }\item[{int}]{height,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{title }\end{DoxyParamCaption})}
+
+\Hypertarget{classapplication_1_1_visualizer_a7bdd5cde5198b992ff5cb5158320e687}\label{classapplication_1_1_visualizer_a7bdd5cde5198b992ff5cb5158320e687} 
+\index{application::Visualizer@{application::Visualizer}!get@{get}}
+\index{get@{get}!application::Visualizer@{application::Visualizer}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classapplication_1_1_visualizer}{Visualizer}} \texorpdfstring{$\ast$}{*} Visualizer\+::get (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{classapplication_1_1_visualizer_adf8dbc5a08f37644c62df3c18364c92c}\label{classapplication_1_1_visualizer_adf8dbc5a08f37644c62df3c18364c92c} 
+\index{application::Visualizer@{application::Visualizer}!Init@{Init}}
+\index{Init@{Init}!application::Visualizer@{application::Visualizer}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily bool Visualizer\+::\+Init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{classapplication_1_1_visualizer_af207814e41c664b47216c35d9839c9cf}\label{classapplication_1_1_visualizer_af207814e41c664b47216c35d9839c9cf} 
+\index{application::Visualizer@{application::Visualizer}!LoadTexture@{LoadTexture}}
+\index{LoadTexture@{LoadTexture}!application::Visualizer@{application::Visualizer}}
+\doxysubsubsection{\texorpdfstring{LoadTexture()}{LoadTexture()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structapplication_1_1_return_value}{Return\+Value}}$<$ \mbox{\hyperlink{classobjects_1_1_texture}{objects\+::\+Texture}} \texorpdfstring{$\ast$}{*} $>$ Visualizer\+::\+Load\+Texture (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{path }\end{DoxyParamCaption})}
+
+\Hypertarget{classapplication_1_1_visualizer_aef3f0822cde4e65194e08f57b52c0ace}\label{classapplication_1_1_visualizer_aef3f0822cde4e65194e08f57b52c0ace} 
+\index{application::Visualizer@{application::Visualizer}!RenderTexture@{RenderTexture}}
+\index{RenderTexture@{RenderTexture}!application::Visualizer@{application::Visualizer}}
+\doxysubsubsection{\texorpdfstring{RenderTexture()}{RenderTexture()}}
+{\footnotesize\ttfamily bool Visualizer\+::\+Render\+Texture (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classobjects_1_1_texture}{objects\+::\+Texture}} \texorpdfstring{$\ast$}{*}}]{texture,  }\item[{float}]{x,  }\item[{float}]{y }\end{DoxyParamCaption})}
+
+\Hypertarget{classapplication_1_1_visualizer_a2b8343214621565011acf36083356d1e}\label{classapplication_1_1_visualizer_a2b8343214621565011acf36083356d1e} 
+\index{application::Visualizer@{application::Visualizer}!setDrawColor@{setDrawColor}}
+\index{setDrawColor@{setDrawColor}!application::Visualizer@{application::Visualizer}}
+\doxysubsubsection{\texorpdfstring{setDrawColor()}{setDrawColor()}}
+{\footnotesize\ttfamily bool Visualizer\+::set\+Draw\+Color (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{r,  }\item[{uint32\+\_\+t}]{g,  }\item[{uint32\+\_\+t}]{b,  }\item[{uint32\+\_\+t}]{a }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classapplication_1_1_visualizer_af4ae0fcb8ee427759c11af4830f54be3}\label{classapplication_1_1_visualizer_af4ae0fcb8ee427759c11af4830f54be3} 
+\index{application::Visualizer@{application::Visualizer}!initialized@{initialized}}
+\index{initialized@{initialized}!application::Visualizer@{application::Visualizer}}
+\doxysubsubsection{\texorpdfstring{initialized}{initialized}}
+{\footnotesize\ttfamily bool application\+::\+Visualizer\+::initialized\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{classapplication_1_1_visualizer_ab4fcac56a554829003dffdc60672d4ce}\label{classapplication_1_1_visualizer_ab4fcac56a554829003dffdc60672d4ce} 
+\index{application::Visualizer@{application::Visualizer}!renderer@{renderer}}
+\index{renderer@{renderer}!application::Visualizer@{application::Visualizer}}
+\doxysubsubsection{\texorpdfstring{renderer}{renderer}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classobjects_1_1_renderer}{objects\+::\+Renderer}}\texorpdfstring{$\ast$}{*} application\+::\+Visualizer\+::renderer\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{classapplication_1_1_visualizer_a81255d6cb22e90d792d3638362b53107}\label{classapplication_1_1_visualizer_a81255d6cb22e90d792d3638362b53107} 
+\index{application::Visualizer@{application::Visualizer}!window@{window}}
+\index{window@{window}!application::Visualizer@{application::Visualizer}}
+\doxysubsubsection{\texorpdfstring{window}{window}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classobjects_1_1_window}{objects\+::\+Window}}\texorpdfstring{$\ast$}{*} application\+::\+Visualizer\+::window\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+experiments/objects/\mbox{\hyperlink{_visualizer_8h}{Visualizer.\+h}}\item 
+experiments/objects/\mbox{\hyperlink{_visualizer_8cpp}{Visualizer.\+cpp}}\end{DoxyCompactItemize}

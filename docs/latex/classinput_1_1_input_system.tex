@@ -1,0 +1,201 @@
+\doxysection{input\+::Input\+System Class Reference}
+\hypertarget{classinput_1_1_input_system}{}\label{classinput_1_1_input_system}\index{input::InputSystem@{input::InputSystem}}
+
+
+Separate instances of created input systems with different origin should be allowed. ~\newline
+ Emits events on detected implemented input from input devices.  
+
+
+
+
+{\ttfamily \#include $<$input\+\_\+misc.\+h$>$}
+
+Inheritance diagram for input\+::Input\+System\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classinput_1_1_input_system}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classinput_1_1_input_system_aedf266cfefe52c6081d7a764c0841a3d}{\texorpdfstring{$\sim$}{\string~}\+Input\+System}} ()=default
+\item 
+\mbox{\hyperlink{classinput_1_1_input_system_a605272d3ccb7a274ebd681ea403b7728}{Input\+System}} ()=default
+\item 
+virtual void \mbox{\hyperlink{classinput_1_1_input_system_a51f9e671294678880335c813af717219}{init}} ()
+\begin{DoxyCompactList}\small\item\em Initialize library/libraries used to poll input, based on the implementation. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classinput_1_1_input_system_ae87190c043262be98732ee6b35fbd881}{poll}} ()
+\begin{DoxyCompactList}\small\item\em Run each frame on a separate thread. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classinput_1_1_input_system_a8ee03540b5901589131e513744086484}{terminate}} ()
+\begin{DoxyCompactList}\small\item\em Terminate current input system instance. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classinput_1_1_input_system_a8603d8bfe5d2d0878979fa516928c489}{shutdown}} ()
+\begin{DoxyCompactList}\small\item\em Shutdown all libraries related to this implementation of the input system. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classutils_1_1_event_emitter}{utils\+::\+Event\+Emitter}} \texorpdfstring{$\ast$}{*}const \mbox{\hyperlink{classinput_1_1_input_system_ad9fea74dd05c4ec1bd9248f81e7ec111}{get\+Emitter}} ()
+\begin{DoxyCompactList}\small\item\em Retrieve a pointer of the event emitter. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structinput_1_1_controller}{Controller}} \texorpdfstring{$\ast$}{*}const \mbox{\hyperlink{classinput_1_1_input_system_a90be8d2752b78538b61d1cc9418c5165}{get\+Controller}} (int id)
+\begin{DoxyCompactList}\small\item\em Get a pointer to one of the connected controllers to this input system. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classutils_1_1_event_emitter}{utils\+::\+Event\+Emitter}} \mbox{\hyperlink{classinput_1_1_input_system_ad3431524bf2fb6da3767b628876294dc}{event\+Emitter}}
+\begin{DoxyCompactList}\small\item\em Retrieve a pointer of the event emitter. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{structinput_1_1_controller}{Controller}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{classinput_1_1_input_system_a4cc82ab77b3aa70b4a820fe2ac3db5e8}{active\+Controllers}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Separate instances of created input systems with different origin should be allowed. ~\newline
+ Emits events on detected implemented input from input devices. 
+
+\begin{DoxyWarning}{Warning}
+Contains intances of connected controllers which need to be destroyed, deleted and cleaned up before a {\ttfamily terminate} of each system 
+\end{DoxyWarning}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classinput_1_1_input_system_aedf266cfefe52c6081d7a764c0841a3d}\label{classinput_1_1_input_system_aedf266cfefe52c6081d7a764c0841a3d} 
+\index{input::InputSystem@{input::InputSystem}!````~InputSystem@{\texorpdfstring{$\sim$}{\string~}InputSystem}}
+\index{````~InputSystem@{\texorpdfstring{$\sim$}{\string~}InputSystem}!input::InputSystem@{input::InputSystem}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}InputSystem()}{\string~InputSystem()}}
+{\footnotesize\ttfamily input\+::\+Input\+System\+::\texorpdfstring{$\sim$}{\string~}\+Input\+System (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\Hypertarget{classinput_1_1_input_system_a605272d3ccb7a274ebd681ea403b7728}\label{classinput_1_1_input_system_a605272d3ccb7a274ebd681ea403b7728} 
+\index{input::InputSystem@{input::InputSystem}!InputSystem@{InputSystem}}
+\index{InputSystem@{InputSystem}!input::InputSystem@{input::InputSystem}}
+\doxysubsubsection{\texorpdfstring{InputSystem()}{InputSystem()}}
+{\footnotesize\ttfamily input\+::\+Input\+System\+::\+Input\+System (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classinput_1_1_input_system_a90be8d2752b78538b61d1cc9418c5165}\label{classinput_1_1_input_system_a90be8d2752b78538b61d1cc9418c5165} 
+\index{input::InputSystem@{input::InputSystem}!getController@{getController}}
+\index{getController@{getController}!input::InputSystem@{input::InputSystem}}
+\doxysubsubsection{\texorpdfstring{getController()}{getController()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structinput_1_1_controller}{Controller}} \texorpdfstring{$\ast$}{*}const input\+::\+Input\+System\+::get\+Controller (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get a pointer to one of the connected controllers to this input system. 
+
+\begin{DoxyNote}{Note}
+Input events of that controller
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em id} & of the controller \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+valid\+: Controller\texorpdfstring{$\ast$}{*} const ~\newline
+ invalid\+: nullptr 
+\end{DoxyReturn}
+\Hypertarget{classinput_1_1_input_system_ad9fea74dd05c4ec1bd9248f81e7ec111}\label{classinput_1_1_input_system_ad9fea74dd05c4ec1bd9248f81e7ec111} 
+\index{input::InputSystem@{input::InputSystem}!getEmitter@{getEmitter}}
+\index{getEmitter@{getEmitter}!input::InputSystem@{input::InputSystem}}
+\doxysubsubsection{\texorpdfstring{getEmitter()}{getEmitter()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classutils_1_1_event_emitter}{utils\+::\+Event\+Emitter}} \texorpdfstring{$\ast$}{*}const input\+::\+Input\+System\+::get\+Emitter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieve a pointer of the event emitter. 
+
+\begin{DoxyWarning}{Warning}
+Changes on the member variables of the emitter are not permitted, externally
+\end{DoxyWarning}
+\begin{DoxyReturn}{Returns}
+\doxylink{classutils_1_1_event_emitter}{utils\+::\+Event\+Emitter}\texorpdfstring{$\ast$}{*} const 
+\end{DoxyReturn}
+\Hypertarget{classinput_1_1_input_system_a51f9e671294678880335c813af717219}\label{classinput_1_1_input_system_a51f9e671294678880335c813af717219} 
+\index{input::InputSystem@{input::InputSystem}!init@{init}}
+\index{init@{init}!input::InputSystem@{input::InputSystem}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily virtual void input\+::\+Input\+System\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Initialize library/libraries used to poll input, based on the implementation. 
+
+
+
+Reimplemented in \mbox{\hyperlink{classinput_1_1sdl_1_1_sdl_input_system_a05d2c0cdfbe6a11359127f15909ca0d8}{input\+::sdl\+::\+Sdl\+Input\+System}}.
+
+\Hypertarget{classinput_1_1_input_system_ae87190c043262be98732ee6b35fbd881}\label{classinput_1_1_input_system_ae87190c043262be98732ee6b35fbd881} 
+\index{input::InputSystem@{input::InputSystem}!poll@{poll}}
+\index{poll@{poll}!input::InputSystem@{input::InputSystem}}
+\doxysubsubsection{\texorpdfstring{poll()}{poll()}}
+{\footnotesize\ttfamily virtual void input\+::\+Input\+System\+::poll (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Run each frame on a separate thread. 
+
+
+
+Reimplemented in \mbox{\hyperlink{classinput_1_1sdl_1_1_sdl_input_system_ab26a4bfbebe703a55c73b818561b301b}{input\+::sdl\+::\+Sdl\+Input\+System}}.
+
+\Hypertarget{classinput_1_1_input_system_a8603d8bfe5d2d0878979fa516928c489}\label{classinput_1_1_input_system_a8603d8bfe5d2d0878979fa516928c489} 
+\index{input::InputSystem@{input::InputSystem}!shutdown@{shutdown}}
+\index{shutdown@{shutdown}!input::InputSystem@{input::InputSystem}}
+\doxysubsubsection{\texorpdfstring{shutdown()}{shutdown()}}
+{\footnotesize\ttfamily virtual void input\+::\+Input\+System\+::shutdown (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Shutdown all libraries related to this implementation of the input system. 
+
+\begin{DoxyWarning}{Warning}
+Do not call this method until all instances of the current implementation haven\textquotesingle{}t been terminate -\/ otherwise could lead to undefined and unhandled behaviour 
+\end{DoxyWarning}
+
+
+Reimplemented in \mbox{\hyperlink{classinput_1_1sdl_1_1_sdl_input_system_a585178bff54806e0a7f6e6ab47862c82}{input\+::sdl\+::\+Sdl\+Input\+System}}.
+
+\Hypertarget{classinput_1_1_input_system_a8ee03540b5901589131e513744086484}\label{classinput_1_1_input_system_a8ee03540b5901589131e513744086484} 
+\index{input::InputSystem@{input::InputSystem}!terminate@{terminate}}
+\index{terminate@{terminate}!input::InputSystem@{input::InputSystem}}
+\doxysubsubsection{\texorpdfstring{terminate()}{terminate()}}
+{\footnotesize\ttfamily virtual void input\+::\+Input\+System\+::terminate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Terminate current input system instance. 
+
+
+
+Reimplemented in \mbox{\hyperlink{classinput_1_1sdl_1_1_sdl_input_system_a3390345aea4bc638081b664f275a00c2}{input\+::sdl\+::\+Sdl\+Input\+System}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classinput_1_1_input_system_a4cc82ab77b3aa70b4a820fe2ac3db5e8}\label{classinput_1_1_input_system_a4cc82ab77b3aa70b4a820fe2ac3db5e8} 
+\index{input::InputSystem@{input::InputSystem}!activeControllers@{activeControllers}}
+\index{activeControllers@{activeControllers}!input::InputSystem@{input::InputSystem}}
+\doxysubsubsection{\texorpdfstring{activeControllers}{activeControllers}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{structinput_1_1_controller}{Controller}} \texorpdfstring{$\ast$}{*}$>$ input\+::\+Input\+System\+::active\+Controllers\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{classinput_1_1_input_system_ad3431524bf2fb6da3767b628876294dc}\label{classinput_1_1_input_system_ad3431524bf2fb6da3767b628876294dc} 
+\index{input::InputSystem@{input::InputSystem}!eventEmitter@{eventEmitter}}
+\index{eventEmitter@{eventEmitter}!input::InputSystem@{input::InputSystem}}
+\doxysubsubsection{\texorpdfstring{eventEmitter}{eventEmitter}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classutils_1_1_event_emitter}{utils\+::\+Event\+Emitter}} input\+::\+Input\+System\+::event\+Emitter\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Retrieve a pointer of the event emitter. 
+
+\begin{DoxyNote}{Note}
+\doxylink{structinput_1_1_controller}{Controller} creation, controller removal, mouse and keyboard events 
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+Changes on the member variables of the emitter are not permitted, externally
+\end{DoxyWarning}
+\begin{DoxyReturn}{Returns}
+\doxylink{classutils_1_1_event_emitter}{utils\+::\+Event\+Emitter}\texorpdfstring{$\ast$}{*} const 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+engine/input/\mbox{\hyperlink{input__misc_8h}{input\+\_\+misc.\+h}}\end{DoxyCompactItemize}

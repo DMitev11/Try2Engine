@@ -1,0 +1,165 @@
+\doxysection{event\+\_\+emitter.\+hpp}
+\hypertarget{event__emitter_8hpp_source}{}\label{event__emitter_8hpp_source}\index{engine/utils/event\_emitter.hpp@{engine/utils/event\_emitter.hpp}}
+\mbox{\hyperlink{event__emitter_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <functional>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{logger_8h}{logger/logger.h}}>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{00008\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceutils}{utils}}\ \{}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classutils_1_1_event_emitter}{EventEmitter}}\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classutils_1_1_event_emitter_a03b038bc762deedd42489d282700d881}{EventEmitter}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classutils_1_1_event_emitter_a8a2af8f520cb2aecb76a7983faf2e006}{\string~EventEmitter}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classutils_1_1_event_emitter_a9d402686891913ffa999a175506f7fe9}{Emit}}(\textcolor{keywordtype}{int}\ event,\ Args...\ args);}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ uint32\_t\ \mbox{\hyperlink{classutils_1_1_event_emitter_ad5951fb2197b05a772272cb9d5e66af9}{On}}(\textcolor{keywordtype}{int}\ event,}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::function<\textcolor{keywordtype}{void}(Args...)>\ cb);}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ uint32\_t\ \mbox{\hyperlink{classutils_1_1_event_emitter_a16ee805068c350dab6971eda8ab8a9e2}{On}}(\textcolor{keywordtype}{int}\ event,\ std::function<\textcolor{keywordtype}{void}()>\ cb);}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ uint32\_t\ \mbox{\hyperlink{classutils_1_1_event_emitter_aa761f0251b46ed59a82f71e5044761fc}{Once}}(\textcolor{keywordtype}{int}\ event,}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::function<\textcolor{keywordtype}{void}(Args...)>\ cb);}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ uint32\_t\ \mbox{\hyperlink{classutils_1_1_event_emitter_a2f7ca445469e2eb2e50dc97c99f0a306}{Once}}(\textcolor{keywordtype}{int}\ event,\ std::function<\textcolor{keywordtype}{void}()>\ cb);}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classutils_1_1_event_emitter_a24e2e0020720cef00adc7276395a9ba7}{Remove}}(\textcolor{keywordtype}{int}\ event,\ uint32\_t\ \textcolor{keywordtype}{id})\ \{}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ i\ =\ this-\/>\mbox{\hyperlink{classutils_1_1_event_emitter_af0c20406d32821d12d2023a0ba8cf082}{listeners}}.find(event);}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ ==\ \mbox{\hyperlink{classutils_1_1_event_emitter_af0c20406d32821d12d2023a0ba8cf082}{listeners}}.end())\ \{}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}invalid\ event\ key"{}});}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \&map\ =\ i-\/>second;}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ j\ =\ map.find(\textcolor{keywordtype}{id});}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (j\ ==\ map.end())\ \{}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}invalid\ listener\ key"{}});}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ std::shared\_ptr<ListenerBase>\ \&ptr\ =\ j-\/>second;}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ ptr.reset();}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ ptr\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ map.erase(j);}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (map.empty())\ \{}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classutils_1_1_event_emitter_af0c20406d32821d12d2023a0ba8cf082}{listeners}}.erase(i);}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classutils_1_1_event_emitter_aab1d4801d69af04a3eb17ec19df1eb51}{EventEmitter}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classutils_1_1_event_emitter}{EventEmitter}}\ \&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classutils_1_1_event_emitter_a49b8d912133982984d88565ea1bde647}{EventEmitter}}(\mbox{\hyperlink{classutils_1_1_event_emitter}{EventEmitter}}\ \&\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ uint32\_t\ \mbox{\hyperlink{classutils_1_1_event_emitter_a4b80f456f8d5214c7a3231f080cb5181}{AddListener}}(\textcolor{keywordtype}{int}\ event,\ \textcolor{keywordtype}{bool}\ callOnce,}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::function<\textcolor{keywordtype}{void}(Args...)>);}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classutils_1_1_event_emitter_a9803e9edae1a026416b50e3de961b154}{EmitEvent}}(\textcolor{keywordtype}{int}\ event,\ Args...\ args);}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structutils_1_1_event_emitter_1_1_listener_base}{ListenerBase}}\ \{}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structutils_1_1_event_emitter_1_1_listener_base_a1e4d4e5d7721e95ea944b723ce810b39}{ListenerBase}}()\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structutils_1_1_event_emitter_1_1_listener_base_a000b6e692f576b7df0448746f6beabd5}{ListenerBase}}(\textcolor{keywordtype}{int}\ \mbox{\hyperlink{structutils_1_1_event_emitter_1_1_listener_base_a28ca8fc774b4c5151cc1b9216af9d370}{event}},\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structutils_1_1_event_emitter_1_1_listener_base_a2c41e764db62c54817a6b64213161c32}{callOnce}})}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{structutils_1_1_event_emitter_1_1_listener_base_a28ca8fc774b4c5151cc1b9216af9d370}{event}}(\mbox{\hyperlink{structutils_1_1_event_emitter_1_1_listener_base_a28ca8fc774b4c5151cc1b9216af9d370}{event}}),\ \mbox{\hyperlink{structutils_1_1_event_emitter_1_1_listener_base_a2c41e764db62c54817a6b64213161c32}{callOnce}}(\mbox{\hyperlink{structutils_1_1_event_emitter_1_1_listener_base_a2c41e764db62c54817a6b64213161c32}{callOnce}})\ \{\}}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{structutils_1_1_event_emitter_1_1_listener_base_a9d046dd320cffd7807d37a2dd6074d6b}{\string~ListenerBase}}()\ \{\}}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structutils_1_1_event_emitter_1_1_listener_base_a28ca8fc774b4c5151cc1b9216af9d370}{event}};}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structutils_1_1_event_emitter_1_1_listener_base_a2c41e764db62c54817a6b64213161c32}{callOnce}};}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structutils_1_1_event_emitter_1_1_listener}{Listener}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{structutils_1_1_event_emitter_1_1_listener_base}{ListenerBase}}\ \{}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structutils_1_1_event_emitter_1_1_listener_a66b5c1b1bb3c5bed35ce3ffd3d0d1c60}{Listener}}()\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00184\ }
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structutils_1_1_event_emitter_1_1_listener_afe2871ba6a5849c5b94f89f22e63eb2a}{Listener}}(\textcolor{keywordtype}{int}\ \mbox{\hyperlink{structutils_1_1_event_emitter_1_1_listener_base_a28ca8fc774b4c5151cc1b9216af9d370}{event}},\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structutils_1_1_event_emitter_1_1_listener_base_a2c41e764db62c54817a6b64213161c32}{callOnce}},}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::function<\textcolor{keywordtype}{void}(Args...)>\ c)}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{structutils_1_1_event_emitter_1_1_listener_base}{ListenerBase}}(\mbox{\hyperlink{structutils_1_1_event_emitter_1_1_listener_base_a28ca8fc774b4c5151cc1b9216af9d370}{event}},\ \mbox{\hyperlink{structutils_1_1_event_emitter_1_1_listener_base_a2c41e764db62c54817a6b64213161c32}{callOnce}}),\ \mbox{\hyperlink{structutils_1_1_event_emitter_1_1_listener_a359d58276861c40b35e5c4b424da0463}{cb}}(c)\ \{\}}
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \ \ \ \ std::function<void(Args...)>\ \mbox{\hyperlink{structutils_1_1_event_emitter_1_1_listener_a359d58276861c40b35e5c4b424da0463}{cb}};}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00191\ }
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ std::unordered\_map<}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \ \ \ \ int,\ std::map<uint32\_t,}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::shared\_ptr<ListenerBase>>>}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classutils_1_1_event_emitter_af0c20406d32821d12d2023a0ba8cf082}{listeners}};}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ std::unordered\_map<int,\ uint32\_t>\ \mbox{\hyperlink{classutils_1_1_event_emitter_a632a0d6e7fe993395ea5d1e541b5aeba}{lastListener}};}
+\DoxyCodeLine{00220\ \ \ \ \ \};}
+\DoxyCodeLine{00221\ }
+\DoxyCodeLine{00222\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00223\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{classutils_1_1_event_emitter_a4b80f456f8d5214c7a3231f080cb5181}{EventEmitter::AddListener}}(}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ event,\ \textcolor{keywordtype}{bool}\ callOnce,}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ std::function<\textcolor{keywordtype}{void}(Args...)>\ cb)\ \{}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!cb)\ \{}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{logger_8h_a77faaf9fac0831902b20d4fdbb87fb2b}{LOG\_ENGINE\_ERROR}}(\textcolor{stringliteral}{"{}EventEmitter:\ "{}},}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}invalid\ cb"{}});}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>\mbox{\hyperlink{classutils_1_1_event_emitter_a632a0d6e7fe993395ea5d1e541b5aeba}{lastListener}}.end()\ ==}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>lastListener.find(event))\ \{}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classutils_1_1_event_emitter_a632a0d6e7fe993395ea5d1e541b5aeba}{lastListener}}[event]\ =\ 0;}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ uint32\_t\ \textcolor{keywordtype}{id}\ =\ ++this-\/>\mbox{\hyperlink{classutils_1_1_event_emitter_a632a0d6e7fe993395ea5d1e541b5aeba}{lastListener}}[event];}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>\mbox{\hyperlink{classutils_1_1_event_emitter_af0c20406d32821d12d2023a0ba8cf082}{listeners}}.find(event)\ ==}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>listeners.end())\ \{}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classutils_1_1_event_emitter_af0c20406d32821d12d2023a0ba8cf082}{listeners}}[event]\ =}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::map<uint32\_t,}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::shared\_ptr<ListenerBase>>();}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classutils_1_1_event_emitter_af0c20406d32821d12d2023a0ba8cf082}{listeners}}[event][id]\ =}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \ \ \ \ std::make\_shared<\mbox{\hyperlink{structutils_1_1_event_emitter_1_1_listener}{Listener}}<Args...>>(}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ id,\ callOnce,\ cb);}
+\DoxyCodeLine{00244\ }
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ id;}
+\DoxyCodeLine{00246\ \ \ \ \ \}}
+\DoxyCodeLine{00247\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00248\ \ \ \ \ uint32\_t}
+\DoxyCodeLine{00249\ \ \ \ \ \mbox{\hyperlink{classutils_1_1_event_emitter_ad5951fb2197b05a772272cb9d5e66af9}{EventEmitter::On}}(\textcolor{keywordtype}{int}\ event,}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::function<\textcolor{keywordtype}{void}(Args...)>\ cb)\ \{}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classutils_1_1_event_emitter_a4b80f456f8d5214c7a3231f080cb5181}{AddListener}}(event,\ \textcolor{keyword}{false},\ cb);}
+\DoxyCodeLine{00252\ \ \ \ \ \}}
+\DoxyCodeLine{00253\ }
+\DoxyCodeLine{00254\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00255\ \ \ \ \ uint32\_t}
+\DoxyCodeLine{00256\ \ \ \ \ \mbox{\hyperlink{classutils_1_1_event_emitter_aa761f0251b46ed59a82f71e5044761fc}{EventEmitter::Once}}(\textcolor{keywordtype}{int}\ event,}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::function<\textcolor{keywordtype}{void}(Args...)>\ cb)\ \{}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classutils_1_1_event_emitter_a4b80f456f8d5214c7a3231f080cb5181}{AddListener}}(event,\ \textcolor{keyword}{true},\ cb);}
+\DoxyCodeLine{00259\ \ \ \ \ \}}
+\DoxyCodeLine{00260\ }
+\DoxyCodeLine{00261\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00262\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classutils_1_1_event_emitter_a9803e9edae1a026416b50e3de961b154}{EventEmitter::EmitEvent}}(\textcolor{keywordtype}{int}\ event,\ Args...\ args)\ \{}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>\mbox{\hyperlink{classutils_1_1_event_emitter_af0c20406d32821d12d2023a0ba8cf082}{listeners}}.end()\ ==}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>listeners.find(event))\ \{}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ std::vector<uint32\_t>\ keysToDelete;}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&pair\ :\ this-\/>\mbox{\hyperlink{classutils_1_1_event_emitter_af0c20406d32821d12d2023a0ba8cf082}{listeners}}[event])\ \{}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \ \ \ \ std::shared\_ptr<\mbox{\hyperlink{structutils_1_1_event_emitter_1_1_listener}{Listener}}<Args...>>\ ptr\ =}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::static\_pointer\_cast<\mbox{\hyperlink{structutils_1_1_event_emitter_1_1_listener}{Listener}}<Args...>>(}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pair.second);}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ptr)\ \{}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ptr-\/>\mbox{\hyperlink{structutils_1_1_event_emitter_1_1_listener_a359d58276861c40b35e5c4b424da0463}{cb}}(args...);}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ptr-\/>callOnce)\ \{}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ keysToDelete.push\_back(pair.first);}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ uint32\_t\ key\ :\ keysToDelete)\ \{}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classutils_1_1_event_emitter_af0c20406d32821d12d2023a0ba8cf082}{listeners}}[event].erase(key);}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00282\ \ \ \ \ \}}
+\DoxyCodeLine{00283\ }
+\DoxyCodeLine{00284\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00285\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classutils_1_1_event_emitter_a9d402686891913ffa999a175506f7fe9}{EventEmitter::Emit}}(\textcolor{keywordtype}{int}\ event,\ Args...\ args)\ \{}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classutils_1_1_event_emitter_a9803e9edae1a026416b50e3de961b154}{EmitEvent}}(event,\ args...);}
+\DoxyCodeLine{00287\ \ \ \ \ \}}
+\DoxyCodeLine{00288\ \}\ \textcolor{comment}{//\ namespace\ utils}}
+
+\end{DoxyCode}

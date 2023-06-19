@@ -1,0 +1,89 @@
+\doxysection{utils\+::Event\+Emitter\+::Listener\texorpdfstring{$<$}{<} Args \texorpdfstring{$>$}{>} Struct Template Reference}
+\hypertarget{structutils_1_1_event_emitter_1_1_listener}{}\label{structutils_1_1_event_emitter_1_1_listener}\index{utils::EventEmitter::Listener$<$ Args $>$@{utils::EventEmitter::Listener$<$ Args $>$}}
+
+
+Derivative defining possible variations of listeners, based on what events are handled by all event emitters, therefore what are all possible parameters for a callback/handler.  
+
+
+
+
+{\ttfamily \#include $<$event\+\_\+emitter.\+hpp$>$}
+
+Inheritance diagram for utils\+::Event\+Emitter\+::Listener\texorpdfstring{$<$}{<} Args \texorpdfstring{$>$}{>}\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{structutils_1_1_event_emitter_1_1_listener}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structutils_1_1_event_emitter_1_1_listener_a66b5c1b1bb3c5bed35ce3ffd3d0d1c60}{Listener}} ()=delete
+\item 
+\mbox{\hyperlink{structutils_1_1_event_emitter_1_1_listener_afe2871ba6a5849c5b94f89f22e63eb2a}{Listener}} (int \mbox{\hyperlink{structutils_1_1_event_emitter_1_1_listener_base_a28ca8fc774b4c5151cc1b9216af9d370}{event}}, bool \mbox{\hyperlink{structutils_1_1_event_emitter_1_1_listener_base_a2c41e764db62c54817a6b64213161c32}{call\+Once}}, std\+::function$<$ void(Args...)$>$ c)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{structutils_1_1_event_emitter_1_1_listener_base}{utils\+::\+Event\+Emitter\+::\+Listener\+Base}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structutils_1_1_event_emitter_1_1_listener_base_a1e4d4e5d7721e95ea944b723ce810b39}{Listener\+Base}} ()=delete
+\item 
+\mbox{\hyperlink{structutils_1_1_event_emitter_1_1_listener_base_a000b6e692f576b7df0448746f6beabd5}{Listener\+Base}} (int \mbox{\hyperlink{structutils_1_1_event_emitter_1_1_listener_base_a28ca8fc774b4c5151cc1b9216af9d370}{event}}, bool \mbox{\hyperlink{structutils_1_1_event_emitter_1_1_listener_base_a2c41e764db62c54817a6b64213161c32}{call\+Once}})
+\item 
+virtual \mbox{\hyperlink{structutils_1_1_event_emitter_1_1_listener_base_a9d046dd320cffd7807d37a2dd6074d6b}{\texorpdfstring{$\sim$}{\string~}\+Listener\+Base}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::function$<$ void(Args...)$>$ \mbox{\hyperlink{structutils_1_1_event_emitter_1_1_listener_a359d58276861c40b35e5c4b424da0463}{cb}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{structutils_1_1_event_emitter_1_1_listener_base}{utils\+::\+Event\+Emitter\+::\+Listener\+Base}}}
+\begin{DoxyCompactItemize}
+\item 
+const int \mbox{\hyperlink{structutils_1_1_event_emitter_1_1_listener_base_a28ca8fc774b4c5151cc1b9216af9d370}{event}}
+\begin{DoxyCompactList}\small\item\em Type of an event emit. \end{DoxyCompactList}\item 
+const bool \mbox{\hyperlink{structutils_1_1_event_emitter_1_1_listener_base_a2c41e764db62c54817a6b64213161c32}{call\+Once}}
+\begin{DoxyCompactList}\small\item\em If it should be deleted after a single callback/handler call. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename... Args$>$\newline
+struct utils\+::\+Event\+Emitter\+::\+Listener$<$ Args $>$}
+Derivative defining possible variations of listeners, based on what events are handled by all event emitters, therefore what are all possible parameters for a callback/handler. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Args} & Varation of parameters for a callback/handler function \\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{structutils_1_1_event_emitter_1_1_listener_a66b5c1b1bb3c5bed35ce3ffd3d0d1c60}\label{structutils_1_1_event_emitter_1_1_listener_a66b5c1b1bb3c5bed35ce3ffd3d0d1c60} 
+\index{utils::EventEmitter::Listener$<$ Args $>$@{utils::EventEmitter::Listener$<$ Args $>$}!Listener@{Listener}}
+\index{Listener@{Listener}!utils::EventEmitter::Listener$<$ Args $>$@{utils::EventEmitter::Listener$<$ Args $>$}}
+\doxysubsubsection{\texorpdfstring{Listener()}{Listener()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename... Args$>$ \\
+\mbox{\hyperlink{structutils_1_1_event_emitter_1_1_listener}{utils\+::\+Event\+Emitter\+::\+Listener}}$<$ Args $>$\+::\+Listener (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{structutils_1_1_event_emitter_1_1_listener_afe2871ba6a5849c5b94f89f22e63eb2a}\label{structutils_1_1_event_emitter_1_1_listener_afe2871ba6a5849c5b94f89f22e63eb2a} 
+\index{utils::EventEmitter::Listener$<$ Args $>$@{utils::EventEmitter::Listener$<$ Args $>$}!Listener@{Listener}}
+\index{Listener@{Listener}!utils::EventEmitter::Listener$<$ Args $>$@{utils::EventEmitter::Listener$<$ Args $>$}}
+\doxysubsubsection{\texorpdfstring{Listener()}{Listener()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename... Args$>$ \\
+\mbox{\hyperlink{structutils_1_1_event_emitter_1_1_listener}{utils\+::\+Event\+Emitter\+::\+Listener}}$<$ Args $>$\+::\+Listener (\begin{DoxyParamCaption}\item[{int}]{event,  }\item[{bool}]{call\+Once,  }\item[{std\+::function$<$ void(Args...)$>$}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structutils_1_1_event_emitter_1_1_listener_a359d58276861c40b35e5c4b424da0463}\label{structutils_1_1_event_emitter_1_1_listener_a359d58276861c40b35e5c4b424da0463} 
+\index{utils::EventEmitter::Listener$<$ Args $>$@{utils::EventEmitter::Listener$<$ Args $>$}!cb@{cb}}
+\index{cb@{cb}!utils::EventEmitter::Listener$<$ Args $>$@{utils::EventEmitter::Listener$<$ Args $>$}}
+\doxysubsubsection{\texorpdfstring{cb}{cb}}
+{\footnotesize\ttfamily template$<$typename... Args$>$ \\
+std\+::function$<$void(Args...)$>$ \mbox{\hyperlink{structutils_1_1_event_emitter_1_1_listener}{utils\+::\+Event\+Emitter\+::\+Listener}}$<$ Args $>$\+::cb}
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+engine/utils/\mbox{\hyperlink{event__emitter_8hpp}{event\+\_\+emitter.\+hpp}}\end{DoxyCompactItemize}

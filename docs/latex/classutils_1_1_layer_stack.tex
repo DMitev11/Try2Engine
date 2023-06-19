@@ -1,0 +1,160 @@
+\doxysection{utils\+::Layer\+Stack Class Reference}
+\hypertarget{classutils_1_1_layer_stack}{}\label{classutils_1_1_layer_stack}\index{utils::LayerStack@{utils::LayerStack}}
+
+
+Controlling stack for layers. ~\newline
+ Calls \doxylink{classutils_1_1_layer_component}{Layer\+Component} events\+:  
+
+
+
+
+{\ttfamily \#include $<$layer\+\_\+stack.\+h$>$}
+
+Inheritance diagram for utils\+::Layer\+Stack\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classutils_1_1_layer_stack}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classutils_1_1_layer}{Layer}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classutils_1_1_layer_stack_a2345b9e75446bc238fab6e7f4b7d7c65}{add\+Layer}} (\mbox{\hyperlink{classutils_1_1_layer}{Layer}} \texorpdfstring{$\ast$}{*})
+\item 
+void \mbox{\hyperlink{classutils_1_1_layer_stack_af1b84529a22ecabc0430dd09d6164c19}{remove\+Layer}} (const char \texorpdfstring{$\ast$}{*}name)
+\item 
+void \mbox{\hyperlink{classutils_1_1_layer_stack_a1922d8a73e297a312888f0329ee940ad}{init}} () override
+\begin{DoxyCompactList}\small\item\em Called logic specific for the deriving class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classutils_1_1_layer_stack_a2f16182907b03c4b0d65a86046f53ff6}{tick}} (float delta) override
+\begin{DoxyCompactList}\small\item\em Called on every frame update of the application. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classutils_1_1_layer_stack_abb1cc4d85b582d6ea0734caed941a725}{shutdown}} () override
+\begin{DoxyCompactList}\small\item\em On sudden application lifetime termination (user called \"{}\+Quit\"{} and similar cases) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classutils_1_1_loop_events}{utils\+::\+Loop\+Events}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classutils_1_1_loop_events_a73635283996b27e0a78ae5e1b9733660}{Loop\+Events}} ()
+\item 
+virtual \mbox{\hyperlink{classutils_1_1_loop_events_a79f13606f2cffbb1c6d022e00ebc41ae}{\texorpdfstring{$\sim$}{\string~}\+Loop\+Events}} ()=default
+\item 
+virtual void \mbox{\hyperlink{classutils_1_1_loop_events_a61a9359f0a49820dfbcd0c7e6ccff330}{init}} ()
+\begin{DoxyCompactList}\small\item\em Called logic specific for the deriving class. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classutils_1_1_loop_events_ae47e73d2c5d36c45fdf8e2a15cb49faf}{tick}} (float delta)
+\begin{DoxyCompactList}\small\item\em Called on every frame update of the application. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classutils_1_1_loop_events_a874a9c9ece22e9376b20eca67e3935c8}{terminate}} ()
+\begin{DoxyCompactList}\small\item\em Called when destroying and cleaning the instance of class which derives from this. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classutils_1_1_loop_events_ad85422c0090161a3edc70a6c67a153d1}{shutdown}} ()
+\begin{DoxyCompactList}\small\item\em On sudden application lifetime termination (user called \"{}\+Quit\"{} and similar cases) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classutils_1_1_layer_stack_a9c1c9015f481a5d1e2eebb42a451d784}{Entry}}
+\begin{DoxyCompactList}\small\item\em Only {\ttfamily \doxylink{classutils_1_1_entry}{Entry}} points of each application should be able to create a layer stack. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Controlling stack for layers. ~\newline
+ Calls \doxylink{classutils_1_1_layer_component}{Layer\+Component} events\+: 
+
+
+\begin{DoxyItemize}
+\item On\+Attach, when a layer can been created and attached to the current layer stack
+\item On\+Tick, during each tick update of the layer stack
+\item On\+Detach, when a layer have been removed from the layer stack
+\end{DoxyItemize}
+
+This class follows \doxylink{classutils_1_1_loop_events}{Loop\+Events} modal, present in most game-\/related applications/simulations\+:
+
+
+\begin{DoxyItemize}
+\item init -\/ initialization logic for the current layer stack, if there is initialization logic necessary specifically for this layer stack (initialize libraries, add specific layers etc)
+\item tick -\/ on every successful loop of the program
+\item shutdown -\/ called once the application is about to end
+\end{DoxyItemize}
+
+\begin{DoxyWarning}{Warning}
+If project\textquotesingle{}s structure have been changed to include several layer stacks -\/ override \textquotesingle{}terminate\textquotesingle{} as a method to destroy and clear a single layer stack 
+\end{DoxyWarning}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classutils_1_1_layer_stack_a2345b9e75446bc238fab6e7f4b7d7c65}\label{classutils_1_1_layer_stack_a2345b9e75446bc238fab6e7f4b7d7c65} 
+\index{utils::LayerStack@{utils::LayerStack}!addLayer@{addLayer}}
+\index{addLayer@{addLayer}!utils::LayerStack@{utils::LayerStack}}
+\doxysubsubsection{\texorpdfstring{addLayer()}{addLayer()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classutils_1_1_layer}{utils\+::\+Layer}} \texorpdfstring{$\ast$}{*} utils\+::\+Layer\+Stack\+::add\+Layer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classutils_1_1_layer}{Layer}} \texorpdfstring{$\ast$}{*}}]{layer }\end{DoxyParamCaption})}
+
+\Hypertarget{classutils_1_1_layer_stack_a1922d8a73e297a312888f0329ee940ad}\label{classutils_1_1_layer_stack_a1922d8a73e297a312888f0329ee940ad} 
+\index{utils::LayerStack@{utils::LayerStack}!init@{init}}
+\index{init@{init}!utils::LayerStack@{utils::LayerStack}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void utils\+::\+Layer\+Stack\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Called logic specific for the deriving class. 
+
+
+
+Reimplemented from \mbox{\hyperlink{classutils_1_1_loop_events_a61a9359f0a49820dfbcd0c7e6ccff330}{utils\+::\+Loop\+Events}}.
+
+\Hypertarget{classutils_1_1_layer_stack_af1b84529a22ecabc0430dd09d6164c19}\label{classutils_1_1_layer_stack_af1b84529a22ecabc0430dd09d6164c19} 
+\index{utils::LayerStack@{utils::LayerStack}!removeLayer@{removeLayer}}
+\index{removeLayer@{removeLayer}!utils::LayerStack@{utils::LayerStack}}
+\doxysubsubsection{\texorpdfstring{removeLayer()}{removeLayer()}}
+{\footnotesize\ttfamily void utils\+::\+Layer\+Stack\+::remove\+Layer (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{name }\end{DoxyParamCaption})}
+
+\Hypertarget{classutils_1_1_layer_stack_abb1cc4d85b582d6ea0734caed941a725}\label{classutils_1_1_layer_stack_abb1cc4d85b582d6ea0734caed941a725} 
+\index{utils::LayerStack@{utils::LayerStack}!shutdown@{shutdown}}
+\index{shutdown@{shutdown}!utils::LayerStack@{utils::LayerStack}}
+\doxysubsubsection{\texorpdfstring{shutdown()}{shutdown()}}
+{\footnotesize\ttfamily void utils\+::\+Layer\+Stack\+::shutdown (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+On sudden application lifetime termination (user called \"{}\+Quit\"{} and similar cases) 
+
+
+
+Reimplemented from \mbox{\hyperlink{classutils_1_1_loop_events_ad85422c0090161a3edc70a6c67a153d1}{utils\+::\+Loop\+Events}}.
+
+\Hypertarget{classutils_1_1_layer_stack_a2f16182907b03c4b0d65a86046f53ff6}\label{classutils_1_1_layer_stack_a2f16182907b03c4b0d65a86046f53ff6} 
+\index{utils::LayerStack@{utils::LayerStack}!tick@{tick}}
+\index{tick@{tick}!utils::LayerStack@{utils::LayerStack}}
+\doxysubsubsection{\texorpdfstring{tick()}{tick()}}
+{\footnotesize\ttfamily void utils\+::\+Layer\+Stack\+::tick (\begin{DoxyParamCaption}\item[{float}]{delta }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Called on every frame update of the application. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em delta} & time between previous and current frame \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classutils_1_1_loop_events_ae47e73d2c5d36c45fdf8e2a15cb49faf}{utils\+::\+Loop\+Events}}.
+
+
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{classutils_1_1_layer_stack_a9c1c9015f481a5d1e2eebb42a451d784}\label{classutils_1_1_layer_stack_a9c1c9015f481a5d1e2eebb42a451d784} 
+\index{utils::LayerStack@{utils::LayerStack}!Entry@{Entry}}
+\index{Entry@{Entry}!utils::LayerStack@{utils::LayerStack}}
+\doxysubsubsection{\texorpdfstring{Entry}{Entry}}
+{\footnotesize\ttfamily friend class \mbox{\hyperlink{classutils_1_1_entry}{Entry}}\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Only {\ttfamily \doxylink{classutils_1_1_entry}{Entry}} points of each application should be able to create a layer stack. 
+
+\begin{DoxyWarning}{Warning}
+\doxylink{classutils_1_1_layer}{Layer} stacks in layer stacks are highly inadvisable -\/ could lead to very complicated and heavy logic load to update in a tick 
+\end{DoxyWarning}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+engine/utils/\mbox{\hyperlink{layer__stack_8h}{layer\+\_\+stack.\+h}}\item 
+engine/utils/\mbox{\hyperlink{layer__stack_8cpp}{layer\+\_\+stack.\+cpp}}\end{DoxyCompactItemize}

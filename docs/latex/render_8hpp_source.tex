@@ -1,0 +1,84 @@
+\doxysection{render.\+hpp}
+\hypertarget{render_8hpp_source}{}\label{render_8hpp_source}\index{engine/render/render.hpp@{engine/render/render.hpp}}
+\mbox{\hyperlink{render_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{renderer__object_8h}{renderer\_object.h}}>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{texture__object_8h}{texture\_object.h}}>}}
+\DoxyCodeLine{00010\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacerender}{render}}\ \{}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}...\ Args>\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ init(Args...);}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classobjects_1_1_renderer}{objects::Renderer}}\ *createRenderer(Args...);}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ setDrawColor(Args...);}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ renderAsset(\mbox{\hyperlink{classobjects_1_1_renderer}{objects::Renderer}}\ *renderer,}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Args...\ args);}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ clearRenderer(\mbox{\hyperlink{classobjects_1_1_renderer}{objects::Renderer}}\ *renderer);}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ renderFrame(\mbox{\hyperlink{classobjects_1_1_renderer}{objects::Renderer}}\ *renderer);}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{structobjects_1_1_texture_size}{objects::TextureSize}}}
+\DoxyCodeLine{00089\ \ \ \ \ getTextureSize(\mbox{\hyperlink{classobjects_1_1_texture}{objects::Texture}}\ *texture);}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ terminate(\mbox{\hyperlink{classobjects_1_1_renderer}{objects::Renderer}}\ *renderer);}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ shutdown(Args...);}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \}\ \textcolor{comment}{//\ namespace\ render}}
+\DoxyCodeLine{00111\ \textcolor{preprocessor}{\#ifdef\ USE\_SDL}}
+\DoxyCodeLine{00112\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{sdl__renderer_8h}{sdl\_renderer.h}}"{}}}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00115\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ render::init(Args...\ args)\ \{}
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordflow}{return}\ sdl::init(args...);}
+\DoxyCodeLine{00117\ \}}
+\DoxyCodeLine{00118\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00119\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \mbox{\hyperlink{classobjects_1_1_renderer}{objects::Renderer}}\ *}
+\DoxyCodeLine{00120\ render::createRenderer(Args...\ args)\ \{}
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keywordflow}{return}\ sdl::createRenderer(args...);}
+\DoxyCodeLine{00122\ \}}
+\DoxyCodeLine{00123\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00124\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ render::setDrawColor(Args...\ args)\ \{}
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordflow}{return}\ sdl::setDrawColor(args...);}
+\DoxyCodeLine{00126\ \}}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00129\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00130\ render::renderAsset(\mbox{\hyperlink{classobjects_1_1_renderer}{objects::Renderer}}\ *renderer,}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Args...\ args)\ \{}
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keywordflow}{return}\ sdl::renderAsset(renderer,\ args...);}
+\DoxyCodeLine{00133\ \}}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \mbox{\hyperlink{structobjects_1_1_texture_size}{objects::TextureSize}}}
+\DoxyCodeLine{00136\ render::getTextureSize(\mbox{\hyperlink{classobjects_1_1_texture}{objects::Texture}}\ *texture)\ \{}
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keywordflow}{return}\ sdl::getTextureSize(texture);}
+\DoxyCodeLine{00138\ \}}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00140\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00141\ render::clearRenderer(\mbox{\hyperlink{classobjects_1_1_renderer}{objects::Renderer}}\ *renderer)\ \{}
+\DoxyCodeLine{00142\ \ \ \ \ \textcolor{keywordflow}{return}\ sdl::clearRenderer(renderer);}
+\DoxyCodeLine{00143\ \}}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00146\ render::renderFrame(\mbox{\hyperlink{classobjects_1_1_renderer}{objects::Renderer}}\ *renderer)\ \{}
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keywordflow}{return}\ sdl::renderFrame(renderer);}
+\DoxyCodeLine{00148\ \}}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00150\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00151\ render::terminate(\mbox{\hyperlink{classobjects_1_1_renderer}{objects::Renderer}}\ *renderer)\ \{}
+\DoxyCodeLine{00152\ \ \ \ \ \textcolor{keywordflow}{return}\ sdl::terminate(renderer);}
+\DoxyCodeLine{00153\ \}}
+\DoxyCodeLine{00154\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00155\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ render::shutdown(Args...\ args)\ \{}
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{keywordflow}{return}\ sdl::shutdown(args...);}
+\DoxyCodeLine{00157\ \}}
+\DoxyCodeLine{00158\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,40 @@
+\doxysection{helpers\+\_\+object.\+hpp}
+\hypertarget{helpers__object_8hpp_source}{}\label{helpers__object_8hpp_source}\index{engine/objects/helpers\_object.hpp@{engine/objects/helpers\_object.hpp}}
+\mbox{\hyperlink{helpers__object_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{sdl__renderer__object_8h}{sdl\_renderer\_object.h}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{sdl__texture__object_8h}{sdl\_texture\_object.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{sdl__window__object_8h}{sdl\_window\_object.h}}"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceobjects}{objects}}\ \{}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#ifdef\ USE\_SDL}}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{inline}\ SDL\_Window\ *}
+\DoxyCodeLine{00012\ \ \ \ \ toSdlWindow(\mbox{\hyperlink{classobjects_1_1_window}{objects::Window}}\ *\mbox{\hyperlink{namespacewindow}{window}})\ \{}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classobjects_1_1_s_d_l_window}{objects::SDLWindow}}\ *\textcolor{keyword}{const}\ \_window\ =}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{classobjects_1_1_s_d_l_window}{objects::SDLWindow}}\ *\textcolor{keyword}{>}(\mbox{\hyperlink{namespacewindow}{window}});}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (SDL\_Window\ *)*\_window;}
+\DoxyCodeLine{00016\ \ \ \ \ \};}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{inline}\ SDL\_Window\ *}
+\DoxyCodeLine{00018\ \ \ \ \ toSdlWindow(\mbox{\hyperlink{classobjects_1_1_renderer}{objects::Renderer}}\ *renderer)\ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classobjects_1_1_s_d_l_renderer}{objects::SDLRenderer}}\ *\textcolor{keyword}{const}\ \_renderer\ =}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{classobjects_1_1_s_d_l_renderer}{objects::SDLRenderer}}\ *\textcolor{keyword}{>}(renderer);}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (SDL\_Window\ *)*\_renderer;}
+\DoxyCodeLine{00022\ \ \ \ \ \};}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{inline}\ SDL\_Renderer\ *}
+\DoxyCodeLine{00024\ \ \ \ \ toSdlRenderer(\mbox{\hyperlink{classobjects_1_1_renderer}{objects::Renderer}}\ *renderer)\ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classobjects_1_1_s_d_l_renderer}{objects::SDLRenderer}}\ *\textcolor{keyword}{const}\ \_renderer\ =}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{classobjects_1_1_s_d_l_renderer}{objects::SDLRenderer}}\ *\textcolor{keyword}{>}(renderer);}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (SDL\_Renderer\ *)*\_renderer;}
+\DoxyCodeLine{00028\ \ \ \ \ \};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{inline}\ SDL\_Texture\ *}
+\DoxyCodeLine{00031\ \ \ \ \ toSdlTexture(\mbox{\hyperlink{classobjects_1_1_texture}{objects::Texture}}\ *texture)\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classobjects_1_1_s_d_l_texture}{objects::SDLTexture}}\ *\textcolor{keyword}{const}\ \_texture\ =}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{classobjects_1_1_s_d_l_texture}{objects::SDLTexture}}\ *\textcolor{keyword}{>}(texture);}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (SDL\_Texture\ *)*\_texture;}
+\DoxyCodeLine{00035\ \ \ \ \ \};}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00037\ \}\ \textcolor{comment}{//\ namespace\ objects}}
+
+\end{DoxyCode}

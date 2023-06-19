@@ -1,0 +1,40 @@
+\doxysection{sdl\+\_\+loader.\+h}
+\hypertarget{sdl__loader_8h_source}{}\label{sdl__loader_8h_source}\index{engine/loader/sdl\_loader.h@{engine/loader/sdl\_loader.h}}
+\mbox{\hyperlink{sdl__loader_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <SDL3/SDL.h>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{renderer__object_8h}{renderer\_object.h}}>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{texture__object_8h}{texture\_object.h}}>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifdef\ USE\_SDL\_IMAGE}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <SDL\_image.h>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceloader}{loader}}\ \{}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{namespace\ }sdl\ \{}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#ifdef\ USE\_SDL\_IMAGE}}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceloader_1_1sdl_a33879066060dac09c61c59fb5b391f1e}{init}}(std::vector<uint32\_t>\ imageInitFlags\ =\ \{}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMG\_INIT\_JPG,\ IMG\_INIT\_PNG\});}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespaceloader_1_1sdl_a33879066060dac09c61c59fb5b391f1e}{init}}();}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structloader_1_1sdl_1_1_loading_texture_config}{LoadingTextureConfig}}\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structloader_1_1sdl_1_1_loading_texture_config_1_1_color_key}{ColorKey}}\ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint8\_t\ \mbox{\hyperlink{structloader_1_1sdl_1_1_loading_texture_config_1_1_color_key_a557cd5f29d17fe56c0bac6006450baed}{r}};}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint8\_t\ \mbox{\hyperlink{structloader_1_1sdl_1_1_loading_texture_config_1_1_color_key_a7df7444234fc6dbfe79ef4a9613107d1}{g}};}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint8\_t\ \mbox{\hyperlink{structloader_1_1sdl_1_1_loading_texture_config_1_1_color_key_a82d4a2b96ae516becce536d07c54f0aa}{b}};}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structloader_1_1sdl_1_1_loading_texture_config_1_1_color_key}{ColorKey}}\ \mbox{\hyperlink{structloader_1_1sdl_1_1_loading_texture_config_a6382f1de3193aa501df2f8c39ef2ab71}{colorKey}};}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keyword}{extern}\ \mbox{\hyperlink{classobjects_1_1_texture}{objects::Texture}}\ *}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceloader_1_1sdl_adc27f934af7b43160fb12db0a45d5138}{loadTexture}}(\mbox{\hyperlink{classobjects_1_1_renderer}{objects::Renderer}}\ *renderer,}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *path,}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structloader_1_1sdl_1_1_loading_texture_config}{LoadingTextureConfig}}\ config\ =}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structloader_1_1sdl_1_1_loading_texture_config}{LoadingTextureConfig}}());}
+\DoxyCodeLine{00033\ \ \ \ \ \};\ \textcolor{comment}{//\ namespace\ sdl}}
+\DoxyCodeLine{00034\ \}\ \textcolor{comment}{//\ namespace\ loader}}
+
+\end{DoxyCode}

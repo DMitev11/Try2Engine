@@ -1,0 +1,42 @@
+\doxysection{gui\+\_\+layer.\+h}
+\hypertarget{gui__layer_8h_source}{}\label{gui__layer_8h_source}\index{engine/gui/core/gui\_layer.h@{engine/gui/core/gui\_layer.h}}
+\mbox{\hyperlink{gui__layer_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{gui__widget_8h}{gui\_widget.h}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{renderer__object_8h}{renderer\_object.h}}>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{layer_8h}{utils/layer.h}}>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacegui}{gui}}\ \{}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classgui_1_1_gui_layer}{GuiLayer}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classutils_1_1_layer}{utils::Layer}}\ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgui_1_1_gui_layer_a441cbe85ad53174fb290ad827ef6be9a}{GuiLayer}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{classutils_1_1_layer_ab06480ec1c844361d5e3a7c493b6b338}{name}},}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classobjects_1_1_renderer}{objects::Renderer}}\ *\mbox{\hyperlink{classgui_1_1_gui_layer_a5a710f5f5b4bd25a20aa309fa3e7cd4f}{renderer}})}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{namespaceutils}{utils}}::\mbox{\hyperlink{classutils_1_1_layer_ac84e458d68a1f35e56bbc31d15499637}{Layer}}(\mbox{\hyperlink{classutils_1_1_layer_ab06480ec1c844361d5e3a7c493b6b338}{name}}),\ \mbox{\hyperlink{classgui_1_1_gui_layer_a5a710f5f5b4bd25a20aa309fa3e7cd4f}{renderer}}(\mbox{\hyperlink{classgui_1_1_gui_layer_a5a710f5f5b4bd25a20aa309fa3e7cd4f}{renderer}})\{}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgui_1_1_gui_layer_a3983e96caa8d9078449c5e034af3ad27}{\string~GuiLayer}}()\textcolor{keyword}{\ override}\{\};}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgui_1_1_gui_layer_a16f2e9d5d6de79c4e9be8d73d72b63a8}{onAttach}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgui_1_1_gui_layer_a92f9294c3562c5eed1b893e696a44b78}{onDetach}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgui_1_1_gui_layer_a2e9f541d5d3b80cebf0a764fc912c077}{onTick}}(\textcolor{keywordtype}{float}\ delta)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgui_1_1_gui_widget}{GuiWidget}}\ *\mbox{\hyperlink{classgui_1_1_gui_layer_aea87ee1564114278bb47ea1bc3256477}{addWidget}}(\mbox{\hyperlink{classgui_1_1_gui_widget}{GuiWidget}}\ *widget);}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgui_1_1_gui_layer_a8309222c9baabc916f4222df96c63509}{removeWidget}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{classutils_1_1_layer_ab06480ec1c844361d5e3a7c493b6b338}{name}});}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgui_1_1_gui_layer_a1a2e6a0d6131b5f145d85001c9a0fc90}{begin}}();}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgui_1_1_gui_layer_aaa52dc911639ba94e2e8ac6db3cf5b57}{render}}();}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgui_1_1_gui_layer_abff96c96677d426621e82686b00b1c6c}{end}}();}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classobjects_1_1_renderer}{objects::Renderer}}\ *\mbox{\hyperlink{classgui_1_1_gui_layer_a5a710f5f5b4bd25a20aa309fa3e7cd4f}{renderer}};}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ std::vector<GuiWidget\ *>\ \mbox{\hyperlink{classgui_1_1_gui_layer_a8a43f6f2b9266edfc23d15b10d086b75}{widgets}};}
+\DoxyCodeLine{00087\ \ \ \ \ \};}
+\DoxyCodeLine{00088\ \}\ \textcolor{comment}{//\ namespace\ gui}}
+
+\end{DoxyCode}

@@ -1,0 +1,42 @@
+\doxysection{sdl\+\_\+renderer\+\_\+object.\+h}
+\hypertarget{sdl__renderer__object_8h_source}{}\label{sdl__renderer__object_8h_source}\index{engine/objects/sdl\_renderer\_object.h@{engine/objects/sdl\_renderer\_object.h}}
+\mbox{\hyperlink{sdl__renderer__object_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <SDL3/SDL.h>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{renderer__object_8h}{renderer\_object.h}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceobjects}{objects}}}
+\DoxyCodeLine{00007\ \{}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classobjects_1_1_s_d_l_renderer}{SDLRenderer}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classobjects_1_1_renderer}{Renderer}}}
+\DoxyCodeLine{00009\ \ \ \ \ \{}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classobjects_1_1_s_d_l_renderer_a0f53554a6b38a825350f6f106db577f6}{SDLRenderer}}(SDL\_Renderer\ *renderer,\ SDL\_Window\ *\mbox{\hyperlink{namespacewindow}{window}},\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *driverName,\ std::vector<uint32\_t>\ initFlags)\ :\ \mbox{\hyperlink{classobjects_1_1_renderer}{Renderer}}()}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>renderer\ =\ renderer;}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>window\ =\ \mbox{\hyperlink{namespacewindow}{window}};}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>driverName\ =\ driverName;}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>initFlags\ =\ initFlags;}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classobjects_1_1_s_d_l_renderer_aaad817ca2d56992cf857494e80f16e6e}{\string~SDLRenderer}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keyword}{operator}\ SDL\_Renderer\ *()}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>renderer;}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keyword}{operator}\ SDL\_Window\ *()}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{namespacewindow}{window}};}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ SDL\_Renderer\ *renderer;}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ SDL\_Window\ *\mbox{\hyperlink{namespacewindow}{window}};}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *driverName;}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ std::vector<uint32\_t>\ initFlags;}
+\DoxyCodeLine{00035\ \ \ \ \ \};}
+\DoxyCodeLine{00036\ \}\ \textcolor{comment}{//\ namespace\ objects}}
+
+\end{DoxyCode}

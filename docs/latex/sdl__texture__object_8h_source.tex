@@ -1,0 +1,24 @@
+\doxysection{sdl\+\_\+texture\+\_\+object.\+h}
+\hypertarget{sdl__texture__object_8h_source}{}\label{sdl__texture__object_8h_source}\index{engine/objects/sdl\_texture\_object.h@{engine/objects/sdl\_texture\_object.h}}
+\mbox{\hyperlink{sdl__texture__object_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{texture__object_8h}{texture\_object.h}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <SDL3/SDL.h>}}
+\DoxyCodeLine{00004\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceobjects}{objects}}\ \{}
+\DoxyCodeLine{00005\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classobjects_1_1_s_d_l_texture}{SDLTexture}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classobjects_1_1_texture}{Texture}}\ \{}
+\DoxyCodeLine{00006\ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00007\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classobjects_1_1_s_d_l_texture_aafb6ab7c4703611b07f82231ade93f02}{SDLTexture}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{classobjects_1_1_texture_afed7984ca0cd9cde7bc4c597bb36a3ef}{path}},\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classobjects_1_1_texture_a3ac6329c84d492cdd0a4b5613f3e9061}{width}},\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classobjects_1_1_texture_a1655d7bac52697f78bdb1b0a0157f37c}{height}},}
+\DoxyCodeLine{00008\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ *\mbox{\hyperlink{classobjects_1_1_s_d_l_texture_ac1216d3df49eabfcf251916b697dac83}{texture}})}
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classobjects_1_1_texture}{Texture}}(\mbox{\hyperlink{classobjects_1_1_texture_afed7984ca0cd9cde7bc4c597bb36a3ef}{path}},\ \mbox{\hyperlink{classobjects_1_1_texture_a3ac6329c84d492cdd0a4b5613f3e9061}{width}},\ \mbox{\hyperlink{classobjects_1_1_texture_a1655d7bac52697f78bdb1b0a0157f37c}{height}})\ \{}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>texture\ =\ \mbox{\hyperlink{classobjects_1_1_s_d_l_texture_ac1216d3df49eabfcf251916b697dac83}{texture}};}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classobjects_1_1_s_d_l_texture_a8f9d37cc54fb2b5679935d7b9a67a426}{\string~SDLTexture}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \textcolor{keyword}{operator}\ SDL\_Texture\ *()\ \{\ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classobjects_1_1_s_d_l_texture_ac1216d3df49eabfcf251916b697dac83}{texture}};\ \}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ SDL\_Texture\ *\mbox{\hyperlink{classobjects_1_1_s_d_l_texture_ac1216d3df49eabfcf251916b697dac83}{texture}};}
+\DoxyCodeLine{00017\ \ \ \ \ \};}
+\DoxyCodeLine{00018\ \}\ \textcolor{comment}{//\ namespace\ objects}}
+
+\end{DoxyCode}

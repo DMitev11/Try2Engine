@@ -1,0 +1,71 @@
+\doxysection{sdl\+\_\+renderer.\+h}
+\hypertarget{sdl__renderer_8h_source}{}\label{sdl__renderer_8h_source}\index{engine/render/sdl\_renderer.h@{engine/render/sdl\_renderer.h}}
+\mbox{\hyperlink{sdl__renderer_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <SDL3/SDL.h>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{renderer__object_8h}{renderer\_object.h}}>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{texture__object_8h}{texture\_object.h}}>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{window__object_8h}{window\_object.h}}>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacerender}{render}}\ \{}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{namespace\ }sdl\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<uint32\_t>\ \mbox{\hyperlink{namespacerender_1_1sdl_a3b4e381c0786eb2e3d9b9e5055127674}{kDefaultInitFlags}}\ =\ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_INIT\_VIDEO\};}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespacerender_1_1sdl_a1d13b3fea1daeaf57f3c56b75a4a8dc0}{init}}(std::vector<uint32\_t>\ initFlags\ =}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacerender_1_1sdl_a3b4e381c0786eb2e3d9b9e5055127674}{kDefaultInitFlags}});}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keyword}{extern}\ \mbox{\hyperlink{classobjects_1_1_renderer}{objects::Renderer}}\ *}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacerender_1_1sdl_ad9263cee01dc6390ced8a8e9bfa80b09}{createRenderer}}(\mbox{\hyperlink{classobjects_1_1_window}{objects::Window}}\ *\mbox{\hyperlink{namespacewindow}{window}},}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *driverName\ =\ 0,}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<uint32\_t>\ initFlags\ =\ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_RENDERER\_ACCELERATED\});}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keyword}{extern}\ \mbox{\hyperlink{classobjects_1_1_renderer}{objects::Renderer}}\ *}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacerender_1_1sdl_ad9263cee01dc6390ced8a8e9bfa80b09}{createRenderer}}(SDL\_Window\ *\mbox{\hyperlink{namespacewindow}{window}},}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *driverName\ =\ 0,}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<uint32\_t>\ initFlags\ =\ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_RENDERER\_ACCELERATED\});}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacerender_1_1sdl_a70a645962abcee011d2ce8cf3ed0ecd1}{setDrawColor}}(\mbox{\hyperlink{classobjects_1_1_renderer}{objects::Renderer}}\ *renderer,\ uint8\_t\ r,}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint8\_t\ g,\ uint8\_t\ b,\ uint8\_t\ a);}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacerender_1_1sdl_a70a645962abcee011d2ce8cf3ed0ecd1}{setDrawColor}}(SDL\_Renderer\ *renderer,}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint8\_t\ r,\ uint8\_t\ g,}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint8\_t\ b,\ uint8\_t\ a);}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacerender_1_1sdl_a99d9d81c843017c98488a8020d1b61bc}{renderAsset}}(\mbox{\hyperlink{classobjects_1_1_renderer}{objects::Renderer}}\ *renderer,}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classobjects_1_1_texture}{objects::Texture}}\ *texture,}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y);}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacerender_1_1sdl_a99d9d81c843017c98488a8020d1b61bc}{renderAsset}}(SDL\_Renderer\ *renderer,}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ *texture,}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ w,\ \textcolor{keywordtype}{float}\ h,\ \textcolor{keywordtype}{float}\ x,}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ y);}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \textcolor{keyword}{extern}\ \mbox{\hyperlink{structobjects_1_1_texture_size}{objects::TextureSize}}}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacerender_1_1sdl_ac28142eee6f6e1f6691d7e0cf18b0dff}{getTextureSize}}(\mbox{\hyperlink{classobjects_1_1_texture}{objects::Texture}}\ *texture);}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \textcolor{keyword}{extern}\ \mbox{\hyperlink{structobjects_1_1_texture_size}{objects::TextureSize}}}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacerender_1_1sdl_ac28142eee6f6e1f6691d7e0cf18b0dff}{getTextureSize}}(SDL\_Texture\ *texture);}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacerender_1_1sdl_aa7bfa6d82cae88414db0b648667c6cd5}{clearRenderer}}(\mbox{\hyperlink{classobjects_1_1_renderer}{objects::Renderer}}\ *renderer);}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacerender_1_1sdl_aa7bfa6d82cae88414db0b648667c6cd5}{clearRenderer}}(SDL\_Renderer\ *renderer);}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacerender_1_1sdl_a4187a2bf867ea6d6e90cfd08a4ee6a12}{renderFrame}}(\mbox{\hyperlink{classobjects_1_1_renderer}{objects::Renderer}}\ *renderer);}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacerender_1_1sdl_a4187a2bf867ea6d6e90cfd08a4ee6a12}{renderFrame}}(SDL\_Renderer\ *renderer);}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacerender_1_1sdl_a61a2937d89ecbe095c71e1905ba6c87d}{terminate}}(\mbox{\hyperlink{classobjects_1_1_renderer}{objects::Renderer}}\ *renderer);}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacerender_1_1sdl_a61a2937d89ecbe095c71e1905ba6c87d}{terminate}}(SDL\_Renderer\ *renderer);}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacerender_1_1sdl_a910ff332ce2bbffcf0268261e69284fc}{shutdown}}(std::vector<uint32\_t>\ initFlags\ =}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacerender_1_1sdl_a3b4e381c0786eb2e3d9b9e5055127674}{kDefaultInitFlags}});}
+\DoxyCodeLine{00163\ \ \ \ \ \};\ \textcolor{comment}{//\ namespace\ sdl}}
+\DoxyCodeLine{00164\ \}\ \textcolor{comment}{//\ namespace\ render}}
+
+\end{DoxyCode}

@@ -1,0 +1,39 @@
+\doxysection{engine/input/input\+\_\+misc.h File Reference}
+\hypertarget{input__misc_8h}{}\label{input__misc_8h}\index{engine/input/input\_misc.h@{engine/input/input\_misc.h}}
+{\ttfamily \#include \"{}utils/event\+\_\+emitter.\+hpp\"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structinput_1_1_controller}{input\+::\+Controller}}
+\begin{DoxyCompactList}\small\item\em Instance of a created and connected gamepad/controller. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classinput_1_1_input_system}{input\+::\+Input\+System}}
+\begin{DoxyCompactList}\small\item\em Separate instances of created input systems with different origin should be allowed. ~\newline
+ Emits events on detected implemented input from input devices. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceinput}{input}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef int \mbox{\hyperlink{namespaceinput_a509991978ea186a69ddfea6e1f8d2ecd}{input\+::\+Key\+Code}}
+\begin{DoxyCompactList}\small\item\em Clarification that each input event should be int. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{namespaceinput_a428ed2b7ddf972dda814d1cb486f5e0e}{input\+::\+Input\+Events}} \+: Key\+Code \{ \newline
+\mbox{\hyperlink{namespaceinput_a428ed2b7ddf972dda814d1cb486f5e0ea17e827fbb54ff99b91258456e9212b61}{input\+::k\+Event\+Keyboard\+Down}}
+, \mbox{\hyperlink{namespaceinput_a428ed2b7ddf972dda814d1cb486f5e0ea2cebf997f57112ad357894e56f9533af}{input\+::k\+Event\+Keyboard\+Up}}
+, \mbox{\hyperlink{namespaceinput_a428ed2b7ddf972dda814d1cb486f5e0eaebae6b0be85a6fec717d77fee1e1d828}{input\+::k\+Event\+Mouse\+Pointer}}
+, \mbox{\hyperlink{namespaceinput_a428ed2b7ddf972dda814d1cb486f5e0ea29e643887a3f9340d1e26138b5a132bb}{input\+::k\+Event\+Mouse\+Down}}
+, \newline
+\mbox{\hyperlink{namespaceinput_a428ed2b7ddf972dda814d1cb486f5e0ea5a7b7ee306b5cccbc383bf7694da4938}{input\+::k\+Event\+Mouse\+Up}}
+, \mbox{\hyperlink{namespaceinput_a428ed2b7ddf972dda814d1cb486f5e0ea551773af9b80b54f6245b2378de21bda}{input\+::k\+Event\+Gamepad\+Axis}}
+, \mbox{\hyperlink{namespaceinput_a428ed2b7ddf972dda814d1cb486f5e0eab9e6edec032fea3f6e632cfefd579d31}{input\+::k\+Event\+Gamepad\+Down}}
+, \mbox{\hyperlink{namespaceinput_a428ed2b7ddf972dda814d1cb486f5e0ea15d1636b215b623a88311158906609f3}{input\+::k\+Event\+Gamepad\+Up}}
+, \newline
+\mbox{\hyperlink{namespaceinput_a428ed2b7ddf972dda814d1cb486f5e0ea782098e81e752b7b7aea60c6127ba430}{input\+::k\+Event\+Gamepad\+Created}}
+, \mbox{\hyperlink{namespaceinput_a428ed2b7ddf972dda814d1cb486f5e0ea5883a91aadb7657facd7241c9edecafa}{input\+::k\+Event\+Quit}}
+ \}
+\begin{DoxyCompactList}\small\item\em Based on available input devices for a game or an application. \end{DoxyCompactList}\end{DoxyCompactItemize}

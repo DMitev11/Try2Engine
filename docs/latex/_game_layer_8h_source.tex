@@ -1,0 +1,61 @@
+\doxysection{Game\+Layer.\+h}
+\hypertarget{_game_layer_8h_source}{}\label{_game_layer_8h_source}\index{try1/inc/GameLayer.h@{try1/inc/GameLayer.h}}
+\mbox{\hyperlink{_game_layer_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <box2d/box2d.h>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{input_8hpp}{input/input.hpp}}>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{renderer__object_8h}{objects/renderer\_object.h}}>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{texture__object_8h}{objects/texture\_object.h}}>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{event__emitter_8hpp}{utils/event\_emitter.hpp}}>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{layer_8h}{utils/layer.h}}>}}
+\DoxyCodeLine{00008\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacetry1}{try1}}\ \{}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{comment}{//@todo\ will\ change\ to\ ECS/EC}}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtry1_1_1_entity}{Entity}}\ \{}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structtry1_1_1_entity_ae1cda8f378fe665b4a0e79d92a988f4a}{Entity}}(\mbox{\hyperlink{classobjects_1_1_renderer}{objects::Renderer}}\ *\mbox{\hyperlink{structtry1_1_1_entity_a5f4dad872ba15cf522c9c6af2a2d7325}{renderer}},}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classobjects_1_1_texture}{objects::Texture}}\ *\mbox{\hyperlink{structtry1_1_1_entity_a1c18be94795e2bca05666ecb9c9f4ca5}{sprite}},\ b2Vec2\ \mbox{\hyperlink{structtry1_1_1_entity_aa2291a93fefefcf4a5c711030b4efe53}{position}},}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ b2Body\ *\mbox{\hyperlink{structtry1_1_1_entity_afdc8fba2841e30d2884c7b5cfe966992}{body}})}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{structtry1_1_1_entity_a5f4dad872ba15cf522c9c6af2a2d7325}{renderer}}(\mbox{\hyperlink{structtry1_1_1_entity_a5f4dad872ba15cf522c9c6af2a2d7325}{renderer}}),\ \mbox{\hyperlink{structtry1_1_1_entity_a1c18be94795e2bca05666ecb9c9f4ca5}{sprite}}(\mbox{\hyperlink{structtry1_1_1_entity_a1c18be94795e2bca05666ecb9c9f4ca5}{sprite}}),}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structtry1_1_1_entity_aa2291a93fefefcf4a5c711030b4efe53}{position}}(\mbox{\hyperlink{structtry1_1_1_entity_aa2291a93fefefcf4a5c711030b4efe53}{position}}),\ \mbox{\hyperlink{structtry1_1_1_entity_afdc8fba2841e30d2884c7b5cfe966992}{body}}(\mbox{\hyperlink{structtry1_1_1_entity_afdc8fba2841e30d2884c7b5cfe966992}{body}})\{\};}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structtry1_1_1_entity_a1cbe80f71f8b60eeaa6200d42cc2ab18}{\string~Entity}}()\{\};}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structtry1_1_1_entity_a17208fea4e72ce66bdb0d22ab6ff54c1}{tick}}(\textcolor{keywordtype}{float}\ delta);}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structtry1_1_1_entity_af5ca41372ff108e4c044e8d927995a27}{render}}();}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classobjects_1_1_renderer}{objects::Renderer}}\ *\mbox{\hyperlink{structtry1_1_1_entity_a5f4dad872ba15cf522c9c6af2a2d7325}{renderer}};}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classobjects_1_1_texture}{objects::Texture}}\ *\mbox{\hyperlink{structtry1_1_1_entity_a1c18be94795e2bca05666ecb9c9f4ca5}{sprite}};}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ b2Vec2\ \mbox{\hyperlink{structtry1_1_1_entity_aa2291a93fefefcf4a5c711030b4efe53}{position}};}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ b2Body\ *\mbox{\hyperlink{structtry1_1_1_entity_afdc8fba2841e30d2884c7b5cfe966992}{body}};}
+\DoxyCodeLine{00027\ \ \ \ \ \};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classtry1_1_1_game_layer}{GameLayer}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classutils_1_1_layer}{utils::Layer}}\ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classtry1_1_1_game_layer_a13ec2eb385d77583d47740e4904abbc1}{GameLayer}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{classutils_1_1_layer_ab06480ec1c844361d5e3a7c493b6b338}{name}},}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classobjects_1_1_renderer}{objects::Renderer}}\ *\mbox{\hyperlink{classtry1_1_1_game_layer_a83ad82c69d86b065a5b6548bed190344}{renderer}},}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classinput_1_1_input_system}{input::InputSystem}}\ *\mbox{\hyperlink{classtry1_1_1_game_layer_acc259741d296b76e8cbbced13d4f495e}{inputSystem}})}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{namespaceutils}{utils}}::\mbox{\hyperlink{classutils_1_1_layer_ac84e458d68a1f35e56bbc31d15499637}{Layer}}(\mbox{\hyperlink{classutils_1_1_layer_ab06480ec1c844361d5e3a7c493b6b338}{name}}),\ \mbox{\hyperlink{classtry1_1_1_game_layer_a83ad82c69d86b065a5b6548bed190344}{renderer}}(\mbox{\hyperlink{classtry1_1_1_game_layer_a83ad82c69d86b065a5b6548bed190344}{renderer}}),}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classtry1_1_1_game_layer_acc259741d296b76e8cbbced13d4f495e}{inputSystem}}(\mbox{\hyperlink{classtry1_1_1_game_layer_acc259741d296b76e8cbbced13d4f495e}{inputSystem}})\{\};}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classtry1_1_1_game_layer_a6419369c7270a9fd48b3e4c4f15f4d5d}{\string~GameLayer}}()\textcolor{keyword}{\ override}\{\};}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classtry1_1_1_game_layer_afad6bf8078b034cf824e3650fddc2386}{onAttach}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classtry1_1_1_game_layer_a82077a83a8ece9b823a605f966c7dcfc}{onDetach}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classtry1_1_1_game_layer_aaa0164930f596f22fa3bf28c0171f9d4}{onTick}}(\textcolor{keywordtype}{float}\ delta)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classutils_1_1_event_emitter}{utils::EventEmitter}}\ *\textcolor{keyword}{const}\ \mbox{\hyperlink{classtry1_1_1_game_layer_a7462fb9dab34f338736044182303bb3d}{getEmitter}}()\ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \&this-\/>\mbox{\hyperlink{classtry1_1_1_game_layer_a6f626a8ccd8d0be0b2f04014b3df48fc}{eventEmitter}};}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classobjects_1_1_renderer}{objects::Renderer}}\ *\mbox{\hyperlink{classtry1_1_1_game_layer_a83ad82c69d86b065a5b6548bed190344}{renderer}};}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classutils_1_1_event_emitter}{utils::EventEmitter}}\ \mbox{\hyperlink{classtry1_1_1_game_layer_a6f626a8ccd8d0be0b2f04014b3df48fc}{eventEmitter}};}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classinput_1_1_input_system}{input::InputSystem}}\ *\mbox{\hyperlink{classtry1_1_1_game_layer_acc259741d296b76e8cbbced13d4f495e}{inputSystem}};}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structtry1_1_1_entity}{Entity}}\ *\mbox{\hyperlink{classtry1_1_1_game_layer_acf895f3d0e38ab24bb1105c7a7e5c420}{box}};}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ b2World\ *\mbox{\hyperlink{classtry1_1_1_game_layer_af649da8c208865e2f17e381c1df4cb26}{world}};}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structtry1_1_1_entity}{Entity}}\ *\mbox{\hyperlink{classtry1_1_1_game_layer_a648a19bc3f704ed94b25d1a8ee85b9fc}{platformOne}};}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structtry1_1_1_entity}{Entity}}\ *\mbox{\hyperlink{classtry1_1_1_game_layer_a296374b8feb33144416971d36a9644e1}{platformTwo}};}
+\DoxyCodeLine{00054\ \ \ \ \ \};}
+\DoxyCodeLine{00055\ \}\ \textcolor{comment}{//\ namespace\ try1}}
+
+\end{DoxyCode}
