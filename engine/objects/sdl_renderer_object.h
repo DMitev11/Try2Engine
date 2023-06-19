@@ -1,15 +1,15 @@
 #pragma once
+#include "renderer_object.h"
 #include <SDL3/SDL.h>
 #include <vector>
-
-#include "renderer_object.h"
-namespace objects
-{
-    class SDLRenderer : public Renderer
-    {
+namespace objects {
+    class SDLRenderer : public Renderer {
       public:
-        SDLRenderer(SDL_Renderer *renderer, SDL_Window *window, const char *driverName, std::vector<uint32_t> initFlags) : Renderer()
-        {
+        SDLRenderer(SDL_Renderer *renderer,
+                    SDL_Window *window,
+                    const char *driverName,
+                    std::vector<uint32_t> initFlags)
+            : Renderer() {
             this->renderer = renderer;
             this->window = window;
             this->driverName = driverName;
@@ -17,15 +17,9 @@ namespace objects
         }
         ~SDLRenderer() = default;
 
-        operator SDL_Renderer *()
-        {
-            return this->renderer;
-        }
+        operator SDL_Renderer *() { return this->renderer; }
 
-        operator SDL_Window *()
-        {
-            return this->window;
-        }
+        operator SDL_Window *() { return this->window; }
 
       private:
         SDL_Renderer *renderer;

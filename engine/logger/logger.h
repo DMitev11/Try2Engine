@@ -88,7 +88,7 @@ namespace logger {
      * @brief Create a sink, to which a logger can emit
      * messages.
      *
-     * @attention Its one of many (1...n) outputs of 1
+     * @note Its one of many (1...n) outputs of 1
      * logger.\n
      * Can have different differrent message pattern,
      * stylization and level.\n
@@ -382,7 +382,7 @@ namespace logger {
     LOG_CLIENT(__FILE__, __LINE__,                         \
                logger::LogLevel::kInfo, prefix, error)
 
-        /**
+    /**
      * @brief Log client dedicated messages, at "Warn"
      * level
      *

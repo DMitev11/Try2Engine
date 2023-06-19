@@ -4,7 +4,6 @@
 #include <libraries/imgui/backends/imgui_impl_sdlrenderer3.h>
 #include <libraries/imgui/imgui.h>
 #include <objects/helpers_object.hpp>
-#include <objects/sdl_renderer_object.h>
 
 /**
  * @brief SDL-based implementation, where "ImGui" requires
