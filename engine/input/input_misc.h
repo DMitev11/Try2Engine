@@ -36,10 +36,10 @@ namespace input {
      *
      */
     struct Controller {
-        inline Controller(int id, void *input)
-            : id(id), input(input) {}
+        inline Controller(int kId, void *input)
+            : kId(kId), input(input) {}
         utils::EventEmitter eventEmitter;
-        const int id;
+        const int kId;
         void *input;
     };
 
@@ -114,14 +114,14 @@ namespace input {
          * controllers to this input system
          * @note Input events of that controller
          *
-         * @param id of the controller
+         * @param kId of the controller
          * @return valid: Controller* const \n invalid:
          * nullptr
          */
         Controller *const getController(int id) {
             for (auto controller :
                  this->activeControllers) {
-                if (controller->id == id)
+                if (controller->kId == id)
                     return controller;
             }
             return nullptr;

@@ -8,14 +8,12 @@ namespace objects {
     class Texture {
       public:
         ~Texture() = default;
-        const char *path;
-        const int width;
-        const int height;
+        const char *kPath;
+        const int kWidth;
+        const int kHeight;
 
       protected:
         Texture(const char *path, int width, int height)
-            : width(width), height(height) {
-            this->path = path;
-        }
+            : kPath(path), kWidth(width), kHeight(height) {}
     };
 } // namespace objects

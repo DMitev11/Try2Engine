@@ -44,7 +44,7 @@ void sdl::SdlInputSystem::poll() {
             activeControllers.begin(),
             activeControllers.end(),
             [id](const Controller *controller) {
-                return controller->id == id;
+                return controller->kId == id;
             });
         if (it != activeControllers.end()) {
             Controller *controller = *it;
@@ -62,7 +62,7 @@ void sdl::SdlInputSystem::poll() {
             activeControllers.begin(),
             activeControllers.end(),
             [id](const Controller *controller) {
-                return controller->id == id;
+                return controller->kId == id;
             });
         if (it != activeControllers.end()) {
             Controller *controller = *it;
@@ -113,7 +113,7 @@ sdl::SdlInputSystem::addController(SDL_Event event) {
                      std::to_string(controllerId))
                         .c_str());
     for (Controller *controller : activeControllers) {
-        if (controller->id == controllerId) {
+        if (controller->kId == controllerId) {
             LOG_ENGINE_WARN("InputSystem: ",
                             (std::string("Controller") +
                              std::to_string(controllerId) +
@@ -140,7 +140,7 @@ void sdl::SdlInputSystem::removeController(
                      std::to_string(controllerId))
                         .c_str());
     for (int i = 0; i < activeControllers.size(); i++) {
-        if (activeControllers[i]->id == controllerId) {
+        if (activeControllers[i]->kId == controllerId) {
             delete activeControllers[i];
             activeControllers.erase(
                 activeControllers.begin() + i);

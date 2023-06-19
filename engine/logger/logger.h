@@ -186,9 +186,9 @@ namespace logger {
     class StaticLogger {
       private:
         explicit StaticLogger(char *const name)
-            : name(name){};
+            : kName(name){};
         ~StaticLogger() = default;
-        char *const name;
+        char *const kName;
 
       public:
         /**
@@ -241,7 +241,7 @@ namespace logger {
                   char *const msg) {
             logger::log(
                 filename, line,
-                StaticLogger::getEngineLogger()->name,
+                StaticLogger::getEngineLogger()->kName,
                 logLevel, msg);
         }
 
@@ -257,7 +257,7 @@ namespace logger {
                   char *const msg) {
             logger::log(
                 filename, line,
-                StaticLogger::getClientLogger()->name,
+                StaticLogger::getClientLogger()->kName,
                 logLevel, msg);
         }
     };

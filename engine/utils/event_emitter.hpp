@@ -152,21 +152,21 @@ namespace utils {
         struct ListenerBase {
             ListenerBase() = delete;
 
-            ListenerBase(int event, bool callOnce)
-                : event(event), callOnce(callOnce) {}
+            ListenerBase(int kEvent, bool kCallOnce)
+                : kEvent(kEvent), kCallOnce(kCallOnce) {}
 
             virtual ~ListenerBase() {}
 
             /**
              * @brief Type of an event emit
              */
-            const int event;
+            const int kEvent;
 
             /**
              * @brief If it should be deleted after a single
              * callback/handler call
              */
-            const bool callOnce;
+            const bool kCallOnce;
         };
 
         /**
@@ -271,7 +271,7 @@ namespace utils {
                     pair.second);
             if (ptr) {
                 ptr->cb(args...);
-                if (ptr->callOnce) {
+                if (ptr->kCallOnce) {
                     keysToDelete.push_back(pair.first);
                 }
             }

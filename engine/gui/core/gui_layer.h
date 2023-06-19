@@ -26,7 +26,7 @@ namespace gui {
       public:
         GuiLayer(const char *name,
                  objects::Renderer *renderer)
-            : utils::Layer(name), renderer(renderer){
+            : utils::Layer(name), kRenderer(renderer){
 
                                   };
         ~GuiLayer() override{};
@@ -78,7 +78,7 @@ namespace gui {
          * @brief Which renderer should be used to render
          * all widgets
          */
-        objects::Renderer *renderer;
+        objects::Renderer *kRenderer;
 
         /**
          * @brief All bound widgets

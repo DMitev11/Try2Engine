@@ -108,7 +108,7 @@ void sdl::renderAsset(objects::Renderer *renderer,
     return sdl::renderAsset(
         objects::toSdlRenderer(renderer),
         objects::toSdlTexture(texture),
-        (float)texture->width, (float)texture->height, x,
+        (float)texture->kWidth, (float)texture->kHeight, x,
         y);
 }
 

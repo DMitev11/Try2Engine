@@ -18,7 +18,7 @@ namespace gui {
       public:
         GuiWidget(const char *name,
                   std::vector<int> flags = {})
-            : name(name), flags(calculateFlags(flags)){};
+            : kName(name), flags(calculateFlags(flags)){};
         virtual ~GuiWidget(){};
 
         /**
@@ -27,7 +27,7 @@ namespace gui {
          * @note Before "render()"
          */
         virtual void begin() {
-            ImGui::Begin(name, close, flags);
+            ImGui::Begin(kName, close, flags);
         };
 
         /**
@@ -56,11 +56,11 @@ namespace gui {
             // override me
         };
         const char *getName() {
-            return std::string(name).c_str();
+            return std::string(kName).c_str();
         }
 
       protected:
-        const char *name;
+        const char *kName;
         const int flags;
         bool *close = new bool(false);
 

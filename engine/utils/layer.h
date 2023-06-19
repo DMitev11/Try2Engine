@@ -13,16 +13,16 @@ namespace utils {
         virtual void onDetach(){};
         virtual void onTick(float delta){};
 
-        const std::string getName() {
-            return std::string(name);
+        const std::string getName() const {
+            return std::string(kName);
         };
 
       protected:
-        Layer(const char *name = "Layer") : name(name) {}
+        Layer(const char *kName = "Layer") : kName(kName) {}
         virtual ~Layer(){};
         Layer(const Layer &) = default;
         Layer(Layer &&) = delete;
-        const char *name;
+        const char *kName;
 
         /**
          * @brief Only a LayerStack should be able to create

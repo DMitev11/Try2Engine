@@ -23,8 +23,8 @@ void gui::GuiLayer::onAttach() {
     io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;
 
     auto sdlRenderer =
-        objects::toSdlRenderer(this->renderer);
-    auto sdlWindow = objects::toSdlWindow(this->renderer);
+        objects::toSdlRenderer(this->kRenderer);
+    auto sdlWindow = objects::toSdlWindow(this->kRenderer);
 
     // Personal preference
     ImGui::StyleColorsDark();
