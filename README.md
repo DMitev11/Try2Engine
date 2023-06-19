@@ -2,6 +2,8 @@
 Cross-platform open-source 2D/3D game engine in the works. </br>
 Licensed under GPLv3 (and will continue to be), hence using it as a template or basis for other projects is permitted. </br>
 All libraries utilized in this project must be royalty free.
+
+[WIP] Read into the [wiki](https://github.com/DMitev11/Try2Engine/wiki/Introduction) for more info
  
 module | library  | description
 ---------| -------- | ------ 
