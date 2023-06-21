@@ -60,7 +60,7 @@ void GameLayer::onAttach() {
 
     // Define ground body
     b2BodyDef platformOneDef;
-    platformOneDef.position.Set(0.0f, 800.0f);
+    platformOneDef.position.Set(100.f, 800.0f);
     b2Body *platformOneBody =
         this->world->CreateBody(&platformOneDef);
     b2PolygonShape platformOneShape;
@@ -73,7 +73,9 @@ void GameLayer::onAttach() {
 
     b2BodyDef platformTwoDef;
     platformTwoDef.position.Set(
-        platformTextureSize.w + 20.f, 800.0f);
+        platformOneBody->GetPosition().x +
+            platformTextureSize.w + 20.f,
+        800.0f);
     b2Body *platformTwoBody =
         this->world->CreateBody(&platformTwoDef);
     b2PolygonShape platformTwoShape;
@@ -91,7 +93,7 @@ void GameLayer::onAttach() {
     b2BodyDef boxBodyDef;
     boxBodyDef.enabled = true;
     boxBodyDef.type = b2_dynamicBody;
-    boxBodyDef.position.Set(0.0f, 20.0f);
+    boxBodyDef.position.Set(500.0f, 0.0f);
     b2Body *boxBody = this->world->CreateBody(&boxBodyDef);
     b2PolygonShape boxShape;
     boxShape.SetAsBox(boxTextureSize.w / 2,
@@ -110,8 +112,8 @@ void GameLayer::onTick(float delta) {
     this->platformOne->tick(delta);
     this->platformTwo->tick(delta);
     this->box->tick(delta);
-    // this->platformOne->render();
-    // this->platformTwo->render();
+    this->platformOne->render();
+    this->platformTwo->render();
     this->box->render();
 }
 void GameLayer::onDetach() {}
