@@ -18,6 +18,15 @@ GUI | [ImGui](https://github.com/ocornut/imgui) | GUI for in-engine windows and 
 Tests | [gtest](https://github.com/google/googletest) | Testing of modules and logic
 Build Tool | [CMake](https://cmake.org/) | Building project on different platforms (tested on Linux Mint and Windows)
 
+CMake Flag| variations | description
+--------- | ---------- | -----------
+WITH_SDL  | TRUE/FALSE | Build SDL3 based implementations in the project. There are a lot of facade and adapter implementations in the different source modules currently, due to which the majority of the project would require this flag to be 'TRUE' to build and run. You could still build a separate executable with this set to 'FALSE', ex. using only the 'Logger'. <br> Recommended 'TRUE'
+WITH_IMGUI | TRUE/FALSE | Required to build the currently implemented GUI in the project. <br> Recommended 'TRUE'
+WITH_SDL_IMAGE | TRUE/FALSE | Build the project with image loading with [SDL_image](https://github.com/libsdl-org/SDL_image). Strictly related to SDL2/3, and hard to build and run under Linux. <br> Recommended 'FALSE'
+WITH_STB | TRUE/FALSE | Another image loading external library, currently implemented in the loader. Versatile, lighter and easier to build and run. <br> Recommended 'TRUE'
+WITH_BOX2D | TRUE/FALSE | Includes BOX2D build dependencies and includes. Used in 'Try1' for now, later to be abstracted in a 'game/physics' module. <br> Recommended 'TRUE'
+
+
 ### **Build and run**
 - `Windows (tested on Windows 11):` </br>
     Requires a pre-installed CMake(3.15 and above) and a C++ compiler (ex. MSVC, GCC) with C++17 support. </br>
