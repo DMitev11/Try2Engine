@@ -328,6 +328,16 @@ namespace logger {
 #define LOG_ENGINE_CRITICAL(prefix, error)                 \
     LOG_ENGINE(__FILE__, __LINE__,                         \
                logger::LogLevel::kCritical, prefix, error)
+    /**
+     * @brief Log engine dedicated messages, at "Trace"
+     * level
+     *
+     * @see logger::LOG_ENGINE
+     * @see logger::LogLevel
+     */
+#define LOG_ENGINE_TRACE(prefix, error)                    \
+    LOG_ENGINE(__FILE__, __LINE__,                         \
+               logger::LogLevel::kTrace, prefix, error)
 
     /**
      * @brief Log engine dedicated messages, at "Info" level
