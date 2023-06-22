@@ -22,7 +22,9 @@ void sdl::SdlInputSystem::poll() {
     SDL_PollEvent(&event);
     // Capture input for ImGui if built with the project
 #ifdef USE_IMGUI
-    ImGui_ImplSDL3_ProcessEvent(&event);
+    if (ImGui::GetCurrentContext() != nullptr) {
+        ImGui_ImplSDL3_ProcessEvent(&event);
+    }
 #endif
     switch (event.type) {
     case SDL_EVENT_GAMEPAD_ADDED: {
