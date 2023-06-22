@@ -1,5 +1,3 @@
-#include <loader/loader.hpp>
-#include <render/render.hpp>
 #include <window/window.hpp>
 
 int main(int argc, char const *argv[]) {
