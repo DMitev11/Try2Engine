@@ -393,6 +393,17 @@ namespace logger {
                logger::LogLevel::kInfo, prefix, error)
 
     /**
+     * @brief Log client dedicated messages, at "Trace"
+     * level
+     *
+     * @see logger::LOG_CLIENT
+     * @see logger::LogLevel
+     */
+#define LOG_CLIENT_TRACE(prefix, error)                    \
+    LOG_CLIENT(__FILE__, __LINE__,                         \
+               logger::LogLevel::kTrace, prefix, error)
+
+    /**
      * @brief Log client dedicated messages, at "Warn"
      * level
      *
