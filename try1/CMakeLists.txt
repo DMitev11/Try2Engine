@@ -47,7 +47,13 @@ if(DEFINED WITH_SDL AND WITH_SDL)
     endif()
 endif()
 
+# There are differences in the build folder based on the platform and OS distributions but I am still figuring out what exactly
 add_custom_command(
     TARGET try1 POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_SOURCE_DIR}/assets ${runtime_folder}/assets
+    COMMENT "Copy assets")
+
+add_custom_command(
+    TARGET try1 POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_SOURCE_DIR}/assets ${CMAKE_CURRENT_BINARY_DIR}/assets
     COMMENT "Copy assets")
