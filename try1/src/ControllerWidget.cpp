@@ -7,6 +7,7 @@ void ControllerWidget::render() {
 
     // 1. Create a text line to give some description
     ImGui::Text("Cubes or whatever");
+    ImGui::Text("Use arrow keys or wasd");
     ImGui::SliderFloat("Gravity", &this->gameData->gravity,
                        -100, 100.f);
     ImGui::SliderInt("Quantity", &this->gameData->quantity,

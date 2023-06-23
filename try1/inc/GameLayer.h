@@ -9,6 +9,11 @@
 #include <utils/layer.h>
 namespace try1 {
 
+    struct Controls {
+        std::map<int, bool> keyboardKeys;
+        // std::map<int, bool> controllerAxis;
+    };
+
     //@todo will change to ECS/EC
     struct Entity {
       public:
@@ -54,11 +59,14 @@ namespace try1 {
         };
 
         void fire();
+        void fire(float x, float y);
         void setGlobals();
 
       protected:
         Entity *spawnNewBox(int x, int y);
         void changeEntityAmount(int quantity);
+        void handleKeyboardInput();
+
         objects::Renderer *renderer;
         utils::EventEmitter eventEmitter;
         input::InputSystem *inputSystem;
@@ -66,12 +74,12 @@ namespace try1 {
         std::mt19937 rnd;
         int screenWidth;
         GameData *gameData;
+        Controls controls;
+        float lastDelta;
 
         std::vector<Entity *> entities;
         b2World *world;
         Entity *platformOne;
         Entity *platformTwo;
-
-        float lastDelta;
     };
 } // namespace try1

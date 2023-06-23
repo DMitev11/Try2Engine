@@ -4,6 +4,36 @@
 #include <render/render.hpp>
 using namespace try1;
 
+void GameLayer::handleKeyboardInput() {
+    int x = 0;
+    int y = 0;
+
+    // w or up arrow
+    if (this->controls.keyboardKeys[119] ||
+        this->controls.keyboardKeys[1073741906]) {
+        y += 1;
+    }
+    // s or down arrow
+    if (this->controls.keyboardKeys[115] ||
+        this->controls.keyboardKeys[1073741905]) {
+        y -= 1;
+    }
+    // a or left arrow
+    if (this->controls.keyboardKeys[97] ||
+        this->controls.keyboardKeys[1073741904]) {
+        x -= 1;
+    }
+    // d or right arrow
+    if (this->controls.keyboardKeys[100] ||
+        this->controls.keyboardKeys[1073741903]) {
+        x += 1;
+    }
+
+    if (x != 0 || y != 0) {
+        fire(x, y);
+    }
+}
+
 void GameLayer::setGlobals() {
     for (int i = 0; i < this->entities.size(); i++) {
         this->entities[i]->getBody()->SetBullet(
@@ -22,10 +52,13 @@ void GameLayer::setGlobals() {
 }
 
 void GameLayer::fire() {
+    fire(this->gameData->xDir, this->gameData->yDir);
+}
+
+void GameLayer::fire(float x, float y) {
     for (int i = 0; i < this->entities.size(); i++) {
         auto entity = this->entities[i];
-        b2Vec2 force(this->gameData->xDir,
-                     this->gameData->yDir);
+        b2Vec2 force(x, -y);
         force *= this->gameData->force;
         this->gameData->forceOrImpulse
             ? entity->getBody()->ApplyForceToCenter(force,
@@ -160,6 +193,25 @@ void GameLayer::onAttach() {
         this->renderer, platformTexture,
         platformTwoBody->GetPosition(), platformTwoBody);
     spawnNewBox(200, 300);
+
+    this->inputSystem->getEmitter()->On(
+        input::InputEvents::kEventKeyboardDown,
+        std::function<void(int32_t id)>([&](int32_t id) {
+            this->controls.keyboardKeys[id] = true;
+            LOG_CLIENT_INFO("Btn",
+                            std::to_string(id).c_str());
+        }));
+    this->inputSystem->getEmitter()->On(
+        input::InputEvents::kEventKeyboardUp,
+        std::function<void(int32_t id)>([&](int32_t id) {
+            this->controls.keyboardKeys[id] = false;
+        }));
+
+    this->inputSystem->getEmitter()->On(
+        input::InputEvents::kEventGamepadCreated,
+        std::function<void(int32_t id)>([&](int32_t id) {
+            this->controls.keyboardKeys[id] = false;
+        }));
 }
 
 void GameLayer::onTick(float delta) {
@@ -169,6 +221,7 @@ void GameLayer::onTick(float delta) {
         this->world->SetGravity(
             b2Vec2(0.f, -this->gameData->gravity));
     }
+    handleKeyboardInput();
     this->world->Step(delta, 2, 6);
     this->platformOne->tick(delta);
     this->platformTwo->tick(delta);
