@@ -112,16 +112,17 @@ namespace logger {
         LogLevel logLevel = LogLevel::kTrace,
         std::string pattern = kDefaultPattern);
 
-    /**
-     * @see createConsoleSink
-     */
-    template <typename... Args>
-    void
-    createFileSink(std::string loggerName, Args... args,
-                   FileLoggerTypes sinkType =
-                       FileLoggerTypes::kBasicFile,
-                   LogLevel logLevel = LogLevel::kTrace,
-                   std::string pattern = kDefaultPattern);
+    // /**
+    //  * @see createConsoleSink
+    //  */
+    // template <typename... Args>
+    // void
+    // createFileSink(std::string loggerName,
+    //                FileLoggerTypes sinkType =
+    //                    FileLoggerTypes::kBasicFile,
+    //                LogLevel logLevel = LogLevel::kTrace,
+    //                std::string pattern = kDefaultPattern,
+    //                Args... args);
 
     /**
      * @brief Set logger pattern to be used by a logger

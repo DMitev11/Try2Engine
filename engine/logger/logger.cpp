@@ -61,32 +61,32 @@ void logger::createConsoleSink(std::string loggerName,
             loggerName, logLevel, pattern);
     };
 }
-template <typename... Args>
-void logger::createFileSink(std::string loggerName,
-                            Args... args,
-                            FileLoggerTypes sinkType,
-                            LogLevel logLevel,
-                            std::string pattern) {
-    switch (sinkType) {
-    case FileLoggerTypes::kBasicFile:
-        return createSink(
-            std::make_shared<
-                spdlog::sinks::basic_file_sink_mt>(args...),
-            loggerName, logLevel, pattern);
-    case FileLoggerTypes::kMultipleFiles:
-        return createSink(
-            std::make_shared<
-                spdlog::sinks::rotating_file_sink_mt>(
-                args...),
-            loggerName, logLevel, pattern);
-    case FileLoggerTypes::kDailyFile:
-        return createSink(
-            std::make_shared<
-                spdlog::sinks::rotating_file_sink_mt>(
-                args...),
-            loggerName, logLevel, pattern);
-    }
-}
+// template <typename... Args>
+// void logger::createFileSink(std::string loggerName,
+//                             FileLoggerTypes sinkType,
+//                             LogLevel logLevel,
+//                             std::string pattern,
+//                             Args... args) {
+//     switch (sinkType) {
+//     case FileLoggerTypes::kBasicFile:
+//         return createSink(
+//             std::make_shared<
+//                 spdlog::sinks::basic_file_sink_mt>(args...),
+//             loggerName, logLevel, pattern);
+//     case FileLoggerTypes::kMultipleFiles:
+//         return createSink(
+//             std::make_shared<
+//                 spdlog::sinks::rotating_file_sink_mt>(
+//                 args...),
+//             loggerName, logLevel, pattern);
+//     case FileLoggerTypes::kDailyFile:
+//         return createSink(
+//             std::make_shared<
+//                 spdlog::sinks::rotating_file_sink_mt>(
+//                 args...),
+//             loggerName, logLevel, pattern);
+//     }
+// }
 void logger::setLoggerPattern(std::string loggerName,
                               std::string pattern) {
     return spdlog::get(loggerName)->set_pattern(pattern);
@@ -108,6 +108,4 @@ void logger::log(char *const filename, int fileLine,
 
 bool logger::loggerExists(std::string loggerName) {
     return spdlog::get(loggerName) != nullptr;
-} 
-
-
+}
