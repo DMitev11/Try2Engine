@@ -1,8 +1,10 @@
 #pragma once
 #include <box2d/box2d.h>
+#include <inc/GameData.h>
 #include <input/input.hpp>
 #include <objects/renderer_object.h>
 #include <objects/texture_object.h>
+#include <random>
 #include <utils/event_emitter.hpp>
 #include <utils/layer.h>
 namespace try1 {
@@ -19,6 +21,8 @@ namespace try1 {
         void tick(float delta);
         void render();
 
+        b2Body *const getBody() const { return body; }
+
       protected:
         objects::Renderer *renderer;
         objects::Texture *sprite;
@@ -30,9 +34,15 @@ namespace try1 {
       public:
         GameLayer(const char *name,
                   objects::Renderer *renderer,
-                  input::InputSystem *inputSystem)
+                  input::InputSystem *inputSystem,
+                  GameData *gameData, int screenWidth)
             : utils::Layer(name), renderer(renderer),
-              inputSystem(inputSystem){};
+              inputSystem(inputSystem), gameData(gameData),
+              screenWidth(screenWidth) {
+
+            std::random_device rd;
+            this->rnd = std::mt19937(rd());
+        };
         ~GameLayer() override{};
 
         void onAttach() override;
@@ -43,13 +53,25 @@ namespace try1 {
             return &this->eventEmitter;
         };
 
+        void fire();
+        void setGlobals();
+
       protected:
+        Entity *spawnNewBox(int x, int y);
+        void changeEntityAmount(int quantity);
         objects::Renderer *renderer;
         utils::EventEmitter eventEmitter;
         input::InputSystem *inputSystem;
-        Entity *box;
+
+        std::mt19937 rnd;
+        int screenWidth;
+        GameData *gameData;
+
+        std::vector<Entity *> entities;
         b2World *world;
         Entity *platformOne;
         Entity *platformTwo;
+
+        float lastDelta;
     };
 } // namespace try1

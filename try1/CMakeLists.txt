@@ -6,9 +6,12 @@ project(Try1 LANGUAGES CXX)
 set(HEADER_FILES
     inc/Try1.h
     inc/GameLayer.h
+    inc/GameData.h
+    inc/ControllerWidget.h
 )
 set(SOURCE_FILES
     main.cpp
+    src/ControllerWidget.cpp
     src/GameLayer.cpp
     src/Try1.cpp)
 add_executable(try1 ${SOURCE_FILES})

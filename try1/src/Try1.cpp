@@ -1,5 +1,7 @@
+#include <chrono>
 #include <gui/core/gui_layer.h>
 #include <gui/widgets/example_widget.h>
+#include <inc/ControllerWidget.h>
 #include <inc/GameLayer.h>
 #include <inc/Try1.h>
 #include <input/input.hpp>
@@ -12,6 +14,7 @@ using namespace try1;
 Try1::Try1(){
 
 };
+
 void Try1::run() {
     window::init();
     render::init();
@@ -22,35 +25,44 @@ void Try1::run() {
     auto inputSystem = input::createInputSystem();
     inputSystem->init();
 
-    auto game =
+    auto gameData = new GameData();
+    auto game = static_cast<try1::GameLayer *>(
         this->layerStack.addLayer(new try1::GameLayer(
-            "GameLayer", renderer, inputSystem));
+            "GameLayer", renderer, inputSystem, gameData,
+            1200)));
 
     auto gui = static_cast<gui::GuiLayer *>(
         this->layerStack.addLayer(
             new gui::GuiLayer("GuiLayer", renderer)));
-    gui->addWidget(
-        new gui::ExampleWidget("example widget"));
-    gui->addWidget(
-        new gui::ExampleWidget("example widget3"));
-    gui->addWidget(
-        new gui::ExampleWidget("example widget4"));
-    gui->addWidget(
-        new gui::ExampleWidget("example widget2"));
+
+    auto widget =
+        new ControllerWidget(gameData, "ControllerWidget");
+    gui->addWidget(widget);
+    widget->getEmitter()->On(
+        ControllerWidget::Events::kFire,
+        std::function([&](uint32_t i) { game->fire(); }));
 
     bool exit = false;
     inputSystem->getEmitter()->On(
         input::kEventQuit,
-        std::function(
-            [&](int i, input::InputSystem *input) {
-                exit = true;
-            }));
+        std::function([&](int i) { exit = true; }));
+
+    auto start = std::chrono::high_resolution_clock::now();
+    auto end = std::chrono::high_resolution_clock::now();
+    ;
     while (!exit) {
+        end = std::chrono::high_resolution_clock::now();
+        float elapsed =
+            std::chrono::duration_cast<
+                std::chrono::milliseconds>(end - start)
+                .count();
+        start = std::chrono::high_resolution_clock::now();
+        render::clearRenderer(renderer);
         inputSystem->poll();
         render::setDrawColor(renderer, 255, 0, 0, 255);
-        this->layerStack.tick(0.005f);
+
+        this->layerStack.tick(elapsed);
         render::renderFrame(renderer);
-        render::clearRenderer(renderer);
     }
     this->layerStack.shutdown();
     render::terminate(renderer);

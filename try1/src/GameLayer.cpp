@@ -4,6 +4,110 @@
 #include <render/render.hpp>
 using namespace try1;
 
+void GameLayer::setGlobals() {
+    for (int i = 0; i < this->entities.size(); i++) {
+        this->entities[i]->getBody()->SetBullet(
+            this->gameData->treatAsBullet);
+        this->entities[i]->getBody()->SetGravityScale(
+            this->gameData->gravityScale);
+        auto fixture =
+            this->entities[i]->getBody()->GetFixtureList();
+        fixture->SetDensity(
+            this->gameData->densityCoefficient);
+        fixture->SetFriction(
+            this->gameData->frictionCoefficient);
+        fixture->SetRestitutionThreshold(
+            this->gameData->restitutionThreshold);
+    }
+}
+
+void GameLayer::fire() {
+    for (int i = 0; i < this->entities.size(); i++) {
+        auto entity = this->entities[i];
+        b2Vec2 force(this->gameData->xDir,
+                     this->gameData->yDir);
+        force *= this->gameData->force;
+        this->gameData->forceOrImpulse
+            ? entity->getBody()->ApplyForceToCenter(force,
+                                                    true)
+            : entity->getBody()->ApplyLinearImpulseToCenter(
+                  force, true);
+    }
+}
+
+void GameLayer::changeEntityAmount(int quantity) {
+    int diff = quantity - this->entities.size();
+    if (diff == 0)
+        return;
+    if (diff > 0) {
+        std::uniform_int_distribution<int> distribution(
+            0, this->screenWidth);
+        for (int i = 0; i < diff; i++) {
+            int random = distribution(this->rnd);
+            this->spawnNewBox(random, 0);
+        }
+    } else {
+        for (int i = this->entities.size() - 1;
+             i > this->entities.size() + diff; i--) {
+            auto entity = this->entities[i];
+            b2Fixture *fixture =
+                entity->getBody()->GetFixtureList();
+            entity->getBody()->DestroyFixture(fixture);
+
+            this->world->DestroyBody(
+                this->entities[i]->getBody());
+            delete this->entities[i];
+            this->entities.pop_back();
+        }
+    }
+}
+
+Entity *GameLayer::spawnNewBox(int x, int y) {
+    auto boxTexture =
+        loader::loadTexture(renderer, "assets/box.png");
+    auto boxTextureSize =
+        render::getTextureSize(boxTexture);
+    b2BodyDef boxBodyDef;
+    boxBodyDef.enabled = true;
+    boxBodyDef.type = b2_dynamicBody;
+    boxBodyDef.position.Set(500.0f, 0.0f);
+    b2Body *boxBody = this->world->CreateBody(&boxBodyDef);
+    b2PolygonShape boxShape;
+    boxShape.SetAsBox(boxTextureSize.w / 2,
+                      boxTextureSize.h / 2);
+    b2FixtureDef boxFixtureDef;
+    boxFixtureDef.shape = &boxShape;
+    boxFixtureDef.density =
+        this->gameData->densityCoefficient;
+    boxFixtureDef.friction =
+        this->gameData->frictionCoefficient;
+    boxFixtureDef.restitutionThreshold =
+        this->gameData->restitutionThreshold;
+    boxBody->CreateFixture(&boxFixtureDef);
+    boxBody->SetGravityScale(this->gameData->gravityScale);
+    boxBody->SetBullet(this->gameData->treatAsBullet);
+    this->entities.push_back(
+        new Entity(this->renderer, boxTexture,
+                   boxBody->GetPosition(), boxBody));
+    auto entity = this->entities[this->entities.size() - 1];
+
+    this->inputSystem->getEmitter()->On(
+        input::kEventKeyboardDown,
+        std::function<void(int32_t id)>([=](int32_t id) {
+            LOG_CLIENT_INFO("Button Down",
+                            std::to_string(id).c_str());
+            entity->getBody()->ApplyLinearImpulse(
+                b2Vec2(-50000, 200), b2Vec2(0.5f, 0.5f),
+                true);
+        }));
+    LOG_CLIENT_INFO(
+        "Try1Burn: ",
+        (std::string("Spawned entity with id ") +
+         std::to_string(this->entities.size() - 1))
+            .c_str());
+    return entity;
+}
+
 void Entity::tick(float delta) {
     this->position = this->body->GetPosition();
 }
@@ -14,47 +118,17 @@ void Entity::render() {
     render::renderAsset(this->renderer, this->sprite, posX,
                         posY);
 }
-void hookGamepadAndKeyboardInfoLog(
-    input::InputSystem *input) {
-    // Handle gamepad connected via binding gamepad input
-    std::function<void(uint8_t id)>
-        handleControllerConnect = [input](uint8_t id) {
-            LOG_CLIENT_INFO("Try1: Hook Gamepad",
-                            std::to_string(id).c_str());
-            std::function<void(uint8_t i)> emitMessage =
-                std::function<void(uint8_t i)>(
-                    [](uint8_t i) {
-                        LOG_CLIENT_INFO(
-                            "Try1: Gamepad Button Down ",
-                            std::to_string(i).c_str());
-                    });
-            input->getController(id)->eventEmitter.On(
-                input::kEventGamepadDown, emitMessage);
-        };
-
-    // Hook gamepad created
-    input->getEmitter()->On(input::kEventGamepadCreated,
-                            handleControllerConnect);
-    input->getEmitter()->On(
-        input::kEventKeyboardDown,
-        std::function<void(uint8_t)>([input](uint8_t id) {
-            LOG_CLIENT_INFO("Button: ",
-                            std::to_string(id).c_str());
-        }));
-}
 
 void GameLayer::onAttach() {
-    auto config = loader::LoadingTextureConfig();
-    config.colorKey.r = 0, config.colorKey.g = 0,
-    config.colorKey.b = 0;
 
     auto platformTexture = loader::loadTexture(
-        this->renderer, "assets/platform.png", config);
+        this->renderer, "assets/platform.png");
     auto input = this->inputSystem;
-    hookGamepadAndKeyboardInfoLog(input);
 
-    b2Vec2 gravity(0.0f, 9.8f); // Set gravity
+    b2Vec2 gravity(0.0f,
+                   this->gameData->gravity); // Set gravity
     this->world = new b2World(gravity);
+    this->world->SetContinuousPhysics(true);
     auto platformTextureSize =
         render::getTextureSize(platformTexture);
 
@@ -85,35 +159,29 @@ void GameLayer::onAttach() {
     this->platformTwo = new Entity(
         this->renderer, platformTexture,
         platformTwoBody->GetPosition(), platformTwoBody);
-
-    auto boxTexture = loader::loadTexture(
-        renderer, "assets/box.png", config);
-    auto boxTextureSize =
-        render::getTextureSize(boxTexture);
-    b2BodyDef boxBodyDef;
-    boxBodyDef.enabled = true;
-    boxBodyDef.type = b2_dynamicBody;
-    boxBodyDef.position.Set(500.0f, 0.0f);
-    b2Body *boxBody = this->world->CreateBody(&boxBodyDef);
-    b2PolygonShape boxShape;
-    boxShape.SetAsBox(boxTextureSize.w / 2,
-                      boxTextureSize.h / 2);
-    b2FixtureDef boxFixtureDef;
-    boxFixtureDef.shape = &boxShape;
-    boxFixtureDef.density = 1.0f;
-    boxFixtureDef.friction = 0.3f;
-    boxBody->CreateFixture(&boxFixtureDef);
-    this->box = new Entity(this->renderer, boxTexture,
-                           boxBody->GetPosition(), boxBody);
+    spawnNewBox(200, 300);
 }
 
 void GameLayer::onTick(float delta) {
+    this->lastDelta = delta;
+    if (-this->world->GetGravity().y !=
+        this->gameData->gravity) {
+        this->world->SetGravity(
+            b2Vec2(0.f, -this->gameData->gravity));
+    }
     this->world->Step(delta, 2, 6);
     this->platformOne->tick(delta);
     this->platformTwo->tick(delta);
-    this->box->tick(delta);
+    for (int i = 0; i < this->entities.size(); i++) {
+        this->entities[i]->tick(delta);
+    }
     this->platformOne->render();
     this->platformTwo->render();
-    this->box->render();
+    for (int i = 0; i < this->entities.size(); i++) {
+        this->entities[i]->render();
+    }
+    if (this->entities.size() != this->gameData->quantity) {
+        this->changeEntityAmount(this->gameData->quantity);
+    }
 }
 void GameLayer::onDetach() {}
