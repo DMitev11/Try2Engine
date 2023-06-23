@@ -20,3 +20,7 @@ set_target_properties(utils PROPERTIES
     RUNTIME_OUTPUT_DIRECTORY_DEBUG ${CMAKE_SOURCE_DIR}/build/debug
     RUNTIME_OUTPUT_DIRECTORY_RELEASE ${CMAKE_SOURCE_DIR}/build/release
 )
+
+if(DEFINED BUILD_TESTS AND BUILD_TESTS)
+    add_subdirectory(./tests)
+endif()
