@@ -52,8 +52,6 @@ namespace utils {
          *
          */
         std::vector<Layer *> layers;
-
-        // LayerStack(LayerStack &const) = delete; //C4227
         LayerStack(LayerStack &) = delete;
         LayerStack(LayerStack &&) = delete;
 
