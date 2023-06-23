@@ -18,22 +18,23 @@ void logger::createConsoleLogger(
     }
 }
 
-template <typename... Args>
-void logger::createFileLogger(std::string name,
-                              FileLoggerTypes loggerType,
-                              Args... args) {
-    switch (loggerType) {
-    case FileLoggerTypes::kBasicFile:
-        spdlog::basic_logger_mt(name, args...);
-        break;
-    case FileLoggerTypes::kMultipleFiles:
-        spdlog::rotating_logger_mt(name, args...);
-        break;
-    case FileLoggerTypes::kDailyFile:
-        spdlog::daily_logger_mt(name, args...);
-        break;
-    }
-};
+//@todo needs testing
+// template <typename... Args>
+// void logger::createFileLogger(std::string name,
+//                               FileLoggerTypes loggerType,
+//                               Args... args) {
+//     switch (loggerType) {
+//     case FileLoggerTypes::kBasicFile:
+//         spdlog::basic_logger_mt(name, args...);
+//         break;
+//     case FileLoggerTypes::kMultipleFiles:
+//         spdlog::rotating_logger_mt(name, args...);
+//         break;
+//     case FileLoggerTypes::kDailyFile:
+//         spdlog::daily_logger_mt(name, args...);
+//         break;
+//     }
+// };
 
 void createSink(spdlog::sink_ptr sink,
                 std::string loggerName,
@@ -61,6 +62,8 @@ void logger::createConsoleSink(std::string loggerName,
             loggerName, logLevel, pattern);
     };
 }
+
+//@todo needs testing
 // template <typename... Args>
 // void logger::createFileSink(std::string loggerName,
 //                             FileLoggerTypes sinkType,

@@ -73,16 +73,17 @@ namespace logger {
     void createConsoleLogger(std::string name,
                              ConsoleLoggerTypes loggerType);
 
+    //@todo needs testing
     /**
      * @see createConsoleLogger
      *
      * @tparam Args variadic, as different parameters are
      * used to initialize file loggers, based on the type
      */
-    template <typename... Args>
-    void createFileLogger(std::string name,
-                          FileLoggerTypes loggerType,
-                          Args... args);
+    // template <typename... Args>
+    // void createFileLogger(std::string name,
+    //                       FileLoggerTypes loggerType,
+    //                       Args... args);
 
     /**
      * @brief Create a sink, to which a logger can emit
