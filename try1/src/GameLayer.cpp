@@ -60,11 +60,14 @@ void GameLayer::fire(float x, float y) {
         auto entity = this->entities[i];
         b2Vec2 force(x, -y);
         force *= this->gameData->force;
-        this->gameData->forceOrImpulse
-            ? entity->getBody()->ApplyForceToCenter(force,
-                                                    true)
-            : entity->getBody()->ApplyLinearImpulseToCenter(
-                  force, true);
+        if (entity->getBody() != nullptr) {
+            this->gameData->forceOrImpulse
+                ? entity->getBody()->ApplyForceToCenter(
+                      force, true)
+                : entity->getBody()
+                      ->ApplyLinearImpulseToCenter(force,
+                                                   true);
+        }
     }
 }
 
@@ -124,15 +127,6 @@ Entity *GameLayer::spawnNewBox(int x, int y) {
                    boxBody->GetPosition(), boxBody));
     auto entity = this->entities[this->entities.size() - 1];
 
-    this->inputSystem->getEmitter()->On(
-        input::kEventKeyboardDown,
-        std::function<void(int32_t id)>([=](int32_t id) {
-            LOG_CLIENT_INFO("Button Down",
-                            std::to_string(id).c_str());
-            entity->getBody()->ApplyLinearImpulse(
-                b2Vec2(-50000, 200), b2Vec2(0.5f, 0.5f),
-                true);
-        }));
     LOG_CLIENT_INFO(
         "Try1Burn: ",
         (std::string("Spawned entity with id ") +
@@ -215,7 +209,6 @@ void GameLayer::onTick(float delta) {
         this->world->SetGravity(
             b2Vec2(0.f, -this->gameData->gravity));
     }
-    handleKeyboardInput();
     this->world->Step(delta, 2, 6);
     this->platformOne->tick(delta);
     this->platformTwo->tick(delta);
@@ -230,5 +223,6 @@ void GameLayer::onTick(float delta) {
     if (this->entities.size() != this->gameData->quantity) {
         this->changeEntityAmount(this->gameData->quantity);
     }
+    handleKeyboardInput();
 }
 void GameLayer::onDetach() {}
