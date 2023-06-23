@@ -1,6 +1,7 @@
 #include "./sdl_window.h"
 #include <SDL3/SDL.h>
 #include <logger/logger.h>
+#include <objects/helpers_object.hpp>
 #include <sdl_window_object.h>
 #include <stdexcept>
 using namespace window;
@@ -75,9 +76,7 @@ sdl::createWindow(int height, int width, const char *title,
 }
 
 void sdl::terminate(objects::Window *window) {
-    return sdl::terminate(
-        (SDL_Window *)static_cast<objects::SDLWindow *>(
-            window));
+    return sdl::terminate(objects::toSdlWindow(window));
 }
 
 void sdl::terminate(SDL_Window *window) {

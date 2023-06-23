@@ -160,9 +160,7 @@ void sdl::renderFrame(SDL_Renderer *renderer) {
 }
 
 void sdl::terminate(objects::Renderer *renderer) {
-    return sdl::terminate(
-        (SDL_Renderer *)static_cast<objects::SDLRenderer *>(
-            renderer));
+    return sdl::terminate(objects::toSdlRenderer(renderer));
 }
 void sdl::terminate(SDL_Renderer *renderer) {
     SDL_DestroyRenderer(renderer);
