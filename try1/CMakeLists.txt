@@ -22,11 +22,12 @@ target_include_directories(try1 PUBLIC ${ENGINE_ROOT} ${CMAKE_CURRENT_SOURCE_DIR
 
 message(STATUS "Engine Folder: ${CMAKE_SOURCE_DIR}/engine")
 message(STATUS "Source Folder: ${PROJECT_SOURCE_DIR} ")
+set(BUILD_FOLDER ${CMAKE_BINARY_DIR}/buildTarget)
 set_target_properties(try1 PROPERTIES
     CXX_STANDARD 17
-    RUNTIME_OUTPUT_DIRECTORY_DEBUG ${CMAKE_SOURCE_DIR}/build/debug
-    RUNTIME_OUTPUT_DIRECTORY_RELEASE ${CMAKE_SOURCE_DIR}/build/release
-    RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/build/build
+    RUNTIME_OUTPUT_DIRECTORY_DEBUG ${BUILD_FOLDER}
+    RUNTIME_OUTPUT_DIRECTORY_RELEASE ${BUILD_FOLDER}
+    RUNTIME_OUTPUT_DIRECTORY ${BUILD_FOLDER}
 )
 
 # copy SDL binaries
@@ -38,31 +39,13 @@ if(DEFINED WITH_SDL AND WITH_SDL)
     if(NOT CMAKE_HOST_SYSTEM_NAME STREQUAL "Linux")
         add_custom_command(
             TARGET try1 POST_BUILD
-            COMMAND ${CMAKE_COMMAND} -E copy_directory ${SDL3_BIN}/ ${runtime_debug}/
-            COMMENT "Copy SDL3 dynamic binaries")
-
-        add_custom_command(
-            TARGET try1 POST_BUILD
-            COMMAND ${CMAKE_COMMAND} -E copy_directory ${SDL3_BIN}/ ${runtime_release}/
-            COMMENT "Copy SDL3 dynamic binaries")
-
-        add_custom_command(
-            TARGET try1 POST_BUILD
-            COMMAND ${CMAKE_COMMAND} -E copy_directory ${SDL3_BIN}/ ${runtime_generic}/
+            COMMAND ${CMAKE_COMMAND} -E copy_directory ${SDL3_BIN}/ ${BUILD_FOLDER}/
             COMMENT "Copy SDL3 dynamic binaries")
 
         if(DEFINED WITH_SDL_IMAGE AND WITH_SDL_IMAGE)
             add_custom_command(
                 TARGET try1 POST_BUILD
-                COMMAND ${CMAKE_COMMAND} -E copy_directory ${SDL3_image_BIN}/ ${runtime_debug}/
-                COMMENT "Copy SDL3_image dynamic binaries")
-            add_custom_command(
-                TARGET try1 POST_BUILD
-                COMMAND ${CMAKE_COMMAND} -E copy_directory ${SDL3_image_BIN}/ ${runtime_release}/
-                COMMENT "Copy SDL3_image dynamic binaries")
-            add_custom_command(
-                TARGET try1 POST_BUILD
-                COMMAND ${CMAKE_COMMAND} -E copy_directory ${SDL3_image_BIN}/ ${runtime_generic}/
+                COMMAND ${CMAKE_COMMAND} -E copy_directory ${SDL3_image_BIN}/ ${BUILD_FOLDER}/
                 COMMENT "Copy SDL3_image dynamic binaries")
         endif()
     endif()
@@ -71,15 +54,7 @@ endif()
 # There are differences in the build folder based on the platform and OS distributions but I am still figuring out what exactly
 add_custom_command(
     TARGET try1 POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_SOURCE_DIR}/assets ${runtime_folder}/assets
-    COMMENT "Copy assets")
-add_custom_command(
-    TARGET try1 POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_SOURCE_DIR}/assets ${runtime_release}/assets
-    COMMENT "Copy assets")
-add_custom_command(
-    TARGET try1 POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_SOURCE_DIR}/assets ${runtime_generic}/assets
+    COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_SOURCE_DIR}/assets ${BUILD_FOLDER}/assets
     COMMENT "Copy assets")
 
 message(STATUS ${CMAKE_BUILD_TYPE})

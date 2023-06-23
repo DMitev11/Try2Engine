@@ -1,3 +1,3 @@
 #Linux
-cd ./build/try1
+cd ./build/buildTarget
 ./try1
