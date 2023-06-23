@@ -206,12 +206,6 @@ void GameLayer::onAttach() {
         std::function<void(int32_t id)>([&](int32_t id) {
             this->controls.keyboardKeys[id] = false;
         }));
-
-    this->inputSystem->getEmitter()->On(
-        input::InputEvents::kEventGamepadCreated,
-        std::function<void(int32_t id)>([&](int32_t id) {
-            this->controls.keyboardKeys[id] = false;
-        }));
 }
 
 void GameLayer::onTick(float delta) {
