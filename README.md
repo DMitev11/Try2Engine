@@ -29,7 +29,9 @@ WITH_BOX2D | TRUE/FALSE | Includes BOX2D build dependencies and includes. Used i
 
 ### **Build and run**
 - `Windows (tested on Windows 11):` </br>
-    Requires a pre-installed CMake(3.15 and above) and a C++ compiler (ex. MSVC, GCC) with C++17 support. </br>
+    Requirements:
+     - **CMake(3.15 and above)**
+     - **C++ compiler (ex. MSVC, GCC) with C++17 support. </br>**
     1. Choose a configuration - *Debug* or *Release*
     2. Run its corresponding batch file - **GenerateAndBuild<Debug/Release>X64.bat** , located in the root folder of the project
     2.1 If building with Visual Studio - target the root CMakeLists.txt, which should automatically set the build target to 'tr1' executable
@@ -37,7 +39,11 @@ WITH_BOX2D | TRUE/FALSE | Includes BOX2D build dependencies and includes. Used i
        b: Navigate to <u>./build/<Debug/Release></u>, and run **try1.exe**
 
 - `Linux (tested on Linux Mint):` </br>
-    Requires a pre-installed CMake, C++ compiler (ex. GCC), X11 (for SDL) and GLFW (for Box2D) toolkit. For ease of use, these are the commands used to retrieve those kits during the development of the project:
+    Requirements:
+    - **CMake(3.15 and above)**
+    - **C++ compiler (ex. GCC)**
+    - **X11 (for SDL)** 
+    - **GLFW (for Box2D) toolkit**. For ease of use, these are the commands used to retrieve those kits during the development of the project:
     - ``` sudo apt-get install cmake ```
     - ``` sudo apt-get install build-essential ```
     - ``` sudo apt-get install libx11-dev ```
